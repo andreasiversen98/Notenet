@@ -18,8 +18,8 @@ const model = {
     landingPage: {
       createList: {
         isShared: null,
-        title: null,
-        selectedFilter: null,
+        title: "",
+        selectedFilter: "",
       },
     },
 
