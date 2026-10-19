@@ -19,3 +19,15 @@
 .bottom-bar {
    background-color: lightgray;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+svg,
+img {
+   padding: 0;
+   margin: 0;
+}
