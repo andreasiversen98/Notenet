@@ -1,10 +1,10 @@
 function updateView() {
   const lists = model.data.lists;
   if (!model.viewState.listPage.selectedListId) {
-    model.viewState.listPage.selectedListId = "l4"; 
+    model.viewState.listPage.selectedListId = "l4";
   }
   const chosenListId = model.viewState.listPage.selectedListId;
-  
+
   let list;
   for (let i = 0; i < lists.length; i++) {
     if (lists[i].id === chosenListId) {
@@ -32,7 +32,7 @@ function updateView() {
           <input type="checkbox"> 
           ${item.text} 
           <button><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
-          ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ''}
+          ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
         </li>
       `;
     }
@@ -48,7 +48,7 @@ function updateView() {
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
           <button>invite</button> 
-          <span>3 members</span>
+          <span>${list.members}</span>
         </div>
 
         <div>

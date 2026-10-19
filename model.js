@@ -112,6 +112,7 @@ const model = {
         isShared: true,
         completedItems: 0,
         totalItems: 12,
+        members: null,
         items: [],
       },
       {
@@ -121,6 +122,7 @@ const model = {
         isShared: true,
         completedItems: 5,
         totalItems: 23,
+        members: null,
         items: [],
       },
       {
@@ -130,6 +132,7 @@ const model = {
         isShared: true,
         completedItems: 39,
         totalItems: 42,
+        members: null,
         items: [],
       },
       {
