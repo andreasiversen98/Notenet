@@ -1,0 +1,21 @@
+.icon-size {
+   width: 20px;
+   height: 20px;
+}
+
+.image-size {
+   width: 100px;
+   height: 100px;
+}
+
+.list-bar {
+   background-color: white;
+}
+
+.container {
+   background-color: lightgray;
+}
+
+.bottom-bar {
+   background-color: lightgray;
+}
