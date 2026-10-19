@@ -41,6 +41,8 @@ function updateView() {
   let html = "";
 
   if (list.isShared) {
+    const memberCount = list.members ? list.members.length : 0;
+
     html = /*html*/ `
       <div>
         <h2>notenet</h2>
@@ -48,7 +50,7 @@ function updateView() {
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
           <button>invite</button> 
-          <span>${list.members} members</span>
+          <span>${memberCount} members</span>
         </div>
 
         <div>
