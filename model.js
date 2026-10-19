@@ -113,7 +113,11 @@ const model = {
         completedItems: 0,
         totalItems: 12,
         members: 4,
-        items: [],
+        items: [
+          { id: "i1", text: "Planlegge neste møte", isCompleted: true },
+          { id: "i2", text: "Bestille pizza til gjengen", isCompleted: false },
+          { id: "i3", text: "Spise iskrem til frokost", isCompleted: false },
+        ],
       },
       {
         id: "l2",
