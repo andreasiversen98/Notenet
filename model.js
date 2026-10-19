@@ -112,7 +112,7 @@ const model = {
         isShared: true,
         completedItems: 0,
         totalItems: 12,
-        members: null,
+        members: 4,
         items: [],
       },
       {

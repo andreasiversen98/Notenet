@@ -1,7 +1,7 @@
 function updateView() {
   const lists = model.data.lists;
   if (!model.viewState.listPage.selectedListId) {
-    model.viewState.listPage.selectedListId = "l4";
+    model.viewState.listPage.selectedListId = "l1";
   }
   const chosenListId = model.viewState.listPage.selectedListId;
 
@@ -48,7 +48,7 @@ function updateView() {
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
           <button>invite</button> 
-          <span>${list.members}</span>
+          <span>${list.members} members</span>
         </div>
 
         <div>
