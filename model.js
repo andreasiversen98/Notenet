@@ -112,7 +112,7 @@ const model = {
         isShared: true,
         completedItems: 0,
         totalItems: 12,
-        members: 4,
+        members: ["u1", "u2", "u3", "u4"],
         items: [
           { id: "i1", text: "Planlegge neste møte", isCompleted: true },
           { id: "i2", text: "Bestille pizza til gjengen", isCompleted: false },
