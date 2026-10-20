@@ -72,6 +72,8 @@ function updateView() {
           ${completedHtml}
         </ul>
       </div>
+
+      ${getBottomBar()}
     `;
   } else {
     html = /*html*/ `
@@ -101,6 +103,8 @@ function updateView() {
           ${completedHtml}
         </ul>
       </div>
+
+      ${getBottomBar()}
     `;
   }
 

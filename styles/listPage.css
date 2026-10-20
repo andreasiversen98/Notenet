@@ -1,1 +1,50 @@
-/*list page styles*/
+#list-page {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  padding: 16px;
+}
+
+#list-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+#list-page li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 8px;
+  margin-bottom: 6px;
+  background: white;
+}
+
+.input-box {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin: 12px 0;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.input-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  background: #f1f1f1;
+  border: 1px solid black;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
