@@ -1,9 +1,36 @@
-function loginPage() {
+
+  document.getElementById("login-Page").innerHTML = loginPage();
+
+ 
+function loginPage(){
   const vs = model.viewState.loginPage;
 
   return /*html*/ `
-    <input value="${vs.username}" onchange="setLoginUsername(this.value)" />
-    <button onclick="logIn()">Log inn</button>
-    ${loginError()}
+    <div class="login-page">
+
+      <h1 class="logo">notenet</h1>
+
+      <input
+        type="text"
+        class="login-input"
+        placeholder="brukernavn"
+        value="${vs.username}"
+        onchange="setLoginUsername(this.value)" />
+
+      <input
+        type="password"
+        class="login-input"
+        placeholder="passord"
+        value="${vs.password}"
+        onchange="setLoginPassword(this.value)" />
+
+      <button class="login-button" onclick="logIn()">Log inn</button>
+
+      <p class="login-error">${vs.error}</p>
+
+      <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
+
+    </div>
   `;
 }
+console.log("hei");
