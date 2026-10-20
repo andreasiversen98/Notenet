@@ -23,7 +23,7 @@ function updateView() {
         <li>
           <input type="checkbox" checked> 
           ${item.text} 
-          <button><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
         </li>
       `;
     } else {
@@ -31,7 +31,7 @@ function updateView() {
         <li>
           <input type="checkbox"> 
           ${item.text} 
-          <button><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
           ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
         </li>
       `;
@@ -49,7 +49,7 @@ function updateView() {
         
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
-          <button>invite</button> 
+          <button class="btn">invite</button> 
           <span>${memberCount} members</span>
         </div>
 
@@ -58,9 +58,9 @@ function updateView() {
           <span>${list.completedItems} / ${list.totalItems}</span>
         </div>
 
-        <div>
+        <div class="input-box">
           <input type="text" placeholder="Add new item..." />
-          <button><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
+          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
 
         <ul>
@@ -72,6 +72,8 @@ function updateView() {
           ${completedHtml}
         </ul>
       </div>
+
+      ${getBottomBar()}
     `;
   } else {
     html = /*html*/ `
@@ -87,9 +89,9 @@ function updateView() {
           <span>${list.completedItems} / ${list.totalItems}</span>
         </div>
 
-        <div>
+        <div class="input-box">
           <input type="text" placeholder="Add new item..." />
-          <button><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
+          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
 
         <ul>
@@ -101,6 +103,8 @@ function updateView() {
           ${completedHtml}
         </ul>
       </div>
+
+      ${getBottomBar()}
     `;
   }
 
