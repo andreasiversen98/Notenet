@@ -1,7 +1,7 @@
 const model = {
   app: {
     currentPage: "userSettings",
-    currentUserId: "",
+    currentUserId: "u1",
   },
 
   viewState: {

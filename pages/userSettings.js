@@ -1,3 +1,7 @@
+let currentUsername = model.data.users[4].username;
+let newUsername = model.viewState.userProfilePage.editProfile.username;
+let canEditName = model.viewState.userProfilePage.editName;
+
 function userSettings() {
    return `
    <div class="flex column gap">
@@ -23,13 +27,13 @@ function userSettings() {
 }
 
 function switchNameField() {
-   if (model.viewState.userProfilePage.editName) return;
-   model.viewState.userProfilePage.editName = !model.viewState.userProfilePage.editName;
+   if (canEditName) return;
+   canEditName = !canEditName;
    setView();
 }
 
 function getNameField() {
-   if (model.viewState.userProfilePage.editName == false)
+   if (canEditName == false)
       return `
          <div onclick="switchNameField()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
@@ -40,14 +44,14 @@ function getNameField() {
       return `
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
-               <input onchange="model.viewState.userProfilePage.editProfile.username = this.value" type="text"><button onclick="changeUsername()">endre</button>
+               <input onchange="newUsername = this.value" type="text"><button onclick="changeUsername()">endre</button>
             </div>
          </div>`;
 }
 
 function changeUsername() {
-   if (model.viewState.userProfilePage.editProfile.username == "") return;
-   model.data.users[4].username = model.viewState.userProfilePage.editProfile.username;
-   model.viewState.userProfilePage.editName = false;
+   if (newUsername == "") return;
+   currentUsername = newUsername;
+   canEditName = false;
    setView();
 }
