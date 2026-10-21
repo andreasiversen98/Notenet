@@ -18,7 +18,7 @@ function userSettings() {
          </div>
          <div onclick="togglePremium()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
-               ${userData.isPremium ? `<span>Avslutt premium</span>` : `<span>Kjøp premium</span>`}
+               ${loggedInUser.isPremium ? `<span>Avslutt premium</span>` : `<span>Kjøp premium</span>`}
             </div>
          </div>
       </div>

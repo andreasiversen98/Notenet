@@ -1,5 +1,3 @@
-const userData = model.data.users[4];
-
 function userProfile() {
    return userProfileLayout() + getBottomBar();
 }
@@ -13,10 +11,10 @@ function userProfileLayout() {
       </div>
       <div class="flex row padding gap justify-center">
          <div class="flex column gap">
-            <img class="image-size border" src="${userData.profilePicture}"/>
+            <img class="image-size border" src="${loggedInUser.profilePicture}"/>
             <div class="flex row justify-between gap">
                ${
-                  userData.isPremium
+                  loggedInUser.isPremium
                      ? `
                   <h4>premium</h4>
                   <img class="icon-size" src="../../src/icons/circle-star.svg"/>`
@@ -25,8 +23,8 @@ function userProfileLayout() {
             </div>
          </div>
          <div>
-            <h2>hei ${userData.username}</h2>
-            <h4 class="flex row justify-end">${userData.code}</h4>
+            <h2>hei ${loggedInUser.username}</h2>
+            <h4 class="flex row justify-end">${loggedInUser.code}</h4>
          </div>
       </div>
 
@@ -66,7 +64,7 @@ function userProfileLayout() {
       </div>
 
       ${
-         userData.isPremium
+         loggedInUser.isPremium
             ? ``
             : `
          <div class="flex row justify-center align-center padding">
