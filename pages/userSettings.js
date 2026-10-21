@@ -55,3 +55,8 @@ function changeUsername() {
    canEditName = false;
    setView();
 }
+
+function togglePremium() {
+   loggedInUser.isPremium = !loggedInUser.isPremium;
+   setView();
+}

@@ -8,7 +8,3 @@ function setView(selectedPage) {
 }
 setView()
 
-function togglePremium() {
-   loggedInUser.isPremium = !loggedInUser.isPremium;
-   setView()
-}
