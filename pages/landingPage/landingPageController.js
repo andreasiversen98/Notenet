@@ -25,6 +25,5 @@ function pushNewList() {
 
   state.title = "";
   state.isShared = null;
-
-  updateView();
+  setView();
 }
