@@ -1,5 +1,7 @@
 const router = {
-   login: undefined,
-   userProfile: userProfile,
-   userSettings: userSettings,
-}
+  login: undefined,
+  landingPage: landingPageView,
+  listPage: listPageView,
+  userProfile: userProfile,
+  userSettings: userSettings,
+};
