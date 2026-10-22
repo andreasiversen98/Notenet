@@ -1,4 +1,4 @@
-function updateView() {
+function listPageView() {
   const lists = model.data.lists;
   if (!model.viewState.listPage.selectedListId) {
     model.viewState.listPage.selectedListId = "l1";
@@ -110,5 +110,3 @@ function updateView() {
 
   return html;
 }
-
-document.getElementById("list-page").innerHTML = updateView();
