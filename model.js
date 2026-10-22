@@ -37,6 +37,7 @@ const model = {
 
     userProfilePage: {
       editName: false,
+      editImage: false,
       editProfile: {
         username: "",
         image: "",

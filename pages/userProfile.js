@@ -1,24 +1,22 @@
 function userProfile() {
-   return userProfileLayout() + getBottomBar();
+   return `
+      ${headerComponent()}
+      ${userProfileLayout()}
+      ${getBottomBar()}
+   `
 }
 
 function userProfileLayout() {
    return `
    <div class="flex column gap">
-      <div class="flex row justify-between align-center padding">
-         <h1>notenet</h1>
-         <img onclick="setView('userSettings')" class="icon-size" src="../../src/icons/ellipsis-vertical.svg"/>
-      </div>
       <div class="flex row padding gap justify-center">
          <div class="flex column gap">
             <img class="image-size border" src="${loggedInUser.profilePicture}"/>
             <div class="flex row justify-between gap">
-               ${
-                  loggedInUser.isPremium
-                     ? `
+               ${loggedInUser.isPremium ? `
                   <h4>premium</h4>
                   <img class="icon-size" src="../../src/icons/circle-star.svg"/>`
-                     : ``
+                  : ``
                }
             </div>
          </div>

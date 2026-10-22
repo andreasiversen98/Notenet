@@ -30,8 +30,20 @@
    justify-content: flex-end;
 }
 
+.justify-self-end {
+   justify-self: flex-end;
+}
+
 .align-center {
    align-items: center;
+}
+
+.align-end {
+   align-items: flex-end;
+}
+
+.align-self-end {
+   align-self: flex-end;
 }
 
 .border {
