@@ -1,6 +1,6 @@
 const model = {
   app: {
-    currentPage: "userSettings",
+    currentPage: "userProfile",
     currentUserId: "u1",
   },
 
