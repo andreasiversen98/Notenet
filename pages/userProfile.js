@@ -9,7 +9,7 @@ function userProfile() {
 function userProfileLayout() {
    return `
    <div class="flex column gap">
-      <div class="flex row padding gap justify-center">
+      <div class="flex row padding gap justify-evenly">
          <div class="flex column gap">
             <img class="image-size border" src="${loggedInUser.profilePicture}"/>
             <div class="flex row justify-between gap">
@@ -21,7 +21,7 @@ function userProfileLayout() {
             </div>
          </div>
          <div>
-            <h2>hei ${loggedInUser.username}</h2>
+            <h2 class="greeting">hei ${loggedInUser.username}</h2>
             <h4 class="flex row justify-end">${loggedInUser.code}</h4>
          </div>
       </div>
