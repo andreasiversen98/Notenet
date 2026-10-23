@@ -45,6 +45,7 @@ function listPageView() {
 
     html = /*html*/ `
         ${headerComponent()}
+        
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
           <button class="btn">invite</button> 
