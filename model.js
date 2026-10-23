@@ -1,7 +1,8 @@
 const model = {
   app: {
-    currentPage: "login",
-    currentUserId: "",
+    currentPage: "",
+    currentUserId: "u4",
+    currentListId: "",
   },
 
   viewState: {
@@ -30,12 +31,14 @@ const model = {
       selectedListId: "",
     },
 
-    invitationPage: {
+    notificationPage: {
       code: "",
       foundUserId: "",
     },
 
     userProfilePage: {
+      editName: false,
+      editImage: false,
       editProfile: {
         username: "",
         image: "",
@@ -65,6 +68,8 @@ const model = {
         code: "FLT-034",
         isPremium: false,
         role: "user",
+        invitedTo: ["l2", "l3"],
+        sentInvites:["l1"],
       },
       {
         id: "u2",
@@ -74,6 +79,8 @@ const model = {
         code: "TTQ-805",
         isPremium: false,
         role: "user",
+        invitedTo: ["l1", "l3"],
+        sentInvites:["l2"],
       },
       {
         id: "u3",
@@ -83,6 +90,8 @@ const model = {
         code: "BNR-114",
         isPremium: true,
         role: "user",
+        invitedTo: ["l1", "l2"],
+        sentInvites:["l3"],
       },
       {
         id: "u4",
@@ -92,6 +101,8 @@ const model = {
         code: "ORW-135",
         isPremium: true,
         role: "admin",
+        invitedTo: ["l1", "l2"],
+        sentInvites:["l4"],
       },
       {
         id: "u5",
@@ -101,6 +112,8 @@ const model = {
         code: "LWH-385",
         isPremium: false,
         role: "user",
+        invitedTo: ["l2", "l3"],
+        sentInvites:["l1"],
       },
     ],
 

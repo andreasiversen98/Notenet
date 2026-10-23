@@ -30,8 +30,20 @@
    justify-content: flex-end;
 }
 
+.justify-self-end {
+   justify-self: flex-end;
+}
+
 .align-center {
    align-items: center;
+}
+
+.align-end {
+   align-items: flex-end;
+}
+
+.align-self-end {
+   align-self: flex-end;
 }
 
 .border {
@@ -41,6 +53,9 @@
 .gap {
    gap: 10px;
 }
+.gap2 {
+   gap: 30px;
+}
 
 .padding {
    padding: 10px;
@@ -48,4 +63,8 @@
 
 .margin {
    margin: 10px;
+}
+
+.bold {
+   font-weight: 900;
 }

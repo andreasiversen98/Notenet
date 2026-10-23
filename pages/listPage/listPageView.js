@@ -1,4 +1,4 @@
-function updateView() {
+function listPageView() {
   const lists = model.data.lists;
   if (!model.viewState.listPage.selectedListId) {
     model.viewState.listPage.selectedListId = "l1";
@@ -44,8 +44,7 @@ function updateView() {
     const memberCount = list.members ? list.members.length : 0;
 
     html = /*html*/ `
-      <div>
-        <h2>notenet</h2>
+        ${headerComponent()}
         
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
@@ -77,8 +76,7 @@ function updateView() {
     `;
   } else {
     html = /*html*/ `
-      <div>
-        <h2>notenet</h2>
+        ${headerComponent()}
         
         <div>
           <img src="../../src/icons/lock.svg" width="16" alt="Private"> private
@@ -110,5 +108,3 @@ function updateView() {
 
   return html;
 }
-
-document.getElementById("list-page").innerHTML = updateView();
