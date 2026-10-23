@@ -52,6 +52,7 @@ function listPageView() {
               placeholder="Add new item..." 
               value="${model.viewState.listPage.newItemTitle}" 
               oninput="model.viewState.listPage.newItemTitle = this.value" 
+              onkeydown="if(event.key === 'Enter') pushNewItem()"
             />
           <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
@@ -87,6 +88,7 @@ function listPageView() {
               placeholder="Add new item..." 
               value="${model.viewState.listPage.newItemTitle}" 
               oninput="model.viewState.listPage.newItemTitle = this.value" 
+              onkeydown="if(event.key === 'Enter') pushNewItem()"
             />
           <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
