@@ -1,17 +1,6 @@
 function listPageView() {
-  const lists = model.data.lists;
-  if (!model.viewState.listPage.selectedListId) {
-    model.viewState.listPage.selectedListId = "l1";
-  }
-  const chosenListId = model.viewState.listPage.selectedListId;
-
-  let list;
-  for (let i = 0; i < lists.length; i++) {
-    if (lists[i].id === chosenListId) {
-      list = lists[i];
-      break;
-    }
-  }
+  const list = getCurrentList();
+  if (!list) return "";
 
   let uncompletedHtml = "";
   let completedHtml = "";
@@ -21,7 +10,7 @@ function listPageView() {
     if (item.isCompleted) {
       completedHtml += /*html*/ `
         <li>
-          <input type="checkbox" checked> 
+          <input type="checkbox" checked onchange="toggleItemCompletion('${item.id}')"> 
           ${item.text} 
           <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
         </li>
@@ -29,7 +18,7 @@ function listPageView() {
     } else {
       uncompletedHtml += /*html*/ `
         <li>
-          <input type="checkbox"> 
+          <input type="checkbox" onchange="toggleItemCompletion('${item.id}')"> 
           ${item.text} 
           <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
           ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
@@ -58,8 +47,13 @@ function listPageView() {
         </div>
 
         <div class="input-box">
-          <input type="text" placeholder="Add new item..." />
-          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
+          <input 
+              type="text" 
+              placeholder="Add new item..." 
+              value="${model.viewState.listPage.newItemTitle}" 
+              oninput="model.viewState.listPage.newItemTitle = this.value" 
+            />
+          <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
 
         <ul>
@@ -88,8 +82,13 @@ function listPageView() {
         </div>
 
         <div class="input-box">
-          <input type="text" placeholder="Add new item..." />
-          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
+          <input 
+              type="text" 
+              placeholder="Add new item..." 
+              value="${model.viewState.listPage.newItemTitle}" 
+              oninput="model.viewState.listPage.newItemTitle = this.value" 
+            />
+          <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
         </div>
 
         <ul>

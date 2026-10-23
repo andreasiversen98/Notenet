@@ -1,17 +1,13 @@
-function pushNewItem() {
-  const listId = model.viewState.listPage.selectedListId;
-  const itemTitle = model.viewState.listPage.newItemTitle;
+function getCurrentList() {
+  const listId = model.viewState.listPage.selectedListId || "l1";
+  return model.data.lists.find(list => list.id === listId);
+}
 
+function pushNewItem() {
+  const itemTitle = model.viewState.listPage.newItemTitle;
   if (!itemTitle) return;
 
-  let currentList = null;
-  for (let i = 0; i < model.data.lists.length; i++) {
-    if (model.data.lists[i].id === listId) {
-      currentList = model.data.lists[i];
-      break;
-    }
-  }
-
+  const currentList = getCurrentList();
   if (!currentList) return;
 
   let highestIdNumber = 0;
@@ -32,5 +28,24 @@ function pushNewItem() {
   currentList.totalItems += 1;
 
   model.viewState.listPage.newItemTitle = "";
+  setView();
+}
+
+function toggleItemCompletion(itemId) {
+  const currentList = getCurrentList();
+  if (!currentList) return;
+
+  for (let i = 0; i < currentList.items.length; i++) {
+    if (currentList.items[i].id === itemId) {
+      currentList.items[i].isCompleted = !currentList.items[i].isCompleted;
+      
+      if (currentList.items[i].isCompleted) {
+        currentList.completedItems += 1;
+      } else {
+        currentList.completedItems -= 1;
+      }
+      break;
+    }
+  }
   setView();
 }
