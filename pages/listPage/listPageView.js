@@ -33,7 +33,6 @@ function listPageView() {
     const memberCount = list.members ? list.members.length : 0;
 
     html = /*html*/ `
-      <div class="list-container">
         ${headerComponent()}
         
         <div class="list-title-row">
@@ -73,7 +72,6 @@ function listPageView() {
     `;
   } else {
     html = /*html*/ `
-      <div class="list-container">
         ${headerComponent()}
         
         <div class="list-title-row">
