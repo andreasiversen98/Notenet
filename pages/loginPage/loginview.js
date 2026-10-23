@@ -33,4 +33,4 @@ function loginPage(){
     </div>
   `;
 }
-console.log("hei");
+
