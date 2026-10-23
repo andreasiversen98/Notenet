@@ -1,13 +1,15 @@
 function createListModalComponent() {
-   const state = model.viewState.landingPage.createList;
-   
-   if (!state.isOpen) return ""; 
+  const state = model.viewState.landingPage.createList;
 
-   const isShared = state.isShared ?? false;
-   const iconFile = isShared ? "globe.svg" : "lock.svg"; 
-   const placeholderText = isShared ? "Start en ny delt liste..." : "Start en ny privat liste...";
+  if (!state.isOpen) return "";
 
-   return /*html*/ `
+  const isShared = state.isShared ?? false;
+  const iconFile = isShared ? "globe.svg" : "lock.svg";
+  const placeholderText = isShared
+    ? "Start en ny delt liste..."
+    : "Start en ny privat liste...";
+
+  return /*html*/ `
       <div class="modal-overlay">
          <div class="modal-content">
             <div class="flex row justify-end">
@@ -16,10 +18,9 @@ function createListModalComponent() {
                </button>
             </div>
             
-            <!-- Segmentert bryter med egne klasser -->
             <div class="modal-toggle-container">
-               <button class="modal-toggle-btn ${!isShared ? 'active' : ''}" onclick="setCreateListShared(false)">Privat</button>
-               <button class="modal-toggle-btn ${isShared ? 'active' : ''}" onclick="setCreateListShared(true)">Delt</button>
+               <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
+               <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)">Delt</button>
             </div>
 
             <div class="input-box">
