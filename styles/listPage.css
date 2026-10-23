@@ -1,11 +1,11 @@
 .list-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   margin: 0 auto;
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   box-sizing: border-box;
 }
 
@@ -15,32 +15,36 @@
   align-items: flex-end;
   width: 100%;
   margin: 4px 0;
+  gap: 8px;
 }
 
 .share-meta {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .invite-btn {
   border: 1px solid black;
   background: white;
-  padding: 2px 6px;
-  font-size: 12px;
+  padding: 3px 8px;
+  font-size: 13px;
   cursor: pointer;
 }
 
 .list-container h2 {
   font-size: 22px;
   margin: 0;
+  word-break: break-word;
 }
 
 .list-container h3 {
-  font-size: 15px;
-  margin-top: 8px;
-  margin-bottom: 2px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 4px;
 }
 
 ul {
@@ -52,11 +56,17 @@ ul {
   width: 100%;
 }
 
+/* Sørger for at listen kun begynner å scrolle når det er over 20 elementer */
+ul:has(li:nth-child(21)) {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
 li {
   display: flex;
   align-items: center;
   border: 1px solid black;
-  padding: 5px 8px;
+  padding: 7px 10px; 
   background: white;
   margin-top: -1px;
   width: 100%;
@@ -71,14 +81,17 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
+  width: 32px;
   flex-shrink: 0;
 }
 
 li span {
   flex-grow: 1;
-  padding-left: 6px;
-  font-size: 14px;
+  padding-left: 8px;
+  font-size: 15px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .input-box {
@@ -86,7 +99,7 @@ li span {
   align-items: center;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 8px 14px;
   background: #ffffff;
   width: 100%;
   box-sizing: border-box;
@@ -96,7 +109,7 @@ li span {
   border: none;
   outline: none;
   width: 100%;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .input-box button {
