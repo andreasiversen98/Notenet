@@ -49,3 +49,22 @@ function toggleItemCompletion(itemId) {
   }
   setView();
 }
+
+function deleteItem(itemId) {
+  const currentList = getCurrentList();
+  if (!currentList) return;
+
+  for (let i = 0; i < currentList.items.length; i++) {
+    if (currentList.items[i].id === itemId) {
+      if (currentList.items[i].isCompleted) {
+        currentList.completedItems -= 1;
+      }
+      
+      currentList.totalItems -= 1;
+      currentList.items.splice(i, 1);
+      break;
+    }
+  }
+
+  setView();
+}

@@ -12,7 +12,7 @@ function listPageView() {
         <li>
           <input type="checkbox" checked onchange="toggleItemCompletion('${item.id}')"> 
           ${item.text} 
-          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
         </li>
       `;
     } else {
@@ -20,7 +20,7 @@ function listPageView() {
         <li>
           <input type="checkbox" onchange="toggleItemCompletion('${item.id}')"> 
           ${item.text} 
-          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
           ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
         </li>
       `;
