@@ -34,7 +34,7 @@ function listPageView() {
 
     html = /*html*/ `
         ${headerComponent()}
-        
+
         <div class="list-title-row">
           <div>
             <h2>${list.title}</h2>
@@ -74,6 +74,7 @@ function listPageView() {
     html = /*html*/ `
         ${headerComponent()}
         
+        <div class="list-container">
         <div class="list-title-row">
           <div>
             <h2>${list.title}</h2>
