@@ -10,13 +10,13 @@ body {
 #app {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 400px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
   padding: 16px;
+  box-sizing: border-box;
 }
-
 
 .greeting {
   font-size: 35px;
