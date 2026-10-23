@@ -27,3 +27,23 @@ function pushNewList() {
   state.isShared = null;
   setView();
 }
+
+function openCreateListModal() {
+  model.viewState.landingPage.createList.isOpen = true;
+  setView();
+}
+
+function closeCreateListModal() {
+  model.viewState.landingPage.createList.isOpen = false;
+  model.viewState.landingPage.createList.title = "";
+  model.viewState.landingPage.createList.isShared = null;
+  setView();
+}
+
+function setCreateListTitle(value) {
+  model.viewState.landingPage.createList.title = value;
+}
+
+function setCreateListShared(isShared) {
+  model.viewState.landingPage.createList.isShared = isShared;
+}

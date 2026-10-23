@@ -19,6 +19,7 @@ const model = {
 
     landingPage: {
       createList: {
+        isOpen: false,
         isShared: null,
         title: "",
         selectedFilter: "",
