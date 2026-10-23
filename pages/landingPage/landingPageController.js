@@ -31,14 +31,14 @@ function pushNewList() {
 
 function openCreateListModal() {
   model.viewState.landingPage.createList.isOpen = true;
-  setView("userProfile");
+  setView('userProfile');     
 }
 
 function closeCreateListModal() {
   model.viewState.landingPage.createList.isOpen = false;
   model.viewState.landingPage.createList.title = "";
   model.viewState.landingPage.createList.isShared = null;
-  setView();
+  setView('userProfile');
 }
 
 function setCreateListTitle(value) {
@@ -47,4 +47,5 @@ function setCreateListTitle(value) {
 
 function setCreateListShared(isShared) {
   model.viewState.landingPage.createList.isShared = isShared;
+  setView(); 
 }
