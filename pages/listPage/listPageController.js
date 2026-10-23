@@ -28,6 +28,7 @@ function pushNewItem() {
   currentList.totalItems += 1;
 
   model.viewState.listPage.newItemTitle = "";
+  
   setView();
 }
 
@@ -47,6 +48,7 @@ function toggleItemCompletion(itemId) {
       break;
     }
   }
+
   setView();
 }
 
