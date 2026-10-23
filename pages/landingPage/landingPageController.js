@@ -25,12 +25,13 @@ function pushNewList() {
 
   state.title = "";
   state.isShared = null;
-  setView();
+  state.isOpen = false;       
+  setView('userProfile');     
 }
 
 function openCreateListModal() {
   model.viewState.landingPage.createList.isOpen = true;
-  setView();
+  setView("userProfile");
 }
 
 function closeCreateListModal() {

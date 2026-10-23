@@ -2,7 +2,10 @@ function userProfile() {
    return `
    ${headerComponent()}
    ${userProfileLayout()}
-   ${getBottomBar()}`;
+   ${getBottomBar()}
+   ${createListModalComponent()}
+   `;
+   
 }
 
 function userProfileLayout() {
