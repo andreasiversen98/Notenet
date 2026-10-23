@@ -11,16 +11,16 @@ function listPageView() {
       completedHtml += /*html*/ `
         <li>
           <input type="checkbox" checked onchange="toggleItemCompletion('${item.id}')"> 
-          ${item.text} 
-          <button class="btn" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn btn-icon" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <span>${item.text}</span> 
         </li>
       `;
     } else {
       uncompletedHtml += /*html*/ `
         <li>
           <input type="checkbox" onchange="toggleItemCompletion('${item.id}')"> 
-          ${item.text} 
-          <button class="btn" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <button class="btn btn-icon" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
+          <span>${item.text}</span> 
           ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
         </li>
       `;
@@ -33,17 +33,19 @@ function listPageView() {
     const memberCount = list.members ? list.members.length : 0;
 
     html = /*html*/ `
+      <div class="list-container">
         ${headerComponent()}
         
-        <div>
-          <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
-          <button class="btn">invite</button> 
-          <span>${memberCount} members</span>
-        </div>
-
-        <div>
-          <h1>${list.title}</h1>
-          <span>${list.completedItems} / ${list.totalItems}</span>
+        <div class="list-title-row">
+          <div>
+            <h2>${list.title}</h2>
+            <span class="counter">${list.completedItems} / ${list.totalItems}</span>
+          </div>
+          <div class="share-meta">
+            <img src="../../src/icons/globe.svg" width="14" alt="Shared"> 
+            <button class="btn invite-btn">invite</button> 
+            <span class="member-count">${memberCount} members</span>
+          </div>
         </div>
 
         <div class="input-box">
@@ -71,15 +73,18 @@ function listPageView() {
     `;
   } else {
     html = /*html*/ `
+      <div class="list-container">
         ${headerComponent()}
         
-        <div>
-          <img src="../../src/icons/lock.svg" width="16" alt="Private"> private
-        </div>
-
-        <div>
-          <h1>${list.title}</h1>
-          <span>${list.completedItems} / ${list.totalItems}</span>
+        <div class="list-title-row">
+          <div>
+            <h2>${list.title}</h2>
+            <span class="counter">${list.completedItems} / ${list.totalItems}</span>
+          </div>
+          <div class="share-meta">
+            <img src="../../src/icons/lock.svg" width="14" alt="Private"> 
+            <span class="member-count">private</span>
+          </div>
         </div>
 
         <div class="input-box">

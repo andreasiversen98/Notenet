@@ -1,50 +1,106 @@
-#list-page {
+.list-container {
+  width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
-  padding: 16px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
 }
 
-#list-page ul {
-  list-style: none;
-  padding: 0;
-}
-
-#list-page li {
+.list-title-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.share-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.invite-btn {
+  border: 1px solid black;
+  background: white;
+  padding: 2px 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.list-container h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.list-container h3 {
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+li {
+  display: flex;
   align-items: center;
   border: 1px solid black;
-  padding: 8px;
-  margin-bottom: 6px;
+  padding: 5px 8px;
   background: white;
+  margin-top: -1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+li span {
+  flex-grow: 1;
+  padding-left: 6px;
+  font-size: 14px;
 }
 
 .input-box {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   border: 1px solid black;
   border-radius: 20px;
   padding: 6px 12px;
-  margin: 12px 0;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input-box input {
   border: none;
   outline: none;
   width: 100%;
+  font-size: 14px;
 }
 
 .input-box button {
   background: none;
   border: none;
   cursor: pointer;
-}
-
-.btn {
-  background: #f1f1f1;
-  border: 1px solid black;
-  padding: 2px 6px;
-  cursor: pointer;
-  font-size: 0.8rem;
 }
