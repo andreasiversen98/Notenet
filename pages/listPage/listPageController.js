@@ -1,5 +1,5 @@
 function getCurrentList() {
-  const listId = model.viewState.listPage.selectedListId || "l1";
+  const listId = model.viewState.listPage.selectedListId || "l4";
   return model.data.lists.find(list => list.id === listId);
 }
 
