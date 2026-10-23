@@ -44,8 +44,7 @@ function listPageView() {
     const memberCount = list.members ? list.members.length : 0;
 
     html = /*html*/ `
-      <div>
-        <h2>notenet</h2>
+      ${headerComponent()}
         
         <div>
           <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
