@@ -117,6 +117,5 @@ function exitUserSettings() {
 
    newImage = "";
    canEditImage = false;
-
-   setView("userProfile");
+   setView(model.app.previousPage);
 }

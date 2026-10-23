@@ -65,9 +65,11 @@ body {
    background-color: dimgray;
 }
 
-h1 {
-   font-size: 50px;
-   color: dimgray;
+.header {
+   h1 {
+      font-size: 50px;
+      color: dimgray;
+   }
 }
 
 h1,

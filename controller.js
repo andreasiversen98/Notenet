@@ -1,11 +1,20 @@
-const loggedInUser = model.data.users.find(user => user.id === model.app.currentUserId);
-console.log("controller.js - loggedInUser",loggedInUser)
+const loggedInUser = model.data.users.find((user) => user.id === model.app.currentUserId);
+console.log("controller.js - loggedInUser", loggedInUser);
 
 function setView(selectedPage) {
-   if (selectedPage) model.app.currentPage = selectedPage
-   const currentView = router[model.app.currentPage]
-   updateView(currentView)
+   if (selectedPage && selectedPage !== model.app.currentPage) {
+      model.app.previousPage = model.app.currentPage;
+      model.app.currentPage = selectedPage;
+   }
+   const currentView = router[model.app.currentPage];
+   updateView(currentView);
+
+   console.table({
+      Source: "controller.js",
+      Function: "setView(selectedPage)",
+      "Previous Page": model.app.previousPage,
+      "Current Page": model.app.currentPage,
+   });
 }
 // setView("userProfile")
-setView("userNotification")
-
+setView("userNotification");
