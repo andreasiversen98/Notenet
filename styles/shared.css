@@ -53,6 +53,9 @@
 .gap {
    gap: 10px;
 }
+.gap2 {
+   gap: 30px;
+}
 
 .padding {
    padding: 10px;
@@ -60,4 +63,8 @@
 
 .margin {
    margin: 10px;
+}
+
+.bold {
+   font-weight: 900;
 }

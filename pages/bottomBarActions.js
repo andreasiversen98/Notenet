@@ -11,7 +11,7 @@ function getBottomBar() {
                <img class="icon-add" src="../../src/icons/square-plus.svg"></img>
             </span>
 
-            <span>
+            <span onclick="setView('userNotification')">
                <img class="icon-bottom icon-notification" src="../../src/icons/bell.svg"></img>
             </span>
          </div>

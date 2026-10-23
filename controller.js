@@ -6,5 +6,6 @@ function setView(selectedPage) {
    const currentView = router[model.app.currentPage]
    updateView(currentView)
 }
-setView()
+// setView("userProfile")
+setView("userNotification")
 
