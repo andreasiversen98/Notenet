@@ -111,3 +111,30 @@ li span {
   border: none;
   cursor: pointer;
 }
+
+.edit-btn {
+  border: 1px solid dimgray;
+  background: white;
+  color: dimgray;
+  border-radius: 12px;
+  padding: 3px 10px;
+  margin-right: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: dimgray;
+  color: white;
+}
+
+.edit-input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin-left: 8px;
+  margin-right: 6px;
+  padding: 4px 6px;
+  font-size: 15px;
+}

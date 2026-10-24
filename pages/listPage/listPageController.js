@@ -70,3 +70,42 @@ function deleteItem(itemId) {
 
   setView();
 }
+
+function editItem(itemId) {
+  const currentList = getCurrentList();
+  if (!currentList) return;
+
+  for (let i = 0; i < currentList.items.length; i++) {
+    if (currentList.items[i].id === itemId) {
+      model.viewState.listPage.editingItemId = itemId;
+      model.viewState.listPage.editingItemTitle = currentList.items[i].text;
+      break;
+    }
+  }
+
+  setView();
+  document.querySelector(".edit-input").focus();
+}
+
+function saveEditItem() {
+  const currentList = getCurrentList();
+  if (!currentList) return;
+
+  const newText = model.viewState.listPage.editingItemTitle;
+
+  for (let i = 0; i < currentList.items.length; i++) {
+    if (currentList.items[i].id === model.viewState.listPage.editingItemId) {
+      if (newText) currentList.items[i].text = newText;
+      break;
+    }
+  }
+
+  model.viewState.listPage.editingItemId = null;
+  model.viewState.listPage.editingItemTitle = "";
+  setView();
+}
+
+function cancelEditItem() {
+  model.viewState.listPage.editingItemId = null;
+  setView();
+}

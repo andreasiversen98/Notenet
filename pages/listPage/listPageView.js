@@ -15,13 +15,35 @@ function listPageView() {
         ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">'
         : "";
 
+    let textHtml = `<span>${item.text}</span>`;
+    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')">rediger</button>`;
+
+    if (model.viewState.listPage.editingItemId === item.id) {
+      textHtml = `
+        <input
+          class="edit-input"
+          type="text"
+          value="${model.viewState.listPage.editingItemTitle}"
+          oninput="model.viewState.listPage.editingItemTitle = this.value"
+          onkeydown="if(event.key === 'Enter') saveEditItem()"
+        >
+      `;
+      editBtnHtml = `
+        <button class="edit-btn" onclick="saveEditItem()">lagre</button>
+        <button class="edit-btn" onclick="cancelEditItem()">avbryt</button>
+      `;
+    }
+
+    if (item.isCompleted) editBtnHtml = "";
+
     const itemHtml = /*html*/ `
       <li>
         <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
           <img src="../../src/icons/trash.svg" width="14" alt="Delete">
         </button>
-        <span>${item.text}</span>
+        ${textHtml}
+        ${editBtnHtml}
         ${sharedIcon}
       </li>
     `;
