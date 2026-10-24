@@ -9,7 +9,7 @@ function userProfile() {
 
 function userProfileLayout() {
    return `
-   <div class="flex column gap">
+   <div class="flex column gap profile-container">
       ${userInfoElements()}
       ${userListCategories()}
       ${userPremiumButton()}   
