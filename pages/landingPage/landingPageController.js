@@ -25,7 +25,7 @@ function pushNewList() {
 
   state.title = "";
   state.isShared = null;
-  state.isOpen = false;
+  model.app.openModal = null;
   model.viewState.listPage.selectedListId = newId;
   setView("listPage");
 }
@@ -36,10 +36,9 @@ function openCreateListModal() {
 }
 
 function closeCreateListModal() {
-  model.viewState.landingPage.createList.isOpen = false;
-  model.viewState.landingPage.createList.title = "";
-  model.viewState.landingPage.createList.isShared = null;
-  setView();
+   model.viewState.landingPage.createList.title = "";
+   model.viewState.landingPage.createList.isShared = null;
+   closeModal();
 }
 
 function setCreateListTitle(value) {

@@ -4,6 +4,7 @@ const model = {
     previousPage: "",
     currentUserId: "u4",
     currentListId: "",
+    openModal: null,
   },
 
   viewState: {
@@ -19,7 +20,6 @@ const model = {
 
     landingPage: {
       createList: {
-        isOpen: false,
         isShared: null,
         title: "",
         selectedFilter: "",

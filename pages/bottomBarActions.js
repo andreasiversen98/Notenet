@@ -8,7 +8,7 @@ function getBottomBar() {
             </span>
 
             <span>
-               <img class="icon-add" src="../../src/icons/square-plus.svg" onclick="openCreateListModal()">
+               <img class="icon-add" src="../../src/icons/square-plus.svg" onclick="openModal('createList')">
             </span>
 
             <span onclick="setView('userNotification')">

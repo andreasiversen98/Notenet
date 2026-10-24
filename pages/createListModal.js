@@ -1,8 +1,6 @@
 function createListModalComponent() {
   const state = model.viewState.landingPage.createList;
 
-  if (!state.isOpen) return "";
-
   const isShared = state.isShared ?? false;
   const iconFile = isShared ? "globe.svg" : "lock.svg";
   const placeholderText = isShared
