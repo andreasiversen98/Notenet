@@ -7,24 +7,27 @@ function listPageView() {
 
   for (let i = 0; i < list.items.length; i++) {
     const item = list.items[i];
-    if (item.isCompleted) {
-      completedHtml += /*html*/ `
-        <li>
-          <input type="checkbox" checked onchange="toggleItemCompletion('${item.id}')"> 
-          <button class="btn btn-icon" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
-          <span>${item.text}</span> 
-        </li>
-      `;
-    } else {
-      uncompletedHtml += /*html*/ `
-        <li>
-          <input type="checkbox" onchange="toggleItemCompletion('${item.id}')"> 
-          <button class="btn btn-icon" onclick="deleteItem('${item.id}')"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
-          <span>${item.text}</span> 
-          ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
-        </li>
-      `;
-    }
+
+    const checked = item.isCompleted ? "checked" : "";
+
+    const sharedIcon =
+      list.isShared && !item.isCompleted
+        ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">'
+        : "";
+
+    const itemHtml = /*html*/ `
+      <li>
+        <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
+        <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
+          <img src="../../src/icons/trash.svg" width="14" alt="Delete">
+        </button>
+        <span>${item.text}</span>
+        ${sharedIcon}
+      </li>
+    `;
+
+    if (item.isCompleted) completedHtml += itemHtml;
+    else uncompletedHtml += itemHtml;
   }
 
   const visibilityHtml = list.isShared
