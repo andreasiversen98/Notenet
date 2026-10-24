@@ -25,20 +25,21 @@ function pushNewList() {
 
   state.title = "";
   state.isShared = null;
-  state.isOpen = false;       
-  setView('userProfile');     
+  state.isOpen = false;
+  model.viewState.listPage.selectedListId = newId;
+  setView("listPage");
 }
 
 function openCreateListModal() {
   model.viewState.landingPage.createList.isOpen = true;
-  setView('userProfile');     
+  setView();
 }
 
 function closeCreateListModal() {
   model.viewState.landingPage.createList.isOpen = false;
   model.viewState.landingPage.createList.title = "";
   model.viewState.landingPage.createList.isShared = null;
-  setView('userProfile');
+  setView();
 }
 
 function setCreateListTitle(value) {
@@ -47,5 +48,5 @@ function setCreateListTitle(value) {
 
 function setCreateListShared(isShared) {
   model.viewState.landingPage.createList.isShared = isShared;
-  setView(); 
+  setView();
 }

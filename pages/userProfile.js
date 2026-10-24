@@ -3,7 +3,6 @@ function userProfile() {
    ${headerComponent()}
    ${userProfileLayout()}
    ${getBottomBar()}
-   ${createListModalComponent()}
    `;
    
 }
