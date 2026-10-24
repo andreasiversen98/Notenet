@@ -27,90 +27,50 @@ function listPageView() {
     }
   }
 
-  let html = "";
+  const visibilityHtml = list.isShared
+    ? /*html*/ `
+        <img src="../../src/icons/globe.svg" width="14" alt="Shared">
+        <button class="btn invite-btn">invite</button>
+        <span class="member-count">${list.members ? list.members.length : 0} members</span>
+      `
+    : /*html*/ `
+        <img src="../../src/icons/lock.svg" width="14" alt="Private">
+        <span class="member-count">private</span>
+      `;
 
-  if (list.isShared) {
-    const memberCount = list.members ? list.members.length : 0;
+  return /*html*/ `
+    ${headerComponent()}
 
-    html = /*html*/ `
-        ${headerComponent()}
-
-        <div class="list-container">
-        <div class="list-title-row">
-          <div>
-            <h2>${list.title}</h2>
-            <span class="counter">${list.completedItems} / ${list.totalItems}</span>
-          </div>
-          <div class="share-meta">
-            <img src="../../src/icons/globe.svg" width="14" alt="Shared"> 
-            <button class="btn invite-btn">invite</button> 
-            <span class="member-count">${memberCount} members</span>
-          </div>
+    <div class="list-container">
+      <div class="list-title-row">
+        <div>
+          <h2>${list.title}</h2>
+          <span class="counter">${list.completedItems} / ${list.totalItems}</span>
         </div>
-
-        <div class="input-box">
-          <input 
-              type="text" 
-              placeholder="Add new item..." 
-              value="${model.viewState.listPage.newItemTitle}" 
-              oninput="model.viewState.listPage.newItemTitle = this.value" 
-              onkeydown="if(event.key === 'Enter') pushNewItem()"
-            />
-          <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
+        <div class="share-meta">
+          ${visibilityHtml}
         </div>
-
-        <ul>
-          ${uncompletedHtml}
-        </ul>
-
-        <h3>Completed tasks</h3>
-        <ul>
-          ${completedHtml}
-        </ul>
       </div>
 
-      ${getBottomBar()}
-    `;
-  } else {
-    html = /*html*/ `
-        ${headerComponent()}
-        
-        <div class="list-container">
-        <div class="list-title-row">
-          <div>
-            <h2>${list.title}</h2>
-            <span class="counter">${list.completedItems} / ${list.totalItems}</span>
-          </div>
-          <div class="share-meta">
-            <img src="../../src/icons/lock.svg" width="14" alt="Private"> 
-            <span class="member-count">private</span>
-          </div>
-        </div>
-
-        <div class="input-box">
-          <input 
-              type="text" 
-              placeholder="Add new item..." 
-              value="${model.viewState.listPage.newItemTitle}" 
-              oninput="model.viewState.listPage.newItemTitle = this.value" 
-              onkeydown="if(event.key === 'Enter') pushNewItem()"
-            />
-          <button class="btn" onclick="pushNewItem()"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
-        </div>
-
-        <ul>
-          ${uncompletedHtml}
-        </ul>
-
-        <h3>Completed tasks</h3>
-        <ul>
-          ${completedHtml}
-        </ul>
+      <div class="input-box">
+        <input
+          type="text"
+          placeholder="Add new item..."
+          value="${model.viewState.listPage.newItemTitle}"
+          oninput="model.viewState.listPage.newItemTitle = this.value"
+          onkeydown="if(event.key === 'Enter') pushNewItem()"
+        />
+        <button class="btn" onclick="pushNewItem()">
+          <img src="../../src/icons/square-plus.svg" width="16" alt="Add">
+        </button>
       </div>
 
-      ${getBottomBar()}
-    `;
-  }
+      <ul>${uncompletedHtml}</ul>
 
-  return html;
+      <h3>Completed tasks</h3>
+      <ul>${completedHtml}</ul>
+    </div>
+
+    ${getBottomBar()}
+  `;
 }
