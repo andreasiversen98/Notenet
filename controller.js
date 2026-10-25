@@ -7,5 +7,7 @@ function setView(selectedPage) {
    updateView(currentView)
 }
 // setView("userProfile")
-setView("userNotification")
+setView("loginPage")
+
+
 

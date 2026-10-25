@@ -1,16 +1,28 @@
+body {
+  margin: 0;
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  width: 390px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
 .login-page {
-  max-width: 360px;
-  margin: 0 auto;
-  padding: 80px 20px 0;
+  padding: 70px 28px 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo {
   font-size: 40px;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
 }
 
 .login-input,
@@ -35,4 +47,5 @@
 .login-bottom {
   margin-top: 30px;
   font-size: 15px;
+  text-align: center;
 }

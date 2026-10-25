@@ -1,5 +1,5 @@
 
-  document.getElementById("login-Page").innerHTML = loginPage();
+
 
  
 function loginPage(){
