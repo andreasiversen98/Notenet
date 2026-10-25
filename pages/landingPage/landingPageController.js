@@ -30,11 +30,6 @@ function pushNewList() {
   setView("listPage");
 }
 
-function openCreateListModal() {
-  model.viewState.landingPage.createList.isOpen = true;
-  setView();
-}
-
 function closeCreateListModal() {
    model.viewState.landingPage.createList.title = "";
    model.viewState.landingPage.createList.isShared = null;

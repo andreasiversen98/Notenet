@@ -3,7 +3,6 @@ const model = {
     currentPage: "",
     previousPage: "",
     currentUserId: "u4",
-    currentListId: "",
     openModal: null,
   },
 
