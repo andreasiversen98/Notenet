@@ -1,4 +1,6 @@
-const loggedInUser = model.data.users.find((user) => user.id === model.app.currentUserId);
+function getLoggedInUser() {
+  return model.data.users.find((u) => u.id === model.app.currentUserId);
+}
 console.log("controller.js - loggedInUser", loggedInUser);
 
 function setView(selectedPage) {
