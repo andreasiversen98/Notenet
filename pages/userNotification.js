@@ -45,7 +45,7 @@ function fetchListOwnerName(id) {
 }
 
 function fetchInvites() {
-   const invitedListIds = loggedInUser.invitedTo;
+   const invitedListIds = getLoggedInUser().invitedTo;
    const invitedLists = model.data.lists.filter((list) => invitedListIds.includes(list.id));
 
    console.log(invitedLists);

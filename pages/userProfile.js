@@ -17,23 +17,24 @@ function userProfileLayout() {
 }
 
 function userInfoElements() {
+   const user = getLoggedInUser();
    return `
    <div class="flex row padding gap justify-evenly">
       <div class="flex column gap">
-         <img class="image-size border" src="${loggedInUser.profilePicture}"/>
+         <img class="image-size border" src="${user.profilePicture}"/>
          <div class="flex row justify-between gap">
             ${getPremiumInfo()}
          </div>
       </div>
       <div>
-         <h2 class="greeting">hei ${loggedInUser.username}</h2>
-         <h4 class="flex row justify-end">${loggedInUser.code}</h4>
+         <h2 class="greeting">hei ${user.username}</h2>
+         <h4 class="flex row justify-end">${user.code}</h4>
       </div>
    </div>`;
 }
 
 function getPremiumInfo() {
-   if (!loggedInUser.isPremium) return `` 
+   if (!getLoggedInUser().isPremium) return `` 
    else return `
    <h4>premium</h4>
    <img class="icon-size" src="../../src/icons/circle-star.svg"/>`
@@ -76,7 +77,7 @@ function userListCategories() {
 }
 
 function userPremiumButton() {
-   if (loggedInUser.isPremium) return ``
+   if (getLoggedInUser().isPremium) return ``
    else return `
    <div class="flex row justify-center align-center padding">
       <button onclick="togglePremium()">kjøp premium</button>
