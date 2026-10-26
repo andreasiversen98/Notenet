@@ -1,17 +1,18 @@
 function userNotification() {
    return `
-   <div class="flex column gap">
-      <div class="flex row justify-between align-center padding">
-         <h1>notifications</h1>
-         <img onclick="setView(model.app.previousPage)" class="icon-size" src="../../src/icons/x.svg"/>
+   <div class="modal-overlay">
+      <div class="modal-content">
+         <div class="flex column gap">
+            <div class="flex row justify-between align-center padding">
+               <h1>notifications</h1>
+               <img onclick="closeModal()" class="icon-size" src="../../src/icons/x.svg"/>
+            </div>
+            <div class="flex column container gap padding">
+               ${displayInvites()}
+            </div>
+         </div>
       </div>
-
-      <div class="flex column container gap padding">
-         ${displayInvites()}
-      </div>
-   </div>
-   
-   ${getBottomBar()}`;
+   </div>`
 }
 
 function displayInvites() {
@@ -25,17 +26,16 @@ function modifyListDataIntoComponents(lists) {
    for (let list of lists) {
       temp += `
       <div onclick="togglePremium()" class="list-bar flex row justify-between padding border">
-      <div class="flex column padding gap">
-         <div class="bold">${fetchListOwnerName(list.ownerId)}</div>
-         <div>${list.title}</div>
-      </div>
-      <div class="flex row align-center padding gap2">
-         <img onclick="acceptInviteToList()" class="icon-size2" src="../../src/icons/check.svg"/>
-         <img onclick="declineInviteToList()" class="icon-size2" src="../../src/icons/x.svg"/>
-      </div>
-   </div>`
+         <div class="flex column padding gap">
+            <div class="bold">${fetchListOwnerName(list.ownerId)}</div>
+            <div>${list.title}</div>
+         </div>
+         <div class="flex row align-center padding gap2">
+            <img onclick="acceptInviteToList()" class="icon-size2" src="../../src/icons/check.svg"/>
+            <img onclick="declineInviteToList()" class="icon-size2" src="../../src/icons/x.svg"/>
+         </div>
+      </div>`
    }
-
    return temp
 }
 
@@ -47,8 +47,6 @@ function fetchListOwnerName(id) {
 function fetchInvites() {
    const invitedListIds = getLoggedInUser().invitedTo;
    const invitedLists = model.data.lists.filter((list) => invitedListIds.includes(list.id));
-
-   console.log(invitedLists);
    return invitedLists;
 }
 

@@ -18,12 +18,8 @@ function setView(selectedPage) {
       "Current Page": model.app.currentPage,
    });
 }
-// setView("userProfile")
-<<<<<<< HEAD
 setView("loginPage")
-
-
-
 =======
-setView("userNotification");
->>>>>>> 11c9250143b7feb239e2d5372aa2ba5634bba910
+setView("userProfile")
+// setView("userNotification");
+>>>>>>> 67c86670a985bf9e38cf7d165e16fa4c867a1e66

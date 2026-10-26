@@ -8,8 +8,8 @@ function createListModalComponent() {
     : "Start en ny privat liste...";
 
   return /*html*/ `
-      <div class="modal-overlay">
-         <div class="modal-content">
+      <div class="modal-overlay" onclick="closeCreateListModal()"> 
+         <div class="modal-content" onclick="event.stopPropagation()"> 
             <div class="flex row justify-end">
                <button class="btn-icon" onclick="closeCreateListModal()">
                   <img src="../../src/icons/x.svg" width="20" alt="Close">
