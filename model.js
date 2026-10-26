@@ -127,7 +127,7 @@ const model = {
         isShared: true,
         completedItems: 0,
         totalItems: 12,
-        members: ["u1", "u2", "u3", "u4"],
+        members: ["u1", "u2", "u3"],
         items: [
           {
             id: "i1",

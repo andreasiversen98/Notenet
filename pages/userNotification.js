@@ -51,10 +51,15 @@ function fetchInvites() {
 }
 
 function acceptInviteToList(listID) {
-   console.log(listID)
-   
+   console.log(listID);
+   let getList = model.data.lists.find((list) => (list.id = listID));
+   getList.members.push(model.app.currentUserId);
+   getLoggedInUser().invitedTo = getLoggedInUser().invitedTo.filter((item) => item !== listID);
+   openModal("notifications");
 }
 
 function declineInviteToList(listID) {
-   console.log(listID)
+   console.log(listID);
+   getLoggedInUser().invitedTo = getLoggedInUser().invitedTo.filter((item) => item !== listID);
+   openModal("notifications");
 }
