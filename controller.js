@@ -18,5 +18,5 @@ function setView(selectedPage) {
       "Current Page": model.app.currentPage,
    });
 }
-// setView("userProfile")
-setView("userNotification");
+setView("userProfile")
+// setView("userNotification");

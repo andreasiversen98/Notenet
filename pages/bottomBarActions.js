@@ -7,11 +7,11 @@ function getBottomBar() {
                <img class="icon-bottom icon-home" src="../../src/icons/house.svg">
             </span>
 
-            <span>
-               <img class="icon-add" src="../../src/icons/square-plus.svg" onclick="openModal('createList')">
+            <span onclick="openModal('createList')">
+               <img class="icon-add" src="../../src/icons/square-plus.svg">
             </span>
 
-            <span onclick="setView('userNotification')">
+            <span onclick="openModal('notifications')">
                <img class="icon-bottom icon-notification" src="../../src/icons/bell.svg">
             </span>
          </div>

@@ -1,15 +1,18 @@
 function userNotification() {
    return `
-   <div class="flex column gap">
-      <div class="flex row justify-between align-center padding">
-         <h1>notifications</h1>
-         <img onclick="setView(model.app.previousPage)" class="icon-size" src="../../src/icons/x.svg"/>
+   <div class="modal-overlay">
+      <div class="modal-content">
+         <div class="flex column gap">
+            <div class="flex row justify-between align-center padding">
+               <h1>notifications</h1>
+               <img onclick="closeModal()" class="icon-size" src="../../src/icons/x.svg"/>
+            </div>
+            <div class="flex column container gap padding">
+               ${displayInvites()}
+            </div>
+         </div>
       </div>
-      <div class="flex column container gap padding">
-         ${displayInvites()}
-      </div>
-   </div>
-   ${getBottomBar()}`;
+   </div>`
 }
 
 function displayInvites() {
