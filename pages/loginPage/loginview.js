@@ -29,7 +29,6 @@ function loginPage(){
 
       <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
       ${getBottomBar()}
-        <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
 
       </div>
 
