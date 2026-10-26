@@ -27,7 +27,7 @@ function loginPage(){
       <p class="login-error">${vs.error}</p>
 
       <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
-
+      ${getBottomBar()}
     </div>
   `;
   
