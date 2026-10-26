@@ -21,8 +21,6 @@ function logIn() {
     vs.error = "";
     setView("userProfile");
   }
-
-  updateLoginView();
 }
 
 function findUserByLogin(username, password) {
