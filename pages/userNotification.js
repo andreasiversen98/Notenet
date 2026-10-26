@@ -1,6 +1,6 @@
 function userNotification() {
    return `
-   <div class="modal-overlay" onclick="closeCreateListModal()"> 
+   <div class="modal-overlay" onclick="closeModal()"> 
       <div class="modal-content" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
             <div class="flex row justify-between align-center padding">
