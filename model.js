@@ -301,7 +301,5 @@ const model = {
         items: [],
       },
     ],
-
-    invitations: [{ id: "inv1", userId: "u1", listId: "l1", status: "venter" }],
   },
 };

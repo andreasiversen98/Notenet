@@ -1,5 +1,5 @@
 function getLoggedInUser() {
-  return model.data.users.find((u) => u.id === model.app.currentUserId);
+   return model.data.users.find((u) => u.id === model.app.currentUserId);
 }
 console.log("controller.js - loggedInUser", getLoggedInUser());
 
@@ -18,8 +18,7 @@ function setView(selectedPage) {
       "Current Page": model.app.currentPage,
    });
 }
-setView("loginPage")
-=======
-setView("userProfile")
+setView("loginPage");
+// setView("userProfile")
+openModal("notifications");
 // setView("userNotification");
->>>>>>> 67c86670a985bf9e38cf7d165e16fa4c867a1e66
