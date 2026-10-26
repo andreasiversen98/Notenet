@@ -1,6 +1,4 @@
 
-
-
  
 function loginPage(){
   const vs = model.viewState.loginPage;
@@ -32,5 +30,6 @@ function loginPage(){
 
     </div>
   `;
-}
+  
+} 
 

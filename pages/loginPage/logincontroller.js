@@ -17,6 +17,7 @@ function logIn() {
     vs.username = "";
     vs.password = "";
     vs.error = "";
+    setView("listPage");
   }
 
   updateLoginView();
