@@ -27,14 +27,12 @@ function loginPage(){
 
         <p class="login-error">${vs.error}</p>
 
-<<<<<<< Updated upstream
       <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
       ${getBottomBar()}
-=======
         <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
 
       </div>
->>>>>>> Stashed changes
+
     </div>
   `;
 }
