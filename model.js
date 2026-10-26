@@ -10,6 +10,7 @@ const model = {
     loginPage: {
       username: "",
       password: "",
+      error: "",
     },
 
     registerPage: {
