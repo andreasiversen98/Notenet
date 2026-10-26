@@ -1,8 +1,9 @@
 const model = {
   app: {
     currentPage: "",
+    previousPage: "",
     currentUserId: "u4",
-    currentListId: "",
+    openModal: null,
   },
 
   viewState: {
@@ -69,7 +70,7 @@ const model = {
         isPremium: false,
         role: "user",
         invitedTo: ["l2", "l3"],
-        sentInvites:["l1"],
+        sentInvites: ["l1"],
       },
       {
         id: "u2",
@@ -80,7 +81,7 @@ const model = {
         isPremium: false,
         role: "user",
         invitedTo: ["l1", "l3"],
-        sentInvites:["l2"],
+        sentInvites: ["l2"],
       },
       {
         id: "u3",
@@ -91,7 +92,7 @@ const model = {
         isPremium: true,
         role: "user",
         invitedTo: ["l1", "l2"],
-        sentInvites:["l3"],
+        sentInvites: ["l3"],
       },
       {
         id: "u4",
@@ -102,7 +103,7 @@ const model = {
         isPremium: true,
         role: "admin",
         invitedTo: ["l1", "l2"],
-        sentInvites:["l4"],
+        sentInvites: ["l4"],
       },
       {
         id: "u5",
@@ -113,7 +114,7 @@ const model = {
         isPremium: false,
         role: "user",
         invitedTo: ["l2", "l3"],
-        sentInvites:["l1"],
+        sentInvites: ["l1"],
       },
     ],
 
@@ -127,9 +128,66 @@ const model = {
         totalItems: 12,
         members: ["u1", "u2", "u3", "u4"],
         items: [
-          { id: "i1", text: "Planlegge neste møte", isCompleted: true },
-          { id: "i2", text: "Bestille pizza til gjengen", isCompleted: false },
-          { id: "i3", text: "Spise iskrem til frokost", isCompleted: false },
+          {
+            id: "i1",
+            text: "Planlegge neste møte",
+            isCompleted: false,
+          },
+          {
+            id: "i2",
+            text: "Bestille pizza til gjengen",
+            isCompleted: false,
+          },
+          {
+            id: "i3",
+            text: "Spise iskrem til frokost",
+            isCompleted: false,
+          },
+          {
+            id: "i4",
+            text: "Kjøpe inn masse godteri",
+            isCompleted: false,
+          },
+          {
+            id: "i5",
+            text: "Sette opp projektor i stua",
+            isCompleted: false,
+          },
+          {
+            id: "i6",
+            text: "Lage spilleliste med retroklassikere",
+            isCompleted: false,
+          },
+          {
+            id: "i7",
+            text: "Finne frem brettspill",
+            isCompleted: false,
+          },
+          {
+            id: "i8",
+            text: "Teste VR-briller",
+            isCompleted: false,
+          },
+          {
+            id: "i9",
+            text: "Bestemme hvem som lager kaffe",
+            isCompleted: false,
+          },
+          {
+            id: "i10",
+            text: "Gjemme nøkkelen under matta",
+            isCompleted: false,
+          },
+          {
+            id: "i11",
+            text: "Kjøpe ny fotball",
+            isCompleted: false,
+          },
+          {
+            id: "i12",
+            text: "Planlegge helgetur",
+            isCompleted: false,
+          },
         ],
       },
       {
@@ -160,9 +218,76 @@ const model = {
         completedItems: 9,
         totalItems: 14,
         items: [
-          { id: "i1", text: "Kjøpe stoff til kostyme", isCompleted: true },
-          { id: "i2", text: "Sy om ermene", isCompleted: false },
-          { id: "i3", text: "Lage sverd av foam", isCompleted: false },
+          {
+            id: "i1",
+            text: "Kjøpe stoff til kostyme",
+            isCompleted: true,
+          },
+          {
+            id: "i2",
+            text: "Sy om ermene",
+            isCompleted: true,
+          },
+          {
+            id: "i3",
+            text: "Lage sverd av foam",
+            isCompleted: true,
+          },
+          {
+            id: "i4",
+            text: "Lime på detaljer med limpistol",
+            isCompleted: true,
+          },
+          {
+            id: "i5",
+            text: "Male rustningselementer",
+            isCompleted: true,
+          },
+          {
+            id: "i6",
+            text: "Prøve på hele antrekket",
+            isCompleted: true,
+          },
+          {
+            id: "i7",
+            text: "Skaffe parykk og style den",
+            isCompleted: true,
+          },
+          {
+            id: "i8",
+            text: "Fikse sminke og ansiktsmaling",
+            isCompleted: true,
+          },
+          {
+            id: "i9",
+            text: "Lage skoovertrekk",
+            isCompleted: true,
+          },
+          {
+            id: "i10",
+            text: "Sjekke reisevei til konventet",
+            isCompleted: false,
+          },
+          {
+            id: "i11",
+            text: "Pakke med ekstra nåler og tråd",
+            isCompleted: false,
+          },
+          {
+            id: "i12",
+            text: "Lade kamera og powerbank",
+            isCompleted: false,
+          },
+          {
+            id: "i13",
+            text: "Skrive ut deltakerbillett",
+            isCompleted: false,
+          },
+          {
+            id: "i14",
+            text: "Gjøre klar niste og drikke",
+            isCompleted: false,
+          },
         ],
       },
       {

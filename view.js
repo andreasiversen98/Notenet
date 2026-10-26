@@ -1,5 +1,6 @@
 const app = document.getElementById("app");
 
 function updateView(page) {
-   app.innerHTML = page();
+   const modal = modals[model.app.openModal];
+   app.innerHTML = page() + (modal ? modal() : "");
 }

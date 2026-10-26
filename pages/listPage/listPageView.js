@@ -1,110 +1,101 @@
 function listPageView() {
-  const lists = model.data.lists;
-  if (!model.viewState.listPage.selectedListId) {
-    model.viewState.listPage.selectedListId = "l1";
-  }
-  const chosenListId = model.viewState.listPage.selectedListId;
-
-  let list;
-  for (let i = 0; i < lists.length; i++) {
-    if (lists[i].id === chosenListId) {
-      list = lists[i];
-      break;
-    }
-  }
+  const list = getCurrentList();
+  if (!list) return "";
 
   let uncompletedHtml = "";
   let completedHtml = "";
 
   for (let i = 0; i < list.items.length; i++) {
     const item = list.items[i];
-    if (item.isCompleted) {
-      completedHtml += /*html*/ `
-        <li>
-          <input type="checkbox" checked> 
-          ${item.text} 
-          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
-        </li>
+
+    const checked = item.isCompleted ? "checked" : "";
+
+    const sharedIcon =
+      list.isShared && !item.isCompleted
+        ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">'
+        : "";
+
+    let textHtml = `<span>${item.text}</span>`;
+    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')">rediger</button>`;
+
+    if (model.viewState.listPage.editingItemId === item.id) {
+      textHtml = `
+        <input
+          class="edit-input"
+          type="text"
+          value="${model.viewState.listPage.editingItemTitle}"
+          oninput="model.viewState.listPage.editingItemTitle = this.value"
+          onkeydown="if(event.key === 'Enter') saveEditItem()"
+        >
       `;
-    } else {
-      uncompletedHtml += /*html*/ `
-        <li>
-          <input type="checkbox"> 
-          ${item.text} 
-          <button class="btn"><img src="../../src/icons/trash.svg" width="14" alt="Delete"></button>
-          ${list.isShared ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">' : ""}
-        </li>
+      editBtnHtml = `
+        <button class="edit-btn" onclick="saveEditItem()">lagre</button>
+        <button class="edit-btn" onclick="cancelEditItem()">avbryt</button>
       `;
     }
+
+    if (item.isCompleted) editBtnHtml = "";
+
+    const itemHtml = /*html*/ `
+      <li>
+        <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
+        <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
+          <img src="../../src/icons/trash.svg" width="14" alt="Delete">
+        </button>
+        ${textHtml}
+        ${editBtnHtml}
+        ${sharedIcon}
+      </li>
+    `;
+
+    if (item.isCompleted) completedHtml += itemHtml;
+    else uncompletedHtml += itemHtml;
   }
 
-  let html = "";
+  const visibilityHtml = list.isShared
+    ? /*html*/ `
+        <img src="../../src/icons/globe.svg" width="14" alt="Shared">
+        <button class="btn invite-btn">invite</button>
+        <span class="member-count">${list.members ? list.members.length : 0} members</span>
+      `
+    : /*html*/ `
+        <img src="../../src/icons/lock.svg" width="14" alt="Private">
+        <span class="member-count">private</span>
+      `;
 
-  if (list.isShared) {
-    const memberCount = list.members ? list.members.length : 0;
+  return /*html*/ `
+    ${headerComponent()}
 
-    html = /*html*/ `
-        ${headerComponent()}
-        
+    <div class="list-container">
+      <div class="list-title-row">
         <div>
-          <img src="../../src/icons/globe.svg" width="16" alt="Shared"> 
-          <button class="btn">invite</button> 
-          <span>${memberCount} members</span>
+          <h2>${list.title}</h2>
+          <span class="counter">${list.completedItems} / ${list.totalItems}</span>
         </div>
-
-        <div>
-          <h1>${list.title}</h1>
-          <span>${list.completedItems} / ${list.totalItems}</span>
+        <div class="share-meta">
+          ${visibilityHtml}
         </div>
-
-        <div class="input-box">
-          <input type="text" placeholder="Add new item..." />
-          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
-        </div>
-
-        <ul>
-          ${uncompletedHtml}
-        </ul>
-
-        <h3>Completed tasks</h3>
-        <ul>
-          ${completedHtml}
-        </ul>
       </div>
 
-      ${getBottomBar()}
-    `;
-  } else {
-    html = /*html*/ `
-        ${headerComponent()}
-        
-        <div>
-          <img src="../../src/icons/lock.svg" width="16" alt="Private"> private
-        </div>
-
-        <div>
-          <h1>${list.title}</h1>
-          <span>${list.completedItems} / ${list.totalItems}</span>
-        </div>
-
-        <div class="input-box">
-          <input type="text" placeholder="Add new item..." />
-          <button class="btn"><img src="../../src/icons/square-plus.svg" width="16" alt="Add"></button>
-        </div>
-
-        <ul>
-          ${uncompletedHtml}
-        </ul>
-
-        <h3>Completed tasks</h3>
-        <ul>
-          ${completedHtml}
-        </ul>
+      <div class="input-box">
+        <input
+          type="text"
+          placeholder="Add new item..."
+          value="${model.viewState.listPage.newItemTitle}"
+          oninput="model.viewState.listPage.newItemTitle = this.value"
+          onkeydown="if(event.key === 'Enter') pushNewItem()"
+        />
+        <button class="btn" onclick="pushNewItem()">
+          <img src="../../src/icons/square-plus.svg" width="16" alt="Add">
+        </button>
       </div>
 
-      ${getBottomBar()}
-    `;
-  }
+      <ul>${uncompletedHtml}</ul>
 
-  return html;
+      <h3>Completed tasks</h3>
+      <ul>${completedHtml}</ul>
+    </div>
+
+    ${getBottomBar()}
+  `;
 }

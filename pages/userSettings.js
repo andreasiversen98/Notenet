@@ -16,7 +16,7 @@ function userSettings() {
          ${getImageField()}
          <div onclick="togglePremium()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
-               ${loggedInUser.isPremium ? `<span>Avslutt premium</span>` : `<span>Kjøp premium</span>`}
+               ${getLoggedInUser().isPremium ? `<span>Avslutt premium</span>` : `<span>Kjøp premium</span>`}
             </div>
          </div>
       </div>
@@ -45,7 +45,7 @@ function getNameField() {
 
 function changeUsername() {
    if (newUsername == "") return;
-   loggedInUser.username = newUsername;
+   getLoggedInUser().username = newUsername;
    canEditName = false;
    setView();
 }
@@ -94,7 +94,7 @@ function getNewImage(event) {
 
 function submitNewImage() {
    if (newImage == "") return;
-   loggedInUser.profilePicture = newImage;
+   getLoggedInUser().profilePicture = newImage;
    canEditImage = false;
    newImage = "";
    setView();
@@ -107,7 +107,8 @@ function cancelImageField() {
 }
 
 function togglePremium() {
-   loggedInUser.isPremium = !loggedInUser.isPremium;
+   const user = getLoggedInUser();
+   user.isPremium = !user.isPremium;
    setView();
 }
 
@@ -117,6 +118,5 @@ function exitUserSettings() {
 
    newImage = "";
    canEditImage = false;
-
-   setView("userProfile");
+   setView(model.app.previousPage);
 }

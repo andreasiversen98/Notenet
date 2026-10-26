@@ -1,73 +1,91 @@
 * {
-   font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-   margin: 0;
-   padding: 0;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 #app {
-   margin: 0;
-   padding: 0;
-   height: 100vh;
+  min-height: 100vh; 
+  margin: 0 auto;
+  padding: 24px 32px 0 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .greeting {
-   font-size: 35px;
+  font-size: 35px;
 }
 
 .icon-size {
-   width: 20px;
-   height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .icon-size2 {
-   width: 35px;
-   height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
 .icon-x {
-   width: 50px;
-   height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .icon-bottom {
-   width: 35px;
-   height: 35px;
-   background-color: lightgray;
-   padding: 6px;
-   border-radius: 25%;
+  width: 35px;
+  height: 35px;
+  background-color: lightgray;
+  padding: 6px;
+  border-radius: 25%;
 }
 
 .icon-add {
-   width: 50px;
-   height: 50px;
-   background-color: lightgray;
-   padding: 6px;
-   border-radius: 25%;
+  width: 50px;
+  height: 50px;
+  background-color: lightgray;
+  padding: 6px;
+  border-radius: 25%;
 }
 
 .image-size {
-   width: 100px;
-   height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .list-bar {
-   background-color: white;
+  background-color: white;
 }
 
 .container {
-   background-color: lightgray;
+  background-color: lightgray;
 }
 
 .bottom-bar {
-   background-color: dimgray;
+  background-color: dimgray;
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  margin: 0 -32px;
 }
 
-h1 {
-   font-size: 50px;
-   color: dimgray;
+.profile-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.header {
+  h1 {
+    font-size: 50px;
+    color: dimgray;
+  }
 }
 
 h1,
@@ -78,6 +96,6 @@ h5,
 h6,
 svg,
 img {
-   padding: 0;
-   margin: 0;
+  padding: 0;
+  margin: 0;
 }
