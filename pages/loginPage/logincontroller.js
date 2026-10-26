@@ -12,6 +12,8 @@ function logIn() {
 
   if (user === undefined) {
     vs.error = "Feil brukernavn eller passord";
+    setView();
+    return;
   } else {
     model.app.currentUserId = user.id;
     vs.username = "";
