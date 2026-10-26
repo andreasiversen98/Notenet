@@ -1,20 +1,11 @@
-body {
-  margin: 0;
-  background: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.app {
-  width: 390px;
-  min-height: 100vh;
-  box-sizing: border-box;
-  background: #ffffff;
+.login-wrapper {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
 }
 
 .login-page {
-  padding: 70px 28px 0;
+  padding: 70px 0 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -23,10 +14,13 @@ body {
 .logo {
   font-size: 40px;
   margin: 0 0 24px 0;
+  color: dimgray;
 }
 
 .login-input,
 .login-button {
+  width: 100%;
+  box-sizing: border-box;
   padding: 14px;
   font-size: 16px;
   border: 1px solid #9aa0a6;
