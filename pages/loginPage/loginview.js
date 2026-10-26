@@ -14,14 +14,16 @@ function loginPage(){
           class="login-input"
           placeholder="brukernavn"
           value="${vs.username}"
-          onchange="setLoginUsername(this.value)" />
+          oninput="setLoginUsername(this.value)" 
+          onkeydown="if(event.key === 'Enter') logIn()"/>
 
         <input
           type="password"
           class="login-input"
           placeholder="passord"
           value="${vs.password}"
-          onchange="setLoginPassword(this.value)" />
+          oninput="setLoginPassword(this.value)" 
+          onkeydown="if(event.key === 'Enter') logIn()" />
 
         <button class="login-button" onclick="logIn()">Log inn</button>
 
