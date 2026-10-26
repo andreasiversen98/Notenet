@@ -20,5 +20,4 @@ function setView(selectedPage) {
 }
 setView("loginPage");
 // setView("userProfile")
-openModal("notifications");
 // setView("userNotification");
