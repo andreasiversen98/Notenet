@@ -9,7 +9,23 @@ function openList(listId) {
   lp.editingItemId = null;
   lp.editingItemTitle = "";
   lp.newItemTitle = "";
+  lp.showMembers = false;
   setView("listPage");
+}
+
+function toggleMembers() {
+  const lp = model.viewState.listPage;
+  lp.showMembers = !lp.showMembers;
+  setView();
+}
+
+function getListMembers(list) {
+  const members = [];
+  for (const memberId of list.members || []) {
+    const user = model.data.users.find((u) => u.id === memberId);
+    if (user) members.push(user);
+  }
+  return members;
 }
 
 function pushNewItem() {
@@ -135,6 +151,7 @@ function toggleListVisibility() {
     if (!list.members.includes(list.ownerId)) list.members.push(list.ownerId);
   } else {
     list.members = [list.ownerId];
+    model.viewState.listPage.showMembers = false;
   }
 
   setView();

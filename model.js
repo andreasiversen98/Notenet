@@ -31,6 +31,7 @@ const model = {
       editingItemId: null,
       editingItemTitle: "",
       selectedListId: "",
+      showMembers: false,
     },
 
     notificationPage: {
@@ -209,7 +210,7 @@ const model = {
         isShared: true,
         completedItems: 5,
         totalItems: 23,
-        members: [],
+        members: ["u2"],
         items: [],
       },
       {

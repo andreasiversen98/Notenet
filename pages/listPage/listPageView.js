@@ -72,10 +72,16 @@ function listPageView() {
         </span>
       `;
 
+  const showMembers = model.viewState.listPage.showMembers;
+
   const sharedHtml = list.isShared
     ? /*html*/ `
         <div class="share-meta">
-          <span class="member-count">${list.members ? list.members.length : 0} members</span>
+          <button class="member-count-btn" onclick="toggleMembers()">
+            ${list.members ? list.members.length : 0} members
+            <img src="../../src/icons/chevron-right.svg" width="14"
+                 class="${showMembers ? "rotated" : ""}" alt="">
+          </button>
           <button class="btn invite-btn">
             <img src="../../src/icons/user-plus.svg" width="14" alt="">
             invite
@@ -83,6 +89,27 @@ function listPageView() {
         </div>
       `
     : "";
+
+  let membersHtml = "";
+  if (list.isShared && showMembers) {
+    const members = getListMembers(list);
+    let rows = "";
+    for (const user of members) {
+      rows += /*html*/ `
+        <div class="member-row">
+          <img src="${user.profilePicture}" class="member-avatar" alt="">
+          <span>${user.username}</span>
+          ${user.id === list.ownerId ? `<span class="owner-tag">eier</span>` : ""}
+          <span class="member-code">${user.code}</span>
+        </div>
+      `;
+    }
+    membersHtml = /*html*/ `
+      <div class="members-list">
+        ${rows || `<span class="member-row member-code">Ingen medlemmer ennå</span>`}
+      </div>
+    `;
+  }
 
   return /*html*/ `
     ${headerComponent()}
@@ -99,6 +126,8 @@ function listPageView() {
         ${visibilityHtml}
         ${sharedHtml}
       </div>
+
+      ${membersHtml}
 
       <div class="input-box">
         <input
