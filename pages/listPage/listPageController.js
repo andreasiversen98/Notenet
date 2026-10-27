@@ -4,7 +4,11 @@ function getCurrentList() {
 }
 
 function openList(listId) {
-  model.viewState.listPage.selectedListId = listId;
+  const lp = model.viewState.listPage;
+  lp.selectedListId = listId;
+  lp.editingItemId = null;
+  lp.editingItemTitle = "";
+  lp.newItemTitle = "";
   setView("listPage");
 }
 
