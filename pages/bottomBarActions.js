@@ -4,15 +4,15 @@ function getBottomBar() {
          <div class="flex row justify-evenly align-end padding">
 
             <span onclick="setView('userProfile')">
-               <img class="icon-bottom icon-home" src="../../src/icons/house.svg">
+               <img class="icon-bottom icon-home" src="../../src/icons/house.svg" alt="Hjem">
             </span>
 
             <span onclick="openModal('createList')">
-               <img class="icon-add" src="../../src/icons/square-plus.svg">
+               <img class="icon-add" src="../../src/icons/plus.svg" alt="Ny liste">
             </span>
 
             <span onclick="openModal('notifications')">
-               <img class="icon-bottom icon-notification" src="../../src/icons/bell.svg">
+               <img class="icon-bottom icon-notification" src="../../src/icons/bell.svg" alt="Varsler">
             </span>
          </div>
       </div>

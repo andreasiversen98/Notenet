@@ -49,19 +49,36 @@ html, body {
 }
 
 .icon-bottom {
-  width: 35px;
-  height: 35px;
-  background-color: lightgray;
-  padding: 6px;
-  border-radius: 25%;
+  display: block;
+  width: 28px;
+  height: 28px;
+  padding: 13px;
+  border-radius: 50%;
+  filter: invert(1);
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.bottom-bar span:hover .icon-bottom {
+  opacity: 1;
 }
 
 .icon-add {
-  width: 50px;
-  height: 50px;
-  background-color: lightgray;
-  padding: 6px;
-  border-radius: 25%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 16px;
+  border-radius: 50%;
+  background-color: #ff3d1f;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.icon-add:hover {
+  background-color: #e02a0d;
+}
+
+.bottom-bar span:active img {
+  transform: scale(0.92);
 }
 
 .image-size {
@@ -78,11 +95,25 @@ html, body {
 }
 
 .bottom-bar {
-  background-color: dimgray;
   flex-shrink: 0;
   position: sticky;
   bottom: 0;
-  margin: 0 -32px;
+  margin: 24px -32px 0;
+  padding: 32px 16px 18px;
+  pointer-events: none;
+  background: linear-gradient(to top, #ffffff 55%, rgba(255, 255, 255, 0));
+}
+
+.bottom-bar > div {
+  pointer-events: auto;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px 20px;
+  gap: 52px;
+  align-items: center;
+  background-color: #0a0a0a;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
 .profile-container {

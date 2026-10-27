@@ -37,8 +37,7 @@ function userInfoElements() {
 function getPremiumInfo() {
    if (!getLoggedInUser().isPremium) return `` 
    else return `
-   <h4>premium</h4>
-   <img class="icon-size" src="../../src/icons/circle-star.svg"/>`
+   <img class="premium-badge" src="../../src/images/premium/premium-badge.svg" alt="premium" style="height: 24px"/>`
 }
 
 function userListCategories() {
