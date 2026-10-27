@@ -90,3 +90,24 @@
 .premium-btn:active {
   transform: scale(0.97);
 }
+
+/*profile header*/
+.profile-container {
+  margin-top: 40px;
+  margin-bottom: auto;
+}
+
+.profile-container > div:first-child {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.profile-container .greeting {
+  margin-top: 10px;
+}
+
+.profile-container h4.justify-end {
+  justify-content: flex-start;
+  margin-top: 4px;
+}
