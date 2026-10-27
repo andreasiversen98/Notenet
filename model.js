@@ -41,6 +41,7 @@ const model = {
     },
 
     userProfilePage: {
+      codeCopied: false,
       editName: false,
       editImage: false,
       editProfile: {

@@ -33,7 +33,7 @@
   font-family: Consolas, "Courier New", monospace;
   font-size: 14px;
   font-weight: 400;
-  color: #8a8a85;
+  color: #6b6b66;
 }
 
 .profile-container .list-bar > div:last-child img {
@@ -110,4 +110,40 @@
 .profile-container h4.justify-end {
   justify-content: flex-start;
   margin-top: 4px;
+}
+
+/*profile details*/
+.profile-container > div:first-child {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.profile-container .image-size {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.code-label {
+  margin-right: 6px;
+  font-weight: 400;
+  color: #6b6b66;
+}
+
+/*avatar column (samme bredde for alle, så hilsenen ikke flytter seg)*/
+.profile-container > div:first-child > div:first-child {
+  width: 88px;
+  flex-shrink: 0;
+}
+
+/*copy friend code*/
+.copy-icon {
+  width: 15px;
+  height: 15px;
+  margin-left: 8px;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.copy-icon:hover {
+  opacity: 1;
 }

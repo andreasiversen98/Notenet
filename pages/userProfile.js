@@ -29,9 +29,25 @@ function userInfoElements() {
       </div>
       <div>
          <h2 class="greeting">${getGreeting()}, ${user.username}</h2>
-         <h4 class="flex row justify-end">${user.code}</h4>
+         <h4 class="flex row justify-end"><span class="code-label">Vennekode:</span>${user.code}${getCopyButton()}</h4>
       </div>
    </div>`;
+}
+
+function getCopyButton() {
+   const icon = model.viewState.userProfilePage.codeCopied ? "check.svg" : "copy.svg";
+   return `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="../../src/icons/${icon}"/>`
+}
+
+function copyFriendCode() {
+   navigator.clipboard.writeText(getLoggedInUser().code);
+   model.viewState.userProfilePage.codeCopied = true;
+   setView();
+   // viser haken i 2 sekunder før kopier-ikonet kommer tilbake
+   setTimeout(() => {
+      model.viewState.userProfilePage.codeCopied = false;
+      setView();
+   }, 2000);
 }
 
 function getGreeting() {

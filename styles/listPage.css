@@ -1,3 +1,4 @@
+/*layout*/
 .list-container {
   width: 100%;
   max-width: 600px;
@@ -18,6 +19,7 @@
   gap: 8px;
 }
 
+/*members*/
 .share-meta {
   display: flex;
   align-items: center;
@@ -104,6 +106,7 @@
   color: dimgray;
 }
 
+/*invite button*/
 .invite-btn {
   display: inline-flex;
   align-items: center;
@@ -130,6 +133,7 @@
   transform: scale(0.96);
 }
 
+/*headings*/
 .list-container h2 {
   font-size: 22px;
   margin: 0;
@@ -142,6 +146,7 @@
   margin-bottom: 4px;
 }
 
+/*list items*/
 ul {
   list-style: none !important;
   padding: 0 !important;
@@ -193,6 +198,7 @@ li span {
   min-width: 0;
 }
 
+/*add item input*/
 .input-box {
   display: flex;
   align-items: center;
@@ -216,6 +222,7 @@ li span {
   border: none;
 }
 
+/*edit*/
 .edit-btn {
   border: 1px solid dimgray;
   background: white;
@@ -242,6 +249,7 @@ li span {
   font-size: 14px;
 }
 
+/*visibility toggle*/
 .list-toolbar {
   display: flex;
   justify-content: space-between;
@@ -374,7 +382,7 @@ li input[type="checkbox"]:checked {
 }
 
 h3 + ul li span {
-  color: #8a8a85;
+  color: #6b6b66;
   text-decoration: line-through;
   text-decoration-color: #ff3d1f;
   text-decoration-thickness: 2px;
@@ -450,8 +458,9 @@ h3 + ul li span {
   box-shadow: 0 0 0 3px rgba(255, 61, 31, 0.2);
 }
 
+/*empty text*/
 .empty-text {
   margin: 4px 2px;
   font-size: 14px;
-  color: #8a8a85;
+  color: #6b6b66;
 }

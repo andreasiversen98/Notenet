@@ -1,3 +1,4 @@
+/*layout*/
 .login-wrapper {
   width: 100%;
   max-width: 390px;
@@ -11,12 +12,14 @@
   gap: 12px;
 }
 
+/*logo*/
 .logo {
   font-size: 40px;
   margin: 0 0 24px 0;
   color: dimgray;
 }
 
+/*inputs and button*/
 .login-input,
 .login-button {
   width: 100%;
@@ -28,6 +31,7 @@
   font-family: inherit;
 }
 
+/*messages*/
 .login-error {
   color: #b00020;
   font-size: 14px;
@@ -40,10 +44,12 @@
   text-align: center;
 }
 
+/*logo size*/
 .logo .logo-img {
   height: 48px;
 }
 
+/*theme toggle*/
 .theme-toggle {
   position: absolute;
   top: 34px;

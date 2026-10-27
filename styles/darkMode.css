@@ -1,3 +1,4 @@
+/*base*/
 body.dark {
   background-color: #121212;
   color: #e8e8e8;
@@ -18,6 +19,7 @@ body.dark .logo {
   color: #b0b0b0;
 }
 
+/*shared elements*/
 body.dark .border {
   border-color: #555555;
 }
@@ -239,4 +241,17 @@ body.dark .edit-input {
   background: #121212;
   border-color: #e8e8e8;
   color: #e8e8e8;
+}
+
+/*premium badge*/
+body.dark .premium-badge {
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px #555555;
+}
+
+/*grey text*/
+body.dark .empty-text,
+body.dark .code-label,
+body.dark .profile-container .list-bar > div:last-child span {
+  color: #8a8a85;
 }
