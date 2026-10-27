@@ -4,6 +4,7 @@ function loginPage(){
   const vs = model.viewState.loginPage;
 
   return /*html*/ `
+    <div class="theme-toggle">${getThemeToggle()}</div>
     <div class="login-wrapper">
       <div class="login-page">
 
@@ -25,7 +26,7 @@ function loginPage(){
           oninput="setLoginPassword(this.value)" 
           onkeydown="if(event.key === 'Enter') logIn()" />
 
-        <button class="login-button" onclick="logIn()">Log inn</button>
+        <button class="login-button" onclick="logIn()">Logg inn</button>
 
         <p class="login-error">${vs.error}</p>
 

@@ -28,10 +28,18 @@ function userInfoElements() {
          </div>
       </div>
       <div>
-         <h2 class="greeting">hei ${user.username}</h2>
+         <h2 class="greeting">${getGreeting()}, ${user.username}</h2>
          <h4 class="flex row justify-end">${user.code}</h4>
       </div>
    </div>`;
+}
+
+function getGreeting() {
+   const hour = new Date().getHours();
+   if (hour >= 5 && hour < 10) return "God morgen"
+   if (hour >= 10 && hour < 17) return "God dag"
+   if (hour >= 17 && hour < 23) return "God kveld"
+   return "God natt"
 }
 
 function getPremiumInfo() {
@@ -79,7 +87,14 @@ function userListCategories() {
 function userPremiumButton() {
    if (getLoggedInUser().isPremium) return ``
    else return `
-   <div class="flex row justify-center align-center padding">
-      <button onclick="togglePremium()">kjøp premium</button>
+   <div class="premium-cta flex row justify-between align-center">
+      <div class="flex column">
+         <span class="premium-cta-title">Notenet Premium</span>
+         <span class="premium-cta-text">Lag delte lister og inviter venner</span>
+      </div>
+      <button class="premium-btn" onclick="togglePremium()">
+         <img src="../../src/icons/circle-star.svg"/>
+         Få premium
+      </button>
    </div>`
 }

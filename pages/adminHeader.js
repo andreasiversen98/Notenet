@@ -1,8 +1,11 @@
 function adminHeaderComponent() {
    return `
    <div class="header flex row justify-between align-center padding">
-      <h2>admin panel</h2>
-      <img onclick="setView('userSettings')" class="icon-size" src="../../src/icons/ellipsis-vertical.svg"/>
+      <h2>adminpanel</h2>
+      <div class="flex row align-center gap2">
+         ${getThemeToggle()}
+         <img onclick="setView('userSettings')" class="icon-size" src="../../src/icons/ellipsis-vertical.svg"/>
+      </div>
    </div>
    `
 }

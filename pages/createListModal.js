@@ -12,7 +12,7 @@ function createListModalComponent() {
          <div class="modal-content" onclick="event.stopPropagation()"> 
             <div class="flex row justify-end">
                <button class="btn-icon" onclick="closeCreateListModal()">
-                  <img src="../../src/icons/x.svg" width="20" alt="Close">
+                  <img src="../../src/icons/x.svg" width="20" alt="Lukk">
                </button>
             </div>
             
@@ -22,7 +22,7 @@ function createListModalComponent() {
             </div>
 
             <div class="input-box">
-               <img src="../../src/icons/${iconFile}" width="20" alt="Icon">
+               <img src="../../src/icons/${iconFile}" width="20" alt="Ikon">
                <input 
                   type="text" 
                   placeholder="${placeholderText}" 
@@ -31,7 +31,7 @@ function createListModalComponent() {
                   onkeydown="if(event.key === 'Enter') pushNewList()"
                >
                <button class="btn" onclick="pushNewList()">
-                  <img src="../../src/icons/square-plus.svg" width="20" alt="Add">
+                  <img src="../../src/icons/square-plus.svg" width="20" alt="Legg til">
                </button>
             </div>
          </div>

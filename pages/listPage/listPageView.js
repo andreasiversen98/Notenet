@@ -15,11 +15,11 @@ function listPageView() {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
         ? `<img src="${addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
-        : '<img src="../../src/icons/user-round.svg" width="14" alt="User">';
+        : '<img src="../../src/icons/user-round.svg" width="14" alt="Bruker">';
     }
 
     let textHtml = `<span>${item.text}</span>`;
-    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')">rediger</button>`;
+    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">rediger</button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
       textHtml = `
@@ -32,8 +32,8 @@ function listPageView() {
         >
       `;
       editBtnHtml = `
-        <button class="edit-btn" onclick="saveEditItem()">lagre</button>
-        <button class="edit-btn" onclick="cancelEditItem()">avbryt</button>
+        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../src/icons/check.svg" alt="">lagre</button>
+        <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">avbryt</button>
       `;
     }
 
@@ -43,7 +43,7 @@ function listPageView() {
       <li>
         <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
-          <img src="../../src/icons/trash.svg" width="14" alt="Delete">
+          <img src="../../src/icons/trash.svg" width="14" alt="Slett">
         </button>
         ${textHtml}
         ${editBtnHtml}
@@ -63,14 +63,14 @@ function listPageView() {
             Privat
           </button>
           <button class="visibility-option ${list.isShared ? "active" : ""}" onclick="setListVisibility(true)">
-            <img src="../../src/icons/globe.svg" width="14" alt="">
+            <img src="../../src/icons/users.svg" width="14" alt="">
             Delt
           </button>
         </div>
       `
     : /*html*/ `
         <span class="visibility-label">
-          <img src="../../src/icons/${list.isShared ? "globe.svg" : "lock.svg"}" width="14" alt="">
+          <img src="../../src/icons/${list.isShared ? "users.svg" : "lock.svg"}" width="14" alt="">
           ${list.isShared ? "Delt" : "Privat"}
         </span>
       `;
@@ -81,13 +81,13 @@ function listPageView() {
     ? /*html*/ `
         <div class="share-meta">
           <button class="member-count-btn" onclick="toggleMembers()">
-            ${list.members ? list.members.length : 0} members
+            ${list.members && list.members.length === 1 ? "1 medlem" : `${list.members ? list.members.length : 0} medlemmer`}
             <img src="../../src/icons/chevron-right.svg" width="14"
                  class="${showMembers ? "rotated" : ""}" alt="">
           </button>
           <button class="btn invite-btn">
             <img src="../../src/icons/user-plus.svg" width="14" alt="">
-            invite
+            inviter
           </button>
         </div>
       `
@@ -135,19 +135,19 @@ function listPageView() {
       <div class="input-box">
         <input
           type="text"
-          placeholder="Add new item..."
+          placeholder="Legg til ny oppgave..."
           value="${model.viewState.listPage.newItemTitle}"
           oninput="model.viewState.listPage.newItemTitle = this.value"
           onkeydown="if(event.key === 'Enter') pushNewItem()"
         />
         <button class="btn" onclick="pushNewItem()">
-          <img src="../../src/icons/square-plus.svg" width="16" alt="Add">
+          <img src="../../src/icons/square-plus.svg" width="16" alt="Legg til">
         </button>
       </div>
 
       <ul>${uncompletedHtml}</ul>
 
-      <h3>Completed tasks</h3>
+      <h3>Fullførte oppgaver</h3>
       <ul>${completedHtml}</ul>
     </div>
 

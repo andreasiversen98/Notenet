@@ -4,6 +4,7 @@ const model = {
     previousPage: "",
     currentUserId: "u6",
     openModal: null,
+    darkMode: false,
   },
 
   viewState: {

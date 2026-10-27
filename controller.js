@@ -19,6 +19,12 @@ function setView(selectedPage) {
 //     "Current Page": model.app.currentPage,
 //   });
 }
+
+function toggleDarkMode() {
+  model.app.darkMode = !model.app.darkMode;
+  setView();
+}
+
  setView("loginPage");
 // setView("userProfile")
 // setView("adminProfile")

@@ -8,8 +8,11 @@ function userSettings() {
    return `
    <div class="flex column gap">
       <div class="flex row justify-between align-center padding">
-         <h1>settings</h1>
-         <img onclick="exitUserSettings()" class="icon-size" src="../../src/icons/x.svg"/>
+         <h1>innstillinger</h1>
+         <div class="flex row align-center gap2">
+            ${getThemeToggle()}
+            <img onclick="exitUserSettings()" class="icon-size" src="../../src/icons/x.svg"/>
+         </div>
       </div>
       <div class="flex column container gap padding">
          ${getNameField()}

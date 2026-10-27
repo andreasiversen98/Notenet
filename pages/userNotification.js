@@ -4,7 +4,7 @@ function userNotification() {
       <div class="modal-content" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
             <div class="flex row justify-between align-center padding">
-               <h1>notifications</h1>
+               <h1>varsler</h1>
                <img onclick="closeModal()" class="icon-size" src="../../src/icons/x.svg"/>
             </div>
             <div class="flex column container gap padding">
