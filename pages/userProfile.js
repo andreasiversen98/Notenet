@@ -53,7 +53,7 @@ function userListCategories() {
    <div class="flex column container gap padding">
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../src/icons/infinity.svg"/>
+         <img class="icon-size" src="../../src/icons/layers.svg"/>
          <span>Alle</span>
          </div>
          <div class="flex row align-center gap">
