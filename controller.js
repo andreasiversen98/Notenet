@@ -18,8 +18,8 @@ function setView(selectedPage) {
     "Current Page": model.app.currentPage,
   });
 }
-// setView("loginPage");
+setView("loginPage");
 // setView("userProfile")
-setView("adminProfile")
+// setView("adminProfile")
 // openModal("notifications");
 // setView("userNotification");
