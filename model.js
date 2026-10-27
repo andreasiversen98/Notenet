@@ -71,7 +71,7 @@ const model = {
         password: "123",
         profilePicture: "../../src/images/default-avatar.svg",
         code: "FLT-034",
-        isPremium: false,
+        isPremium: true,
         role: "user",
         invitedTo: ["l2", "l3"],
         sentInvites: ["l1"],
@@ -234,7 +234,7 @@ const model = {
         isShared: true,
         completedItems: 5,
         totalItems: 15,
-        members: ["u3"],
+        members: ["u3", "u1"],
         items: [
           {
             id: "i1",
@@ -252,7 +252,7 @@ const model = {
             id: "i3",
             text: "Gå baklengs til butikken",
             isCompleted: true,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i4",
@@ -264,13 +264,13 @@ const model = {
             id: "i5",
             text: "Bytte ut alle lyspærer med discokuler",
             isCompleted: true,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i6",
             text: "Adoptere en stein og ta den med på tur",
             isCompleted: false,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i7",
@@ -294,7 +294,7 @@ const model = {
             id: "i10",
             text: "Bygge en rakett av pappesker",
             isCompleted: false,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i11",
@@ -312,13 +312,13 @@ const model = {
             id: "i13",
             text: "Gifte bort to potteplanter",
             isCompleted: false,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i14",
             text: "Telle alle sandkorn på stranda",
             isCompleted: false,
-            addedBy: "u3",
+            addedBy: "u1",
           },
           {
             id: "i15",
