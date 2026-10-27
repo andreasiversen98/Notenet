@@ -4,4 +4,5 @@ const router = {
   userProfile: userProfile,
   userSettings: userSettings,
   userNotification: userNotification,
+  adminProfile: adminProfile,
 };
