@@ -217,10 +217,86 @@ const model = {
         title: "Crazy banan liste",
         ownerId: "u3",
         isShared: true,
-        completedItems: 39,
-        totalItems: 42,
-        members: [],
-        items: [],
+        completedItems: 5,
+        totalItems: 15,
+        members: ["u3"],
+        items: [
+          {
+            id: "i1",
+            text: "Lære en due å si hei",
+            isCompleted: true,
+          },
+          {
+            id: "i2",
+            text: "Gi kjøleskapet et navn",
+            isCompleted: true,
+          },
+          {
+            id: "i3",
+            text: "Gå baklengs til butikken",
+            isCompleted: true,
+          },
+          {
+            id: "i4",
+            text: "Starte en krangel med en måke",
+            isCompleted: true,
+          },
+          {
+            id: "i5",
+            text: "Bytte ut alle lyspærer med discokuler",
+            isCompleted: true,
+          },
+          {
+            id: "i6",
+            text: "Adoptere en stein og ta den med på tur",
+            isCompleted: false,
+          },
+          {
+            id: "i7",
+            text: "Søke jobb som profesjonell nyser",
+            isCompleted: false,
+          },
+          {
+            id: "i8",
+            text: "Lage suppe av gamle sokker",
+            isCompleted: false,
+          },
+          {
+            id: "i9",
+            text: "Vinne en stirrekonkurranse mot en ugle",
+            isCompleted: false,
+          },
+          {
+            id: "i10",
+            text: "Bygge en rakett av pappesker",
+            isCompleted: false,
+          },
+          {
+            id: "i11",
+            text: "Snakke kun i rim en hel tirsdag",
+            isCompleted: false,
+          },
+          {
+            id: "i12",
+            text: "Overbevise naboen om at jeg er en vampyr",
+            isCompleted: false,
+          },
+          {
+            id: "i13",
+            text: "Gifte bort to potteplanter",
+            isCompleted: false,
+          },
+          {
+            id: "i14",
+            text: "Telle alle sandkorn på stranda",
+            isCompleted: false,
+          },
+          {
+            id: "i15",
+            text: "Lære katten å betale skatt",
+            isCompleted: false,
+          },
+        ],
       },
       {
         id: "l4",

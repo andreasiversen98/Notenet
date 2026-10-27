@@ -52,16 +52,37 @@ function listPageView() {
     else uncompletedHtml += itemHtml;
   }
 
-  const visibilityHtml = list.isShared
+  const visibilityHtml = canChangeVisibility(list)
     ? /*html*/ `
-        <img src="../../src/icons/globe.svg" width="14" alt="Shared">
-        <button class="btn invite-btn">invite</button>
-        <span class="member-count">${list.members ? list.members.length : 0} members</span>
+        <div class="visibility-switch">
+          <button class="visibility-option ${!list.isShared ? "active" : ""}" onclick="setListVisibility(false)">
+            <img src="../../src/icons/lock.svg" width="14" alt="">
+            Privat
+          </button>
+          <button class="visibility-option ${list.isShared ? "active" : ""}" onclick="setListVisibility(true)">
+            <img src="../../src/icons/globe.svg" width="14" alt="">
+            Delt
+          </button>
+        </div>
       `
     : /*html*/ `
-        <img src="../../src/icons/lock.svg" width="14" alt="Private">
-        <span class="member-count">private</span>
+        <span class="visibility-label">
+          <img src="../../src/icons/${list.isShared ? "globe.svg" : "lock.svg"}" width="14" alt="">
+          ${list.isShared ? "Delt" : "Privat"}
+        </span>
       `;
+
+  const sharedHtml = list.isShared
+    ? /*html*/ `
+        <div class="share-meta">
+          <span class="member-count">${list.members ? list.members.length : 0} members</span>
+          <button class="btn invite-btn">
+            <img src="../../src/icons/user-plus.svg" width="14" alt="">
+            invite
+          </button>
+        </div>
+      `
+    : "";
 
   return /*html*/ `
     ${headerComponent()}
@@ -72,9 +93,11 @@ function listPageView() {
           <h2>${list.title}</h2>
           <span class="counter">${list.completedItems} / ${list.totalItems}</span>
         </div>
-        <div class="share-meta">
-          ${visibilityHtml}
-        </div>
+      </div>
+
+      <div class="list-toolbar">
+        ${visibilityHtml}
+        ${sharedHtml}
       </div>
 
       <div class="input-box">

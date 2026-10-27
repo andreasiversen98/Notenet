@@ -1,6 +1,11 @@
 function getCurrentList() {
-  const listId = model.viewState.listPage.selectedListId || "l4";
+  const listId = model.viewState.listPage.selectedListId || "l3";
   return model.data.lists.find(list => list.id === listId);
+}
+
+function openList(listId) {
+  model.viewState.listPage.selectedListId = listId;
+  setView("listPage");
 }
 
 function pushNewItem() {
@@ -108,4 +113,31 @@ function saveEditItem() {
 function cancelEditItem() {
   model.viewState.listPage.editingItemId = null;
   setView();
+}
+
+function canChangeVisibility(list) {
+  const user = getLoggedInUser();
+  return user.isPremium && list.ownerId === user.id;
+}
+
+function toggleListVisibility() {
+  const list = getCurrentList();
+  if (!list || !canChangeVisibility(list)) return;
+
+  list.isShared = !list.isShared;
+
+  if (list.isShared) {
+    if (!list.members) list.members = [];
+    if (!list.members.includes(list.ownerId)) list.members.push(list.ownerId);
+  } else {
+    list.members = [list.ownerId];
+  }
+
+  setView();
+}
+
+function setListVisibility(isShared) {
+  const list = getCurrentList();
+  if (!list || list.isShared === isShared) return;
+  toggleListVisibility();
 }
