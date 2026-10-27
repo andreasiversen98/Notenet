@@ -10,10 +10,13 @@ function listPageView() {
 
     const checked = item.isCompleted ? "checked" : "";
 
-    const sharedIcon =
-      list.isShared && !item.isCompleted
-        ? '<img src="../../src/icons/user-round.svg" width="14" alt="User">'
-        : "";
+    let sharedIcon = "";
+    if (list.isShared && !item.isCompleted) {
+      const addedBy = getUserById(item.addedBy);
+      sharedIcon = addedBy
+        ? `<img src="${addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
+        : '<img src="../../src/icons/user-round.svg" width="14" alt="User">';
+    }
 
     let textHtml = `<span>${item.text}</span>`;
     let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')">rediger</button>`;

@@ -1,6 +1,6 @@
 .list-container {
   width: 100%;
-  max-width: 440px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 8px 16px;
   display: flex;
@@ -80,6 +80,14 @@
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.item-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .owner-tag {

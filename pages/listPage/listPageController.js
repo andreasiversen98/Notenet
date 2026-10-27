@@ -28,6 +28,10 @@ function getListMembers(list) {
   return members;
 }
 
+function getUserById(userId) {
+  return model.data.users.find((u) => u.id === userId);
+}
+
 function pushNewItem() {
   const itemTitle = model.viewState.listPage.newItemTitle;
   if (!itemTitle) return;
@@ -48,6 +52,7 @@ function pushNewItem() {
     id: newItemId,
     text: itemTitle,
     isCompleted: false,
+    addedBy: model.app.currentUserId,
   });
 
   currentList.totalItems += 1;
