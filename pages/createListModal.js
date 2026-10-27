@@ -2,7 +2,7 @@ function createListModalComponent() {
   const state = model.viewState.landingPage.createList;
 
   const isShared = state.isShared ?? false;
-  const iconFile = isShared ? "globe.svg" : "lock.svg";
+  const iconFile = isShared ? "users.svg" : "lock.svg";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
     : "Start en ny privat liste...";

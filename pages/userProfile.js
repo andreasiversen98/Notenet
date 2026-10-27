@@ -63,7 +63,7 @@ function userListCategories() {
       </div>
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../src/icons/globe.svg"/>
+         <img class="icon-size" src="../../src/icons/users.svg"/>
          <span>Delte</span>
          </div>
          <div class="flex row align-center gap">
