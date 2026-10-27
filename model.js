@@ -49,7 +49,7 @@ const model = {
 
     adminUserOverview: {
       search: "",
-      selectedFilter: null,
+      selectedFilter: "all",
       page: null,
       selectedUserId: "",
     },
