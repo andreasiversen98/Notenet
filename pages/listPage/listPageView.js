@@ -148,7 +148,7 @@ function listPageView() {
       <ul>${uncompletedHtml}</ul>
 
       <h3>Fullførte oppgaver</h3>
-      <ul>${completedHtml}</ul>
+      ${completedHtml ? `<ul>${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå 😢</p>`}
     </div>
 
     ${getBottomBar()}
