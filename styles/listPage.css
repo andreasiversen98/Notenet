@@ -5,7 +5,7 @@
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   box-sizing: border-box;
 }
 
@@ -112,7 +112,7 @@
   background: black;
   color: white;
   border-radius: 999px;
-  padding: 6px 14px;
+  padding: 5px 12px;
   font-size: 13px;
   font-weight: 600;
   transition: background 0.15s ease;
@@ -163,7 +163,7 @@ li {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e2e1dc;
-  padding: 12px 10px;
+  padding: 9px 10px;
   background: white;
   width: 100%;
   box-sizing: border-box;
@@ -187,7 +187,7 @@ li:last-child {
 li span {
   flex-grow: 1;
   padding-left: 8px;
-  font-size: 15px;
+  font-size: 14px;
   word-break: normal;
   overflow-wrap: break-word;
   min-width: 0;
@@ -198,7 +198,7 @@ li span {
   align-items: center;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 8px 14px;
+  padding: 7px 14px;
   background: #ffffff;
   width: 100%;
   box-sizing: border-box;
@@ -208,7 +208,7 @@ li span {
   border: none;
   outline: none;
   width: 100%;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .input-box button {
@@ -239,7 +239,7 @@ li span {
   margin-left: 8px;
   margin-right: 6px;
   padding: 4px 6px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .list-toolbar {
@@ -263,7 +263,7 @@ li span {
   gap: 6px;
   border: none;
   background: transparent;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
@@ -301,7 +301,7 @@ li span {
 
 /*sharp style*/
 .list-container h2 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -346,8 +346,8 @@ li:hover {
 
 li input[type="checkbox"] {
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   margin: 0 4px 0 2px;
   border: 1.5px solid #0a0a0a;
   border-radius: 3px;
@@ -389,7 +389,7 @@ h3 + ul li span {
   border-radius: 6px;
   background: transparent;
   color: #3a3a38;
-  padding: 4px 9px;
+  padding: 3px 8px;
   margin-right: 6px;
   font-size: 12px;
   font-weight: 600;
@@ -398,8 +398,8 @@ h3 + ul li span {
 }
 
 .edit-btn img {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
 }
 
 .edit-btn:hover {

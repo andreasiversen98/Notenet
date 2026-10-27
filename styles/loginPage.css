@@ -21,8 +21,8 @@
 .login-button {
   width: 100%;
   box-sizing: border-box;
-  padding: 14px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 15px;
   border: 1px solid #9aa0a6;
   background: #ffffff;
   font-family: inherit;
@@ -41,7 +41,7 @@
 }
 
 .logo .logo-img {
-  height: 56px;
+  height: 48px;
 }
 
 .theme-toggle {

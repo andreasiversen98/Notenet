@@ -11,8 +11,8 @@
 .profile-container .list-bar {
   background-color: transparent;
   border-bottom: 1px solid #d6d5cf;
-  padding: 18px 4px;
-  font-size: 17px;
+  padding: 14px 4px;
+  font-size: 15px;
   font-weight: 600;
   transition: padding 0.15s ease;
 }
@@ -44,14 +44,14 @@
 .premium-cta {
   gap: 16px;
   margin-top: 8px;
-  padding: 18px 20px;
+  padding: 14px 18px;
   border-radius: 14px;
   background: #0a0a0a;
   color: white;
 }
 
 .premium-cta-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -68,10 +68,10 @@
   flex-shrink: 0;
   border: none;
   border-radius: 999px;
-  padding: 10px 18px;
+  padding: 8px 16px;
   background: #ff3d1f;
   color: white;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   transition: background 0.15s ease, transform 0.15s ease;
 }
