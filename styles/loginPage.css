@@ -28,10 +28,6 @@
   font-family: inherit;
 }
 
-.login-button {
-  cursor: pointer;
-}
-
 .login-error {
   color: #b00020;
   font-size: 14px;

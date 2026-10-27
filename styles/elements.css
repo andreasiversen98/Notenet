@@ -18,6 +18,17 @@ html, body {
   justify-content: space-between;
 }
 
+:where(
+  button,
+  a,
+  label,
+  input[type="checkbox"],
+  input[type="file"],
+  [onclick]:not([onclick=""]):not(.modal-overlay):not(.modal-content)
+) {
+  cursor: pointer;
+}
+
 .greeting {
   font-size: 35px;
 }

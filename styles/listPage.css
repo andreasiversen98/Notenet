@@ -43,7 +43,6 @@
   padding: 6px 14px;
   font-size: 13px;
   font-weight: 600;
-  cursor: pointer;
   transition: background 0.15s ease;
 }
 
@@ -94,7 +93,6 @@ li {
 .btn-icon {
   background: transparent;
   border: none;
-  cursor: pointer;
   padding: 2px;
   display: flex;
   align-items: center;
@@ -133,7 +131,6 @@ li span {
 .input-box button {
   background: none;
   border: none;
-  cursor: pointer;
 }
 
 .edit-btn {
@@ -144,7 +141,6 @@ li span {
   padding: 3px 10px;
   margin-right: 6px;
   font-size: 12px;
-  cursor: pointer;
 }
 
 .edit-btn:hover {
@@ -189,7 +185,6 @@ li span {
   font-size: 13px;
   font-weight: 600;
   color: #777;
-  cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
