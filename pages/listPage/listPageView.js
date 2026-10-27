@@ -14,7 +14,7 @@ function listPageView() {
     if (list.isShared && !item.isCompleted) {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
-        ? `<img src="${addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
+        ? `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
         : '<img src="../../src/icons/user-round.svg" width="14" alt="Bruker">';
     }
 
@@ -100,7 +100,7 @@ function listPageView() {
     for (const user of members) {
       rows += /*html*/ `
         <div class="member-row">
-          <img src="${user.profilePicture}" class="member-avatar" alt="">
+          <img src="${user.profilePictureSmall || user.profilePicture}" class="member-avatar" alt="">
           <span>${user.username}</span>
           ${user.id === list.ownerId ? `<span class="owner-tag">eier</span>` : ""}
           <span class="member-code">${user.code}</span>

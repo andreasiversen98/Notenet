@@ -90,14 +90,36 @@ function switchImageField() {
    setView();
 }
 
+// Chrome viser store bilder litt hakkete når de krympes ned til små avatarer.
+// Derfor lager vi en liten kopi (64x64) av bildet som brukes i listene.
+let newImageSmall = "";
+
 function getNewImage(event) {
    const file = event.target.files[0];
    newImage = URL.createObjectURL(file);
+   makeSmallImage(newImage);
+}
+
+function makeSmallImage(imageUrl) {
+   const img = new Image();
+   img.src = imageUrl;
+   img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 64;
+      canvas.height = 64;
+      // klipper ut en firkant fra midten så bildet ikke blir strukket
+      const size = Math.min(img.width, img.height);
+      const x = (img.width - size) / 2;
+      const y = (img.height - size) / 2;
+      canvas.getContext("2d").drawImage(img, x, y, size, size, 0, 0, 64, 64);
+      newImageSmall = canvas.toDataURL();
+   };
 }
 
 function submitNewImage() {
    if (newImage == "") return;
    getLoggedInUser().profilePicture = newImage;
+   getLoggedInUser().profilePictureSmall = newImageSmall;
    canEditImage = false;
    newImage = "";
    setView();
