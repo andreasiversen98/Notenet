@@ -2,7 +2,7 @@ const model = {
   app: {
     currentPage: "",
     previousPage: "",
-    currentUserId: "u4",
+    currentUserId: "u6",
     openModal: null,
   },
 
@@ -116,6 +116,17 @@ const model = {
         role: "user",
         invitedTo: ["l2", "l3"],
         sentInvites: ["l1"],
+      },
+      {
+        id: "u6",
+        username: "admin",
+        password: "123",
+        profilePicture: "../../src/images/image.png",
+        code: "LBH-315",
+        isPremium: true,
+        role: "admin",
+        invitedTo: ["l1", "l2", "l3", "l4", "l5"],
+        sentInvites: ["l1", "l2"],
       },
     ],
 

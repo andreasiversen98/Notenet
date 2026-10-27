@@ -1,4 +1,5 @@
 function userProfile() {
+   if (getLoggedInUser().role === "admin") return adminProfile()
    return `
    ${headerComponent()}
    ${userProfileLayout()}

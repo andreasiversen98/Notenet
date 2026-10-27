@@ -2,6 +2,10 @@
    width: 50vw;
 }
 
+.element50 {
+   width: 40%;
+}
+
 .flex {
    display: flex;
 }

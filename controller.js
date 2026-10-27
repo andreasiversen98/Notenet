@@ -11,15 +11,17 @@ function setView(selectedPage) {
   const currentView = router[model.app.currentPage];
   updateView(currentView);
 
-  console.table({
-    Source: "controller.js",
-    Function: "setView(selectedPage)",
-    "Previous Page": model.app.previousPage,
-    "Current Page": model.app.currentPage,
-  });
+// pagination check
+//   console.table({
+//     Source: "controller.js",
+//     Function: "setView(selectedPage)",
+//     "Previous Page": model.app.previousPage,
+//     "Current Page": model.app.currentPage,
+//   });
 }
 setView("loginPage");
 // setView("userProfile")
 // setView("adminProfile")
+// setView("adminUserOverview")
 // openModal("notifications");
 // setView("userNotification");

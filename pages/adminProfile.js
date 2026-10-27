@@ -9,7 +9,7 @@ function adminProfile() {
 function adminProfileLayout() {
    return `
    <div class="flex row gap justify-between">
-      <div class="flex column gap border padding border-round">
+      <div onclick="setView('adminUserOverview')" class="flex column gap border padding border-round">
          <h3>brukere</h3>
          ${userCount()}
       </div>
