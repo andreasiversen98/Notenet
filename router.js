@@ -3,7 +3,6 @@ const router = {
   listPage: listPageView,
   userProfile: userProfile,
   userSettings: userSettings,
-  userNotification: userNotification,
   adminProfile: adminProfile,
   adminUserOverview: adminUserOverview,
 };
