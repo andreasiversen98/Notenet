@@ -1,3 +1,5 @@
+createTestUsers();
+
 function getLoggedInUser() {
    return model.data.users.find((u) => u.id === model.app.currentUserId);
 }
@@ -25,10 +27,12 @@ function toggleDarkMode() {
    setView();
 }
 
+// model.viewState.adminUserOverview.selectedUser = 'test55'
 setView("loginPage");
 // setView("userProfile")
 // setView("adminProfile")
-//setView("adminUserOverview")
+// setView("adminUserOverview")
+// setView("adminViewUser")
 // openModal("notifications");
 // setView("userNotification");
 
@@ -48,4 +52,4 @@ function createTestUsers() {
       });
    }
 }
-createTestUsers();
+

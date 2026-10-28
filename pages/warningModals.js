@@ -23,7 +23,7 @@ function makePrivateModal() {
 
 function cancelPremiumModal() {
    const count = getSharedListsOwnedBy(getLoggedInUser()).length;
-   const listsText = count === 1 ? "Den delte listen din" : `De ${count} delte listene dine`;
+   const listsText = count === 1 ? "Den delte listen din blir privat" : `De ${count} delte listene dine blir private`;
 
    return /*html*/ `
    <div class="modal-overlay" onclick="closeModal()">
@@ -33,7 +33,7 @@ function cancelPremiumModal() {
                <h2>Avslutte premium?</h2>
                <img onclick="closeModal()" class="icon-size" src="../../assets/icons/x.svg"/>
             </div>
-            <p class="invite-text">${listsText} blir private, og alle medlemmer blir fjernet. Ventende invitasjoner blir også slettet.</p>
+            <p class="invite-text">${listsText}, og alle medlemmer blir fjernet. Ventende invitasjoner blir også slettet.</p>
             <div class="flex row justify-end">
                <button class="edit-btn edit-btn-cancel" onclick="closeModal()">Avbryt</button>
                <button class="edit-btn edit-btn-save" onclick="confirmCancelPremium()">Avslutt premium</button>

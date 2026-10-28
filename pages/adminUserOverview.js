@@ -36,12 +36,14 @@ function setFilter(newFilter) {
 
 function displayUsers() {
    let users = "";
-   users += /*html*/ `<div class="flex column container gap padding border bold"></div>`;
+   users += /*html*/ `<div class="flex column container gap padding border bold">`;
    for (let user of model.data.users) {
       if (filterPath === "free" && user.isPremium) continue;
       if (filterPath === "premium" && !user.isPremium) continue;
       users += /*html*/ `
-      <div class="list-bar flex row justify-between align-center padding border">
+      <div 
+         class="list-bar flex row justify-between align-center padding border"
+         onclick="model.viewState.adminUserOverview.selectedUser = '${user.id}'; openModal('adminViewUser')">
          <div class="element50">
             ${user.username}
          </div>
@@ -51,7 +53,7 @@ function displayUsers() {
          <div>
             <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
          </div>
-      </div>`
+      </div>`;
    }
    users += "</div>";
    return users;

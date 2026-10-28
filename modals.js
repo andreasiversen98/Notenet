@@ -4,6 +4,7 @@ const modals = {
    invite: inviteMemberModal,
    makePrivate: makePrivateModal,
    cancelPremium: cancelPremiumModal,
+   adminViewUser: adminViewUser,
 };
 
 function openModal(name) {
