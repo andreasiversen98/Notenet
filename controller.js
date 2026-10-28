@@ -33,14 +33,15 @@ setView("loginPage");
 // setView("userNotification");
 
 function createTestUsers() {
-   for (let i = 0; i < 100; i++) {
+   let testUserAmount = 100;
+   for (let i = 0; i < testUserAmount; i++) {
       model.data.users.push({
          id: `test${i}`,
          username: `test${i}`,
          password: "123",
          profilePicture: "../../src/images/default-avatar.svg",
          code: `test${i}`,
-         isPremium: true,
+         isPremium: i > testUserAmount / 2 ? true : false,
          role: "user",
          invitedTo: ["l2", "l3"],
          sentInvites: ["l1"],
