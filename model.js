@@ -334,9 +334,10 @@ const model = {
         id: "l4",
         title: "To cosplay or not todo",
         ownerId: "u4",
-        isShared: false,
+        isShared: true,
         completedItems: 9,
         totalItems: 14,
+        members: ["u4"],
         items: [
           {
             id: "i1",
@@ -414,9 +415,10 @@ const model = {
         id: "l5",
         title: "Planer for å ta over verden",
         ownerId: "u4",
-        isShared: false,
+        isShared: true,
         completedItems: 560,
         totalItems: 1793,
+        members: ["u4"],
         items: [],
       },
     ],
