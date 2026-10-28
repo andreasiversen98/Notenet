@@ -5,44 +5,67 @@ let newImage = model.viewState.userProfilePage.editProfile.image;
 let canEditImage = model.viewState.userProfilePage.editName;
 
 function userSettings() {
+   const user = getLoggedInUser();
+
    return /*html*/ `
-   <div class="flex column gap">
-      <div class="flex row justify-between align-center padding">
-         <h1>innstillinger</h1>
+   <div class="settings-page flex column">
+      <div class="flex row justify-between align-center">
+         <h1>Innstillinger</h1>
          <div class="flex row align-center gap2">
             ${getThemeToggle()}
             <img onclick="exitUserSettings()" class="icon-size" src="../../assets/icons/x.svg"/>
          </div>
       </div>
-      <div class="flex column container gap padding">
+
+      <div class="settings-user flex row align-center gap">
+         <img class="settings-avatar" src="${user.profilePictureSmall || user.profilePicture}" alt="${user.username}"/>
+         <div class="flex column">
+            <span class="settings-name">${user.username}</span>
+            <span class="settings-meta">${user.isPremium ? "Premium" : "Gratis"} · ${user.code}</span>
+         </div>
+      </div>
+
+      <h3 class="settings-label">Profil</h3>
+      <div class="settings-group">
          ${getNameField()}
          ${getImageField()}
-         <div onclick="togglePremium()" class="list-bar flex row justify-between padding">
-            <div class="flex row align-center gap">
-               ${getLoggedInUser().isPremium ? `<span>Avslutt premium</span>` : `<span>Kjøp premium</span>`}
-            </div>
-         </div>
+      </div>
+
+      <h3 class="settings-label">Abonnement</h3>
+      <div class="settings-group">
+         ${getPremiumRow()}
       </div>
    </div>
    `;
 }
 
+function getPremiumRow() {
+   const isPremium = getLoggedInUser().isPremium;
+   const icon = isPremium ? "star-red.svg" : "circle-star.svg";
+   const text = isPremium ? "Avslutt premium" : "Kjøp premium";
+
+   return /*html*/ `
+      <div onclick="togglePremium()" class="settings-row ${isPremium ? "settings-danger" : ""} flex row align-center gap">
+         <img class="icon-size ${isPremium ? "icon-star-red" : ""}" src="../../assets/icons/${icon}"/>
+         <span>${text}</span>
+         ${isPremium ? "" : `<img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>`}
+      </div>`;
+}
+
 function getNameField() {
    if (canEditName == false)
       return /*html*/ `
-         <div onclick="switchNameField()" class="list-bar flex row justify-between padding">
-            <div class="flex row align-center gap">
-               <span>Endre navn</span>
-            </div>
+         <div onclick="switchNameField()" class="settings-row flex row align-center gap">
+            <img class="icon-size" src="../../assets/icons/pencil.svg"/>
+            <span>Endre navn</span>
+            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
          </div>`;
    else
       return /*html*/ `
-         <div class="list-bar flex row justify-between padding">
-            <div class="flex row align-center gap">
-               <input onchange="newUsername = this.value" type="text">
-               <button onclick="changeUsername()">Endre</button>
-               <button onclick="cancelNameField()">Avbryt</button>
-            </div>
+         <div class="settings-row flex row align-center gap">
+            <input class="settings-input" onchange="newUsername = this.value" type="text" placeholder="Nytt navn">
+            <button class="edit-btn edit-btn-save" onclick="changeUsername()">Endre</button>
+            <button class="edit-btn edit-btn-cancel" onclick="cancelNameField()">Avbryt</button>
          </div>`;
 }
 
@@ -68,19 +91,17 @@ function cancelNameField() {
 function getImageField() {
    if (canEditImage == false)
       return /*html*/ `
-         <div onclick="switchImageField()" class="list-bar flex row justify-between padding">
-            <div class="flex row align-center gap">
-               <span>Endre profilbilde</span>
-            </div>
+         <div onclick="switchImageField()" class="settings-row flex row align-center gap">
+            <img class="icon-size" src="../../assets/icons/user-round.svg"/>
+            <span>Endre profilbilde</span>
+            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
          </div>`;
    else
       return /*html*/ `
-         <div class="list-bar flex row justify-between padding">
-            <div class="flex row align-center gap">
-               <input type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
-               <button onclick="submitNewImage()">Lagre</button>
-               <button onclick="cancelImageField()">Avbryt</button>
-            </div>
+         <div class="settings-row flex row align-center gap">
+            <input class="settings-file" type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
+            <button class="edit-btn edit-btn-save" onclick="submitNewImage()">Lagre</button>
+            <button class="edit-btn edit-btn-cancel" onclick="cancelImageField()">Avbryt</button>
          </div>`;
 }
 
