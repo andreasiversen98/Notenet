@@ -86,6 +86,29 @@ html, body {
   transform: scale(0.92);
 }
 
+/*notification count*/
+.notification-icon {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border: 2px solid #0a0a0a;
+  border-radius: 999px;
+  background-color: #ff3d1f;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
 /*profile image*/
 .image-size {
   width: 88px;

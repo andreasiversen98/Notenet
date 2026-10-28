@@ -47,6 +47,10 @@ body.dark .bottom-bar .icon-add {
   filter: none;
 }
 
+body.dark .notification-count {
+  border-color: #1e1e1e;
+}
+
 /*login page*/
 body.dark .login-input,
 body.dark .login-button {
