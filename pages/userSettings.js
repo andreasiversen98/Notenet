@@ -40,8 +40,8 @@ function getNameField() {
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input onchange="newUsername = this.value" type="text">
-               <button onclick="changeUsername()">endre</button>
-               <button onclick="cancelNameField()">avbryt</button>
+               <button onclick="changeUsername()">Endre</button>
+               <button onclick="cancelNameField()">Avbryt</button>
             </div>
          </div>`;
 }
@@ -78,8 +78,8 @@ function getImageField() {
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
-               <button onclick="submitNewImage()">lagre</button>
-               <button onclick="cancelImageField()">avbryt</button>
+               <button onclick="submitNewImage()">Lagre</button>
+               <button onclick="cancelImageField()">Avbryt</button>
             </div>
          </div>`;
 }

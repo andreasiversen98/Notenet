@@ -464,3 +464,29 @@ h3 + ul li span {
   font-size: 14px;
   color: #6b6b66;
 }
+
+/*remove member*/
+.remove-member-btn {
+  margin-left: 4px;
+}
+
+.remove-member-btn img {
+  opacity: 0.5;
+}
+
+.remove-member-btn:hover img {
+  opacity: 1;
+}
+
+/*invite member*/
+.invite-text {
+  margin: 0;
+  font-size: 14px;
+  color: #6b6b66;
+}
+
+.invite-message {
+  margin: 0 4px;
+  font-size: 13px;
+  color: #6b6b66;
+}

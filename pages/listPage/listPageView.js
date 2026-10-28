@@ -19,7 +19,7 @@ function listPageView() {
     }
 
     let textHtml = `<span>${item.text}</span>`;
-    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">rediger</button>`;
+    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">Rediger</button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
       textHtml = `
@@ -32,8 +32,8 @@ function listPageView() {
         >
       `;
       editBtnHtml = `
-        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../src/icons/check.svg" alt="">lagre</button>
-        <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">avbryt</button>
+        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../src/icons/check.svg" alt="">Lagre</button>
+        <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">Avbryt</button>
       `;
     }
 
@@ -85,10 +85,11 @@ function listPageView() {
             <img src="../../src/icons/chevron-right.svg" width="14"
                  class="${showMembers ? "rotated" : ""}" alt="">
           </button>
-          <button class="btn invite-btn">
+          ${canAddMember(list) ? `
+          <button class="btn invite-btn" onclick="openInviteModal()">
             <img src="../../src/icons/user-plus.svg" width="14" alt="">
-            inviter
-          </button>
+            Inviter
+          </button>` : ""}
         </div>
       `
     : "";
@@ -102,8 +103,12 @@ function listPageView() {
         <div class="member-row">
           <img src="${user.profilePictureSmall || user.profilePicture}" class="member-avatar" alt="">
           <span>${user.username}</span>
-          ${user.id === list.ownerId ? `<span class="owner-tag">eier</span>` : ""}
+          ${user.id === list.ownerId ? `<span class="owner-tag">Eier</span>` : ""}
           <span class="member-code">${user.code}</span>
+          ${canRemoveMember(list, user) ? `
+            <button class="btn-icon remove-member-btn" onclick="removeMember('${user.id}')" title="Fjern medlem">
+              <img src="../../src/icons/x.svg" width="14" alt="Fjern">
+            </button>` : ""}
         </div>
       `;
     }

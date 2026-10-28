@@ -255,3 +255,34 @@ body.dark .code-label,
 body.dark .profile-container .list-bar > div:last-child span {
   color: #8a8a85;
 }
+
+/*invite member*/
+body.dark .invite-text,
+body.dark .invite-message {
+  color: #8a8a85;
+}
+
+/*notifications*/
+body.dark .close-btn {
+  border-color: #e8e8e8;
+}
+
+body.dark .invite-row {
+  border-bottom-color: #333333;
+}
+
+body.dark .invite-owner {
+  color: #8a8a85;
+}
+
+body.dark .invite-actions .accept-btn {
+  filter: none;
+}
+
+body.dark .decline-btn {
+  border-color: #555555;
+}
+
+body.dark .decline-btn:hover {
+  border-color: #e8e8e8;
+}

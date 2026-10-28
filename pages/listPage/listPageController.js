@@ -1,5 +1,5 @@
 function getCurrentList() {
-  const listId = model.viewState.listPage.selectedListId || "l3";
+  const listId = model.viewState.listPage.selectedListId || "l1";
   return model.data.lists.find(list => list.id === listId);
 }
 
@@ -10,12 +10,71 @@ function openList(listId) {
   lp.editingItemTitle = "";
   lp.newItemTitle = "";
   lp.showMembers = false;
+  lp.inviteCode = "";
+  lp.inviteMessage = "";
   setView("listPage");
 }
 
 function toggleMembers() {
   const lp = model.viewState.listPage;
   lp.showMembers = !lp.showMembers;
+  setView();
+}
+
+function canRemoveMember(list, user) {
+  const me = getLoggedInUser();
+  const isOwner = list.ownerId === me.id;
+  const isAdmin = me.role === "admin";
+  return (isOwner || isAdmin) && user.id !== list.ownerId;
+}
+
+function canAddMember(list) {
+  const me = getLoggedInUser();
+  return list.ownerId === me.id || me.role === "admin";
+}
+
+function openInviteModal() {
+  const lp = model.viewState.listPage;
+  lp.inviteCode = "";
+  lp.inviteMessage = "";
+  openModal("invite");
+  document.querySelector(".invite-input").focus();
+}
+
+function closeInviteModal() {
+  const lp = model.viewState.listPage;
+  lp.inviteCode = "";
+  lp.inviteMessage = "";
+  closeModal();
+}
+
+function inviteMember() {
+  const lp = model.viewState.listPage;
+  const list = getCurrentList();
+  if (!list || !canAddMember(list)) return;
+
+  const code = lp.inviteCode.trim().toUpperCase();
+  const user = model.data.users.find((u) => u.code === code);
+
+  if (!user) {
+    lp.inviteMessage = "Fant ingen bruker med den vennekoden";
+  } else if (list.members.includes(user.id)) {
+    lp.inviteMessage = `${user.username} er allerede medlem`;
+  } else if (user.invitedTo.includes(list.id)) {
+    lp.inviteMessage = `${user.username} er allerede invitert`;
+  } else {
+    user.invitedTo.push(list.id);
+    lp.inviteMessage = `Invitasjon sendt til ${user.username}`;
+    lp.inviteCode = "";
+  }
+  setView();
+  document.querySelector(".invite-input").focus();
+}
+
+function removeMember(userId) {
+  const list = getCurrentList();
+  if (!list || !canRemoveMember(list, getUserById(userId))) return;
+  list.members = list.members.filter((memberId) => memberId !== userId);
   setView();
 }
 
@@ -165,5 +224,14 @@ function toggleListVisibility() {
 function setListVisibility(isShared) {
   const list = getCurrentList();
   if (!list || list.isShared === isShared) return;
+  if (!isShared && list.members.length > 1) {
+    openModal("makePrivate");
+    return;
+  }
+  toggleListVisibility();
+}
+
+function confirmMakePrivate() {
+  model.app.openModal = null;
   toggleListVisibility();
 }

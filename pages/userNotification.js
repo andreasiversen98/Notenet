@@ -1,13 +1,13 @@
 function userNotification() {
    return `
    <div class="modal-overlay" onclick="closeModal()"> 
-      <div class="modal-content" onclick="event.stopPropagation()"> 
+      <div class="modal-content notification-modal" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
-            <div class="flex row justify-between align-center padding">
-               <h1>varsler</h1>
-               <img onclick="closeModal()" class="icon-size" src="../../src/icons/x.svg"/>
+            <div class="flex row justify-between align-center">
+               <h1>Varsler</h1>
+               <img onclick="closeModal()" class="icon-size close-btn" src="../../src/icons/x.svg"/>
             </div>
-            <div class="flex column container gap padding">
+            <div class="flex column invite-list">
                ${displayInvites()}
             </div>
          </div>
@@ -18,21 +18,21 @@ function userNotification() {
 function displayInvites() {
    let lists = fetchInvites();
    let getComponents = modifyListDataIntoComponents(lists);
-   return getComponents;
+   return getComponents || `<p class="empty-text">Ingen nye varsler</p>`;
 }
 
 function modifyListDataIntoComponents(lists) {
    let temp = "";
    for (let list of lists) {
       temp += `
-      <div onclick="" class="list-bar flex row justify-between padding border">
-         <div class="flex column padding gap">
-            <div class="bold">${fetchListOwnerName(list.ownerId)}</div>
-            <div>${list.title}</div>
+      <div class="invite-row flex row justify-between align-center">
+         <div class="flex column">
+            <div class="invite-owner">${fetchListOwnerName(list.ownerId)}</div>
+            <div class="invite-title">${list.title}</div>
          </div>
-         <div class="flex row align-center padding gap2">
-            <img onclick="acceptInviteToList('${list.id}')" class="icon-size2" src="../../src/icons/check.svg"/>
-            <img onclick="declineInviteToList('${list.id}')" class="icon-size2" src="../../src/icons/x.svg"/>
+         <div class="flex row align-center invite-actions">
+            <img onclick="acceptInviteToList('${list.id}')" class="accept-btn" title="Godta" src="../../src/icons/check-white.svg"/>
+            <img onclick="declineInviteToList('${list.id}')" class="decline-btn" title="Avslå" src="../../src/icons/x.svg"/>
          </div>
       </div>`;
    }

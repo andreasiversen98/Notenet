@@ -43,7 +43,6 @@ function copyFriendCode() {
    navigator.clipboard.writeText(getLoggedInUser().code);
    model.viewState.userProfilePage.codeCopied = true;
    setView();
-   // viser haken i 2 sekunder før kopier-ikonet kommer tilbake
    setTimeout(() => {
       model.viewState.userProfilePage.codeCopied = false;
       setView();

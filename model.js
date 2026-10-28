@@ -33,6 +33,8 @@ const model = {
       editingItemTitle: "",
       selectedListId: "",
       showMembers: false,
+      inviteCode: "",
+      inviteMessage: "",
     },
 
     notificationPage: {
@@ -105,7 +107,7 @@ const model = {
         profilePicture: "../../src/images/default-avatar.svg",
         code: "ORW-135",
         isPremium: true,
-        role: "admin",
+        role: "user",
         invitedTo: ["l1", "l2"],
         sentInvites: ["l4"],
       },
