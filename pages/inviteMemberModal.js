@@ -2,7 +2,7 @@ function inviteMemberModal() {
    const lp = model.viewState.listPage;
    const list = getCurrentList();
 
-   return `
+   return /*html*/ `
    <div class="modal-overlay" onclick="closeInviteModal()">
       <div class="modal-content" onclick="event.stopPropagation()">
          <div class="flex column gap">

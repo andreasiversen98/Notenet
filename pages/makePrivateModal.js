@@ -3,7 +3,7 @@ function makePrivateModal() {
    const count = list.members.length - 1;
    const membersText = count === 1 ? "1 medlem" : `${count} medlemmer`;
 
-   return `
+   return /*html*/ `
    <div class="modal-overlay" onclick="closeModal()">
       <div class="modal-content" onclick="event.stopPropagation()">
          <div class="flex column gap">

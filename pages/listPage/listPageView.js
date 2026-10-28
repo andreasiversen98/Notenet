@@ -14,15 +14,15 @@ function listPageView() {
     if (list.isShared && !item.isCompleted) {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
-        ? `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
+        ? /*html*/ `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
         : '<img src="../../src/icons/user-round.svg" width="14" alt="Bruker">';
     }
 
-    let textHtml = `<span>${item.text}</span>`;
-    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">Rediger</button>`;
+    let textHtml = /*html*/ `<span>${item.text}</span>`;
+    let editBtnHtml = /*html*/ `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">Rediger</button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
-      textHtml = `
+      textHtml = /*html*/ `
         <input
           class="edit-input"
           type="text"
@@ -31,7 +31,7 @@ function listPageView() {
           onkeydown="if(event.key === 'Enter') saveEditItem()"
         >
       `;
-      editBtnHtml = `
+      editBtnHtml = /*html*/ `
         <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../src/icons/check.svg" alt="">Lagre</button>
         <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">Avbryt</button>
       `;

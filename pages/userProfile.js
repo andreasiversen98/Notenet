@@ -1,6 +1,6 @@
 function userProfile() {
    if (getLoggedInUser().role === "admin") return adminProfile()
-   return `
+   return /*html*/ `
    ${headerComponent()}
    ${userProfileLayout()}
    ${getBottomBar()}
@@ -9,7 +9,7 @@ function userProfile() {
 }
 
 function userProfileLayout() {
-   return `
+   return /*html*/ `
    <div class="flex column gap profile-container">
       ${userInfoElements()}
       ${userListCategories()}
@@ -19,7 +19,7 @@ function userProfileLayout() {
 
 function userInfoElements() {
    const user = getLoggedInUser();
-   return `
+   return /*html*/ `
    <div class="flex row padding gap justify-evenly">
       <div class="flex column gap">
          <img class="image-size border" src="${user.profilePicture}"/>
@@ -36,7 +36,7 @@ function userInfoElements() {
 
 function getCopyButton() {
    const icon = model.viewState.userProfilePage.codeCopied ? "check.svg" : "copy.svg";
-   return `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="../../src/icons/${icon}"/>`
+   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="../../src/icons/${icon}"/>`
 }
 
 function copyFriendCode() {
@@ -59,12 +59,12 @@ function getGreeting() {
 
 function getPremiumInfo() {
    if (!getLoggedInUser().isPremium) return `` 
-   else return `
+   else return /*html*/ `
    <img class="premium-badge" src="../../src/images/premium/premium-badge.svg" alt="premium" style="height: 24px"/>`
 }
 
 function userListCategories() {
-   return `
+   return /*html*/ `
    <div class="flex column container gap padding">
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
@@ -101,7 +101,7 @@ function userListCategories() {
 
 function userPremiumButton() {
    if (getLoggedInUser().isPremium) return ``
-   else return `
+   else return /*html*/ `
    <div class="premium-cta flex row justify-between align-center">
       <div class="flex column">
          <span class="premium-cta-title">Notenet Premium</span>

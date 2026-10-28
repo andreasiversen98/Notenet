@@ -1,5 +1,5 @@
 function adminHeaderComponent() {
-   return `
+   return /*html*/ `
    <div class="header flex row justify-between align-center padding">
       <h2>adminpanel</h2>
       <div class="flex row align-center gap2">

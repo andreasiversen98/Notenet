@@ -1,5 +1,5 @@
 function notificationsModal() {
-   return `
+   return /*html*/ `
    <div class="modal-overlay" onclick="closeModal()"> 
       <div class="modal-content notification-modal" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
@@ -18,13 +18,13 @@ function notificationsModal() {
 function displayInvites() {
    let lists = fetchInvites();
    let getComponents = modifyListDataIntoComponents(lists);
-   return getComponents || `<p class="empty-text">Ingen nye varsler</p>`;
+   return getComponents || /*html*/ `<p class="empty-text">Ingen nye varsler</p>`;
 }
 
 function modifyListDataIntoComponents(lists) {
    let temp = "";
    for (let list of lists) {
-      temp += `
+      temp += /*html*/ `
       <div class="invite-row flex row justify-between align-center">
          <div class="flex column">
             <div class="invite-owner">${fetchListOwnerName(list.ownerId)}</div>

@@ -5,7 +5,7 @@ let newImage = model.viewState.userProfilePage.editProfile.image;
 let canEditImage = model.viewState.userProfilePage.editName;
 
 function userSettings() {
-   return `
+   return /*html*/ `
    <div class="flex column gap">
       <div class="flex row justify-between align-center padding">
          <h1>innstillinger</h1>
@@ -29,14 +29,14 @@ function userSettings() {
 
 function getNameField() {
    if (canEditName == false)
-      return `
+      return /*html*/ `
          <div onclick="switchNameField()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <span>Endre navn</span>
             </div>
          </div>`;
    else
-      return `
+      return /*html*/ `
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input onchange="newUsername = this.value" type="text">
@@ -67,14 +67,14 @@ function cancelNameField() {
 
 function getImageField() {
    if (canEditImage == false)
-      return `
+      return /*html*/ `
          <div onclick="switchImageField()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <span>Endre profilbilde</span>
             </div>
          </div>`;
    else
-      return `
+      return /*html*/ `
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>

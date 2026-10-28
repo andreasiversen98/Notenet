@@ -1,5 +1,5 @@
 function headerComponent() {
-   return `
+   return /*html*/ `
       <div class="header flex row justify-between align-center padding">
          <h1><img class="logo-img" src="../../src/images/logo/notenet-logo.svg" alt="notenet"></h1>
          <div class="flex row align-center gap2">

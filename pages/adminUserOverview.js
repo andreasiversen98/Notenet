@@ -1,7 +1,7 @@
 let filterPath = model.viewState.adminUserOverview.selectedFilter
 
 function adminUserOverview() {
-   return `
+   return /*html*/ `
    ${adminHeaderComponent()}
    ${filterUsers()}
    ${displayUsers()}
@@ -10,7 +10,7 @@ function adminUserOverview() {
 }
 
 function filterUsers() {
-   return `
+   return /*html*/ `
    <div class="flex row gap">
       <div class="border padding ${filterPath == "all" ? "container" : ""}"
       onclick="setFilter('all')">
@@ -35,11 +35,11 @@ function setFilter(newFilter) {
 
 function displayUsers() {
    let users = ""
-   users += `<div class="flex column container gap padding border bold">`
+   users += /*html*/ `<div class="flex column container gap padding border bold">`
    for (let user of model.data.users) {
       if (filterPath === "free" && user.isPremium) continue
       if (filterPath === "premium" && !user.isPremium) continue
-      users += `
+      users += /*html*/ `
       <div class="list-bar flex row justify-between align-center padding border">
          <div class="element50">
             ${user.username}
