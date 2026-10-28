@@ -1,10 +1,10 @@
 function adminViewUser() {
-   return `
+   return /*html*/ `
    <div class="modal-overlay" onclick="closeModal()"> 
       <div class="modal-content notification-modal" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
-               <h1>Varsler</h1>
+               <h1>Brukerinfo</h1>
                <img onclick="closeModal()" class="icon-size close-btn" src="../../assets/icons/x.svg"/>
             </div>
             <div class="flex column invite-list">
