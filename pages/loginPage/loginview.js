@@ -1,5 +1,3 @@
-
- 
 function loginPage(){
   const vs = model.viewState.loginPage;
 
@@ -15,27 +13,27 @@ function loginPage(){
           class="login-input"
           placeholder="brukernavn"
           value="${vs.username}"
-          oninput="setLoginUsername(this.value)" 
-          onkeydown="if(event.key === 'Enter') logIn()"/>
+          oninput="setLoginUsername(this.value)"
+          onkeydown="if(event.key === 'Enter') logIn()" />
 
         <input
           type="password"
           class="login-input"
           placeholder="passord"
           value="${vs.password}"
-          oninput="setLoginPassword(this.value)" 
+          oninput="setLoginPassword(this.value)"
           onkeydown="if(event.key === 'Enter') logIn()" />
 
         <button class="login-button" onclick="logIn()">Logg inn</button>
 
         <p class="login-error">${vs.error}</p>
 
-      <p class="login-bottom">Har du ikke bruker? <a>Lag en ny</a></p>
+        <button class="register-button" onclick="setView('registerPage')">
+          Lag en ny bruker
+        </button>
 
       </div>
-
     </div>
     ${getBottomBar()}
   `;
 }
-
