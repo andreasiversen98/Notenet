@@ -8,7 +8,7 @@ function loginPage(){
     <div class="login-wrapper">
       <div class="login-page">
 
-        <h1 class="logo"><img class="logo-img" src="../../src/images/logo/notenet-logo.svg" alt="notenet"></h1>
+        <h1 class="logo"><img class="logo-img" src="../../assets/images/logo/notenet-logo.svg" alt="notenet"></h1>
 
         <input
           type="text"

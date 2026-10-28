@@ -5,7 +5,7 @@ function notificationsModal() {
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
                <h1>Varsler</h1>
-               <img onclick="closeModal()" class="icon-size close-btn" src="../../src/icons/x.svg"/>
+               <img onclick="closeModal()" class="icon-size close-btn" src="../../assets/icons/x.svg"/>
             </div>
             <div class="flex column invite-list">
                ${displayInvites()}
@@ -31,8 +31,8 @@ function modifyListDataIntoComponents(lists) {
             <div class="invite-title">${list.title}</div>
          </div>
          <div class="flex row align-center invite-actions">
-            <img onclick="acceptInviteToList('${list.id}')" class="accept-btn" title="Godta" src="../../src/icons/check-white.svg"/>
-            <img onclick="declineInviteToList('${list.id}')" class="decline-btn" title="Avslå" src="../../src/icons/x.svg"/>
+            <img onclick="acceptInviteToList('${list.id}')" class="accept-btn" title="Godta" src="../../assets/icons/check-white.svg"/>
+            <img onclick="declineInviteToList('${list.id}')" class="decline-btn" title="Avslå" src="../../assets/icons/x.svg"/>
          </div>
       </div>`;
    }

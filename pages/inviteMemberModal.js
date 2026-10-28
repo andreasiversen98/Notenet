@@ -8,7 +8,7 @@ function inviteMemberModal() {
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
                <h2>Inviter</h2>
-               <img onclick="closeInviteModal()" class="icon-size" src="../../src/icons/x.svg"/>
+               <img onclick="closeInviteModal()" class="icon-size" src="../../assets/icons/x.svg"/>
             </div>
             <p class="invite-text">Skriv inn vennekoden til personen du vil invitere til «${list.title}».</p>
             <div class="input-box">
@@ -21,7 +21,7 @@ function inviteMemberModal() {
                   onkeydown="if(event.key === 'Enter') inviteMember()"
                />
                <button class="btn" onclick="inviteMember()">
-                  <img src="../../src/icons/user-plus.svg" width="16" alt="Inviter">
+                  <img src="../../assets/icons/user-plus.svg" width="16" alt="Inviter">
                </button>
             </div>
             ${lp.inviteMessage ? `<p class="invite-message">${lp.inviteMessage}</p>` : ""}

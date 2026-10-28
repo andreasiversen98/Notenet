@@ -48,7 +48,7 @@ function displayUsers() {
             ${user.code}
          </div>
          <div>
-            <img class="icon-size" src="../../src/icons/chevron-right.svg"/>
+            <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
          </div>
       </div>`
    }

@@ -11,7 +11,7 @@ function userSettings() {
          <h1>innstillinger</h1>
          <div class="flex row align-center gap2">
             ${getThemeToggle()}
-            <img onclick="exitUserSettings()" class="icon-size" src="../../src/icons/x.svg"/>
+            <img onclick="exitUserSettings()" class="icon-size" src="../../assets/icons/x.svg"/>
          </div>
       </div>
       <div class="flex column container gap padding">
