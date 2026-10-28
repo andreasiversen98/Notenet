@@ -1,4 +1,4 @@
-function createListModalComponent() {
+function createListModal() {
   const state = model.viewState.landingPage.createList;
 
   const isShared = state.isShared ?? false;

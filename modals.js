@@ -1,6 +1,6 @@
 const modals = {
-   createList: createListModalComponent,
-   notifications: userNotification,
+   createList: createListModal,
+   notifications: notificationsModal,
    invite: inviteMemberModal,
    makePrivate: makePrivateModal,
 };

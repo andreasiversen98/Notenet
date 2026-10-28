@@ -1,4 +1,4 @@
-function userNotification() {
+function notificationsModal() {
    return `
    <div class="modal-overlay" onclick="closeModal()"> 
       <div class="modal-content notification-modal" onclick="event.stopPropagation()"> 
