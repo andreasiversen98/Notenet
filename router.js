@@ -5,4 +5,5 @@ const router = {
   userSettings: userSettings,
   adminProfile: adminProfile,
   adminUserOverview: adminUserOverview,
+  adminViewUser: adminViewUser,
 };
