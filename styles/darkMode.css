@@ -162,6 +162,10 @@ body.dark .modal-toggle-btn.active {
   color: #ffffff;
 }
 
+body.dark .modal-toggle-btn:disabled {
+  color: #5a5a5a;
+}
+
 /*user page*/
 body.dark .profile-container .container {
   background-color: transparent;

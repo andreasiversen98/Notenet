@@ -1,7 +1,8 @@
 function createListModal() {
   const state = model.viewState.landingPage.createList;
+  const canShare = getLoggedInUser().isPremium;
 
-  const isShared = state.isShared ?? false;
+  const isShared = canShare && (state.isShared ?? false);
   const iconFile = isShared ? "users.svg" : "lock.svg";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
@@ -18,7 +19,10 @@ function createListModal() {
             
             <div class="modal-toggle-container">
                <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
-               <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)">Delt</button>
+               <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)" ${canShare ? "" : `disabled title="Delte lister krever premium"`}>
+                  Delt
+                  ${canShare ? "" : `<img class="premium-icon" src="../../assets/images/premium/premium-ikon.svg" alt="Premium">`}
+               </button>
             </div>
 
             <div class="input-box">

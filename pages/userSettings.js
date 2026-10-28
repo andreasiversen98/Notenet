@@ -134,7 +134,20 @@ function cancelImageField() {
 function togglePremium() {
    const user = getLoggedInUser();
    user.isPremium = !user.isPremium;
+   if (!user.isPremium) makeSharedListsPrivate(user);
    setView();
+}
+
+function makeSharedListsPrivate(user) {
+   for (const list of model.data.lists) {
+      if (list.ownerId !== user.id || !list.isShared) continue;
+      list.isShared = false;
+      list.members = [user.id];
+
+      for (const otherUser of model.data.users) {
+         otherUser.invitedTo = otherUser.invitedTo.filter((listId) => listId !== list.id);
+      }
+   }
 }
 
 function exitUserSettings() {

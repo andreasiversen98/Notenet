@@ -26,6 +26,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.modal-toggle-btn:disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b5b5b0;
+  cursor: not-allowed;
+}
+
+.premium-icon {
+  width: 16px;
+  height: 16px;
+}
+
 /*modal*/
 .modal-overlay {
    position: fixed;
