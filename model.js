@@ -1,69 +1,69 @@
 const model = {
-  app: {
-    currentPage: "",
-    previousPage: "",
-    currentUserId: "u6",
-    openModal: null,
-    darkMode: false,
-  },
+   app: {
+      currentPage: "",
+      previousPage: "",
+      currentUserId: "u6",
+      openModal: null,
+      darkMode: false,
+   },
 
-  viewState: {
-    loginPage: {
-      username: "",
-      password: "",
-      error: "",
-    },
-
-    registerPage: {
-      username: "",
-      password: "",
-    },
-
-    landingPage: {
-      createList: {
-        isShared: null,
-        title: "",
-        selectedFilter: "",
+   viewState: {
+      loginPage: {
+         username: "",
+         password: "",
+         error: "",
       },
-    },
 
-    listPage: {
-      newItemTitle: "",
-      editingItemId: null,
-      editingItemTitle: "",
-      selectedListId: "",
-      showMembers: false,
-      inviteCode: "",
-      inviteMessage: "",
-    },
-
-    notificationPage: {
-      code: "",
-      foundUserId: "",
-    },
-
-    userProfilePage: {
-      codeCopied: false,
-      editName: false,
-      editImage: false,
-      editProfile: {
-        username: "",
-        image: "",
+      registerPage: {
+         username: "",
+         password: "",
       },
-    },
 
-    adminUserOverview: {
-      search: "",
-      selectedFilter: "all",
-      page: null,
-      selectedUserId: "",
-    },
+      landingPage: {
+         createList: {
+            isShared: null,
+            title: "",
+            selectedFilter: "",
+         },
+      },
 
-    adminUserActions: {
-      changeUserStatus: null,
-      removeUser: null,
-    },
-  },
+      listPage: {
+         newItemTitle: "",
+         editingItemId: null,
+         editingItemTitle: "",
+         selectedListId: "",
+         showMembers: false,
+         inviteCode: "",
+         inviteMessage: "",
+      },
+
+      notificationPage: {
+         code: "",
+         foundUserId: "",
+      },
+
+      userProfilePage: {
+         codeCopied: false,
+         editName: false,
+         editImage: false,
+         editProfile: {
+            username: "",
+            image: "",
+         },
+      },
+
+      adminUserOverview: {
+         search: "",
+         selectedFilter: "all",
+         page: null,
+         selectedUserId: "",
+      },
+
+      adminUserActions: {
+         changeUserStatus: null,
+         removeUser: null,
+      },
+   },
 
   data: {
     users: [
@@ -135,292 +135,292 @@ const model = {
       },
     ],
 
-    lists: [
-      {
-        id: "l1",
-        title: "Awesome list of fun",
-        ownerId: "u1",
-        isShared: true,
-        completedItems: 0,
-        totalItems: 12,
-        members: ["u1", "u2", "u3"],
-        items: [
-          {
-            id: "i1",
-            text: "Planlegge neste møte",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i2",
-            text: "Bestille pizza til gjengen",
-            isCompleted: false,
-            addedBy: "u2",
-          },
-          {
-            id: "i3",
-            text: "Spise iskrem til frokost",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i4",
-            text: "Kjøpe inn masse godteri",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i5",
-            text: "Sette opp projektor i stua",
-            isCompleted: false,
-            addedBy: "u2",
-          },
-          {
-            id: "i6",
-            text: "Lage spilleliste med retroklassikere",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i7",
-            text: "Finne frem brettspill",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i8",
-            text: "Teste VR-briller",
-            isCompleted: false,
-            addedBy: "u2",
-          },
-          {
-            id: "i9",
-            text: "Bestemme hvem som lager kaffe",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i10",
-            text: "Gjemme nøkkelen under matta",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i11",
-            text: "Kjøpe ny fotball",
-            isCompleted: false,
-            addedBy: "u2",
-          },
-          {
-            id: "i12",
-            text: "Planlegge helgetur",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-        ],
-      },
-      {
-        id: "l2",
-        title: "Episke gjøremål",
-        ownerId: "u2",
-        isShared: true,
-        completedItems: 5,
-        totalItems: 23,
-        members: ["u2"],
-        items: [],
-      },
-      {
-        id: "l3",
-        title: "Crazy banan liste",
-        ownerId: "u3",
-        isShared: true,
-        completedItems: 5,
-        totalItems: 15,
-        members: ["u3", "u1"],
-        items: [
-          {
-            id: "i1",
-            text: "Lære en due å si hei",
-            isCompleted: true,
-            addedBy: "u3",
-          },
-          {
-            id: "i2",
-            text: "Gi kjøleskapet et navn",
-            isCompleted: true,
-            addedBy: "u3",
-          },
-          {
-            id: "i3",
-            text: "Gå baklengs til butikken",
-            isCompleted: true,
-            addedBy: "u1",
-          },
-          {
-            id: "i4",
-            text: "Starte en krangel med en måke",
-            isCompleted: true,
-            addedBy: "u3",
-          },
-          {
-            id: "i5",
-            text: "Bytte ut alle lyspærer med discokuler",
-            isCompleted: true,
-            addedBy: "u1",
-          },
-          {
-            id: "i6",
-            text: "Adoptere en stein og ta den med på tur",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i7",
-            text: "Søke jobb som profesjonell nyser",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i8",
-            text: "Lage suppe av gamle sokker",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i9",
-            text: "Vinne en stirrekonkurranse mot en ugle",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i10",
-            text: "Bygge en rakett av pappesker",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i11",
-            text: "Snakke kun i rim en hel tirsdag",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i12",
-            text: "Overbevise naboen om at jeg er en vampyr",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-          {
-            id: "i13",
-            text: "Gifte bort to potteplanter",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i14",
-            text: "Telle alle sandkorn på stranda",
-            isCompleted: false,
-            addedBy: "u1",
-          },
-          {
-            id: "i15",
-            text: "Lære katten å betale skatt",
-            isCompleted: false,
-            addedBy: "u3",
-          },
-        ],
-      },
-      {
-        id: "l4",
-        title: "To cosplay or not todo",
-        ownerId: "u4",
-        isShared: true,
-        completedItems: 9,
-        totalItems: 14,
-        members: ["u4"],
-        items: [
-          {
-            id: "i1",
-            text: "Kjøpe stoff til kostyme",
-            isCompleted: true,
-          },
-          {
-            id: "i2",
-            text: "Sy om ermene",
-            isCompleted: true,
-          },
-          {
-            id: "i3",
-            text: "Lage sverd av foam",
-            isCompleted: true,
-          },
-          {
-            id: "i4",
-            text: "Lime på detaljer med limpistol",
-            isCompleted: true,
-          },
-          {
-            id: "i5",
-            text: "Male rustningselementer",
-            isCompleted: true,
-          },
-          {
-            id: "i6",
-            text: "Prøve på hele antrekket",
-            isCompleted: true,
-          },
-          {
-            id: "i7",
-            text: "Skaffe parykk og style den",
-            isCompleted: true,
-          },
-          {
-            id: "i8",
-            text: "Fikse sminke og ansiktsmaling",
-            isCompleted: true,
-          },
-          {
-            id: "i9",
-            text: "Lage skoovertrekk",
-            isCompleted: true,
-          },
-          {
-            id: "i10",
-            text: "Sjekke reisevei til konventet",
-            isCompleted: false,
-          },
-          {
-            id: "i11",
-            text: "Pakke med ekstra nåler og tråd",
-            isCompleted: false,
-          },
-          {
-            id: "i12",
-            text: "Lade kamera og powerbank",
-            isCompleted: false,
-          },
-          {
-            id: "i13",
-            text: "Skrive ut deltakerbillett",
-            isCompleted: false,
-          },
-          {
-            id: "i14",
-            text: "Gjøre klar niste og drikke",
-            isCompleted: false,
-          },
-        ],
-      },
-      {
-        id: "l5",
-        title: "Planer for å ta over verden",
-        ownerId: "u4",
-        isShared: true,
-        completedItems: 560,
-        totalItems: 1793,
-        members: ["u4"],
-        items: [],
-      },
-    ],
-  },
+      lists: [
+         {
+            id: "l1",
+            title: "Awesome list of fun",
+            ownerId: "u1",
+            isShared: true,
+            completedItems: 0,
+            totalItems: 12,
+            members: ["u1", "u2", "u3"],
+            items: [
+               {
+                  id: "i1",
+                  text: "Planlegge neste møte",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i2",
+                  text: "Bestille pizza til gjengen",
+                  isCompleted: false,
+                  addedBy: "u2",
+               },
+               {
+                  id: "i3",
+                  text: "Spise iskrem til frokost",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i4",
+                  text: "Kjøpe inn masse godteri",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i5",
+                  text: "Sette opp projektor i stua",
+                  isCompleted: false,
+                  addedBy: "u2",
+               },
+               {
+                  id: "i6",
+                  text: "Lage spilleliste med retroklassikere",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i7",
+                  text: "Finne frem brettspill",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i8",
+                  text: "Teste VR-briller",
+                  isCompleted: false,
+                  addedBy: "u2",
+               },
+               {
+                  id: "i9",
+                  text: "Bestemme hvem som lager kaffe",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i10",
+                  text: "Gjemme nøkkelen under matta",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i11",
+                  text: "Kjøpe ny fotball",
+                  isCompleted: false,
+                  addedBy: "u2",
+               },
+               {
+                  id: "i12",
+                  text: "Planlegge helgetur",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+            ],
+         },
+         {
+            id: "l2",
+            title: "Episke gjøremål",
+            ownerId: "u2",
+            isShared: true,
+            completedItems: 5,
+            totalItems: 23,
+            members: ["u2"],
+            items: [],
+         },
+         {
+            id: "l3",
+            title: "Crazy banan liste",
+            ownerId: "u3",
+            isShared: true,
+            completedItems: 5,
+            totalItems: 15,
+            members: ["u3", "u1"],
+            items: [
+               {
+                  id: "i1",
+                  text: "Lære en due å si hei",
+                  isCompleted: true,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i2",
+                  text: "Gi kjøleskapet et navn",
+                  isCompleted: true,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i3",
+                  text: "Gå baklengs til butikken",
+                  isCompleted: true,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i4",
+                  text: "Starte en krangel med en måke",
+                  isCompleted: true,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i5",
+                  text: "Bytte ut alle lyspærer med discokuler",
+                  isCompleted: true,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i6",
+                  text: "Adoptere en stein og ta den med på tur",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i7",
+                  text: "Søke jobb som profesjonell nyser",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i8",
+                  text: "Lage suppe av gamle sokker",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i9",
+                  text: "Vinne en stirrekonkurranse mot en ugle",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i10",
+                  text: "Bygge en rakett av pappesker",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i11",
+                  text: "Snakke kun i rim en hel tirsdag",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i12",
+                  text: "Overbevise naboen om at jeg er en vampyr",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+               {
+                  id: "i13",
+                  text: "Gifte bort to potteplanter",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i14",
+                  text: "Telle alle sandkorn på stranda",
+                  isCompleted: false,
+                  addedBy: "u1",
+               },
+               {
+                  id: "i15",
+                  text: "Lære katten å betale skatt",
+                  isCompleted: false,
+                  addedBy: "u3",
+               },
+            ],
+         },
+         {
+            id: "l4",
+            title: "To cosplay or not todo",
+            ownerId: "u4",
+            isShared: true,
+            completedItems: 9,
+            totalItems: 14,
+            members: ["u4"],
+            items: [
+               {
+                  id: "i1",
+                  text: "Kjøpe stoff til kostyme",
+                  isCompleted: true,
+               },
+               {
+                  id: "i2",
+                  text: "Sy om ermene",
+                  isCompleted: true,
+               },
+               {
+                  id: "i3",
+                  text: "Lage sverd av foam",
+                  isCompleted: true,
+               },
+               {
+                  id: "i4",
+                  text: "Lime på detaljer med limpistol",
+                  isCompleted: true,
+               },
+               {
+                  id: "i5",
+                  text: "Male rustningselementer",
+                  isCompleted: true,
+               },
+               {
+                  id: "i6",
+                  text: "Prøve på hele antrekket",
+                  isCompleted: true,
+               },
+               {
+                  id: "i7",
+                  text: "Skaffe parykk og style den",
+                  isCompleted: true,
+               },
+               {
+                  id: "i8",
+                  text: "Fikse sminke og ansiktsmaling",
+                  isCompleted: true,
+               },
+               {
+                  id: "i9",
+                  text: "Lage skoovertrekk",
+                  isCompleted: true,
+               },
+               {
+                  id: "i10",
+                  text: "Sjekke reisevei til konventet",
+                  isCompleted: false,
+               },
+               {
+                  id: "i11",
+                  text: "Pakke med ekstra nåler og tråd",
+                  isCompleted: false,
+               },
+               {
+                  id: "i12",
+                  text: "Lade kamera og powerbank",
+                  isCompleted: false,
+               },
+               {
+                  id: "i13",
+                  text: "Skrive ut deltakerbillett",
+                  isCompleted: false,
+               },
+               {
+                  id: "i14",
+                  text: "Gjøre klar niste og drikke",
+                  isCompleted: false,
+               },
+            ],
+         },
+         {
+            id: "l5",
+            title: "Planer for å ta over verden",
+            ownerId: "u4",
+            isShared: true,
+            completedItems: 560,
+            totalItems: 1793,
+            members: ["u4"],
+            items: [],
+         },
+      ],
+   },
 };
