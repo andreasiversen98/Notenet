@@ -2,7 +2,7 @@ const model = {
    app: {
       currentPage: "",
       previousPage: "",
-      currentUserId: "u6",
+      currentUserId: "u1",
       openModal: null,
       darkMode: false,
    },
