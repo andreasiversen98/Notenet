@@ -1,54 +1,55 @@
 function adminViewUser() {
    return /*html*/ `
    <div class="modal-overlay" onclick="closeModal()"> 
-      <div class="modal-content notification-modal" onclick="event.stopPropagation()"> 
+      <div class="modal-content admin-user-modal" onclick="event.stopPropagation()"> 
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
-               <h1>Brukerinfo</h1>
-               <img onclick="closeModal()" class="icon-size close-btn" src="../../assets/icons/x.svg"/>
+               <h2>Brukerinfo</h2>
+               <img onclick="closeModal()" class="icon-size" src="../../assets/icons/x.svg"/>
             </div>
-            <div class="flex column invite-list">
-               ${getUserData()}
-            </div>
+            ${getUserData()}
          </div>
       </div>
    </div>
-
-
    `;
 }
 
 function getUserData() {
    let user = adminSelectedUser();
    return /*html*/ `
-      <div class="flex column gap container padding">
-         <div class="flex row list-bar padding">
-            id: ${user.id}
+      <div class="settings-group">
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>id</span><span>${user.id}</span>
          </div>
-         <div class="flex row list-bar padding">
-            username: ${user.username}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>username</span><span>${user.username}</span>
          </div>
-         <div class="flex row list-bar padding">
-            password: ${user.password}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>password</span><span>${user.password}</span>
          </div>
-         <div class="flex row list-bar padding">
-            profilePicture: ${user.profilePicture}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>profilePicture</span><span>${user.profilePicture}</span>
          </div>
-         <div class="flex row list-bar padding">
-            code: ${user.code}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>code</span><span>${user.code}</span>
          </div>
-         <div class="flex row justify-between gap list-bar padding">
-            isPremium: ${user.isPremium}
-            ${user.isPremium ? `<button onclick="adminToggleUserPremium('${user.id}')">Remove premium</button>` : `<button onclick="adminToggleUserPremium('${user.id}')">Activate premium</button>`}
+         <div class="settings-row admin-data-row flex row justify-between align-center gap">
+            <span>isPremium</span>
+            <div class="flex row align-center gap">
+               <span>${user.isPremium}</span>
+               ${user.isPremium
+                  ? `<button class="edit-btn" onclick="adminToggleUserPremium('${user.id}')">Remove premium</button>`
+                  : `<button class="edit-btn edit-btn-save" onclick="adminToggleUserPremium('${user.id}')">Activate premium</button>`}
+            </div>
          </div>
-         <div class="flex row list-bar padding">
-            role: ${user.role}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>role</span><span>${user.role}</span>
          </div>
-         <div class="flex row list-bar padding">
-            invitedTo: ${user.invitedTo}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>invitedTo</span><span>${user.invitedTo}</span>
          </div>
-         <div class="flex row list-bar padding">
-            sentInvites: ${user.sentInvites}
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>sentInvites</span><span>${user.sentInvites}</span>
          </div>
       </div>
    `;

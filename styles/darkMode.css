@@ -326,3 +326,43 @@ body.dark .settings-input {
   border-color: #e8e8e8;
   color: #e8e8e8;
 }
+
+/*admin page*/
+body.dark .admin-stat {
+  background: #1e1e1e;
+  border-color: #333333;
+}
+
+body.dark .admin-stat-label,
+body.dark .admin-stat-sub,
+body.dark .admin-user-code,
+body.dark .admin-data-row > span:first-child {
+  color: #8a8a85;
+}
+
+body.dark .admin-stat-link {
+  background: #e8e8e8;
+  border-color: #e8e8e8;
+  color: #121212;
+}
+
+body.dark .admin-stat-link .admin-stat-label,
+body.dark .admin-stat-link .admin-stat-sub {
+  color: #6b6b66;
+}
+
+body.dark .admin-stat-link .admin-stat-sub img {
+  filter: none;
+}
+
+body.dark .admin-users {
+  border-top-color: #e8e8e8;
+}
+
+body.dark .admin-user-row {
+  border-bottom-color: #333333;
+}
+
+body.dark .admin-premium-icon {
+  box-shadow: 0 0 0 1.5px #e8e8e8;
+}

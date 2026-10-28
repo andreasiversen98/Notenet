@@ -8,18 +8,22 @@ function adminProfile() {
 
 function adminProfileLayout() {
    return /*html*/ `
-   <div class="flex row gap justify-between">
-      <div onclick="setView('adminUserOverview')" class="flex column gap border padding border-round">
-         <h3>brukere</h3>
-         ${userCount()}
-      </div>
-      <div class="flex column gap border padding border-round">
-         <h3>lister</h3>
-         ${listCount()}
-      </div>
-      <div class="flex column gap border padding border-round">
-         <h3>premium</h3>
-         ${premiumCount()}
+   <div class="admin-container flex column gap">
+      <h2 class="admin-title">Oversikt</h2>
+      <div class="admin-stats">
+         <div onclick="setView('adminUserOverview')" class="admin-stat admin-stat-link">
+            <span class="admin-stat-label">Brukere</span>
+            <span class="admin-stat-number">${userCount()}</span>
+            <span class="admin-stat-sub">Se alle <img src="../../assets/icons/chevron-right.svg"/></span>
+         </div>
+         <div class="admin-stat">
+            <span class="admin-stat-label">Lister</span>
+            <span class="admin-stat-number">${listCount()}</span>
+         </div>
+         <div class="admin-stat">
+            <span class="admin-stat-label">Premium</span>
+            <span class="admin-stat-number">${premiumCount()}</span>
+         </div>
       </div>
    </div>`;
 }
