@@ -52,11 +52,48 @@ body.dark .notification-count {
 }
 
 /*login page*/
-body.dark .login-input,
-body.dark .login-button {
+body.dark .login-input {
   background: #1e1e1e;
-  border-color: #555555;
+  border-color: #3a3a3a;
   color: #e8e8e8;
+}
+
+body.dark .login-input:focus {
+  border-color: #e8e8e8;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+body.dark .login-button {
+  background: #e8e8e8;
+  color: #121212;
+}
+
+body.dark .login-button:hover {
+  background: #ff3d1f;
+  color: white;
+}
+
+body.dark .register-button {
+  border-color: #e8e8e8;
+  color: #e8e8e8;
+}
+
+body.dark .register-button:hover {
+  background: #e8e8e8;
+  color: #121212;
+}
+
+body.dark .login-divider {
+  color: #8a8a85;
+}
+
+body.dark .login-divider::before,
+body.dark .login-divider::after {
+  background: #333333;
+}
+
+body.dark .login-error {
+  color: #ff6a4f;
 }
 
 /*list page*/

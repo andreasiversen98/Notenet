@@ -8,25 +8,31 @@ function loginPage(){
 
         <h1 class="logo"><img class="logo-img" src="../../assets/images/logo/notenet-logo.svg" alt="notenet"></h1>
 
-        <input
-          type="text"
-          class="login-input"
-          placeholder="brukernavn"
-          value="${vs.username}"
-          oninput="setLoginUsername(this.value)"
-          onkeydown="if(event.key === 'Enter') logIn()" />
+        <label class="login-label">
+          Brukernavn
+          <input
+            type="text"
+            class="login-input"
+            value="${vs.username}"
+            oninput="setLoginUsername(this.value)"
+            onkeydown="if(event.key === 'Enter') logIn()" />
+        </label>
 
-        <input
-          type="password"
-          class="login-input"
-          placeholder="passord"
-          value="${vs.password}"
-          oninput="setLoginPassword(this.value)"
-          onkeydown="if(event.key === 'Enter') logIn()" />
+        <label class="login-label">
+          Passord
+          <input
+            type="password"
+            class="login-input"
+            value="${vs.password}"
+            oninput="setLoginPassword(this.value)"
+            onkeydown="if(event.key === 'Enter') logIn()" />
+        </label>
 
         <button class="login-button" onclick="logIn()">Logg inn</button>
 
-        <p class="login-error">${vs.error}</p>
+        ${vs.error ? `<p class="login-error">${vs.error}</p>` : ""}
+
+        <div class="login-divider">eller</div>
 
         <button class="register-button" onclick="setView('registerPage')">
           Lag en ny bruker
