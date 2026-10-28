@@ -5,13 +5,13 @@ let newImage = model.viewState.userProfilePage.editProfile.image;
 let canEditImage = model.viewState.userProfilePage.editName;
 
 function userSettings() {
-   return `
+   return /*html*/ `
    <div class="flex column gap">
       <div class="flex row justify-between align-center padding">
          <h1>innstillinger</h1>
          <div class="flex row align-center gap2">
             ${getThemeToggle()}
-            <img onclick="exitUserSettings()" class="icon-size" src="../../src/icons/x.svg"/>
+            <img onclick="exitUserSettings()" class="icon-size" src="../../assets/icons/x.svg"/>
          </div>
       </div>
       <div class="flex column container gap padding">
@@ -29,14 +29,14 @@ function userSettings() {
 
 function getNameField() {
    if (canEditName == false)
-      return `
+      return /*html*/ `
          <div onclick="switchNameField()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <span>Endre navn</span>
             </div>
          </div>`;
    else
-      return `
+      return /*html*/ `
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input onchange="newUsername = this.value" type="text">
@@ -67,14 +67,14 @@ function cancelNameField() {
 
 function getImageField() {
    if (canEditImage == false)
-      return `
+      return /*html*/ `
          <div onclick="switchImageField()" class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <span>Endre profilbilde</span>
             </div>
          </div>`;
    else
-      return `
+      return /*html*/ `
          <div class="list-bar flex row justify-between padding">
             <div class="flex row align-center gap">
                <input type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
@@ -133,8 +133,34 @@ function cancelImageField() {
 
 function togglePremium() {
    const user = getLoggedInUser();
+   if (user.isPremium && getSharedListsOwnedBy(user).length > 0) {
+      openModal("cancelPremium");
+      return;
+   }
    user.isPremium = !user.isPremium;
    setView();
+}
+
+function confirmCancelPremium() {
+   const user = getLoggedInUser();
+   user.isPremium = false;
+   makeSharedListsPrivate(user);
+   closeModal();
+}
+
+function getSharedListsOwnedBy(user) {
+   return model.data.lists.filter((list) => list.ownerId === user.id && list.isShared);
+}
+
+function makeSharedListsPrivate(user) {
+   for (const list of getSharedListsOwnedBy(user)) {
+      list.isShared = false;
+      list.members = [user.id];
+
+      for (const otherUser of model.data.users) {
+         otherUser.invitedTo = otherUser.invitedTo.filter((listId) => listId !== list.id);
+      }
+   }
 }
 
 function exitUserSettings() {

@@ -114,7 +114,6 @@ body.dark .member-count-btn:hover {
   color: #ffffff;
 }
 
-body.dark .owner-tag,
 body.dark .invite-btn {
   background: #e8e8e8;
   color: #121212;
@@ -161,6 +160,10 @@ body.dark .modal-toggle-btn {
 body.dark .modal-toggle-btn.active {
   background: #444444;
   color: #ffffff;
+}
+
+body.dark .modal-toggle-btn:disabled {
+  color: #5a5a5a;
 }
 
 /*user page*/

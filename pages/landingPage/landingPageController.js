@@ -2,6 +2,8 @@ function pushNewList() {
   const state = model.viewState.landingPage.createList;
   if (!state.title) return;
 
+  const isShared = getLoggedInUser().isPremium && state.isShared === true;
+
   let highestIdNumber = 0;
   for (const list of model.data.lists) {
     if (list.id && list.id.startsWith("l")) {
@@ -16,10 +18,10 @@ function pushNewList() {
     id: newId,
     title: state.title,
     ownerId: model.app.currentUserId,
-    isShared: state.isShared ?? false,
+    isShared: isShared,
     completedItems: 0,
     totalItems: 0,
-    members: state.isShared ? [model.app.currentUserId] : [],
+    members: isShared ? [model.app.currentUserId] : [],
     items: [],
   });
 
@@ -41,6 +43,7 @@ function setCreateListTitle(value) {
 }
 
 function setCreateListShared(isShared) {
+  if (isShared && !getLoggedInUser().isPremium) return;
   model.viewState.landingPage.createList.isShared = isShared;
   setView();
 }

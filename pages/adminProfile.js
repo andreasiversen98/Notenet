@@ -1,5 +1,5 @@
 function adminProfile() {
-   return `
+   return /*html*/ `
    ${adminHeaderComponent()}
    ${adminProfileLayout()}
    ${getBottomBar()}
@@ -7,7 +7,7 @@ function adminProfile() {
 }
 
 function adminProfileLayout() {
-   return `
+   return /*html*/ `
    <div class="flex row gap justify-between">
       <div onclick="setView('adminUserOverview')" class="flex column gap border padding border-round">
          <h3>brukere</h3>

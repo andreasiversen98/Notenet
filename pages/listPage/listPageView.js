@@ -14,15 +14,15 @@ function listPageView() {
     if (list.isShared && !item.isCompleted) {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
-        ? `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
-        : '<img src="../../src/icons/user-round.svg" width="14" alt="Bruker">';
+        ? /*html*/ `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
+        : '<img src="../../assets/icons/user-round.svg" width="14" alt="Bruker">';
     }
 
-    let textHtml = `<span>${item.text}</span>`;
-    let editBtnHtml = `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../src/icons/pencil.svg" alt="">Rediger</button>`;
+    let textHtml = /*html*/ `<span>${item.text}</span>`;
+    let editBtnHtml = /*html*/ `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../assets/icons/pencil.svg" alt="">Rediger</button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
-      textHtml = `
+      textHtml = /*html*/ `
         <input
           class="edit-input"
           type="text"
@@ -31,8 +31,8 @@ function listPageView() {
           onkeydown="if(event.key === 'Enter') saveEditItem()"
         >
       `;
-      editBtnHtml = `
-        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../src/icons/check.svg" alt="">Lagre</button>
+      editBtnHtml = /*html*/ `
+        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../assets/icons/check.svg" alt="">Lagre</button>
         <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">Avbryt</button>
       `;
     }
@@ -43,7 +43,7 @@ function listPageView() {
       <li>
         <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
-          <img src="../../src/icons/trash.svg" width="14" alt="Slett">
+          <img src="../../assets/icons/trash.svg" width="14" alt="Slett">
         </button>
         ${textHtml}
         ${editBtnHtml}
@@ -59,18 +59,18 @@ function listPageView() {
     ? /*html*/ `
         <div class="visibility-switch">
           <button class="visibility-option ${!list.isShared ? "active" : ""}" onclick="setListVisibility(false)">
-            <img src="../../src/icons/lock.svg" width="14" alt="">
+            <img src="../../assets/icons/lock.svg" width="14" alt="">
             Privat
           </button>
           <button class="visibility-option ${list.isShared ? "active" : ""}" onclick="setListVisibility(true)">
-            <img src="../../src/icons/users.svg" width="14" alt="">
+            <img src="../../assets/icons/users.svg" width="14" alt="">
             Delt
           </button>
         </div>
       `
     : /*html*/ `
         <span class="visibility-label">
-          <img src="../../src/icons/${list.isShared ? "users.svg" : "lock.svg"}" width="14" alt="">
+          <img src="../../assets/icons/${list.isShared ? "users.svg" : "lock.svg"}" width="14" alt="">
           ${list.isShared ? "Delt" : "Privat"}
         </span>
       `;
@@ -82,12 +82,12 @@ function listPageView() {
         <div class="share-meta">
           <button class="member-count-btn" onclick="toggleMembers()">
             ${list.members && list.members.length === 1 ? "1 medlem" : `${list.members ? list.members.length : 0} medlemmer`}
-            <img src="../../src/icons/chevron-right.svg" width="14"
+            <img src="../../assets/icons/chevron-right.svg" width="14"
                  class="${showMembers ? "rotated" : ""}" alt="">
           </button>
           ${canAddMember(list) ? `
           <button class="btn invite-btn" onclick="openInviteModal()">
-            <img src="../../src/icons/user-plus.svg" width="14" alt="">
+            <img src="../../assets/icons/user-plus.svg" width="14" alt="">
             Inviter
           </button>` : ""}
         </div>
@@ -107,7 +107,7 @@ function listPageView() {
           <span class="member-code">${user.code}</span>
           ${canRemoveMember(list, user) ? `
             <button class="btn-icon remove-member-btn" onclick="removeMember('${user.id}')" title="Fjern medlem">
-              <img src="../../src/icons/x.svg" width="14" alt="Fjern">
+              <img src="../../assets/icons/x.svg" width="14" alt="Fjern">
             </button>` : ""}
         </div>
       `;
@@ -146,7 +146,7 @@ function listPageView() {
           onkeydown="if(event.key === 'Enter') pushNewItem()"
         />
         <button class="btn" onclick="pushNewItem()">
-          <img src="../../src/icons/square-plus.svg" width="16" alt="Legg til">
+          <img src="../../assets/icons/square-plus.svg" width="16" alt="Legg til">
         </button>
       </div>
 
