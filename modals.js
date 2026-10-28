@@ -3,6 +3,7 @@ const modals = {
    notifications: notificationsModal,
    invite: inviteMemberModal,
    makePrivate: makePrivateModal,
+   cancelPremium: cancelPremiumModal,
 };
 
 function openModal(name) {
