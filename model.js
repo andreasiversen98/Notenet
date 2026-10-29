@@ -25,7 +25,7 @@ const model = {
       },
 
       landingPage: {
-         selectedFilter: "",
+         selectedFilter: "all",
       },
 
       listPage: {
