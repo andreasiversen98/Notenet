@@ -167,7 +167,10 @@ function makeSmallImage(imageUrl) {
 }
 
 function submitNewImage() {
-   if (newImage == "") return;
+   if (newImage == "") {
+      cancelImageField();
+      return;
+   }
    const user = getLoggedInUser();
    user.profilePicture = newImage;
    user.profilePictureSmall = newImageSmall;
