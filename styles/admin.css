@@ -162,8 +162,14 @@
 }
 
 .admin-user-modal .settings-group {
-  background: #f7f6f2;
-  border-color: #ecebe6;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.admin-user-modal .settings-row {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .admin-data-row > span:first-child {
