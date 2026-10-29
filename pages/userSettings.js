@@ -2,7 +2,7 @@ let newUsername = model.viewState.userProfilePage.editProfile.username;
 let canEditName = model.viewState.userProfilePage.editName;
 
 let newImage = model.viewState.userProfilePage.editProfile.image;
-let canEditImage = model.viewState.userProfilePage.editName;
+let canEditImage = model.viewState.userProfilePage.editImage;
 
 function userSettings() {
    const user = getLoggedInUser();
