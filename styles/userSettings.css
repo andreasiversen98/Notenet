@@ -87,3 +87,30 @@
   min-width: 0;
   font-size: 13px;
 }
+
+/*avatar picker*/
+.settings-row.column {
+  align-items: stretch;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 10px;
+}
+
+.avatar-option {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.avatar-option:hover {
+  transform: scale(1.08);
+}
+
+.avatar-option.selected {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #ff3d1f;
+}

@@ -98,11 +98,41 @@ function getImageField() {
          </div>`;
    else
       return /*html*/ `
-         <div class="settings-row flex row align-center gap">
-            <input class="settings-file" type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
-            <button class="edit-btn edit-btn-save" onclick="submitNewImage()">Lagre</button>
-            <button class="edit-btn edit-btn-cancel" onclick="cancelImageField()">Avbryt</button>
+         <div class="settings-row flex column gap">
+            <div class="avatar-grid">${getAvatarOptions()}</div>
+            <div class="flex row align-center gap">
+               <input class="settings-file" type="file" id="imageInput" accept="image/*" onchange="getNewImage(event)"/>
+               <button class="edit-btn edit-btn-save" onclick="submitNewImage()">Lagre</button>
+               <button class="edit-btn edit-btn-cancel" onclick="cancelImageField()">Avbryt</button>
+            </div>
          </div>`;
+}
+
+const pictureNames = [
+   "default-avatar",
+   "avatar-red", "avatar-blue", "avatar-green", "avatar-purple", "avatar-yellow",
+   "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray",
+   "shape-check", "shape-ring", "shape-split", "shape-dots",
+   "shape-stack", "shape-sun", "shape-wave", "shape-quarter",
+];
+
+function getAvatarOptions() {
+   const current = getLoggedInUser().profilePicture;
+   let options = "";
+   for (const name of pictureNames) {
+      const path = `../../assets/images/profile-pictures/${name}.svg`;
+      options += /*html*/ `
+         <img class="avatar-option ${path === current ? "selected" : ""}" src="${path}" alt="${name}" onclick="choosePicture('${path}')"/>`;
+   }
+   return options;
+}
+
+function choosePicture(path) {
+   const user = getLoggedInUser();
+   user.profilePicture = path;
+   user.profilePictureSmall = "";
+   canEditImage = false;
+   setView();
 }
 
 function switchImageField() {

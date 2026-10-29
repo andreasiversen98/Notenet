@@ -43,7 +43,7 @@ function createTestUsers() {
          id: `test${i}`,
          username: `test${i}`,
          password: "123",
-         profilePicture: "../../assets/images/default-avatar.svg",
+         profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
          code: `test${i}`,
          isPremium: i > testUserAmount / 2 ? true : false,
          role: "user",
