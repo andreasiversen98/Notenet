@@ -407,3 +407,14 @@ body.dark .admin-premium-icon {
 body.dark .avatar-option.selected {
   box-shadow: 0 0 0 2px #1e1e1e, 0 0 0 4px #ff3d1f;
 }
+
+/*user info modal*/
+body.dark .admin-user-modal {
+  border-color: #333333;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .admin-user-modal .settings-group {
+  background: #181818;
+  border-color: #2e2e2e;
+}
