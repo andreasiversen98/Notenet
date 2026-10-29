@@ -75,7 +75,7 @@ const model = {
             code: "FLT-034",
             isPremium: true,
             role: "user",
-            invitedTo: ["l2", "l3"],
+            invitedTo: ["l2"],
             sentInvites: ["l1"],
          },
          {
@@ -86,7 +86,7 @@ const model = {
             code: "TTQ-805",
             isPremium: false,
             role: "user",
-            invitedTo: ["l1", "l3"],
+            invitedTo: ["l3"],
             sentInvites: ["l2"],
          },
          {
@@ -97,7 +97,7 @@ const model = {
             code: "BNR-114",
             isPremium: true,
             role: "user",
-            invitedTo: ["l1", "l2"],
+            invitedTo: ["l2"],
             sentInvites: ["l3"],
          },
          {
