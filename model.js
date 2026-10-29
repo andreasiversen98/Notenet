@@ -38,11 +38,6 @@ const model = {
          inviteMessage: "",
       },
 
-      notificationPage: {
-         code: "",
-         foundUserId: "",
-      },
-
       userProfilePage: {
          codeCopied: false,
          editName: false,
