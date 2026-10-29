@@ -19,12 +19,13 @@ const model = {
          password: "",
       },
 
+      createListModal: {
+         isShared: null,
+         title: "",
+      },
+
       landingPage: {
-         createList: {
-            isShared: null,
-            title: "",
-            selectedFilter: "",
-         },
+         selectedFilter: "",
       },
 
       listPage: {
