@@ -18,7 +18,7 @@ function userSettings() {
       </div>
 
       <div class="settings-user flex row align-center gap">
-         <img class="settings-avatar" src="${user.profilePictureSmall || user.profilePicture}" alt="${user.username}"/>
+         <img class="settings-avatar" src="${newImage || user.profilePictureSmall || user.profilePicture}" alt="${user.username}"/>
          <div class="flex column">
             <span class="settings-name">${user.username}</span>
             <span class="settings-meta">${user.isPremium ? "Premium" : "Gratis"} · ${user.code}</span>
@@ -117,7 +117,7 @@ const pictureNames = [
 ];
 
 function getAvatarOptions() {
-   const current = getLoggedInUser().profilePicture;
+   const current = newImage || getLoggedInUser().profilePicture;
    let options = "";
    for (const name of pictureNames) {
       const path = `../../assets/images/profile-pictures/${name}.svg`;
@@ -128,10 +128,8 @@ function getAvatarOptions() {
 }
 
 function choosePicture(path) {
-   const user = getLoggedInUser();
-   user.profilePicture = path;
-   user.profilePictureSmall = "";
-   canEditImage = false;
+   newImage = path;
+   newImageSmall = "";
    setView();
 }
 
@@ -149,6 +147,7 @@ function getNewImage(event) {
    const file = event.target.files[0];
    newImage = URL.createObjectURL(file);
    makeSmallImage(newImage);
+   setView();
 }
 
 function makeSmallImage(imageUrl) {
@@ -169,8 +168,9 @@ function makeSmallImage(imageUrl) {
 
 function submitNewImage() {
    if (newImage == "") return;
-   getLoggedInUser().profilePicture = newImage;
-   getLoggedInUser().profilePictureSmall = newImageSmall;
+   const user = getLoggedInUser();
+   user.profilePicture = newImage;
+   user.profilePictureSmall = newImageSmall;
    canEditImage = false;
    newImage = "";
    setView();
@@ -179,6 +179,7 @@ function submitNewImage() {
 function cancelImageField() {
    canEditImage = false;
    newImage = "";
+   newImageSmall = "";
    setView();
 }
 
