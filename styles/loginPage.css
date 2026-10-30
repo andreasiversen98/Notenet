@@ -24,6 +24,12 @@
   height: 48px;
 }
 
+/*register title*/
+.register-title {
+  margin: -8px 0 0;
+  font-size: 22px;
+}
+
 /*inputs*/
 .login-label {
   display: flex;

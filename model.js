@@ -20,8 +20,9 @@ const model = {
         username: "",
         password: "",
         confirmPassword: "",
-        error: "",
-
+        usernameError: "",
+        passwordError: "",
+        confirmPasswordError: "",
       },
 
       createListModal: {

@@ -13,21 +13,23 @@ function setRegisterConfirmPassword(value) {
 function registerUser() {
   const vs = model.viewState.registerPage;
 
-  if (vs.username === "" || vs.password === "" || vs.confirmPassword === "") {
-    vs.error = "Fyll ut alle feltene";
-    setView();
-    return;
+  vs.usernameError = vs.username === "" ? "Skriv inn brukernavn" : "";
+  vs.passwordError = vs.password === "" ? "Skriv inn passord" : "";
+  vs.confirmPasswordError = vs.confirmPassword === "" ? "Gjenta passordet" : "";
+
+  if (!vs.usernameError && findUserByUsername(vs.username) !== undefined) {
+    vs.usernameError = "Brukernavnet er opptatt";
   }
 
-  if (vs.password !== vs.confirmPassword) {
-    vs.error = "Passordene er ikke like";
-    setView();
-    return;
+  if (!vs.passwordError && !vs.confirmPasswordError && vs.password !== vs.confirmPassword) {
+    vs.confirmPasswordError = "Passordene er ikke like";
   }
 
-  if (findUserByUsername(vs.username) !== undefined) {
-    vs.error = "Brukernavnet er opptatt";
+  if (vs.usernameError || vs.passwordError || vs.confirmPasswordError) {
     setView();
+    if (vs.usernameError) document.getElementById("register-username").focus();
+    else if (vs.passwordError) document.getElementById("register-password").focus();
+    else document.getElementById("register-confirm-password").focus();
     return;
   }
 
@@ -50,7 +52,9 @@ function registerUser() {
   vs.username = "";
   vs.password = "";
   vs.confirmPassword = "";
-  vs.error = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  vs.confirmPasswordError = "";
 
   setView("userProfile");
 }
