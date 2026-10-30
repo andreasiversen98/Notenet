@@ -242,5 +242,6 @@ function logOut() {
 
    model.app.currentUserId = null;
    model.app.openModal = null;
+   model.app.toast = "";
    setView("loginPage");
 }

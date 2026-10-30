@@ -4,6 +4,7 @@ const model = {
       previousPage: "",
       currentUserId: "",
       openModal: null,
+      toast: "",
       darkMode: false,
    },
 

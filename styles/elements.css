@@ -187,3 +187,42 @@ img {
   height: 40px;
   width: auto;
 }
+
+/*toast*/
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #0a0a0a;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.toast-icon {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #ff3d1f;
+}
+
+.toast-close {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  filter: invert(1);
+  opacity: 0.7;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}

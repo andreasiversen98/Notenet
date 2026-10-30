@@ -56,6 +56,7 @@ function registerUser() {
   vs.passwordError = "";
   vs.confirmPasswordError = "";
 
+  showToast(`Brukeren er opprettet. Velkommen, ${newUser.username}!`);
   setView("userProfile");
 }
 
