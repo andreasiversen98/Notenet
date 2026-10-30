@@ -17,6 +17,7 @@ const model = {
       registerPage: {
          username: "",
          password: "",
+         error: "",
       },
 
       createListModal: {
