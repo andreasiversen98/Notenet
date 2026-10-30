@@ -220,10 +220,6 @@ body.dark .premium-cta {
   border: 1px solid #333333;
 }
 
-body.dark .premium-btn img {
-  filter: invert(1);
-}
-
 /*sharp style*/
 body.dark li:hover {
   background: #242424;

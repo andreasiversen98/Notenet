@@ -108,7 +108,7 @@ function userPremiumButton() {
          <span class="premium-cta-text">Lag delte lister og inviter venner</span>
       </div>
       <button class="premium-btn" onclick="togglePremium()">
-         <img src="../../assets/icons/circle-star.svg"/>
+         <img src="../../assets/images/premium/premium-icon-no-dot.svg"/>
          Få premium
       </button>
    </div>`
