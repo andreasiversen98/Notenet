@@ -6,11 +6,21 @@ function setRegisterPassword(value) {
   model.viewState.registerPage.password = value;
 }
 
+function setRegisterConfirmPassword(value) {
+  model.viewState.registerPage.confirmPassword = value;
+}
+
 function registerUser() {
   const vs = model.viewState.registerPage;
 
-  if (vs.username === "" || vs.password === "") {
-    vs.error = "Fyll ut både brukernavn og passord";
+  if (vs.username === "" || vs.password === "" || vs.confirmPassword === "") {
+    vs.error = "Fyll ut alle feltene";
+    setView();
+    return;
+  }
+
+  if (vs.password !== vs.confirmPassword) {
+    vs.error = "Passordene er ikke like";
     setView();
     return;
   }
@@ -21,7 +31,6 @@ function registerUser() {
     return;
   }
 
-
   const newUser = {
     id: "u" + (model.data.users.length + 1),
     username: vs.username,
@@ -30,9 +39,9 @@ function registerUser() {
     code: "NEW-" + (model.data.users.length + 1),
     isPremium: false,
     role: "user",
-    createdAt: new Date().toISOString().slice(0, 10), // legg til det her, omar
+    createdAt: getTodaysDate(),
     invitedTo: [],
-    sentInvites: [], // og det her
+    sentInvites: [],
   };
 
   model.data.users.push(newUser);
@@ -40,6 +49,7 @@ function registerUser() {
   model.app.currentUserId = newUser.id;
   vs.username = "";
   vs.password = "";
+  vs.confirmPassword = "";
   vs.error = "";
 
   setView("userProfile");
@@ -52,4 +62,8 @@ function findUserByUsername(username) {
     }
   }
   return undefined;
+}
+
+function getTodaysDate() {
+  return new Date().toISOString().slice(0, 10);
 }
