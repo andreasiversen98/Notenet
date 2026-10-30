@@ -54,6 +54,7 @@ function inviteMember() {
   if (!list || !canAddMember(list)) return;
 
   const code = lp.inviteCode.trim().toUpperCase();
+  if (code === "") return;
   const user = model.data.users.find((u) => u.code === code);
 
   if (!user) {
