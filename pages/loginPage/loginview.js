@@ -38,7 +38,7 @@ function loginPage(){
 
         <div class="login-divider">eller</div>
 
-        <button class="register-button" onclick="setView('registerPage')">
+        <button class="register-button" onclick="goToRegister()">
           Lag en ny bruker
         </button>
 

@@ -36,6 +36,16 @@ function logIn() {
   }
 }
 
+function goToRegister() {
+  const vs = model.viewState.loginPage;
+  vs.username = "";
+  vs.password = "";
+  vs.error = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  setView("registerPage");
+}
+
 function findUserByLogin(username, password) {
   for (const user of model.data.users) {
     if (user.username === username && user.password === password) {

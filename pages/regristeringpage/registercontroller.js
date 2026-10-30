@@ -60,6 +60,17 @@ function registerUser() {
   setView("userProfile");
 }
 
+function goToLogin() {
+  const vs = model.viewState.registerPage;
+  vs.username = "";
+  vs.password = "";
+  vs.confirmPassword = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  vs.confirmPasswordError = "";
+  setView("loginPage");
+}
+
 function findUserByUsername(username) {
   for (const user of model.data.users) {
     if (user.username === username) {

@@ -53,7 +53,7 @@ function registerPage() {
 
         <div class="login-divider">Har du allerede en bruker?</div>
 
-        <button class="register-button" onclick="setView('loginPage')">
+        <button class="register-button" onclick="goToLogin()">
           Logg inn
         </button>
 
