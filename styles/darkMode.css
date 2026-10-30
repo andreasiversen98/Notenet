@@ -354,10 +354,6 @@ body.dark .settings-danger {
   color: #ff3d1f;
 }
 
-body.dark .settings-row .icon-star-red {
-  filter: none;
-}
-
 body.dark .settings-input {
   background: #121212;
   border-color: #e8e8e8;

@@ -41,12 +41,12 @@ function userSettings() {
 
 function getPremiumRow() {
    const isPremium = getLoggedInUser().isPremium;
-   const icon = isPremium ? "star-red.svg" : "circle-star.svg";
+   const icon = isPremium ? "premium-icon.svg" : "premium-icon-no-dot.svg";
    const text = isPremium ? "Avslutt premium" : "Kjøp premium";
 
    return /*html*/ `
       <div onclick="togglePremium()" class="settings-row ${isPremium ? "settings-danger" : ""} flex row align-center gap">
-         <img class="icon-size ${isPremium ? "icon-star-red" : ""}" src="../../assets/icons/${icon}"/>
+         <img class="premium-row-icon" src="../../assets/images/premium/${icon}"/>
          <span>${text}</span>
          ${isPremium ? "" : `<img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>`}
       </div>`;
