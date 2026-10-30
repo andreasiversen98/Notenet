@@ -24,7 +24,7 @@ function registerPage() {
 
         <button class="login-button" onclick="registerUser()">Lag bruker</button>
 
-        <p class="login-error">${vs.error}</p>
+        
 
         <button class="register-button" onclick="setView('loginPage')">
           Tilbake til innlogging
