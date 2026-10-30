@@ -39,9 +39,15 @@ function registerUser() {
     code: "NEW-" + (model.data.users.length + 1),
     isPremium: false,
     role: "user",
+
     createdAt: getTodaysDate(),
     invitedTo: [],
     sentInvites: [],
+
+    createdAt: new Date().toISOString().slice(0, 10), 
+    invitedTo: [],
+    sentInvites: [], 
+
   };
 
   model.data.users.push(newUser);
