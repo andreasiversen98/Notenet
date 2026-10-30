@@ -46,6 +46,9 @@ function getUserData() {
             <span>role</span><span>${user.role}</span>
          </div>
          <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>createdAt</span><span>${user.createdAt}</span>
+         </div>
+         <div class="settings-row admin-data-row flex row justify-between gap">
             <span>invitedTo</span><span>${user.invitedTo}</span>
          </div>
          <div class="settings-row admin-data-row flex row justify-between gap">

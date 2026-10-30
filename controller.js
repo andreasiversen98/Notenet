@@ -39,6 +39,9 @@ setView("loginPage");
 function createTestUsers() {
    let testUserAmount = 100;
    for (let i = 0; i < testUserAmount; i++) {
+      const createdAt = new Date();
+      createdAt.setDate(createdAt.getDate() - (i % 42));
+
       model.data.users.push({
          id: `test${i}`,
          username: `test${i}`,
@@ -47,6 +50,7 @@ function createTestUsers() {
          code: `test${i}`,
          isPremium: i > testUserAmount / 2 ? true : false,
          role: "user",
+         createdAt: createdAt.toISOString().slice(0, 10),
          invitedTo: ["l2", "l3"],
          sentInvites: ["l1"],
       });

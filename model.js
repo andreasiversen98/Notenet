@@ -25,7 +25,7 @@ const model = {
       },
 
       landingPage: {
-         selectedFilter: "",
+         selectedFilter: "all",
       },
 
       listPage: {
@@ -36,11 +36,6 @@ const model = {
          showMembers: false,
          inviteCode: "",
          inviteMessage: "",
-      },
-
-      notificationPage: {
-         code: "",
-         foundUserId: "",
       },
 
       userProfilePage: {
@@ -76,6 +71,7 @@ const model = {
             code: "FLT-034",
             isPremium: true,
             role: "user",
+            createdAt: "2026-09-14",
             invitedTo: ["l2"],
             sentInvites: ["l1"],
          },
@@ -87,6 +83,7 @@ const model = {
             code: "TTQ-805",
             isPremium: false,
             role: "user",
+            createdAt: "2026-09-22",
             invitedTo: ["l3"],
             sentInvites: ["l2"],
          },
@@ -98,6 +95,7 @@ const model = {
             code: "BNR-114",
             isPremium: true,
             role: "user",
+            createdAt: "2026-10-01",
             invitedTo: ["l2"],
             sentInvites: ["l3"],
          },
@@ -109,6 +107,7 @@ const model = {
             code: "ORW-135",
             isPremium: true,
             role: "user",
+            createdAt: "2026-10-08",
             invitedTo: ["l1", "l2"],
             sentInvites: ["l4"],
          },
@@ -120,6 +119,7 @@ const model = {
             code: "LWH-385",
             isPremium: false,
             role: "user",
+            createdAt: "2026-10-20",
             invitedTo: ["l2", "l3"],
             sentInvites: ["l1"],
          },
@@ -131,6 +131,7 @@ const model = {
             code: "LBH-315",
             isPremium: true,
             role: "admin",
+            createdAt: "2026-09-01",
             invitedTo: ["l1", "l2", "l3", "l4", "l5"],
             sentInvites: ["l1", "l2"],
          },
