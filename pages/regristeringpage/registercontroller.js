@@ -21,6 +21,7 @@ function registerUser() {
     return;
   }
 
+
   const newUser = {
     id: "u" + (model.data.users.length + 1),
     username: vs.username,
@@ -29,7 +30,9 @@ function registerUser() {
     code: "NEW-" + (model.data.users.length + 1),
     isPremium: false,
     role: "user",
+    createdAt: new Date().toISOString().slice(0, 10), // legg til det her, omar
     invitedTo: [],
+    sentInvites: [], // og det her
   };
 
   model.data.users.push(newUser);
