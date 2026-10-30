@@ -38,7 +38,7 @@ function registerUser() {
     username: vs.username,
     password: vs.password,
     profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
-    code: "NEW-" + (model.data.users.length + 1),
+    code: makeUniqueFriendCode(),
     isPremium: false,
     role: "user",
     createdAt: getTodaysDate(),
@@ -78,6 +78,31 @@ function findUserByUsername(username) {
     }
   }
   return undefined;
+}
+
+function makeFriendCode() {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let code = "";
+
+  for (let i = 0; i < 3; i++) {
+    code += letters[Math.floor(Math.random() * letters.length)];
+  }
+
+  code += "-" + (100 + Math.floor(Math.random() * 900));
+
+  return code;
+}
+
+function makeUniqueFriendCode() {
+  let code = makeFriendCode();
+  while (findUserByCode(code) !== undefined) {
+    code = makeFriendCode();
+  }
+  return code;
+}
+
+function findUserByCode(code) {
+  return model.data.users.find((user) => user.code === code);
 }
 
 function getTodaysDate() {
