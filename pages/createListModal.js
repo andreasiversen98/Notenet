@@ -21,7 +21,7 @@ function createListModal() {
                <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
                <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)" ${canShare ? "" : `disabled title="Delte lister krever premium"`}>
                   Delt
-                  ${canShare ? "" : `<img class="premium-icon" src="../../assets/images/premium/premium-ikon.svg" alt="Premium">`}
+                  ${canShare ? "" : `<img class="premium-icon" src="../../assets/images/premium/premium-icon.svg" alt="Premium">`}
                </button>
             </div>
 

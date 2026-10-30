@@ -66,6 +66,12 @@
   opacity: 0.4;
 }
 
+.premium-row-icon {
+  width: 26px;
+  height: 26px;
+  margin: -3px;
+}
+
 .settings-danger {
   color: #e02a0d;
   font-weight: 600;
