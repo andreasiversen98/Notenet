@@ -49,10 +49,10 @@ function getUserData() {
             <span>createdAt</span><span>${user.createdAt}</span>
          </div>
          <div class="settings-row admin-data-row flex row justify-between gap">
-            <span>invitedTo</span><span>${user.invitedTo}</span>
+            <span>invitedTo</span><span>${user.invitedTo.join(", ")}</span>
          </div>
          <div class="settings-row admin-data-row flex row justify-between gap">
-            <span>sentInvites</span><span>${user.sentInvites}</span>
+            <span>sentInvites</span><span>${user.sentInvites.join(", ")}</span>
          </div>
       </div>
    `;
