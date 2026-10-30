@@ -2,7 +2,7 @@ const model = {
    app: {
       currentPage: "",
       previousPage: "",
-      currentUserId: "u1",
+      currentUserId: "",
       openModal: null,
       darkMode: false,
    },
@@ -12,6 +12,8 @@ const model = {
          username: "",
          password: "",
          error: "",
+         usernameError: "",
+         passwordError: "",
       },
 
       registerPage: {

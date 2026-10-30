@@ -8,6 +8,17 @@ function setLoginPassword(value) {
 
 function logIn() {
   const vs = model.viewState.loginPage;
+
+  vs.usernameError = vs.username === "" ? "Skriv inn brukernavn" : "";
+  vs.passwordError = vs.password === "" ? "Skriv inn passord" : "";
+
+  if (vs.usernameError || vs.passwordError) {
+    vs.error = "";
+    setView();
+    document.getElementById(vs.usernameError ? "login-username" : "login-password").focus();
+    return;
+  }
+
   const user = findUserByLogin(vs.username, vs.password);
 
   if (user === undefined) {
@@ -19,6 +30,8 @@ function logIn() {
     vs.username = "";
     vs.password = "";
     vs.error = "";
+    vs.usernameError = "";
+    vs.passwordError = "";
     setView("userProfile");
   }
 }

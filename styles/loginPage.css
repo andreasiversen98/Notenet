@@ -103,6 +103,21 @@
   background: #e4e3dd;
 }
 
+/*field errors*/
+.login-input.input-error {
+  border-color: #e02a0d;
+}
+
+.login-input.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(224, 42, 13, 0.15);
+}
+
+.field-error {
+  font-size: 13px;
+  font-weight: 400;
+  color: #e02a0d;
+}
+
 /*messages*/
 .login-error {
   color: #e02a0d;

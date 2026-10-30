@@ -43,6 +43,6 @@ function registerPage() {
 
       </div>
     </div>
-    ${getBottomBar()}
+    
   `;
 }

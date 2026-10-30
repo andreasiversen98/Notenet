@@ -92,8 +92,13 @@ body.dark .login-divider::after {
   background: #333333;
 }
 
-body.dark .login-error {
+body.dark .login-error,
+body.dark .field-error {
   color: #ff6a4f;
+}
+
+body.dark .login-input.input-error {
+  border-color: #ff6a4f;
 }
 
 /*list page*/
