@@ -35,6 +35,13 @@ function userSettings() {
       <div class="settings-group">
          ${getPremiumRow()}
       </div>
+
+      <div class="settings-group logout-group">
+         <div onclick="logOut()" class="settings-row flex row align-center gap">
+            <img class="icon-size" src="../../assets/icons/log-out.svg"/>
+            <span>Logg ut</span>
+         </div>
+      </div>
    </div>
    `;
 }
@@ -225,4 +232,15 @@ function exitUserSettings() {
    newImage = "";
    canEditImage = false;
    setView(model.app.previousPage);
+}
+
+function logOut() {
+   newUsername = "";
+   canEditName = false;
+   newImage = "";
+   canEditImage = false;
+
+   model.app.currentUserId = null;
+   model.app.openModal = null;
+   setView("loginPage");
 }
