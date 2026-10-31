@@ -21,6 +21,12 @@ function toggleMembers() {
   setView();
 }
 
+function toggleTodo() {
+  const lp = model.viewState.listPage;
+  lp.showTodo = !lp.showTodo;
+  setView();
+}
+
 function toggleCompleted() {
   const lp = model.viewState.listPage;
   lp.showCompleted = !lp.showCompleted;

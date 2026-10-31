@@ -623,8 +623,8 @@ li input[type="checkbox"]:checked {
   box-shadow: 0 0 0 1px #d0cfc9;
 }
 
-/*completed toggle*/
-.completed-toggle {
+/*section toggle*/
+.section-toggle {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -632,11 +632,11 @@ li input[type="checkbox"]:checked {
   user-select: none;
 }
 
-.completed-toggle img {
+.section-toggle img {
   transition: transform 0.15s ease;
 }
 
-.completed-toggle img.rotated {
+.section-toggle img.rotated {
   transform: rotate(90deg);
 }
 
