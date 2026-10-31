@@ -31,6 +31,7 @@ function toggleDarkMode() {
 
 function setTheme(theme) {
    model.app.theme = theme;
+   getLoggedInUser().theme = theme;
    setView();
 }
 

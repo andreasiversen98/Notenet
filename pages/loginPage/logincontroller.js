@@ -27,6 +27,7 @@ function logIn() {
     return;
   } else {
     model.app.currentUserId = user.id;
+    model.app.theme = user.theme || "modern";
     vs.username = "";
     vs.password = "";
     vs.error = "";
