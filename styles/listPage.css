@@ -541,13 +541,16 @@ body.mono .list-progress-fill {
 
 body.mono .list-container .visibility-switch,
 body.mono .list-container .visibility-option,
-body.mono .list-container .invite-btn {
+body.mono .list-container .invite-btn,
+body.mono .settings-page .visibility-switch,
+body.mono .settings-page .visibility-option {
   border-radius: 0;
 }
 
 body.mono .list-container .visibility-option,
 body.mono .list-container .invite-btn,
-body.mono .list-container .member-count-btn {
+body.mono .list-container .member-count-btn,
+body.mono .settings-page .visibility-option {
   font-family: Consolas, "Courier New", monospace;
 }
 
@@ -672,27 +675,32 @@ body.mono .list-container .member-avatar {
 }
 
 /*visibility switch*/
-body.mono .list-container .visibility-switch {
+body.mono .list-container .visibility-switch,
+body.mono .settings-page .visibility-switch {
   background: transparent;
   border: 1.5px solid #0a0a0a;
   padding: 0;
 }
 
-body.mono .list-container .visibility-option {
+body.mono .list-container .visibility-option,
+body.mono .settings-page .visibility-option {
   padding: 5px 12px;
   color: #6b6b66;
   box-shadow: none;
 }
 
-body.mono .list-container .visibility-option + .visibility-option {
+body.mono .list-container .visibility-option + .visibility-option,
+body.mono .settings-page .visibility-option + .visibility-option {
   border-left: 1.5px solid #0a0a0a;
 }
 
-body.mono .list-container .visibility-option.active {
+body.mono .list-container .visibility-option.active,
+body.mono .settings-page .visibility-option.active {
   color: white;
 }
 
-body.mono .list-container .visibility-option:not(.active):hover {
+body.mono .list-container .visibility-option:not(.active):hover,
+body.mono .settings-page .visibility-option:not(.active):hover {
   background: rgba(0, 0, 0, 0.05);
   color: #0a0a0a;
 }

@@ -494,24 +494,29 @@ body.dark.mono .list-container .member-avatar {
 }
 
 /*visibility switch*/
-body.dark.mono .list-container .visibility-switch {
+body.dark.mono .list-container .visibility-switch,
+body.dark.mono .settings-page .visibility-switch {
   background: transparent;
   border-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .visibility-option {
+body.dark.mono .list-container .visibility-option,
+body.dark.mono .settings-page .visibility-option {
   color: #8a8a85;
 }
 
-body.dark.mono .list-container .visibility-option + .visibility-option {
+body.dark.mono .list-container .visibility-option + .visibility-option,
+body.dark.mono .settings-page .visibility-option + .visibility-option {
   border-left-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .visibility-option.active {
+body.dark.mono .list-container .visibility-option.active,
+body.dark.mono .settings-page .visibility-option.active {
   color: #121212;
 }
 
-body.dark.mono .list-container .visibility-option:not(.active):hover {
+body.dark.mono .list-container .visibility-option:not(.active):hover,
+body.dark.mono .settings-page .visibility-option:not(.active):hover {
   background: rgba(255, 255, 255, 0.06);
   color: #e8e8e8;
 }
@@ -552,5 +557,27 @@ body.dark.mono .admin-user-modal .settings-row {
 }
 
 body.dark.mono .admin-avatar {
+  box-shadow: 0 0 0 1px #666666;
+}
+
+/*mono settings*/
+body.dark.mono .settings-label {
+  color: #e8e8e8;
+}
+
+body.dark.mono .settings-page .settings-group {
+  background: transparent;
+  border-top-color: #e8e8e8;
+}
+
+body.dark.mono .settings-page .settings-row {
+  border-bottom-color: #444444;
+}
+
+body.dark.mono .settings-page .settings-row[onclick]:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.dark.mono .settings-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
