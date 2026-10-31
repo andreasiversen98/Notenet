@@ -491,3 +491,26 @@ body.dark .list-container .member-row {
 body.dark .list-container .member-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
+
+/*visibility switch*/
+body.dark .list-container .visibility-switch {
+  background: transparent;
+  border-color: #e8e8e8;
+}
+
+body.dark .list-container .visibility-option {
+  color: #8a8a85;
+}
+
+body.dark .list-container .visibility-option + .visibility-option {
+  border-left-color: #e8e8e8;
+}
+
+body.dark .list-container .visibility-option.active {
+  color: #121212;
+}
+
+body.dark .list-container .visibility-option:not(.active):hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8e8e8;
+}
