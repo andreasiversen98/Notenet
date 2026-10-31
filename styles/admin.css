@@ -296,3 +296,8 @@ body.mono .admin-user-modal .edit-btn {
   font-size: 11px;
   text-transform: uppercase;
 }
+
+/*mono premium icon*/
+body.mono .admin-premium-icon {
+  border-radius: 0;
+}

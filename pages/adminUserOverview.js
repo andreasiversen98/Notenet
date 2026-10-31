@@ -45,7 +45,7 @@ function displayUsers() {
          onclick="model.viewState.adminUserOverview.selectedUser = '${user.id}'; openModal('adminViewUser')">
          <span class="admin-avatar-wrap">
             <img class="admin-avatar" src="${user.profilePictureSmall || user.profilePicture}" alt=""/>
-            ${user.isPremium ? `<img class="admin-premium-icon" title="Premium" src="../../assets/images/premium/premium-icon.svg"/>` : ""}
+            ${user.isPremium ? `<img class="admin-premium-icon" title="Premium" src="${getPremiumImage("premium-icon")}"/>` : ""}
          </span>
          <span class="admin-user-name">${user.username}</span>
          <span class="admin-user-code">${user.code}</span>

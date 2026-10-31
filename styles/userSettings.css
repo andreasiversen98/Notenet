@@ -175,3 +175,9 @@ body.mono .settings-page .edit-btn {
 body.mono .settings-avatar {
   box-shadow: 0 0 0 1px #d0cfc9;
 }
+
+/*mono premium row*/
+body.mono .premium-row span {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+}

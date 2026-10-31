@@ -623,3 +623,8 @@ body.dark.mono .modal-toggle-container .modal-toggle-btn.active {
 body.dark.mono .modal-toggle-container .modal-toggle-btn:disabled {
   color: #5a5a5a;
 }
+
+/*mono premium*/
+body.dark.mono .premium-badge {
+  border-radius: 0;
+}

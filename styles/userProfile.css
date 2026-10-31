@@ -153,3 +153,14 @@
   height: 20px;
   margin-top: 8px;
 }
+
+/*mono premium*/
+body.mono .premium-cta,
+body.mono .premium-btn {
+  border-radius: 0;
+}
+
+body.mono .premium-btn {
+  font-family: Consolas, "Courier New", monospace;
+  text-transform: uppercase;
+}

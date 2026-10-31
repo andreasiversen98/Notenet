@@ -34,6 +34,11 @@ function setTheme(theme) {
    setView();
 }
 
+function getPremiumImage(name) {
+   const ending = model.app.theme === "mono" ? "-mono" : "";
+   return `../../assets/images/premium/${name}${ending}.svg`;
+}
+
 // model.viewState.adminUserOverview.selectedUser = 'test55'
 setView("loginPage");
 // setView("userProfile")

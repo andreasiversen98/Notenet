@@ -60,7 +60,7 @@ function getGreeting() {
 function getPremiumInfo() {
    if (!getLoggedInUser().isPremium) return `` 
    else return /*html*/ `
-   <img class="premium-badge" src="../../assets/images/premium/premium-badge.svg" alt="premium"/>`
+   <img class="premium-badge" src="${getPremiumImage("premium-badge")}" alt="premium"/>`
 }
 
 function userListCategories() {
@@ -108,7 +108,7 @@ function userPremiumButton() {
          <span class="premium-cta-text">Lag delte lister og inviter venner</span>
       </div>
       <button class="premium-btn" onclick="togglePremium()">
-         <img src="../../assets/images/premium/premium-icon-no-dot.svg"/>
+         <img src="${getPremiumImage("premium-icon-no-dot")}"/>
          Få premium
       </button>
    </div>`
