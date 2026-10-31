@@ -358,3 +358,9 @@ body.retro .decline-btn[src*="icons/pixel/"] {
   height: 12px;
   padding: 12px;
 }
+
+/*retro trash*/
+body.retro img[src*="icons/pixel/trash"][width] {
+  width: 18px;
+  height: 18px;
+}
