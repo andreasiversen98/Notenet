@@ -31,7 +31,7 @@ function modifyListDataIntoComponents(lists) {
             <div class="invite-title">${list.title}</div>
          </div>
          <div class="flex row align-center invite-actions">
-            <img onclick="acceptInviteToList('${list.id}')" class="accept-btn" title="Godta" src="../../assets/icons/check-white.svg"/>
+            <img onclick="acceptInviteToList('${list.id}')" class="accept-btn" title="Godta" src="${getIcon("check-white")}"/>
             <img onclick="declineInviteToList('${list.id}')" class="decline-btn" title="Avslå" src="${getIcon("x")}"/>
          </div>
       </div>`;

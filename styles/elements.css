@@ -334,3 +334,27 @@ body.mono h3 * {
   font-family: Consolas, "Courier New", monospace;
   font-synthesis: auto;
 }
+
+/*mono toast and invite buttons*/
+body.mono .toast,
+body.mono .toast-icon {
+  border-radius: 0;
+}
+
+body.mono .toast-icon[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+  padding: 6px;
+}
+
+body.mono .toast-close[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+}
+
+body.mono .accept-btn[src*="icons/pixel/"],
+body.mono .decline-btn[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+  padding: 12px;
+}

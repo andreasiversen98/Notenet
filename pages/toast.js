@@ -2,7 +2,7 @@ function getToast() {
    if (!model.app.toast) return "";
    return /*html*/ `
    <div class="toast flex row align-center gap">
-      <img class="toast-icon" src="../../assets/icons/check-white.svg"/>
+      <img class="toast-icon" src="${getIcon("check-white")}"/>
       <span>${model.app.toast}</span>
       <img class="toast-close" onclick="closeToast()" src="${getIcon("x")}" alt="Lukk"/>
    </div>`;
