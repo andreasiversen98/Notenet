@@ -69,7 +69,7 @@ body.dark .login-button {
 }
 
 body.dark .login-button:hover {
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
 }
 
@@ -94,11 +94,11 @@ body.dark .login-divider::after {
 
 body.dark .login-error,
 body.dark .field-error {
-  color: #ff6a4f;
+  color: #f0566a;
 }
 
 body.dark .login-input.input-error {
-  border-color: #ff6a4f;
+  border-color: #f0566a;
 }
 
 /*list page*/
@@ -260,7 +260,7 @@ body.dark .header-avatar {
 }
 
 body.dark .header-avatar:hover {
-  box-shadow: 0 0 0 2px #ff3d1f;
+  box-shadow: 0 0 0 2px #e0243a;
 }
 
 body.dark .completed-list li span {
@@ -287,8 +287,8 @@ body.dark .edit-btn-save img {
 }
 
 body.dark .edit-btn-save:hover {
-  background: #ff3d1f;
-  border-color: #ff3d1f;
+  background: #e0243a;
+  border-color: #e0243a;
   color: white;
 }
 
@@ -377,7 +377,7 @@ body.dark .settings-label {
 }
 
 body.dark .settings-danger {
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 body.dark .settings-input {
@@ -427,7 +427,7 @@ body.dark .admin-premium-icon {
 }
 
 body.dark .avatar-option.selected {
-  box-shadow: 0 0 0 2px #1e1e1e, 0 0 0 4px #ff3d1f;
+  box-shadow: 0 0 0 2px #1e1e1e, 0 0 0 4px #e0243a;
 }
 
 /*user info modal*/

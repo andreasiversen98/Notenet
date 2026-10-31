@@ -78,7 +78,7 @@
 }
 
 .login-button:hover {
-  background: #ff3d1f;
+  background: #e0243a;
 }
 
 .register-button {
@@ -111,7 +111,7 @@
 
 /*field errors*/
 .login-input.input-error {
-  border-color: #e02a0d;
+  border-color: #c81d32;
 }
 
 .login-input.input-error:focus {
@@ -121,12 +121,12 @@
 .field-error {
   font-size: 13px;
   font-weight: 400;
-  color: #e02a0d;
+  color: #c81d32;
 }
 
 /*messages*/
 .login-error {
-  color: #e02a0d;
+  color: #c81d32;
   font-size: 14px;
   margin: 0;
 }

@@ -73,7 +73,7 @@
 }
 
 .settings-danger {
-  color: #e02a0d;
+  color: #c81d32;
   font-weight: 600;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .avatar-option.selected {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #ff3d1f;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #e0243a;
 }
 
 /*log out*/

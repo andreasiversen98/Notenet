@@ -94,7 +94,7 @@
 
 .owner-tag {
   font-size: 11px;
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
   padding: 1px 6px;
   border-radius: 999px;
@@ -337,7 +337,7 @@ li span {
 .list-progress-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ff3d1f, #ff7a3d);
+  background: linear-gradient(90deg, #e0243a, #f0566a);
   transition: width 0.3s ease;
 }
 
@@ -408,7 +408,7 @@ li input[type="checkbox"]:checked {
 .completed-list li span {
   color: #6b6b66;
   text-decoration: line-through;
-  text-decoration-color: #ff3d1f;
+  text-decoration-color: #e0243a;
   text-decoration-thickness: 2px;
 }
 
@@ -455,8 +455,8 @@ li input[type="checkbox"]:checked {
 }
 
 .edit-btn-save:hover {
-  background: #ff3d1f;
-  border-color: #ff3d1f;
+  background: #e0243a;
+  border-color: #e0243a;
 }
 
 .edit-btn-cancel {
@@ -479,7 +479,7 @@ li input[type="checkbox"]:checked {
 }
 
 .edit-input:focus {
-  box-shadow: 0 0 0 3px rgba(255, 61, 31, 0.2);
+  box-shadow: 0 0 0 3px rgba(224, 36, 58, 0.2);
 }
 
 /*empty text*/
@@ -536,7 +536,7 @@ li input[type="checkbox"]:checked {
 
 .list-progress-fill {
   border-radius: 0;
-  background: repeating-linear-gradient(90deg, #ff3d1f 0 10px, transparent 10px 14px);
+  background: repeating-linear-gradient(90deg, #e0243a 0 10px, transparent 10px 14px);
 }
 
 .list-container .visibility-switch,
@@ -581,7 +581,7 @@ li input[type="checkbox"]:checked {
 
 .list-container h3::before {
   content: "// ";
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 .list-container ul {
@@ -648,7 +648,7 @@ li input[type="checkbox"]:checked {
 }
 
 .counter-link:hover {
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 /*members list*/

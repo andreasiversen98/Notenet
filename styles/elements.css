@@ -74,12 +74,12 @@ html, body {
   height: 26px;
   padding: 13px;
   border-radius: 50%;
-  background-color: #ff3d1f;
+  background-color: #e0243a;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .icon-add:hover {
-  background-color: #e02a0d;
+  background-color: #c81d32;
 }
 
 .bottom-bar span:active img {
@@ -101,7 +101,7 @@ html, body {
   box-sizing: border-box;
   border: 2px solid #0a0a0a;
   border-radius: 999px;
-  background-color: #ff3d1f;
+  background-color: #e0243a;
   color: white;
   font-size: 10px;
   font-weight: 700;
@@ -196,7 +196,7 @@ html, body {
 }
 
 .header-avatar:hover {
-  box-shadow: 0 0 0 2px #ff3d1f;
+  box-shadow: 0 0 0 2px #e0243a;
 }
 
 /*reset*/
@@ -243,7 +243,7 @@ img {
   height: 18px;
   padding: 3px;
   border-radius: 50%;
-  background: #ff3d1f;
+  background: #e0243a;
 }
 
 .toast-close {

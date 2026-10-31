@@ -118,7 +118,7 @@ function getImageField() {
 const pictureNames = [
    "default-avatar",
    "avatar-red", "avatar-blue", "avatar-green", "avatar-purple", "avatar-yellow",
-   "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray",
+   "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray", "avatar-navy", "avatar-brown",
    "shape-check", "shape-ring", "shape-split", "shape-dots",
    "shape-stack", "shape-sun", "shape-wave", "shape-quarter",
    "shape-moon", "shape-mountain",

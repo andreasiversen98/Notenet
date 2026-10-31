@@ -2,7 +2,7 @@
 .admin-tag {
   padding: 3px 9px;
   border-radius: 999px;
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
   font-size: 12px;
   font-weight: 700;
@@ -109,7 +109,7 @@
 }
 
 .admin-user-row:hover .admin-user-name {
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 .admin-avatar {

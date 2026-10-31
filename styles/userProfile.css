@@ -22,7 +22,7 @@
 }
 
 .profile-container .list-bar:hover > div:first-child span {
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 .profile-container .list-bar > div:first-child {
@@ -69,7 +69,7 @@
   border: none;
   border-radius: 999px;
   padding: 8px 16px;
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
   font-size: 13px;
   font-weight: 700;
@@ -83,7 +83,7 @@
 }
 
 .premium-btn:hover {
-  background: #e02a0d;
+  background: #c81d32;
   transform: translateY(-1px);
 }
 
