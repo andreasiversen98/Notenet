@@ -21,7 +21,7 @@ function listPageView() {
     }
 
     let textHtml = /*html*/ `<span>${item.text}</span>`;
-    let editBtnHtml = /*html*/ `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="../../assets/icons/pencil.svg" alt="">Rediger</button>`;
+    let editBtnHtml = /*html*/ `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="${getIcon("pencil")}" alt="">Rediger</button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
       textHtml = /*html*/ `
@@ -34,7 +34,7 @@ function listPageView() {
         >
       `;
       editBtnHtml = /*html*/ `
-        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="../../assets/icons/check.svg" alt="">Lagre</button>
+        <button class="edit-btn edit-btn-save" onclick="saveEditItem()"><img src="${getIcon("check")}" alt="">Lagre</button>
         <button class="edit-btn edit-btn-cancel" onclick="cancelEditItem()">Avbryt</button>
       `;
     }
@@ -47,7 +47,7 @@ function listPageView() {
         ${textHtml}
         ${editBtnHtml}
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
-          <img src="../../assets/icons/trash.svg" width="14" alt="Slett">
+          <img src="${getIcon("trash")}" width="14" alt="Slett">
         </button>
         ${sharedIcon}
       </li>
@@ -66,7 +66,7 @@ function listPageView() {
     ? /*html*/ `
         <div class="visibility-switch">
           <button class="visibility-option ${!list.isShared ? "active" : ""}" onclick="setListVisibility(false)">
-            <img src="../../assets/icons/lock.svg" width="14" alt="">
+            <img src="${getIcon("lock")}" width="14" alt="">
             Privat
           </button>
           <button class="visibility-option ${list.isShared ? "active" : ""}" onclick="setListVisibility(true)">
@@ -82,6 +82,7 @@ function listPageView() {
         </span>
       `;
 
+  const isMono = model.app.theme === "mono";
   const percent = list.totalItems === 0 ? 0 : Math.round((list.completedItems / list.totalItems) * 100);
 
   const showMembers = model.viewState.listPage.showMembers;
@@ -93,12 +94,12 @@ function listPageView() {
         <div class="share-meta">
           <button class="member-count-btn" onclick="toggleMembers()">
             ${list.members && list.members.length === 1 ? "1 medlem" : `${list.members ? list.members.length : 0} medlemmer`}
-            <img src="../../assets/icons/chevron-right.svg" width="14"
+            <img src="${getIcon("chevron-right")}" width="14"
                  class="${showMembers ? "rotated" : ""}" alt="">
           </button>
           ${canAddMember(list) ? `
           <button class="btn invite-btn" onclick="openInviteModal()">
-            <img src="../../assets/icons/user-plus.svg" width="14" alt="">
+            <img src="${getIcon("user-plus")}" width="14" alt="">
             Inviter
           </button>` : ""}
         </div>
@@ -118,7 +119,7 @@ function listPageView() {
           <span class="member-code">${user.code}</span>
           ${canRemoveMember(list, user) ? `
             <button class="btn-icon remove-member-btn" onclick="removeMember('${user.id}')" title="Fjern medlem">
-              <img src="../../assets/icons/x.svg" width="14" alt="Fjern">
+              <img src="${getIcon("x")}" width="14" alt="Fjern">
             </button>` : ""}
         </div>
       `;
@@ -159,21 +160,21 @@ function listPageView() {
           onkeydown="if(event.key === 'Enter') pushNewItem()"
         />
         <button class="btn" onclick="pushNewItem()">
-          <img src="../../assets/icons/square-plus.svg" width="16" alt="Legg til">
+          <img src="${getIcon("square-plus")}" width="16" alt="Legg til">
         </button>
       </div>
 
       <h3 class="section-toggle" onclick="toggleTodo()">
         Å gjøre · ${uncompletedCount}
-        <img src="../../assets/icons/chevron-right.svg" width="14" class="${showTodo ? "rotated" : ""}" alt="">
+        <img src="${getIcon("chevron-right")}" width="14" class="${showTodo ? "rotated" : ""}" alt="">
       </h3>
-      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? "Alle oppgaver er fullført 🎉" : "Ingen oppgaver ennå 📝"}</p>` : ""}
+      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isMono ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isMono ? ":)" : "📝"}`}</p>` : ""}
 
       <h3 id="completed-tasks" class="section-toggle" onclick="toggleCompleted()">
         Fullførte oppgaver · ${completedCount}
-        <img src="../../assets/icons/chevron-right.svg" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
+        <img src="${getIcon("chevron-right")}" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
       </h3>
-      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå 😢</p>` : ""}
+      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isMono ? ":(" : "😢"}</p>` : ""}
     </div>
 
     ${getBottomBar()}

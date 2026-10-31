@@ -4,7 +4,7 @@ function getToast() {
    <div class="toast flex row align-center gap">
       <img class="toast-icon" src="../../assets/icons/check-white.svg"/>
       <span>${model.app.toast}</span>
-      <img class="toast-close" onclick="closeToast()" src="../../assets/icons/x.svg" alt="Lukk"/>
+      <img class="toast-close" onclick="closeToast()" src="${getIcon("x")}" alt="Lukk"/>
    </div>`;
 }
 

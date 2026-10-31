@@ -5,7 +5,7 @@ function adminViewUser() {
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
                <h2>Brukerinfo</h2>
-               <img onclick="closeModal()" class="icon-size" src="../../assets/icons/x.svg"/>
+               <img onclick="closeModal()" class="icon-size" src="${getIcon("x")}"/>
             </div>
             ${getUserData()}
          </div>

@@ -39,6 +39,16 @@ function getPremiumImage(name) {
    return `../../assets/images/premium/${name}${ending}.svg`;
 }
 
+function getLogo() {
+   const ending = model.app.theme === "mono" ? "-mono" : "";
+   return `../../assets/images/logo/notenet-logo${ending}.svg`;
+}
+
+function getIcon(name) {
+   const folder = model.app.theme === "mono" ? "icons/pixel" : "icons";
+   return `../../assets/${folder}/${name}.svg`;
+}
+
 // model.viewState.adminUserOverview.selectedUser = 'test55'
 setView("loginPage");
 // setView("userProfile")

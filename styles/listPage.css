@@ -704,3 +704,14 @@ body.mono .settings-page .visibility-option:not(.active):hover {
   background: rgba(0, 0, 0, 0.05);
   color: #0a0a0a;
 }
+
+/*mono checkbox*/
+body.mono .list-container li input[type="checkbox"]:checked {
+  background: #0a0a0a url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges' fill='white'><path d='M1 6h1v1h-1ZM1 7h1v1h-1ZM2 6h1v1h-1ZM2 7h1v1h-1ZM2 8h1v1h-1ZM3 7h1v1h-1ZM3 8h1v1h-1ZM3 9h1v1h-1ZM4 8h1v1h-1ZM4 9h1v1h-1ZM5 7h1v1h-1ZM5 8h1v1h-1ZM5 9h1v1h-1ZM6 6h1v1h-1ZM6 7h1v1h-1ZM6 8h1v1h-1ZM7 5h1v1h-1ZM7 6h1v1h-1ZM7 7h1v1h-1ZM8 4h1v1h-1ZM8 5h1v1h-1ZM8 6h1v1h-1ZM9 3h1v1h-1ZM9 4h1v1h-1ZM9 5h1v1h-1ZM10 3h1v1h-1ZM10 4h1v1h-1Z'/></svg>") center / 12px no-repeat;
+}
+
+/*mono empty text*/
+body.mono .list-container .empty-text {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+}

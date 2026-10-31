@@ -273,3 +273,46 @@ body.mono .notification-count {
   border-radius: 0;
   font-family: Consolas, "Courier New", monospace;
 }
+
+/*mono avatars*/
+body.mono .header-avatar,
+body.mono .image-size,
+body.mono .settings-avatar,
+body.mono .avatar-option,
+body.mono .member-avatar,
+body.mono .item-avatar,
+body.mono .admin-avatar {
+  border-radius: 0;
+}
+
+/*mono header*/
+body.mono .header .icon-size {
+  border-radius: 0;
+}
+
+body.mono .header .header-avatar,
+body.mono .settings-page .settings-avatar {
+  box-shadow: 0 0 0 1.5px #0a0a0a;
+}
+
+body.mono .header .header-avatar:hover {
+  box-shadow: 0 0 0 2px #e0243a;
+}
+
+/*mono pixel icons*/
+body.mono img[src*="icons/pixel/"][width="14"],
+body.mono img[src*="icons/pixel/"][width="16"] {
+  width: 12px;
+  height: 12px;
+}
+
+body.mono img[src*="icons/pixel/"][width="20"],
+body.mono .input-box button img[src*="icons/pixel/"],
+body.mono .icon-size[src*="icons/pixel/"] {
+  width: 24px;
+  height: 24px;
+}
+
+body.mono .header .icon-size[src*="icons/pixel/"] {
+  padding: 6px;
+}

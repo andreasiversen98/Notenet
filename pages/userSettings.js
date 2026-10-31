@@ -13,7 +13,7 @@ function userSettings() {
          <h1>Innstillinger</h1>
          <div class="flex row align-center gap2">
             ${getThemeToggle()}
-            <img onclick="exitUserSettings()" class="icon-size" src="../../assets/icons/x.svg"/>
+            <img onclick="exitUserSettings()" class="icon-size" src="${getIcon("x")}"/>
          </div>
       </div>
 
@@ -43,7 +43,7 @@ function userSettings() {
 
       <div class="settings-group logout-group">
          <div onclick="logOut()" class="settings-row flex row align-center gap">
-            <img class="icon-size" src="../../assets/icons/log-out.svg"/>
+            <img class="icon-size" src="${getIcon("log-out")}"/>
             <span>Logg ut</span>
          </div>
       </div>
@@ -72,7 +72,7 @@ function getPremiumRow() {
       <div onclick="togglePremium()" class="settings-row premium-row ${isPremium ? "settings-danger" : ""} flex row align-center gap">
          <img class="premium-row-icon" src="${getPremiumImage(icon)}"/>
          <span>${text}</span>
-         ${isPremium ? "" : `<img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>`}
+         ${isPremium ? "" : `<img class="settings-chevron" src="${getIcon("chevron-right")}"/>`}
       </div>`;
 }
 
@@ -80,9 +80,9 @@ function getNameField() {
    if (canEditName == false)
       return /*html*/ `
          <div onclick="switchNameField()" class="settings-row flex row align-center gap">
-            <img class="icon-size" src="../../assets/icons/pencil.svg"/>
+            <img class="icon-size" src="${getIcon("pencil")}"/>
             <span>Endre navn</span>
-            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
+            <img class="settings-chevron" src="${getIcon("chevron-right")}"/>
          </div>`;
    else
       return /*html*/ `
@@ -116,9 +116,9 @@ function getImageField() {
    if (canEditImage == false)
       return /*html*/ `
          <div onclick="switchImageField()" class="settings-row flex row align-center gap">
-            <img class="icon-size" src="../../assets/icons/user-round.svg"/>
+            <img class="icon-size" src="${getIcon("user-round")}"/>
             <span>Endre profilbilde</span>
-            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
+            <img class="settings-chevron" src="${getIcon("chevron-right")}"/>
          </div>`;
    else
       return /*html*/ `

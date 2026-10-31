@@ -49,7 +49,7 @@ function displayUsers() {
          </span>
          <span class="admin-user-name">${user.username}</span>
          <span class="admin-user-code">${user.code}</span>
-         <img class="admin-chevron" src="../../assets/icons/chevron-right.svg"/>
+         <img class="admin-chevron" src="${getIcon("chevron-right")}"/>
       </div>`;
    }
    users += "</div>";

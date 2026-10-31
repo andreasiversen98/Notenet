@@ -9,7 +9,7 @@ function makePrivateModal() {
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
                <h2>Gjøre listen privat?</h2>
-               <img onclick="closeModal()" class="icon-size" src="../../assets/icons/x.svg"/>
+               <img onclick="closeModal()" class="icon-size" src="${getIcon("x")}"/>
             </div>
             <p class="invite-text">${membersText} blir fjernet fra «${list.title}». De må inviteres på nytt hvis listen blir delt igjen.</p>
             <div class="flex row justify-end">
@@ -31,7 +31,7 @@ function cancelPremiumModal() {
          <div class="flex column gap">
             <div class="flex row justify-between align-center">
                <h2>Avslutte premium?</h2>
-               <img onclick="closeModal()" class="icon-size" src="../../assets/icons/x.svg"/>
+               <img onclick="closeModal()" class="icon-size" src="${getIcon("x")}"/>
             </div>
             <p class="invite-text">${listsText}, og alle medlemmer blir fjernet. Ventende invitasjoner blir også slettet.</p>
             <div class="flex row justify-end">

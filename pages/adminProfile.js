@@ -14,7 +14,7 @@ function adminProfileLayout() {
          <div onclick="setView('adminUserOverview')" class="admin-stat admin-stat-link">
             <span class="admin-stat-label">Brukere</span>
             <span class="admin-stat-number">${userCount()}</span>
-            <span class="admin-stat-sub">Se alle <img src="../../assets/icons/chevron-right.svg"/></span>
+            <span class="admin-stat-sub">Se alle <img src="${getIcon("chevron-right")}"/></span>
          </div>
          <div class="admin-stat">
             <span class="admin-stat-label">Lister</span>
