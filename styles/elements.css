@@ -456,3 +456,10 @@ body.retro img[src*="icons/pixel/trash"][width] {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   }
 }
+
+/*retro edit icon*/
+body.retro .list-container .edit-btn img[src*="icons/pixel/"] {
+  width: 18px;
+  height: 18px;
+  margin: -3px -1px -3px -2px;
+}
