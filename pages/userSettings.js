@@ -31,6 +31,11 @@ function userSettings() {
          ${getImageField()}
       </div>
 
+      <h3 class="settings-label">Utseende</h3>
+      <div class="settings-group">
+         ${getThemeRow()}
+      </div>
+
       <h3 class="settings-label">Abonnement</h3>
       <div class="settings-group">
          ${getPremiumRow()}
@@ -44,6 +49,18 @@ function userSettings() {
       </div>
    </div>
    `;
+}
+
+function getThemeRow() {
+   const theme = model.app.theme;
+   return /*html*/ `
+      <div class="settings-row flex row align-center justify-between gap">
+         <span>Stil</span>
+         <div class="visibility-switch">
+            <button class="visibility-option ${theme === "mono" ? "active" : ""}" onclick="setTheme('mono')">Mono</button>
+            <button class="visibility-option ${theme === "modern" ? "active" : ""}" onclick="setTheme('modern')">Moderne</button>
+         </div>
+      </div>`;
 }
 
 function getPremiumRow() {

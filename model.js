@@ -6,6 +6,7 @@ const model = {
       openModal: null,
       toast: "",
       darkMode: false,
+      theme: "modern",
    },
 
    viewState: {
