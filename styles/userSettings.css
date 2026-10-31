@@ -1,7 +1,7 @@
 /*settings page*/
 .settings-page {
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   gap: 12px;
 }

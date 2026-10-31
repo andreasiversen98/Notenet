@@ -7,7 +7,8 @@ function adminHeaderComponent() {
       </div>
       <div class="flex row align-center gap2">
          ${getThemeToggle()}
-         <img onclick="setView('userSettings')" class="icon-size" src="../../assets/icons/ellipsis-vertical.svg"/>
+         <img onclick="setView('userSettings')" class="icon-size" title="Innstillinger" src="../../assets/icons/ellipsis-vertical.svg"/>
+         <img onclick="setView('adminProfile')" class="header-avatar" src="${getLoggedInUser().profilePictureSmall || getLoggedInUser().profilePicture}" alt="Profil"/>
       </div>
    </div>
    `

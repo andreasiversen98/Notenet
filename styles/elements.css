@@ -150,7 +150,7 @@ html, body {
 /*profile*/
 .profile-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -166,6 +166,37 @@ html, body {
     font-size: 50px;
     color: dimgray;
   }
+}
+
+/*header icons*/
+.header .gap2 {
+  gap: 8px;
+}
+
+.header .icon-size {
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.header .icon-size:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+/*header avatar*/
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  margin-left: 6px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.header-avatar:hover {
+  box-shadow: 0 0 0 2px #ff3d1f;
 }
 
 /*reset*/

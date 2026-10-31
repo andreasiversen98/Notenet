@@ -4,6 +4,8 @@ function listPageView() {
 
   let uncompletedHtml = "";
   let completedHtml = "";
+  let uncompletedCount = 0;
+  let completedCount = 0;
 
   for (let i = 0; i < list.items.length; i++) {
     const item = list.items[i];
@@ -42,17 +44,22 @@ function listPageView() {
     const itemHtml = /*html*/ `
       <li>
         <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
+        ${textHtml}
+        ${editBtnHtml}
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
           <img src="../../assets/icons/trash.svg" width="14" alt="Slett">
         </button>
-        ${textHtml}
-        ${editBtnHtml}
         ${sharedIcon}
       </li>
     `;
 
-    if (item.isCompleted) completedHtml += itemHtml;
-    else uncompletedHtml += itemHtml;
+    if (item.isCompleted) {
+      completedHtml += itemHtml;
+      completedCount++;
+    } else {
+      uncompletedHtml += itemHtml;
+      uncompletedCount++;
+    }
   }
 
   const visibilityHtml = canChangeVisibility(list)
@@ -75,7 +82,10 @@ function listPageView() {
         </span>
       `;
 
+  const percent = list.totalItems === 0 ? 0 : Math.round((list.completedItems / list.totalItems) * 100);
+
   const showMembers = model.viewState.listPage.showMembers;
+  const showCompleted = model.viewState.listPage.showCompleted;
 
   const sharedHtml = list.isShared
     ? /*html*/ `
@@ -124,11 +134,13 @@ function listPageView() {
 
     <div class="list-container">
       <div class="list-title-row">
-        <div>
-          <h2>${list.title}</h2>
-          <span class="counter">${list.completedItems} / ${list.totalItems}</span>
-        </div>
+        <h2>${list.title}</h2>
       </div>
+
+      <div class="list-progress">
+        <div class="list-progress-fill" style="width: ${percent}%"></div>
+      </div>
+      <span class="counter"><b>${percent}%</b> ferdig · <span class="counter-link" onclick="showCompletedTasks()">${list.completedItems} av ${list.totalItems} oppgaver</span></span>
 
       <div class="list-toolbar">
         ${visibilityHtml}
@@ -150,10 +162,14 @@ function listPageView() {
         </button>
       </div>
 
+      <h3>Å gjøre · ${uncompletedCount}</h3>
       <ul>${uncompletedHtml}</ul>
 
-      <h3>Fullførte oppgaver</h3>
-      ${completedHtml ? `<ul>${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå 😢</p>`}
+      <h3 id="completed-tasks" class="completed-toggle" onclick="toggleCompleted()">
+        Fullførte oppgaver · ${completedCount}
+        <img src="../../assets/icons/chevron-right.svg" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
+      </h3>
+      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå 😢</p>` : ""}
     </div>
 
     ${getBottomBar()}

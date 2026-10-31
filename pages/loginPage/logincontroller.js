@@ -32,7 +32,8 @@ function logIn() {
     vs.error = "";
     vs.usernameError = "";
     vs.passwordError = "";
-    setView("userProfile");
+    if (user.role === "admin") setView("userProfile");
+    else setView("listPage");
   }
 }
 

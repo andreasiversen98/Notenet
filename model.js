@@ -41,6 +41,7 @@ const model = {
          editingItemTitle: "",
          selectedListId: "",
          showMembers: false,
+         showCompleted: false,
          inviteCode: "",
          inviteMessage: "",
       },

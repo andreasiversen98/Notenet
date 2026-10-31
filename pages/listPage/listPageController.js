@@ -21,6 +21,18 @@ function toggleMembers() {
   setView();
 }
 
+function toggleCompleted() {
+  const lp = model.viewState.listPage;
+  lp.showCompleted = !lp.showCompleted;
+  setView();
+}
+
+function showCompletedTasks() {
+  model.viewState.listPage.showCompleted = true;
+  setView();
+  document.getElementById("completed-tasks").scrollIntoView({ behavior: "smooth" });
+}
+
 function canRemoveMember(list, user) {
   const me = getLoggedInUser();
   const isOwner = list.ownerId === me.id;
