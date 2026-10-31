@@ -147,3 +147,9 @@
 .copy-icon:hover {
   opacity: 1;
 }
+
+/*premium badge*/
+.profile-container .premium-badge {
+  height: 20px;
+  margin-top: 8px;
+}

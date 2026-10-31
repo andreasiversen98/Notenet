@@ -21,9 +21,9 @@ function userInfoElements() {
    const user = getLoggedInUser();
    return /*html*/ `
    <div class="flex row padding gap justify-evenly">
-      <div class="flex column gap">
+      <div class="flex column align-center">
          <img class="image-size border" src="${user.profilePicture}"/>
-         <div class="flex row justify-between gap">
+         <div class="flex row">
             ${getPremiumInfo()}
          </div>
       </div>
@@ -60,7 +60,7 @@ function getGreeting() {
 function getPremiumInfo() {
    if (!getLoggedInUser().isPremium) return `` 
    else return /*html*/ `
-   <img class="premium-badge" src="../../assets/images/premium/premium-badge.svg" alt="premium" style="height: 24px"/>`
+   <img class="premium-badge" src="../../assets/images/premium/premium-badge.svg" alt="premium"/>`
 }
 
 function userListCategories() {
