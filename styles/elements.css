@@ -364,3 +364,95 @@ body.retro img[src*="icons/pixel/trash"][width] {
   width: 18px;
   height: 18px;
 }
+
+/*animations*/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -16px);
+  }
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes check-pop {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes strike {
+  to {
+    background-size: 100% 2px;
+  }
+}
+
+@keyframes item-out {
+  to {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.retro) .modal-overlay.animate-in {
+    animation: fade-in 0.2s ease;
+  }
+
+  body:not(.retro) .modal-overlay.animate-in .modal-content {
+    animation: pop-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  body:not(.retro) .toast.animate-in {
+    animation: toast-in 0.3s ease;
+  }
+
+  body:not(.retro) li.animate-in {
+    animation: item-in 0.3s ease;
+  }
+
+  body:not(.retro) li.animate-in input[type="checkbox"]:checked {
+    animation: check-pop 0.3s ease;
+  }
+
+  body:not(.retro) li.completing {
+    animation: item-out 0.2s ease 0.3s forwards;
+  }
+
+  body:not(.retro) li.completing input[type="checkbox"] {
+    animation: check-pop 0.3s ease;
+  }
+
+  body:not(.retro) li.completing span {
+    background: linear-gradient(#e0243a, #e0243a) no-repeat 0 55% / 0 2px;
+    animation: strike 0.3s ease forwards;
+  }
+
+  body:not(.retro) .list-container li,
+  body:not(.retro) .admin-stat {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  body:not(.retro) .admin-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+}

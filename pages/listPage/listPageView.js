@@ -10,7 +10,8 @@ function listPageView() {
   for (let i = 0; i < list.items.length; i++) {
     const item = list.items[i];
 
-    const checked = item.isCompleted ? "checked" : "";
+    const isCompleting = item.id === model.viewState.listPage.completingItemId;
+    const checked = item.isCompleted || isCompleting ? "checked" : "";
 
     let sharedIcon = "";
     if (list.isShared && !item.isCompleted) {
@@ -41,8 +42,11 @@ function listPageView() {
 
     if (item.isCompleted) editBtnHtml = "";
 
+    let animated = item.id === model.viewState.listPage.animatedItemId ? "animate-in" : "";
+    if (isCompleting) animated = "completing";
+
     const itemHtml = /*html*/ `
-      <li>
+      <li class="${animated}">
         <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
         ${textHtml}
         ${editBtnHtml}

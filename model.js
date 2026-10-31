@@ -46,6 +46,8 @@ const model = {
          showCompleted: false,
          inviteCode: "",
          inviteMessage: "",
+         animatedItemId: null,
+         completingItemId: null,
       },
 
       userProfilePage: {

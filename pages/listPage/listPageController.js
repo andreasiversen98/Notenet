@@ -136,11 +136,36 @@ function pushNewItem() {
   currentList.totalItems += 1;
 
   model.viewState.listPage.newItemTitle = "";
-  
+  model.viewState.listPage.animatedItemId = newItemId;
   setView();
+  model.viewState.listPage.animatedItemId = null;
 }
 
 function toggleItemCompletion(itemId) {
+  const lp = model.viewState.listPage;
+  if (lp.completingItemId) return;
+
+  const item = getCurrentList()?.items.find((item) => item.id === itemId);
+  if (!item) return;
+
+  if (!item.isCompleted && shouldAnimate()) {
+    lp.completingItemId = itemId;
+    setView();
+    setTimeout(() => {
+      lp.completingItemId = null;
+      changeItemCompletion(itemId);
+    }, 500);
+    return;
+  }
+
+  changeItemCompletion(itemId);
+}
+
+function shouldAnimate() {
+  return model.app.theme !== "retro" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function changeItemCompletion(itemId) {
   const currentList = getCurrentList();
   if (!currentList) return;
 
@@ -157,7 +182,9 @@ function toggleItemCompletion(itemId) {
     }
   }
 
+  model.viewState.listPage.animatedItemId = itemId;
   setView();
+  model.viewState.listPage.animatedItemId = null;
 }
 
 function deleteItem(itemId) {
