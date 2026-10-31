@@ -164,3 +164,31 @@ body.retro .premium-btn {
   font-family: "Lucida Console", Consolas, monospace;
   text-transform: uppercase;
 }
+
+/*retro profile*/
+body.retro .profile-container .container {
+  border-top-width: 2px;
+}
+
+body.retro .profile-container .list-bar {
+  border-bottom: 1px dashed #9a9a95;
+  transition: none;
+}
+
+body.retro .profile-container .list-bar > div:last-child span {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .profile-container .list-bar > div:last-child img {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro .copy-icon {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro .profile-container .image-size {
+  border-width: 1.5px;
+}

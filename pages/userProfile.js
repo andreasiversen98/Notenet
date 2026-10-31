@@ -35,8 +35,8 @@ function userInfoElements() {
 }
 
 function getCopyButton() {
-   const icon = model.viewState.userProfilePage.codeCopied ? "check.svg" : "copy.svg";
-   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="../../assets/icons/${icon}"/>`
+   const icon = model.viewState.userProfilePage.codeCopied ? "check" : "copy";
+   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="${getIcon(icon)}"/>`
 }
 
 function copyFriendCode() {
@@ -68,32 +68,32 @@ function userListCategories() {
    <div class="flex column container gap padding">
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/layers.svg"/>
+         <img class="icon-size" src="${getIcon("layers")}"/>
          <span>Alle</span>
          </div>
          <div class="flex row align-center gap">
          <span>24</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/users.svg"/>
+         <img class="icon-size" src="${getIcon("users")}"/>
          <span>Delte</span>
          </div>
          <div class="flex row align-center gap">
          <span>12</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/lock.svg"/>
+         <img class="icon-size" src="${getIcon("lock")}"/>
          <span>Privat</span>
          </div>
          <div class="flex row align-center gap">
          <span>2</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
    </div>`;
