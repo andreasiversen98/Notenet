@@ -257,3 +257,19 @@ img {
 .toast-close:hover {
   opacity: 1;
 }
+
+/*mono bottom bar*/
+body.mono .bottom-bar > div,
+body.mono .icon-add,
+body.mono .icon-bottom {
+  border-radius: 0;
+}
+
+body.mono .bottom-bar > div {
+  box-shadow: none;
+}
+
+body.mono .notification-count {
+  border-radius: 0;
+  font-family: Consolas, "Courier New", monospace;
+}
