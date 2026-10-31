@@ -515,114 +515,114 @@ li input[type="checkbox"]:checked {
   color: #6b6b66;
 }
 
-/*mono style*/
-body.mono .list-container h2 {
+/*retro style*/
+body.retro .list-container h2 {
   font-size: 30px;
   font-weight: 900;
   letter-spacing: -0.02em;
 }
 
-body.mono .list-container .counter {
+body.retro .list-container .counter {
   font-family: "Lucida Console", Consolas, monospace;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-body.mono .list-progress {
+body.retro .list-progress {
   height: 12px;
   border-radius: 0;
   background: repeating-linear-gradient(90deg, #d6d4cc 0 10px, transparent 10px 14px);
 }
 
-body.mono .list-progress-fill {
+body.retro .list-progress-fill {
   border-radius: 0;
   background: repeating-linear-gradient(90deg, #e0243a 0 10px, transparent 10px 14px);
 }
 
-body.mono .list-container .visibility-switch,
-body.mono .list-container .visibility-option,
-body.mono .list-container .invite-btn,
-body.mono .settings-page .visibility-switch,
-body.mono .settings-page .visibility-option {
+body.retro .list-container .visibility-switch,
+body.retro .list-container .visibility-option,
+body.retro .list-container .invite-btn,
+body.retro .settings-page .visibility-switch,
+body.retro .settings-page .visibility-option {
   border-radius: 0;
 }
 
-body.mono .list-container .visibility-option,
-body.mono .list-container .invite-btn,
-body.mono .list-container .member-count-btn,
-body.mono .settings-page .visibility-option {
+body.retro .list-container .visibility-option,
+body.retro .list-container .invite-btn,
+body.retro .list-container .member-count-btn,
+body.retro .settings-page .visibility-option {
   font-family: "Lucida Console", Consolas, monospace;
 }
 
-body.mono .list-container .invite-btn {
+body.retro .list-container .invite-btn {
   text-transform: uppercase;
   font-size: 12px;
 }
 
-body.mono .list-container .input-box {
+body.retro .list-container .input-box {
   border: none;
   border-bottom: 2px solid #0a0a0a;
   border-radius: 0;
   background: transparent;
 }
 
-body.mono .list-container .input-box input,
-body.mono .list-container .edit-input {
+body.retro .list-container .input-box input,
+body.retro .list-container .edit-input {
   font-family: "Lucida Console", Consolas, monospace;
   background: transparent;
 }
 
-body.mono .list-container .edit-input {
+body.retro .list-container .edit-input {
   border-radius: 0;
 }
 
-body.mono .list-container h3 {
+body.retro .list-container h3 {
   font-family: Consolas, "Courier New", monospace;
   font-size: 13px;
   opacity: 1;
 }
 
-body.mono .list-container h3::before {
+body.retro .list-container h3::before {
   content: "// ";
   color: #e0243a;
 }
 
-body.mono .list-container ul {
+body.retro .list-container ul {
   border: none;
   border-top: 2px solid #0a0a0a;
   border-radius: 0;
 }
 
-body.mono .list-container li {
+body.retro .list-container li {
   background: transparent;
   border-bottom: 1px dashed #9a9a95;
   padding: 12px 4px;
 }
 
-body.mono .list-container li:hover {
+body.retro .list-container li:hover {
   background: rgba(0, 0, 0, 0.03);
 }
 
-body.mono .list-container li span {
+body.retro .list-container li span {
   font-family: "Lucida Console", Consolas, monospace;
   font-size: 14px;
 }
 
-body.mono .list-container li input[type="checkbox"] {
+body.retro .list-container li input[type="checkbox"] {
   width: 20px;
   height: 20px;
   border-radius: 0;
   border-color: #0a0a0a;
 }
 
-body.mono .list-container .edit-btn {
+body.retro .list-container .edit-btn {
   border-radius: 0;
   font-family: "Lucida Console", Consolas, monospace;
   font-size: 11px;
   text-transform: uppercase;
 }
 
-body.mono .list-container .item-avatar {
+body.retro .list-container .item-avatar {
   box-shadow: 0 0 0 1px #d0cfc9;
 }
 
@@ -655,63 +655,63 @@ body.mono .list-container .item-avatar {
 }
 
 /*members list*/
-body.mono .list-container .members-list {
+body.retro .list-container .members-list {
   background: transparent;
   border: none;
   border-top: 2px solid #0a0a0a;
 }
 
-body.mono .list-container .member-row {
+body.retro .list-container .member-row {
   padding: 10px 4px;
   border-bottom: 1px dashed #9a9a95;
 }
 
-body.mono .list-container .member-row span {
+body.retro .list-container .member-row span {
   font-family: "Lucida Console", Consolas, monospace;
 }
 
-body.mono .list-container .member-avatar {
+body.retro .list-container .member-avatar {
   box-shadow: 0 0 0 1px #d0cfc9;
 }
 
 /*visibility switch*/
-body.mono .list-container .visibility-switch,
-body.mono .settings-page .visibility-switch {
+body.retro .list-container .visibility-switch,
+body.retro .settings-page .visibility-switch {
   background: transparent;
   border: 1.5px solid #0a0a0a;
   padding: 0;
 }
 
-body.mono .list-container .visibility-option,
-body.mono .settings-page .visibility-option {
+body.retro .list-container .visibility-option,
+body.retro .settings-page .visibility-option {
   padding: 5px 12px;
   color: #6b6b66;
   box-shadow: none;
 }
 
-body.mono .list-container .visibility-option + .visibility-option,
-body.mono .settings-page .visibility-option + .visibility-option {
+body.retro .list-container .visibility-option + .visibility-option,
+body.retro .settings-page .visibility-option + .visibility-option {
   border-left: 1.5px solid #0a0a0a;
 }
 
-body.mono .list-container .visibility-option.active,
-body.mono .settings-page .visibility-option.active {
+body.retro .list-container .visibility-option.active,
+body.retro .settings-page .visibility-option.active {
   color: white;
 }
 
-body.mono .list-container .visibility-option:not(.active):hover,
-body.mono .settings-page .visibility-option:not(.active):hover {
+body.retro .list-container .visibility-option:not(.active):hover,
+body.retro .settings-page .visibility-option:not(.active):hover {
   background: rgba(0, 0, 0, 0.05);
   color: #0a0a0a;
 }
 
-/*mono checkbox*/
-body.mono .list-container li input[type="checkbox"]:checked {
+/*retro checkbox*/
+body.retro .list-container li input[type="checkbox"]:checked {
   background: #0a0a0a url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges' fill='white'><path d='M1 6h1v1h-1ZM1 7h1v1h-1ZM2 6h1v1h-1ZM2 7h1v1h-1ZM2 8h1v1h-1ZM3 7h1v1h-1ZM3 8h1v1h-1ZM3 9h1v1h-1ZM4 8h1v1h-1ZM4 9h1v1h-1ZM5 7h1v1h-1ZM5 8h1v1h-1ZM5 9h1v1h-1ZM6 6h1v1h-1ZM6 7h1v1h-1ZM6 8h1v1h-1ZM7 5h1v1h-1ZM7 6h1v1h-1ZM7 7h1v1h-1ZM8 4h1v1h-1ZM8 5h1v1h-1ZM8 6h1v1h-1ZM9 3h1v1h-1ZM9 4h1v1h-1ZM9 5h1v1h-1ZM10 3h1v1h-1ZM10 4h1v1h-1Z'/></svg>") center / 12px no-repeat;
 }
 
-/*mono empty text*/
-body.mono .list-container .empty-text {
+/*retro empty text*/
+body.retro .list-container .empty-text {
   font-family: "Lucida Console", Consolas, monospace;
   font-size: 14px;
 }

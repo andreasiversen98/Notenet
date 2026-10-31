@@ -258,102 +258,102 @@ img {
   opacity: 1;
 }
 
-/*mono bottom bar*/
-body.mono .bottom-bar > div,
-body.mono .icon-add,
-body.mono .icon-bottom {
+/*retro bottom bar*/
+body.retro .bottom-bar > div,
+body.retro .icon-add,
+body.retro .icon-bottom {
   border-radius: 0;
 }
 
-body.mono .bottom-bar > div {
+body.retro .bottom-bar > div {
   box-shadow: none;
 }
 
-body.mono .notification-count {
+body.retro .notification-count {
   border-radius: 0;
   font-family: "Lucida Console", Consolas, monospace;
 }
 
-/*mono avatars*/
-body.mono .header-avatar,
-body.mono .image-size,
-body.mono .settings-avatar,
-body.mono .avatar-option,
-body.mono .member-avatar,
-body.mono .item-avatar,
-body.mono .admin-avatar {
+/*retro avatars*/
+body.retro .header-avatar,
+body.retro .image-size,
+body.retro .settings-avatar,
+body.retro .avatar-option,
+body.retro .member-avatar,
+body.retro .item-avatar,
+body.retro .admin-avatar {
   border-radius: 0;
 }
 
-/*mono header*/
-body.mono .header .icon-size {
+/*retro header*/
+body.retro .header .icon-size {
   border-radius: 0;
 }
 
-body.mono .header .header-avatar,
-body.mono .settings-page .settings-avatar {
+body.retro .header .header-avatar,
+body.retro .settings-page .settings-avatar {
   box-shadow: 0 0 0 1.5px #0a0a0a;
 }
 
-body.mono .header .header-avatar:hover {
+body.retro .header .header-avatar:hover {
   box-shadow: 0 0 0 2px #e0243a;
 }
 
-/*mono pixel icons*/
-body.mono img[src*="icons/pixel/"][width="14"],
-body.mono img[src*="icons/pixel/"][width="16"] {
+/*retro pixel icons*/
+body.retro img[src*="icons/pixel/"][width="14"],
+body.retro img[src*="icons/pixel/"][width="16"] {
   width: 12px;
   height: 12px;
 }
 
-body.mono img[src*="icons/pixel/"][width="20"],
-body.mono .input-box button img[src*="icons/pixel/"],
-body.mono .icon-size[src*="icons/pixel/"] {
+body.retro img[src*="icons/pixel/"][width="20"],
+body.retro .input-box button img[src*="icons/pixel/"],
+body.retro .icon-size[src*="icons/pixel/"] {
   width: 24px;
   height: 24px;
 }
 
-body.mono .header .icon-size[src*="icons/pixel/"] {
+body.retro .header .icon-size[src*="icons/pixel/"] {
   padding: 6px;
 }
 
-/*mono font*/
-body.mono,
-body.mono * {
+/*retro font*/
+body.retro,
+body.retro * {
   font-family: "Lucida Console", Consolas, monospace;
   font-synthesis: none;
 }
 
-/*mono headings*/
-body.mono h1,
-body.mono h2,
-body.mono h3,
-body.mono h1 *,
-body.mono h2 *,
-body.mono h3 * {
+/*retro headings*/
+body.retro h1,
+body.retro h2,
+body.retro h3,
+body.retro h1 *,
+body.retro h2 *,
+body.retro h3 * {
   font-family: Consolas, "Courier New", monospace;
   font-synthesis: auto;
 }
 
-/*mono toast and invite buttons*/
-body.mono .toast,
-body.mono .toast-icon {
+/*retro toast and invite buttons*/
+body.retro .toast,
+body.retro .toast-icon {
   border-radius: 0;
 }
 
-body.mono .toast-icon[src*="icons/pixel/"] {
+body.retro .toast-icon[src*="icons/pixel/"] {
   width: 12px;
   height: 12px;
   padding: 6px;
 }
 
-body.mono .toast-close[src*="icons/pixel/"] {
+body.retro .toast-close[src*="icons/pixel/"] {
   width: 12px;
   height: 12px;
 }
 
-body.mono .accept-btn[src*="icons/pixel/"],
-body.mono .decline-btn[src*="icons/pixel/"] {
+body.retro .accept-btn[src*="icons/pixel/"],
+body.retro .decline-btn[src*="icons/pixel/"] {
   width: 12px;
   height: 12px;
   padding: 12px;

@@ -36,17 +36,17 @@ function setTheme(theme) {
 }
 
 function getPremiumImage(name) {
-   const ending = model.app.theme === "mono" ? "-mono" : "";
+   const ending = model.app.theme === "retro" ? "-retro" : "";
    return `../../assets/images/premium/${name}${ending}.svg`;
 }
 
 function getLogo() {
-   const ending = model.app.theme === "mono" ? "-mono" : "";
+   const ending = model.app.theme === "retro" ? "-retro" : "";
    return `../../assets/images/logo/notenet-logo${ending}.svg`;
 }
 
 function getIcon(name) {
-   const folder = model.app.theme === "mono" ? "icons/pixel" : "icons";
+   const folder = model.app.theme === "retro" ? "icons/pixel" : "icons";
    return `../../assets/${folder}/${name}.svg`;
 }
 

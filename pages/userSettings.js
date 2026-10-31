@@ -57,7 +57,7 @@ function getThemeRow() {
       <div class="settings-row flex row align-center justify-between gap">
          <span>Stil</span>
          <div class="visibility-switch">
-            <button class="visibility-option ${theme === "mono" ? "active" : ""}" onclick="setTheme('mono')">Mono</button>
+            <button class="visibility-option ${theme === "retro" ? "active" : ""}" onclick="setTheme('retro')">Retro</button>
             <button class="visibility-option ${theme === "modern" ? "active" : ""}" onclick="setTheme('modern')">Moderne</button>
          </div>
       </div>`;

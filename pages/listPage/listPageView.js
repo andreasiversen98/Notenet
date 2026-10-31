@@ -82,7 +82,7 @@ function listPageView() {
         </span>
       `;
 
-  const isMono = model.app.theme === "mono";
+  const isRetro = model.app.theme === "retro";
   const percent = list.totalItems === 0 ? 0 : Math.round((list.completedItems / list.totalItems) * 100);
 
   const showMembers = model.viewState.listPage.showMembers;
@@ -168,13 +168,13 @@ function listPageView() {
         Å gjøre · ${uncompletedCount}
         <img src="${getIcon("chevron-right")}" width="14" class="${showTodo ? "rotated" : ""}" alt="">
       </h3>
-      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isMono ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isMono ? ":)" : "📝"}`}</p>` : ""}
+      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isRetro ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isRetro ? ":)" : "📝"}`}</p>` : ""}
 
       <h3 id="completed-tasks" class="section-toggle" onclick="toggleCompleted()">
         Fullførte oppgaver · ${completedCount}
         <img src="${getIcon("chevron-right")}" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
       </h3>
-      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isMono ? ":(" : "😢"}</p>` : ""}
+      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isRetro ? ":(" : "😢"}</p>` : ""}
     </div>
 
     ${getBottomBar()}

@@ -448,198 +448,198 @@ body.dark .toast .toast-close {
   filter: none;
 }
 
-/*mono style*/
-body.dark.mono .list-progress {
+/*retro style*/
+body.dark.retro .list-progress {
   background: repeating-linear-gradient(90deg, #333333 0 10px, transparent 10px 14px);
 }
 
-body.dark.mono .list-container .input-box {
+body.dark.retro .list-container .input-box {
   background: transparent;
   border-bottom-color: #e8e8e8;
 }
 
-body.dark.mono .list-container ul {
+body.dark.retro .list-container ul {
   border-top-color: #e8e8e8;
 }
 
-body.dark.mono .list-container li {
+body.dark.retro .list-container li {
   background: transparent;
   border-color: #444444;
 }
 
-body.dark.mono .list-container li:hover {
+body.dark.retro .list-container li:hover {
   background: rgba(255, 255, 255, 0.04);
 }
 
-body.dark.mono .list-container li input[type="checkbox"] {
+body.dark.retro .list-container li input[type="checkbox"] {
   border-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .item-avatar {
+body.dark.retro .list-container .item-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
 
 /*members list*/
-body.dark.mono .list-container .members-list {
+body.dark.retro .list-container .members-list {
   background: transparent;
   border-top-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .member-row {
+body.dark.retro .list-container .member-row {
   border-bottom-color: #444444;
 }
 
-body.dark.mono .list-container .member-avatar {
+body.dark.retro .list-container .member-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
 
 /*visibility switch*/
-body.dark.mono .list-container .visibility-switch,
-body.dark.mono .settings-page .visibility-switch {
+body.dark.retro .list-container .visibility-switch,
+body.dark.retro .settings-page .visibility-switch {
   background: transparent;
   border-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .visibility-option,
-body.dark.mono .settings-page .visibility-option {
+body.dark.retro .list-container .visibility-option,
+body.dark.retro .settings-page .visibility-option {
   color: #8a8a85;
 }
 
-body.dark.mono .list-container .visibility-option + .visibility-option,
-body.dark.mono .settings-page .visibility-option + .visibility-option {
+body.dark.retro .list-container .visibility-option + .visibility-option,
+body.dark.retro .settings-page .visibility-option + .visibility-option {
   border-left-color: #e8e8e8;
 }
 
-body.dark.mono .list-container .visibility-option.active,
-body.dark.mono .settings-page .visibility-option.active {
+body.dark.retro .list-container .visibility-option.active,
+body.dark.retro .settings-page .visibility-option.active {
   color: #121212;
 }
 
-body.dark.mono .list-container .visibility-option:not(.active):hover,
-body.dark.mono .settings-page .visibility-option:not(.active):hover {
+body.dark.retro .list-container .visibility-option:not(.active):hover,
+body.dark.retro .settings-page .visibility-option:not(.active):hover {
   background: rgba(255, 255, 255, 0.06);
   color: #e8e8e8;
 }
 
 /*admin filter switch*/
-body.dark.mono .admin-filter {
+body.dark.retro .admin-filter {
   background: transparent;
   border-color: #e8e8e8;
 }
 
-body.dark.mono .admin-filter .modal-toggle-btn {
+body.dark.retro .admin-filter .modal-toggle-btn {
   color: #8a8a85;
 }
 
-body.dark.mono .admin-filter .modal-toggle-btn + .modal-toggle-btn {
+body.dark.retro .admin-filter .modal-toggle-btn + .modal-toggle-btn {
   border-left-color: #e8e8e8;
 }
 
-body.dark.mono .admin-filter .modal-toggle-btn.active {
+body.dark.retro .admin-filter .modal-toggle-btn.active {
   background: #e8e8e8;
   color: #121212;
 }
 
-body.dark.mono .admin-filter .modal-toggle-btn:not(.active):hover {
+body.dark.retro .admin-filter .modal-toggle-btn:not(.active):hover {
   background: rgba(255, 255, 255, 0.06);
   color: #e8e8e8;
 }
 
-/*mono admin*/
-body.dark.mono .admin-stat,
-body.dark.mono .admin-user-modal {
+/*retro admin*/
+body.dark.retro .admin-stat,
+body.dark.retro .admin-user-modal {
   border-color: #e8e8e8;
 }
 
-body.dark.mono .admin-user-row,
-body.dark.mono .admin-user-modal .settings-row {
+body.dark.retro .admin-user-row,
+body.dark.retro .admin-user-modal .settings-row {
   border-bottom-color: #444444;
 }
 
-body.dark.mono .admin-avatar {
+body.dark.retro .admin-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
 
-/*mono settings*/
-body.dark.mono .settings-label {
+/*retro settings*/
+body.dark.retro .settings-label {
   color: #e8e8e8;
 }
 
-body.dark.mono .settings-page .settings-group {
+body.dark.retro .settings-page .settings-group {
   background: transparent;
   border-top-color: #e8e8e8;
 }
 
-body.dark.mono .settings-page .settings-row {
+body.dark.retro .settings-page .settings-row {
   border-bottom-color: #444444;
 }
 
-body.dark.mono .settings-page .settings-row[onclick]:hover {
+body.dark.retro .settings-page .settings-row[onclick]:hover {
   background: rgba(255, 255, 255, 0.04);
 }
 
-body.dark.mono .settings-avatar {
+body.dark.retro .settings-avatar {
   box-shadow: 0 0 0 1px #666666;
 }
 
-/*mono bottom bar*/
-body.dark.mono .bottom-bar > div {
+/*retro bottom bar*/
+body.dark.retro .bottom-bar > div {
   box-shadow: none;
 }
 
-/*mono modals*/
-body.dark.mono .modal-content,
-body.dark.mono .modal-toggle-container,
-body.dark.mono .modal-toggle-container .modal-toggle-btn + .modal-toggle-btn {
+/*retro modals*/
+body.dark.retro .modal-content,
+body.dark.retro .modal-toggle-container,
+body.dark.retro .modal-toggle-container .modal-toggle-btn + .modal-toggle-btn {
   border-color: #e8e8e8;
 }
 
-body.dark.mono .modal-content {
+body.dark.retro .modal-content {
   box-shadow: none;
 }
 
-body.dark.mono .invite-list,
-body.dark.mono .modal-content .input-box {
+body.dark.retro .invite-list,
+body.dark.retro .modal-content .input-box {
   border-color: #e8e8e8;
 }
 
-body.dark.mono .invite-row {
+body.dark.retro .invite-row {
   border-bottom-color: #444444;
 }
 
-body.dark.mono .modal-toggle-container {
+body.dark.retro .modal-toggle-container {
   background: transparent;
 }
 
-body.dark.mono .modal-toggle-container .modal-toggle-btn {
+body.dark.retro .modal-toggle-container .modal-toggle-btn {
   color: #8a8a85;
 }
 
-body.dark.mono .modal-toggle-container .modal-toggle-btn.active {
+body.dark.retro .modal-toggle-container .modal-toggle-btn.active {
   background: #e8e8e8;
   color: #121212;
 }
 
-body.dark.mono .modal-toggle-container .modal-toggle-btn:disabled {
+body.dark.retro .modal-toggle-container .modal-toggle-btn:disabled {
   color: #5a5a5a;
 }
 
-/*mono premium*/
-body.dark.mono .premium-badge {
+/*retro premium*/
+body.dark.retro .premium-badge {
   border-radius: 0;
 }
 
-/*mono header*/
-body.dark.mono .header .header-avatar,
-body.dark.mono .settings-page .settings-avatar {
+/*retro header*/
+body.dark.retro .header .header-avatar,
+body.dark.retro .settings-page .settings-avatar {
   box-shadow: 0 0 0 1.5px #e8e8e8;
 }
 
-body.dark.mono .header .header-avatar:hover {
+body.dark.retro .header .header-avatar:hover {
   box-shadow: 0 0 0 2px #e0243a;
 }
 
-/*mono checkbox*/
-body.dark.mono .list-container li input[type="checkbox"]:checked {
+/*retro checkbox*/
+body.dark.retro .list-container li input[type="checkbox"]:checked {
   background: #e8e8e8 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges' fill='%23121212'><path d='M1 6h1v1h-1ZM1 7h1v1h-1ZM2 6h1v1h-1ZM2 7h1v1h-1ZM2 8h1v1h-1ZM3 7h1v1h-1ZM3 8h1v1h-1ZM3 9h1v1h-1ZM4 8h1v1h-1ZM4 9h1v1h-1ZM5 7h1v1h-1ZM5 8h1v1h-1ZM5 9h1v1h-1ZM6 6h1v1h-1ZM6 7h1v1h-1ZM6 8h1v1h-1ZM7 5h1v1h-1ZM7 6h1v1h-1ZM7 7h1v1h-1ZM8 4h1v1h-1ZM8 5h1v1h-1ZM8 6h1v1h-1ZM9 3h1v1h-1ZM9 4h1v1h-1ZM9 5h1v1h-1ZM10 3h1v1h-1ZM10 4h1v1h-1Z'/></svg>") center / 12px no-repeat;
 }

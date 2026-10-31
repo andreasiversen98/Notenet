@@ -154,13 +154,13 @@
   margin-top: 8px;
 }
 
-/*mono premium*/
-body.mono .premium-cta,
-body.mono .premium-btn {
+/*retro premium*/
+body.retro .premium-cta,
+body.retro .premium-btn {
   border-radius: 0;
 }
 
-body.mono .premium-btn {
+body.retro .premium-btn {
   font-family: "Lucida Console", Consolas, monospace;
   text-transform: uppercase;
 }
