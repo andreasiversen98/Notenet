@@ -16,6 +16,8 @@ function adminViewUser() {
 
 function getUserData() {
    let user = adminSelectedUser();
+   const createdLists = model.data.lists.filter((list) => list.ownerId === user.id).map((list) => list.id);
+   const memberOf = model.data.lists.filter((list) => list.ownerId !== user.id && list.members.includes(user.id)).map((list) => list.id);
    return /*html*/ `
       <div class="settings-group">
          <div class="settings-row admin-data-row flex row justify-between gap">
@@ -53,6 +55,12 @@ function getUserData() {
          </div>
          <div class="settings-row admin-data-row flex row justify-between gap">
             <span>sentInvites</span><span>${user.sentInvites.join(", ")}</span>
+         </div>
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>createdLists</span><span>${createdLists.join(", ")}</span>
+         </div>
+         <div class="settings-row admin-data-row flex row justify-between gap">
+            <span>memberOf</span><span>${memberOf.join(", ")}</span>
          </div>
       </div>
    `;

@@ -84,8 +84,8 @@ function createTestUsers() {
          isPremium: i > testUserAmount / 2 ? true : false,
          role: "user",
          createdAt: createdAt.toISOString().slice(0, 10),
-         invitedTo: ["l2", "l3"],
-         sentInvites: ["l1"],
+         invitedTo: [],
+         sentInvites: [],
       });
    }
 }
@@ -130,5 +130,25 @@ function createTestLists() {
          members: members,
          items: items,
       });
+   }
+
+   const sharedLists = model.data.lists.filter((list) => list.isShared);
+   const testUsers = model.data.users.filter((user) => user.id.startsWith("test"));
+
+   for (const user of testUsers) {
+      const notMemberOf = sharedLists.filter((list) => !list.members.includes(user.id));
+      const memberOf = sharedLists.filter((list) => list.members.includes(user.id));
+
+      const invitedAmount = Math.floor(testRandom() * 6);
+      for (let i = 0; i < invitedAmount; i++) {
+         const list = pickRandom(notMemberOf);
+         if (!user.invitedTo.includes(list.id)) user.invitedTo.push(list.id);
+      }
+
+      const sentAmount = memberOf.length === 0 ? 0 : Math.floor(testRandom() * 6);
+      for (let i = 0; i < sentAmount; i++) {
+         const list = pickRandom(memberOf);
+         if (!user.sentInvites.includes(list.id)) user.sentInvites.push(list.id);
+      }
    }
 }

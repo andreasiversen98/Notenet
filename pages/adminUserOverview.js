@@ -8,6 +8,7 @@ function adminUserOverview() {
             <h2 class="admin-title">Brukere</h2>
             ${filterUsers()}
          </div>
+         <span class="admin-count">${filteredUserCount()} brukere</span>
          ${displayUsers()}
       </div>
       ${getBottomBar()}`;
@@ -20,6 +21,12 @@ function filterUsers() {
          <button class="modal-toggle-btn ${filterPath == "free" ? "active" : ""}" onclick="setFilter('free')">Gratis</button>
          <button class="modal-toggle-btn ${filterPath == "premium" ? "active" : ""}" onclick="setFilter('premium')">Premium</button>
       </div>`;
+}
+
+function filteredUserCount() {
+   if (filterPath === "free") return model.data.users.filter((user) => !user.isPremium).length;
+   if (filterPath === "premium") return model.data.users.filter((user) => user.isPremium).length;
+   return model.data.users.length;
 }
 
 function setFilter(newFilter) {

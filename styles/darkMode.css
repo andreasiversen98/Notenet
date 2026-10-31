@@ -393,6 +393,7 @@ body.dark .admin-stat {
 }
 
 body.dark .admin-stat-label,
+body.dark .admin-count,
 body.dark .admin-stat-sub,
 body.dark .admin-user-code,
 body.dark .admin-data-row > span:first-child {
@@ -513,4 +514,43 @@ body.dark.mono .list-container .visibility-option.active {
 body.dark.mono .list-container .visibility-option:not(.active):hover {
   background: rgba(255, 255, 255, 0.06);
   color: #e8e8e8;
+}
+
+/*admin filter switch*/
+body.dark.mono .admin-filter {
+  background: transparent;
+  border-color: #e8e8e8;
+}
+
+body.dark.mono .admin-filter .modal-toggle-btn {
+  color: #8a8a85;
+}
+
+body.dark.mono .admin-filter .modal-toggle-btn + .modal-toggle-btn {
+  border-left-color: #e8e8e8;
+}
+
+body.dark.mono .admin-filter .modal-toggle-btn.active {
+  background: #e8e8e8;
+  color: #121212;
+}
+
+body.dark.mono .admin-filter .modal-toggle-btn:not(.active):hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8e8e8;
+}
+
+/*mono admin*/
+body.dark.mono .admin-stat,
+body.dark.mono .admin-user-modal {
+  border-color: #e8e8e8;
+}
+
+body.dark.mono .admin-user-row,
+body.dark.mono .admin-user-modal .settings-row {
+  border-bottom-color: #444444;
+}
+
+body.dark.mono .admin-avatar {
+  box-shadow: 0 0 0 1px #666666;
 }
