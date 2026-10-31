@@ -523,7 +523,7 @@ body.mono .list-container h2 {
 }
 
 body.mono .list-container .counter {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -551,7 +551,7 @@ body.mono .list-container .visibility-option,
 body.mono .list-container .invite-btn,
 body.mono .list-container .member-count-btn,
 body.mono .settings-page .visibility-option {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
 }
 
 body.mono .list-container .invite-btn {
@@ -568,7 +568,7 @@ body.mono .list-container .input-box {
 
 body.mono .list-container .input-box input,
 body.mono .list-container .edit-input {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   background: transparent;
 }
 
@@ -577,7 +577,7 @@ body.mono .list-container .edit-input {
 }
 
 body.mono .list-container h3 {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 13px;
   opacity: 1;
 }
@@ -604,7 +604,7 @@ body.mono .list-container li:hover {
 }
 
 body.mono .list-container li span {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 14px;
 }
 
@@ -617,7 +617,7 @@ body.mono .list-container li input[type="checkbox"] {
 
 body.mono .list-container .edit-btn {
   border-radius: 0;
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 11px;
   text-transform: uppercase;
 }
@@ -667,7 +667,7 @@ body.mono .list-container .member-row {
 }
 
 body.mono .list-container .member-row span {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
 }
 
 body.mono .list-container .member-avatar {
@@ -712,6 +712,6 @@ body.mono .list-container li input[type="checkbox"]:checked {
 
 /*mono empty text*/
 body.mono .list-container .empty-text {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 14px;
 }

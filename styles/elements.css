@@ -271,7 +271,7 @@ body.mono .bottom-bar > div {
 
 body.mono .notification-count {
   border-radius: 0;
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
 }
 
 /*mono avatars*/
@@ -315,4 +315,10 @@ body.mono .icon-size[src*="icons/pixel/"] {
 
 body.mono .header .icon-size[src*="icons/pixel/"] {
   padding: 6px;
+}
+
+/*mono font*/
+body.mono,
+body.mono * {
+  font-family: "Lucida Console", Consolas, monospace;
 }

@@ -161,6 +161,6 @@ body.mono .premium-btn {
 }
 
 body.mono .premium-btn {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   text-transform: uppercase;
 }

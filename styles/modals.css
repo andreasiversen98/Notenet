@@ -144,7 +144,7 @@ body.mono .modal-content {
 
 body.mono .modal-content h1,
 body.mono .modal-content h2 {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -181,13 +181,13 @@ body.mono .modal-content .input-box {
 
 body.mono .modal-content .input-box input,
 body.mono .invite-message {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   background: transparent;
 }
 
 body.mono .modal-content .edit-btn {
   border-radius: 0;
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   text-transform: uppercase;
 }
 
@@ -201,7 +201,7 @@ body.mono .modal-toggle-container {
 body.mono .modal-toggle-container .modal-toggle-btn {
   padding: 5px 14px;
   border-radius: 0;
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 13px;
   color: #6b6b66;
   box-shadow: none;

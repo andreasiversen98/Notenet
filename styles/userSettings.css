@@ -130,7 +130,7 @@
 body.mono .settings-label,
 body.mono .settings-meta,
 body.mono .settings-input {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
 }
 
 body.mono .settings-label {
@@ -167,7 +167,7 @@ body.mono .settings-page .edit-btn {
 }
 
 body.mono .settings-page .edit-btn {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 11px;
   text-transform: uppercase;
 }
@@ -178,6 +178,6 @@ body.mono .settings-avatar {
 
 /*mono premium row*/
 body.mono .premium-row span {
-  font-family: Consolas, "Courier New", monospace;
+  font-family: "Lucida Console", Consolas, monospace;
   font-size: 14px;
 }
