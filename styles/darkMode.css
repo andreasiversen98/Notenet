@@ -586,3 +586,40 @@ body.dark.mono .settings-avatar {
 body.dark.mono .bottom-bar > div {
   box-shadow: none;
 }
+
+/*mono modals*/
+body.dark.mono .modal-content,
+body.dark.mono .modal-toggle-container,
+body.dark.mono .modal-toggle-container .modal-toggle-btn + .modal-toggle-btn {
+  border-color: #e8e8e8;
+}
+
+body.dark.mono .modal-content {
+  box-shadow: none;
+}
+
+body.dark.mono .invite-list,
+body.dark.mono .modal-content .input-box {
+  border-color: #e8e8e8;
+}
+
+body.dark.mono .invite-row {
+  border-bottom-color: #444444;
+}
+
+body.dark.mono .modal-toggle-container {
+  background: transparent;
+}
+
+body.dark.mono .modal-toggle-container .modal-toggle-btn {
+  color: #8a8a85;
+}
+
+body.dark.mono .modal-toggle-container .modal-toggle-btn.active {
+  background: #e8e8e8;
+  color: #121212;
+}
+
+body.dark.mono .modal-toggle-container .modal-toggle-btn:disabled {
+  color: #5a5a5a;
+}

@@ -134,3 +134,88 @@
 .decline-btn:active {
   transform: scale(0.92);
 }
+
+/*mono modals*/
+body.mono .modal-content {
+  border: 1.5px solid #0a0a0a;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.mono .modal-content h1,
+body.mono .modal-content h2 {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+body.mono .modal-content h1::before,
+body.mono .modal-content h2::before {
+  content: "// ";
+  color: #e0243a;
+}
+
+body.mono .close-btn,
+body.mono .accept-btn,
+body.mono .decline-btn {
+  border-radius: 0;
+}
+
+body.mono .invite-row,
+body.mono .invite-row:last-child {
+  border-bottom: 1px dashed #9a9a95;
+}
+
+body.mono .invite-list {
+  border-top: 2px solid #0a0a0a;
+}
+
+body.mono .modal-content .input-box {
+  border: none;
+  border-bottom: 2px solid #0a0a0a;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.mono .modal-content .input-box input,
+body.mono .invite-message {
+  font-family: Consolas, "Courier New", monospace;
+  background: transparent;
+}
+
+body.mono .modal-content .edit-btn {
+  border-radius: 0;
+  font-family: Consolas, "Courier New", monospace;
+  text-transform: uppercase;
+}
+
+body.mono .modal-toggle-container {
+  background: transparent;
+  border: 1.5px solid #0a0a0a;
+  border-radius: 0;
+  padding: 0;
+}
+
+body.mono .modal-toggle-container .modal-toggle-btn {
+  padding: 5px 14px;
+  border-radius: 0;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  color: #6b6b66;
+  box-shadow: none;
+}
+
+body.mono .modal-toggle-container .modal-toggle-btn + .modal-toggle-btn {
+  border-left: 1.5px solid #0a0a0a;
+}
+
+body.mono .modal-toggle-container .modal-toggle-btn.active {
+  background: #0a0a0a;
+  color: white;
+}
+
+body.mono .modal-toggle-container .modal-toggle-btn:disabled {
+  color: #b5b5b0;
+}
