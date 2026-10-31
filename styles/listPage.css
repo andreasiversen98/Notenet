@@ -577,7 +577,7 @@ body.mono .list-container .edit-input {
 }
 
 body.mono .list-container h3 {
-  font-family: "Lucida Console", Consolas, monospace;
+  font-family: Consolas, "Courier New", monospace;
   font-size: 13px;
   opacity: 1;
 }

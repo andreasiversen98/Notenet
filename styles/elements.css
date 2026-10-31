@@ -321,4 +321,16 @@ body.mono .header .icon-size[src*="icons/pixel/"] {
 body.mono,
 body.mono * {
   font-family: "Lucida Console", Consolas, monospace;
+  font-synthesis: none;
+}
+
+/*mono headings*/
+body.mono h1,
+body.mono h2,
+body.mono h3,
+body.mono h1 *,
+body.mono h2 *,
+body.mono h3 * {
+  font-family: Consolas, "Courier New", monospace;
+  font-synthesis: auto;
 }
