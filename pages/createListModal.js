@@ -3,7 +3,7 @@ function createListModal() {
   const canShare = getLoggedInUser().isPremium;
 
   const isShared = canShare && (state.isShared ?? false);
-  const iconFile = isShared ? "users.svg" : "lock.svg";
+  const iconFile = isShared ? "users" : "lock";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
     : "Start en ny privat liste...";
@@ -26,7 +26,7 @@ function createListModal() {
             </div>
 
             <div class="input-box">
-               <img src="../../assets/icons/${iconFile}" width="20" alt="Ikon">
+               <img src="${getIcon(iconFile)}" width="20" alt="Ikon">
                <input 
                   type="text" 
                   placeholder="${placeholderText}" 

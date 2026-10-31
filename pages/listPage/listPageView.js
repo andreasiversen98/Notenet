@@ -70,14 +70,14 @@ function listPageView() {
             Privat
           </button>
           <button class="visibility-option ${list.isShared ? "active" : ""}" onclick="setListVisibility(true)">
-            <img src="../../assets/icons/users.svg" width="14" alt="">
+            <img src="${getIcon("users")}" width="14" alt="">
             Delt
           </button>
         </div>
       `
     : /*html*/ `
         <span class="visibility-label">
-          <img src="../../assets/icons/${list.isShared ? "users.svg" : "lock.svg"}" width="14" alt="">
+          <img src="${getIcon(list.isShared ? "users" : "lock")}" width="14" alt="">
           ${list.isShared ? "Delt" : "Privat"}
         </span>
       `;
