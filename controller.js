@@ -71,7 +71,7 @@ function pickRandom(array) {
 function createTestUsers() {
    const firstNames = ["Ingrid", "Lars", "Nora", "Emil", "Sofie", "Jonas", "Emma", "Henrik", "Maja", "Sander", "Thea", "Magnus", "Ida", "Mathias", "Sara", "Elias", "Linnea", "Kristian", "Hedda", "Tobias", "Amalie", "Aksel", "Frida", "Martin", "Julie", "Sigurd", "Vilde", "Oskar", "Mia", "Kasper", "Tuva", "Even", "Selma", "Jakob", "Live", "Filip", "Oda", "Adrian", "Ronja", "Håkon"];
    const lastNames = ["Hansen", "Johansen", "Olsen", "Larsen", "Andersen", "Pedersen", "Nilsen", "Kristiansen", "Jensen", "Karlsen", "Berg", "Haugen", "Hagen", "Bakken", "Dahl", "Lie", "Moen", "Strand", "Solberg", "Eide"];
-   const pictures = ["default-avatar", "avatar-red", "avatar-blue", "avatar-green", "avatar-purple", "avatar-yellow", "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray", "avatar-navy", "avatar-brown", "shape-check", "shape-ring", "shape-split", "shape-dots", "shape-stack", "shape-sun", "shape-wave", "shape-quarter", "shape-moon", "shape-mountain"];
+   const pictures = ["default-avatar", "avatar-red", "avatar-blue", "avatar-green", "avatar-purple", "avatar-yellow", "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray", "avatar-navy", "avatar-brown", "avatar-mint", "avatar-wine", "shape-check", "shape-ring", "shape-split", "shape-dots", "shape-stack", "shape-sun", "shape-wave", "shape-quarter", "shape-moon", "shape-mountain", "shape-plus", "shape-diamond"];
    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    const usedNames = [];
    const usedCodes = model.data.users.map((user) => user.code);
