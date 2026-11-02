@@ -56,6 +56,9 @@
 .list-owner {
   font-size: 13px;
   color: #6b6b66;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list-count {

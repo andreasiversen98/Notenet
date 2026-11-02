@@ -50,7 +50,7 @@ function getListRows(lists) {
             <img class="list-icon" src="${getIcon(getListTypeIcon(list))}" alt=""/>
             <div class="list-text flex column">
                <span class="list-title">${list.title}</span>
-               <span class="list-owner">${getOwnerName(list)} · ${list.isShared ? "Delt" : "Privat"}</span>
+               <span class="list-owner">${getListSubtitle(list)}</span>
             </div>
             ${getFavoriteButton(list.id)}
             <span class="list-count">${getListCount(list)}</span>
@@ -72,8 +72,14 @@ function getEmptyLists() {
    `;
 }
 
+function getListSubtitle(list) {
+   const subtitle = `${getOwnerName(list)} · ${list.isShared ? "Delt" : "Privat"}`;
+   if (list.type !== "note") return subtitle;
+   return getNotePreview(list.content) || subtitle;
+}
+
 function getListCount(list) {
-   if (list.type === "note") return "Notat";
+   if (list.type === "note") return `${getNoteWordCount(list.content)} ord`;
    if (list.type === "simple") return `${list.totalItems} stk`;
    return `${list.completedItems} / ${list.totalItems}`;
 }

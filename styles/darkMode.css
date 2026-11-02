@@ -711,17 +711,68 @@ body.dark .type-card small {
 }
 
 /*note*/
-body.dark .note-text {
+body.dark .note-toolbar {
   background: #1e1e1e;
   border-color: #333333;
-  color: #e8e8e8;
 }
 
-body.dark .note-text:focus,
-body.dark.retro .note-text {
+body.dark .note-tool:hover {
+  background: #2a2a2a;
+}
+
+body.dark .note-tool.active {
+  background: #e8e8e8;
+  color: #121212;
+}
+
+body.dark .note-tool.active img {
+  filter: none;
+}
+
+body.dark .note-tool-divider {
+  background: #333333;
+}
+
+body.dark .note-tool mark,
+body.dark .note-editor mark {
+  background: #8a6d1f;
+}
+
+body.dark.retro .note-toolbar {
+  background: #121212;
   border-color: #e8e8e8;
 }
 
-body.dark.retro .note-text {
-  background: transparent;
+body.dark.retro .note-tool-divider {
+  background: #e8e8e8;
+}
+
+body.dark.retro .note-editor img {
+  border-color: #e8e8e8;
+}
+
+/*note image menu*/
+body.dark .note-image-menu {
+  background: #e8e8e8;
+}
+
+body.dark .note-image-menu button {
+  color: #555555;
+}
+
+body.dark .note-image-menu button:hover {
+  color: #121212;
+}
+
+body.dark .note-image-menu button.active {
+  background: #121212;
+  color: #e8e8e8;
+}
+
+body.dark .note-image-menu img {
+  filter: none;
+}
+
+body.dark .note-image-divider {
+  background: #b0b0b0;
 }

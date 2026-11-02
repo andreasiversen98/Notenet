@@ -146,6 +146,8 @@ function listPageView() {
           ${getFavoriteButton(list.id)}
         </div>
 
+        ${list.createdAt ? `<span class="counter">Opprettet ${formatDate(list.createdAt)}</span>` : ""}
+
         <div class="list-toolbar">
           ${visibilityHtml}
           ${sharedHtml}
@@ -153,7 +155,46 @@ function listPageView() {
 
         ${membersHtml}
 
-        <textarea class="note-text" placeholder="Skriv her..." oninput="updateNoteContent(this.value)">${escapeNoteText(list.content || "")}</textarea>
+        <div class="note-toolbar">
+          <button class="note-tool" data-command="bold" title="Fet" onmousedown="event.preventDefault()" onclick="formatNote('bold')"><b>B</b></button>
+          <button class="note-tool" data-command="italic" title="Kursiv" onmousedown="event.preventDefault()" onclick="formatNote('italic')"><i>I</i></button>
+          <button class="note-tool" data-command="underline" title="Understrek" onmousedown="event.preventDefault()" onclick="formatNote('underline')"><u>U</u></button>
+          <span class="note-tool-divider"></span>
+          <button class="note-tool" data-command="heading" title="Overskrift" onmousedown="event.preventDefault()" onclick="toggleNoteHeading()"><b>H</b></button>
+          <button class="note-tool" data-command="insertUnorderedList" title="Punktliste" onmousedown="event.preventDefault()" onclick="formatNote('insertUnorderedList')">
+            <img src="${getIcon("list")}" width="18" alt="">
+          </button>
+          <button class="note-tool" data-command="mark" title="Marker" onmousedown="event.preventDefault()" onclick="toggleNoteMark()"><mark>A</mark></button>
+          <span class="note-tool-divider"></span>
+          <label class="note-tool" title="Legg til bilde" onmousedown="event.preventDefault()">
+            <img src="${getIcon("image")}" width="18" alt="">
+            <input type="file" accept="image/*" hidden onchange="insertNoteImage(this)">
+          </label>
+        </div>
+
+        <div class="note-editor-wrapper">
+          <div
+            class="note-editor"
+            contenteditable="true"
+            data-placeholder="Skriv her..."
+            oninput="hideNoteImageMenu(); updateNoteContent(this)"
+            onpaste="pasteNoteText(event)"
+            onclick="selectNoteImage(event)"
+            onkeyup="updateNoteToolbar()"
+            onmouseup="updateNoteToolbar()"
+            onblur="saveNoteSelection(); hideNoteImageMenu()"
+          >${getNoteHtml(list.content)}</div>
+
+          <div class="note-image-menu" hidden>
+            <button data-size="small" onmousedown="event.preventDefault()" onclick="setNoteImageSize('small')">Liten</button>
+            <button data-size="medium" onmousedown="event.preventDefault()" onclick="setNoteImageSize('medium')">Middels</button>
+            <button data-size="full" onmousedown="event.preventDefault()" onclick="setNoteImageSize('full')">Full</button>
+            <span class="note-image-divider"></span>
+            <button title="Slett bilde" onmousedown="event.preventDefault()" onclick="deleteNoteImage()">
+              <img src="${getIcon("trash")}" width="14" alt="Slett">
+            </button>
+          </div>
+        </div>
       </div>
 
       ${getBottomBar()}
@@ -227,4 +268,69 @@ function listPageView() {
 
 function escapeNoteText(text) {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+}
+
+// gamle notater er vanlig tekst, nye er html
+function getNoteHtml(content) {
+  if (!content) return "";
+  if (!content.includes("<")) return escapeNoteText(content).replace(/\n/g, "<br>");
+  return sanitizeNoteHtml(content);
+}
+
+// notater kan deles, så vi fjerner alt som ikke er vanlig tekstformatering
+const allowedNoteTags = ["B", "STRONG", "I", "EM", "U", "H3", "P", "BR", "UL", "OL", "LI", "MARK", "DIV", "IMG"];
+
+function sanitizeNoteHtml(html) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  cleanNoteNode(template.content);
+  return template.innerHTML;
+}
+
+function cleanNoteNode(parent) {
+  for (const node of [...parent.childNodes]) {
+    if (node.nodeType === Node.TEXT_NODE) continue;
+
+    if (node.nodeType !== Node.ELEMENT_NODE || ["SCRIPT", "STYLE"].includes(node.tagName.toUpperCase())) {
+      node.remove();
+      continue;
+    }
+
+    if (!allowedNoteTags.includes(node.tagName)) {
+      cleanNoteNode(node);
+      node.replaceWith(...node.childNodes);
+      continue;
+    }
+
+    const src = node.getAttribute("src") || "";
+    const size = node.getAttribute("data-size");
+    for (const attribute of [...node.attributes]) node.removeAttribute(attribute.name);
+
+    if (node.tagName === "IMG") {
+      if (!src.startsWith("data:image/")) {
+        node.remove();
+        continue;
+      }
+      node.setAttribute("src", src);
+      if (size === "small" || size === "medium") node.setAttribute("data-size", size);
+      continue;
+    }
+
+    cleanNoteNode(node);
+  }
+}
+
+function getNoteText(content) {
+  const template = document.createElement("template");
+  template.innerHTML = getNoteHtml(content).replace(/<br>|<\/(p|h3|li|div)>/g, " ");
+  return template.content.textContent.replace(/\s+/g, " ").trim();
+}
+
+function getNotePreview(content) {
+  return escapeNoteText(getNoteText(content));
+}
+
+function getNoteWordCount(content) {
+  const text = getNoteText(content);
+  return text ? text.split(" ").length : 0;
 }

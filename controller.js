@@ -61,6 +61,12 @@ function getFavoriteButton(listId) {
    return /*html*/ `<img class="favorite-btn ${favorite ? "favorite-on" : ""}" src="${getIcon(favorite ? "star-filled" : "star")}" title="${favorite ? "Fjern fra favoritter" : "Legg til i favoritter"}" onclick="event.stopPropagation(); toggleFavorite('${listId}')"/>`;
 }
 
+// "2026-10-29" -> "29. oktober 2026"
+function formatDate(dateString) {
+   const date = new Date(dateString + "T00:00");
+   return date.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" });
+}
+
 function getLogo() {
    const ending = model.app.theme === "retro" ? "-retro" : "";
    return `../../assets/images/logo/notenet-logo${ending}.svg`;

@@ -289,6 +289,175 @@ function confirmMakePrivate() {
   toggleListVisibility();
 }
 
-function updateNoteContent(value) {
-  getCurrentList().content = value;
+// notatet lagres mens man skriver uten setView, ellers mister man markøren
+function updateNoteContent(editor) {
+  if (editor.textContent.replace(/\u200b/g, "").trim() === "" && !editor.querySelector("img")) editor.innerHTML = "";
+  getCurrentList().content = editor.innerHTML.replace(/\u200b|<mark><\/mark>/g, "");
+  updateNoteToolbar();
+}
+
+function saveNoteFromEditor() {
+  const editor = document.querySelector(".note-editor");
+  if (editor) updateNoteContent(editor);
+}
+
+function formatNote(command) {
+  document.execCommand(command);
+  saveNoteFromEditor();
+}
+
+function toggleNoteHeading() {
+  const isHeading = document.queryCommandValue("formatBlock") === "h3";
+  document.execCommand("formatBlock", false, isHeading ? "p" : "h3");
+  saveNoteFromEditor();
+}
+
+function toggleNoteMark() {
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+  const range = selection.getRangeAt(0);
+  const mark = getNoteMark(selection.anchorNode);
+
+  if (mark && !selection.isCollapsed) {
+    mark.replaceWith(...mark.childNodes);
+  } else if (mark) {
+    // slutter å markere, så det man skriver videre blir vanlig tekst
+    const after = document.createTextNode("\u200b");
+    mark.after(after);
+    selection.collapse(after, 1);
+  } else if (selection.isCollapsed) {
+    // starter å markere fra markøren
+    const newMark = document.createElement("mark");
+    newMark.textContent = "\u200b";
+    range.insertNode(newMark);
+    selection.collapse(newMark.firstChild, 1);
+  } else {
+    const newMark = document.createElement("mark");
+    newMark.appendChild(range.extractContents());
+    range.insertNode(newMark);
+    selection.selectAllChildren(newMark);
+  }
+  saveNoteFromEditor();
+}
+
+function getNoteMark(node) {
+  const element = node && node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+  return element && element.closest ? element.closest(".note-editor mark") : null;
+}
+
+// viser hvilke knapper som er aktive der markøren står
+function updateNoteToolbar() {
+  const selection = window.getSelection();
+  const states = {
+    bold: document.queryCommandState("bold"),
+    italic: document.queryCommandState("italic"),
+    underline: document.queryCommandState("underline"),
+    heading: document.queryCommandValue("formatBlock") === "h3",
+    insertUnorderedList: document.queryCommandState("insertUnorderedList"),
+    mark: !!getNoteMark(selection.anchorNode),
+  };
+  for (const button of document.querySelectorAll(".note-tool[data-command]")) {
+    button.classList.toggle("active", states[button.dataset.command]);
+  }
+}
+
+// lim inn som vanlig tekst så man ikke får med stil fra andre nettsider
+function pasteNoteText(event) {
+  event.preventDefault();
+  document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
+}
+
+// husker hvor markøren var før man åpner filvelgeren
+let noteSelection = null;
+
+function saveNoteSelection() {
+  const selection = window.getSelection();
+  if (selection.rangeCount) noteSelection = selection.getRangeAt(0);
+}
+
+function insertNoteImage(input) {
+  const file = input.files[0];
+  input.value = "";
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = () => makeNoteImage(reader.result, (imageUrl) => {
+    const editor = document.querySelector(".note-editor");
+    editor.focus();
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    if (noteSelection && editor.contains(noteSelection.startContainer)) {
+      selection.addRange(noteSelection);
+    } else {
+      const range = document.createRange();
+      range.selectNodeContents(editor);
+      range.collapse(false);
+      selection.addRange(range);
+    }
+    document.execCommand("insertImage", false, imageUrl);
+    saveNoteFromEditor();
+  });
+  reader.readAsDataURL(file);
+}
+
+// trykker man på et bilde dukker det opp en meny for størrelse
+let noteImage = null;
+
+function selectNoteImage(event) {
+  if (event.target.tagName !== "IMG") {
+    hideNoteImageMenu();
+    return;
+  }
+  noteImage = event.target;
+
+  // markøren havner rett etter bildet
+  window.getSelection().collapse(noteImage.parentNode, [...noteImage.parentNode.childNodes].indexOf(noteImage) + 1);
+  showNoteImageMenu();
+}
+
+function showNoteImageMenu() {
+  const menu = document.querySelector(".note-image-menu");
+  menu.style.top = `${noteImage.offsetTop + 8}px`;
+  menu.style.left = `${noteImage.offsetLeft + 8}px`;
+  menu.hidden = false;
+
+  const size = noteImage.dataset.size || "full";
+  for (const button of menu.querySelectorAll("button")) {
+    button.classList.toggle("active", button.dataset.size === size);
+  }
+}
+
+function hideNoteImageMenu() {
+  noteImage = null;
+  const menu = document.querySelector(".note-image-menu");
+  if (menu) menu.hidden = true;
+}
+
+function setNoteImageSize(size) {
+  if (!noteImage) return;
+  if (size === "full") noteImage.removeAttribute("data-size");
+  else noteImage.dataset.size = size;
+  saveNoteFromEditor();
+  showNoteImageMenu();
+}
+
+function deleteNoteImage() {
+  if (!noteImage) return;
+  noteImage.remove();
+  hideNoteImageMenu();
+  saveNoteFromEditor();
+}
+
+// gjør bildet mindre så notatet ikke blir for tungt
+function makeNoteImage(imageUrl, callback) {
+  const img = new Image();
+  img.src = imageUrl;
+  img.onload = () => {
+    const scale = Math.min(1, 1000 / img.width);
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(img.width * scale);
+    canvas.height = Math.round(img.height * scale);
+    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+    callback(canvas.toDataURL("image/jpeg", 0.85));
+  };
 }

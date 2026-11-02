@@ -92,6 +92,7 @@ function pushNewList() {
     members: isShared ? [model.app.currentUserId] : [],
     items: [],
     content: "",
+    createdAt: getTodaysDate(),
   });
 
   state.title = "";
