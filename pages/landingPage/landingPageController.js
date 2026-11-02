@@ -3,16 +3,31 @@ function setLandingFilter(filter) {
    setView();
 }
 
+function setLandingSearch(value) {
+   model.viewState.landingPage.search = value;
+   setView();
+}
+
 function getVisibleLists() {
    const filter = model.viewState.landingPage.selectedFilter;
+   const search = model.viewState.landingPage.search;
    const userId = model.app.currentUserId;
    const visibleLists = [];
 
    for (const list of model.data.lists) {
+      if (list.ownerId !== userId && !list.members.includes(userId)) {
+         continue;
+      }
       if (filter === "mine" && list.ownerId !== userId) {
          continue;
       }
+      if (filter === "mine" && list.isShared && getLoggedInUser().role !== "admin") {
+         continue;
+      }
       if (filter === "shared" && list.isShared === false) {
+         continue;
+      }
+      if (list.title.toLowerCase().includes(search.toLowerCase()) === false) {
          continue;
       }
       visibleLists.push(list);

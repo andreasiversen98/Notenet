@@ -11,6 +11,18 @@
    cursor: pointer;
 }
 
+.search-row {
+   margin-top: 16px;
+}
+
+.search-input {
+   width: 100%;
+   box-sizing: border-box;
+   padding: 10px;
+   font-size: 15px;
+   border: 1px solid #9aa0a6;
+}
+
 .filter-row {
    display: flex;
    gap: 8px;
