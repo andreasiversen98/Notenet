@@ -63,7 +63,9 @@ const model = {
       adminUserOverview: {
          search: "",
          selectedFilter: "all",
-         page: null,
+         page: 1,
+         usersPerPage: 10,
+         paginationButtonAmount: 3,
          selectedUser: {},
       },
 

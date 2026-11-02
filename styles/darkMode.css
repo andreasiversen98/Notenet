@@ -419,6 +419,16 @@ body.dark .admin-users {
   border-top-color: #e8e8e8;
 }
 
+body.dark .admin-page-btn {
+  border-color: #e8e8e8;
+  color: #e8e8e8;
+}
+
+body.dark .admin-page-btn.active {
+  background: #e8e8e8;
+  color: #121212;
+}
+
 body.dark .admin-user-row {
   border-bottom-color: #333333;
 }
