@@ -36,13 +36,13 @@ function getListRows() {
    for (const list of getVisibleLists()) {
       html += /*html*/ `
          <div class="list-row flex row align-center" onclick="openList('${list.id}')">
-            <img class="list-icon" src="${getIcon(list.isShared ? "users" : "lock")}" alt=""/>
+            <img class="list-icon" src="${getIcon(list.type === "simple" ? "list" : "square-check")}" alt=""/>
             <div class="list-text flex column">
                <span class="list-title">${list.title}</span>
-               <span class="list-owner">${getOwnerName(list)}</span>
+               <span class="list-owner">${getOwnerName(list)} · ${list.isShared ? "Delt" : "Privat"}</span>
             </div>
             ${getFavoriteButton(list.id)}
-            <span class="list-count">${list.completedItems} / ${list.totalItems}</span>
+            <span class="list-count">${list.type === "simple" ? `${list.totalItems} stk` : `${list.completedItems} / ${list.totalItems}`}</span>
             <img class="list-arrow" src="${getIcon("chevron-right")}" alt=""/>
          </div>
       `;

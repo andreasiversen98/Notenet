@@ -3,6 +3,7 @@ function createListModal() {
   const canShare = getLoggedInUser().isPremium;
 
   const isShared = canShare && (state.isShared ?? false);
+  const isSimple = state.type === "simple";
   const iconFile = isShared ? "users" : "lock";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
@@ -10,13 +11,27 @@ function createListModal() {
 
   return /*html*/ `
       <div class="modal-overlay" onclick="closeCreateListModal()"> 
-         <div class="modal-content" onclick="event.stopPropagation()"> 
+         <div class="modal-content create-list-modal" onclick="event.stopPropagation()"> 
             <div class="flex row justify-end">
                <button class="btn-icon" onclick="closeCreateListModal()">
                   <img src="${getIcon("x")}" width="20" alt="Lukk">
                </button>
             </div>
             
+            <span class="type-label">Hva vil du lage?</span>
+            <div class="type-pick">
+               <button class="type-card ${!isSimple ? "active" : ""}" onclick="setCreateListType('tasks')">
+                  <img src="${getIcon("square-check")}" alt="">
+                  <b>Oppgaveliste</b>
+                  <small>Ting som skal gjøres og hukes av.</small>
+               </button>
+               <button class="type-card ${isSimple ? "active" : ""}" onclick="setCreateListType('simple')">
+                  <img src="${getIcon("list")}" alt="">
+                  <b>Liste</b>
+                  <small>Samle ting du vil huske, uten å huke dem av.</small>
+               </button>
+            </div>
+
             <div class="modal-toggle-container">
                <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
                <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)" ${canShare ? "" : `disabled title="Delte lister krever premium"`}>
@@ -62,6 +77,7 @@ function pushNewList() {
   model.data.lists.push({
     id: newId,
     title: state.title,
+    type: state.type,
     ownerId: model.app.currentUserId,
     isShared: isShared,
     completedItems: 0,
@@ -71,6 +87,7 @@ function pushNewList() {
   });
 
   state.title = "";
+  state.type = "tasks";
   state.isShared = null;
   model.app.openModal = null;
   model.viewState.listPage.selectedListId = newId;
@@ -79,6 +96,7 @@ function pushNewList() {
 
 function closeCreateListModal() {
    model.viewState.createListModal.title = "";
+   model.viewState.createListModal.type = "tasks";
    model.viewState.createListModal.isShared = null;
    closeModal();
 }
@@ -90,5 +108,10 @@ function setCreateListTitle(value) {
 function setCreateListShared(isShared) {
   if (isShared && !getLoggedInUser().isPremium) return;
   model.viewState.createListModal.isShared = isShared;
+  setView();
+}
+
+function setCreateListType(type) {
+  model.viewState.createListModal.type = type;
   setView();
 }

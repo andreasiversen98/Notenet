@@ -1,6 +1,7 @@
 function listPageView() {
   const list = getCurrentList();
   if (!list) return "";
+  const isSimple = list.type === "simple";
 
   let uncompletedHtml = "";
   let completedHtml = "";
@@ -47,7 +48,7 @@ function listPageView() {
 
     const itemHtml = /*html*/ `
       <li class="${animated}">
-        <input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">
+        ${isSimple ? `<i class="simple-dot"></i>` : `<input type="checkbox" ${checked} onchange="toggleItemCompletion('${item.id}')">`}
         ${textHtml}
         ${editBtnHtml}
         <button class="btn btn-icon" onclick="deleteItem('${item.id}')">
@@ -135,6 +136,33 @@ function listPageView() {
     `;
   }
 
+  const progressHtml = isSimple
+    ? /*html*/ `<span class="counter">${list.totalItems} stk</span>`
+    : /*html*/ `
+      <div class="list-progress">
+        <div class="list-progress-fill" style="width: ${percent}%"></div>
+      </div>
+      <span class="counter"><b>${percent}%</b> ferdig · <span class="counter-link" onclick="showCompletedTasks()">${list.completedItems} av ${list.totalItems} oppgaver</span></span>
+    `;
+
+  const simpleHtml = uncompletedHtml
+    ? /*html*/ `<ul class="simple-list">${uncompletedHtml}</ul>`
+    : /*html*/ `<p class="empty-text">Listen er tom ennå ${isRetro ? ":)" : "📝"}</p>`;
+
+  const tasksHtml = /*html*/ `
+      <h3 class="section-toggle" onclick="toggleTodo()">
+        Å gjøre · ${uncompletedCount}
+        <img src="${getIcon("chevron-right")}" width="14" class="${showTodo ? "rotated" : ""}" alt="">
+      </h3>
+      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isRetro ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isRetro ? ":)" : "📝"}`}</p>` : ""}
+
+      <h3 id="completed-tasks" class="section-toggle" onclick="toggleCompleted()">
+        Fullførte oppgaver · ${completedCount}
+        <img src="${getIcon("chevron-right")}" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
+      </h3>
+      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isRetro ? ":(" : "😢"}</p>` : ""}
+  `;
+
   return /*html*/ `
     ${headerComponent()}
 
@@ -144,10 +172,7 @@ function listPageView() {
         ${getFavoriteButton(list.id)}
       </div>
 
-      <div class="list-progress">
-        <div class="list-progress-fill" style="width: ${percent}%"></div>
-      </div>
-      <span class="counter"><b>${percent}%</b> ferdig · <span class="counter-link" onclick="showCompletedTasks()">${list.completedItems} av ${list.totalItems} oppgaver</span></span>
+      ${progressHtml}
 
       <div class="list-toolbar">
         ${visibilityHtml}
@@ -159,7 +184,7 @@ function listPageView() {
       <div class="input-box">
         <input
           type="text"
-          placeholder="Legg til ny oppgave..."
+          placeholder="${isSimple ? "Legg til i listen..." : "Legg til ny oppgave..."}"
           value="${model.viewState.listPage.newItemTitle}"
           oninput="model.viewState.listPage.newItemTitle = this.value"
           onkeydown="if(event.key === 'Enter') pushNewItem()"
@@ -169,17 +194,7 @@ function listPageView() {
         </button>
       </div>
 
-      <h3 class="section-toggle" onclick="toggleTodo()">
-        Å gjøre · ${uncompletedCount}
-        <img src="${getIcon("chevron-right")}" width="14" class="${showTodo ? "rotated" : ""}" alt="">
-      </h3>
-      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isRetro ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isRetro ? ":)" : "📝"}`}</p>` : ""}
-
-      <h3 id="completed-tasks" class="section-toggle" onclick="toggleCompleted()">
-        Fullførte oppgaver · ${completedCount}
-        <img src="${getIcon("chevron-right")}" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
-      </h3>
-      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isRetro ? ":(" : "😢"}</p>` : ""}
+      ${isSimple ? simpleHtml : tasksHtml}
     </div>
 
     ${getBottomBar()}

@@ -722,3 +722,17 @@ body.retro .list-container .owner-tag {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/*simple list*/
+.simple-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 11px 0 9px;
+  border-radius: 50%;
+  background: #e0243a;
+  flex: none;
+}
+
+body.retro .simple-dot {
+  border-radius: 0;
+}

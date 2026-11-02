@@ -690,3 +690,22 @@ body.dark.retro .list-row {
 body.dark img.favorite-on {
   filter: none;
 }
+
+/*list type*/
+body.dark .type-card {
+  border-color: #444444;
+}
+
+body.dark .type-card:hover {
+  border-color: #777777;
+}
+
+body.dark .type-card.active {
+  border-color: #e8e8e8;
+  box-shadow: 0 0 0 1px #e8e8e8;
+}
+
+body.dark .type-label,
+body.dark .type-card small {
+  color: #8a8a85;
+}

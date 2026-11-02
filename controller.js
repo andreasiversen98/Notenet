@@ -163,12 +163,12 @@ function createTestLists() {
       { title: "Vårrengjøring", tasks: ["Vaske vinduer", "Rydde boden", "Bytte til sommerdekk", "Sortere klær", "Vaske kjøleskapet", "Støvsuge bilen", "Gi bort gamle ting", "Vaske gardiner"] },
       { title: "Søknader sommerjobb", tasks: ["Oppdatere CV", "Skrive søknadsbrev", "Søke på butikkjobb", "Søke i kommunen", "Spørre om referanse", "Øve på intervju", "Lage LinkedIn-profil", "Følge opp søknader"] },
       { title: "Nyttårsfest", tasks: ["Kjøpe raketter", "Lage festmeny", "Invitere gjester", "Kjøpe pynt", "Lage spilleliste", "Kjøpe champagne", "Planlegge leker", "Rydde dagen etter"] },
-      { title: "Turliste Lofoten", tasks: ["Gå opp Reinebringen", "Besøke Henningsvær", "Bade på Haukland", "Se midnattssol", "Spise tørrfisk", "Booke rorbu", "Leie bil", "Ta ferge fra Bodø"] },
+      { title: "Turliste Lofoten", tasks: ["Reinebringen", "Henningsvær", "Haukland strand", "Kvalvika", "Nusfjord", "Ryten", "Hamnøy", "Å i Lofoten"] },
       { title: "Babyutstyr", tasks: ["Kjøpe barnevogn", "Kjøpe bilstol", "Montere stellebord", "Vaske babyklær", "Kjøpe bleier", "Pakke sykehusbag", "Kjøpe babycall", "Male barnerommet"] },
       { title: "Valpeforberedelser", tasks: ["Kjøpe hundeseng", "Kjøpe valpefôr", "Melde på valpekurs", "Kjøpe bånd og sele", "Valpesikre leiligheten", "Finne veterinær", "Kjøpe tyggeleker", "Bestemme navn"] },
       { title: "Fisketur i Nordmarka", tasks: ["Kjøpe fiskekort", "Sjekke fiskestanga", "Kjøpe sluk", "Pakke matpakke", "Planlegge vann", "Ta med kniv", "Pakke termos", "Lade kamera"] },
       { title: "Klassetur 10. trinn", tasks: ["Samle inn penger", "Booke buss", "Lage aktivitetsliste", "Hente samtykkeskjema", "Booke overnatting", "Lage romfordeling", "Planlegge kveldsprogram", "Kjøpe førstehjelp"] },
-      { title: "Restauranter å prøve", tasks: ["Prøve ramen-stedet", "Booke bord på tapasbar", "Teste ny burgerbar", "Prøve indisk", "Spise sushi", "Prøve vegansk restaurant", "Besøke matmarkedet", "Prøve etiopisk"] },
+      { title: "Restauranter å prøve", tasks: ["Ramen-stedet på Grünerløkka", "Tapasbaren i sentrum", "Den nye burgerbaren", "Indisk på hjørnet", "Sushi ved sjøen", "Vegansk kafé", "Matmarkedet", "Etiopisk restaurant"] },
       { title: "Filmmaraton", tasks: ["Velge filmserie", "Lage popcorn", "Kjøpe godteri", "Hente tepper", "Teste prosjektoren", "Lage kinobilletter", "Invitere venner", "Bestemme pauser"] },
       { title: "Påskefjellet", tasks: ["Kjøpe appelsiner", "Smøre skiene", "Kjøpe påskekrim", "Pakke solkrem", "Kjøpe Kvikk Lunsj", "Lage påskeeggjakt", "Pakke solbriller", "Kjøpe marsipan"] },
       { title: "Hjemmekontor-oppsett", tasks: ["Kjøpe skjerm", "Kjøpe kontorstol", "Ordne kabler", "Kjøpe skrivebordslampe", "Sette opp webkamera", "Kjøpe plante", "Kjøpe hodetelefoner", "Lage fast rutine"] },
@@ -179,11 +179,18 @@ function createTestLists() {
       { title: "Kakebaking", tasks: ["Bake skillingsboller", "Lage sjokoladekake", "Kjøpe smør og mel", "Bake brownies", "Lage muffins", "Pynte kake", "Kjøpe kakeformer", "Bake kanelsnurrer"] },
       { title: "Blomster på balkongen", tasks: ["Kjøpe blomsterkasser", "Plante petunia", "Kjøpe gjødsel", "Plante urter", "Kjøpe vannkanne", "Plante jordbær", "Henge opp lys", "Vanne hver kveld"] },
       { title: "Kodeprosjekt", tasks: ["Sette opp repo", "Lage wireframe", "Skrive modellen", "Lage view-funksjoner", "Fikse bugs", "Skrive README", "Committe og pushe", "Presentere for klassen"] },
-      { title: "Bokhylla", tasks: ["Lese Sult", "Lese 1984", "Lese Harry Potter på nytt", "Låne bok på biblioteket", "Lese Kongen av Os", "Sortere bøkene", "Lese Dune", "Kjøpe ny bokhylle"] },
+      { title: "Bokhylla", tasks: ["Sult – Knut Hamsun", "1984 – George Orwell", "Harry Potter-serien", "Dune – Frank Herbert", "Hobbiten – J.R.R. Tolkien", "Naiv. Super. – Erlend Loe", "Doppler – Erlend Loe", "Kongen av Os – Jo Nesbø"] },
       { title: "Sommerfest på jobben", tasks: ["Booke lokale", "Lage invitasjon", "Bestille catering", "Planlegge quiz", "Kjøpe premier", "Ordne DJ", "Lage gjesteliste", "Rydde etterpå"] },
+      { title: "Favorittfilmer", tasks: ["Interstellar", "Løvenes konge", "Ringenes herre", "Spider-Verse", "Oppdrag Nemo", "Cast Away", "Inception", "Mamma Mia!"] },
+      { title: "Gaveideer", tasks: ["Brettspill", "Kokebok", "Ullsokker", "Konsertbilletter", "Kaffekopp med navn", "Puslespill", "Potteplante", "Gavekort på kino"] },
+      { title: "Steder jeg vil reise", tasks: ["Tokyo", "Island", "Roma", "New York", "Barcelona", "Cape Town", "Svalbard", "Lisboa"] },
+      { title: "Sanger til roadtrip", tasks: ["Take On Me – a-ha", "Africa – Toto", "Mr. Brightside – The Killers", "Dancing Queen – ABBA", "Don't Stop Me Now – Queen", "Wonderwall – Oasis", "Hey Ya! – OutKast", "Livin' on a Prayer – Bon Jovi"] },
+      { title: "Ting å lære", tasks: ["Spille gitar", "Sjonglere", "Strikke", "Koding i JavaScript", "Spansk", "Skrive med pekefingre", "Kortstokktriks", "Lage sushi"] },
    ];
    const allUsers = model.data.users.filter((user) => user.role !== "admin");
    const premiumUsers = allUsers.filter((user) => user.isPremium);
+
+   const simpleTitles = ["Restauranter å prøve", "Bokhylla", "Turliste Lofoten", "Favorittfilmer", "Gaveideer", "Steder jeg vil reise", "Sanger til roadtrip", "Ting å lære"];
 
    for (let i = 0; i < testLists.length; i++) {
       const isShared = testRandom() < 0.7;
@@ -211,9 +218,13 @@ function createTestLists() {
          });
       }
 
+      const type = simpleTitles.includes(testLists[i].title) ? "simple" : "tasks";
+      if (type === "simple") items.forEach((item) => (item.isCompleted = false));
+
       model.data.lists.push({
          id: `t${i + 1}`,
          title: testLists[i].title,
+         type: type,
          ownerId: owner.id,
          isShared: isShared,
          completedItems: items.filter((item) => item.isCompleted).length,

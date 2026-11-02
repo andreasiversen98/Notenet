@@ -30,6 +30,7 @@ const model = {
    
 
       createListModal: {
+         type: "tasks",
          isShared: null,
          title: "",
       },
@@ -166,6 +167,7 @@ const model = {
          {
             id: "l1",
             title: "Awesome list of fun",
+            type: "tasks",
             ownerId: "u1",
             isShared: true,
             completedItems: 0,
@@ -249,6 +251,7 @@ const model = {
          {
             id: "l2",
             title: "Episke gjøremål",
+            type: "tasks",
             ownerId: "u2",
             isShared: true,
             completedItems: 0,
@@ -259,6 +262,7 @@ const model = {
          {
             id: "l3",
             title: "Crazy banan liste",
+            type: "tasks",
             ownerId: "u3",
             isShared: true,
             completedItems: 5,
@@ -360,6 +364,7 @@ const model = {
          {
             id: "l4",
             title: "To cosplay or not todo",
+            type: "tasks",
             ownerId: "u4",
             isShared: true,
             completedItems: 9,
@@ -441,6 +446,7 @@ const model = {
          {
             id: "l5",
             title: "Planer for å ta over verden",
+            type: "tasks",
             ownerId: "u4",
             isShared: true,
             completedItems: 0,
