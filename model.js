@@ -37,10 +37,6 @@ const model = {
          title: "",
       },
 
-      landingPage: {
-         selectedFilter: "all",
-      },
-
       listPage: {
          newItemTitle: "",
          editingItemId: null,
