@@ -295,3 +295,17 @@ body.retro .type-label::before {
   content: "// ";
   color: #e0243a;
 }
+
+/*danger button*/
+.edit-btn.edit-btn-danger,
+body.dark .edit-btn.edit-btn-danger {
+  background: #e0243a;
+  border-color: #e0243a;
+  color: white;
+}
+
+.edit-btn.edit-btn-danger:hover,
+body.dark .edit-btn.edit-btn-danger:hover {
+  background: #c81d32;
+  border-color: #c81d32;
+}

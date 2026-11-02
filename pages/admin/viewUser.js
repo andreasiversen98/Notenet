@@ -68,7 +68,7 @@ function getUserData() {
             <span>Medlem av antall lister</span><span>${memberOf.length}</span>
          </div>
       </div>
-      <button class="delete-user-btn" onclick="adminDeleteUser('${user.id}')">Slett bruker</button>
+      <button class="delete-user-btn" onclick="openModal('deleteUser')">Slett bruker</button>
    `;
 }
 

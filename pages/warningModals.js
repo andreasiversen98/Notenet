@@ -42,3 +42,28 @@ function cancelPremiumModal() {
       </div>
    </div>`;
 }
+
+function deleteUserModal() {
+   const user = adminSelectedUser();
+   const count = model.data.lists.filter((list) => list.ownerId === user.id).length;
+   let text = "Brukeren blir slettet for godt.";
+   if (count === 1) text = "Brukeren og den ene listen brukeren eier blir slettet for godt.";
+   if (count > 1) text = `Brukeren og de ${count} listene brukeren eier blir slettet for godt.`;
+
+   return /*html*/ `
+   <div class="modal-overlay" onclick="openModal('adminViewUser')">
+      <div class="modal-content" onclick="event.stopPropagation()">
+         <div class="flex column gap">
+            <div class="flex row justify-between align-center">
+               <h2>Slette ${user.username}?</h2>
+               <img onclick="openModal('adminViewUser')" class="icon-size" src="${getIcon("x")}"/>
+            </div>
+            <p class="invite-text">${text} Dette kan ikke angres.</p>
+            <div class="flex row justify-end">
+               <button class="edit-btn edit-btn-cancel" onclick="openModal('adminViewUser')">Avbryt</button>
+               <button class="edit-btn edit-btn-danger" onclick="adminDeleteUser('${user.id}')">Slett bruker</button>
+            </div>
+         </div>
+      </div>
+   </div>`;
+}
