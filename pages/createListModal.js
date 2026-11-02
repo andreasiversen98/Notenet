@@ -6,9 +6,10 @@ function createListModal() {
   const isSimple = state.type === "simple";
   const isNote = state.type === "note";
   const iconFile = isShared ? "users" : "lock";
-  const placeholderText = isShared
-    ? "Start en ny delt liste..."
-    : "Start en ny privat liste...";
+  const privacy = isShared ? "delt" : "privat";
+  let placeholderText = `Start en ny ${privacy} oppgaveliste...`;
+  if (isSimple) placeholderText = `Start en ny ${privacy} liste...`;
+  if (isNote) placeholderText = `Start et nytt ${isShared ? "delt" : "privat"} notat...`;
 
   return /*html*/ `
       <div class="modal-overlay" onclick="closeCreateListModal()"> 
