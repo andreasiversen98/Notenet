@@ -2,7 +2,7 @@
 .list-container {
   width: 100%;
   max-width: 752px;
-  margin: 0 auto;
+  margin: 0 auto auto;
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
