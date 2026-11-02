@@ -19,6 +19,12 @@
   gap: 8px;
 }
 
+/* stjernen står i tittelen så den følger med på siste linje */
+.list-title-row h2 .favorite-btn {
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
 /*members*/
 .share-meta {
   display: flex;
@@ -1058,6 +1064,16 @@ body.retro .note-mark-remove {
 
 body.retro .note-mark-color {
   border: 1.5px solid #0a0a0a;
+}
+
+/* Lucida Console har ikke fet eller kursiv, så de bruker Consolas */
+body.retro .note-editor b,
+body.retro .note-editor strong,
+body.retro .note-editor i,
+body.retro .note-editor em,
+body.retro .note-tool b,
+body.retro .note-tool i {
+  font-family: Consolas, "Courier New", monospace;
 }
 
 body.retro .note-tool-divider {

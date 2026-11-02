@@ -147,8 +147,7 @@ function listPageView() {
 
       <div class="list-container">
         <div class="list-title-row">
-          <h2>${list.title}</h2>
-          ${getFavoriteButton(list.id)}
+          <h2>${list.title} ${getFavoriteButton(list.id)}</h2>
         </div>
 
         ${list.createdAt ? `<span class="counter">Opprettet ${formatDate(list.createdAt)}</span>` : ""}
@@ -252,8 +251,7 @@ function listPageView() {
 
     <div class="list-container">
       <div class="list-title-row">
-        <h2>${list.title}</h2>
-        ${getFavoriteButton(list.id)}
+        <h2>${list.title} ${getFavoriteButton(list.id)}</h2>
       </div>
 
       ${progressHtml}
