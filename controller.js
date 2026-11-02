@@ -179,11 +179,11 @@ function createTestLists() {
       { title: "Kakebaking", tasks: ["Bake skillingsboller", "Lage sjokoladekake", "Kjøpe smør og mel", "Bake brownies", "Lage muffins", "Pynte kake", "Kjøpe kakeformer", "Bake kanelsnurrer"] },
       { title: "Blomster på balkongen", tasks: ["Kjøpe blomsterkasser", "Plante petunia", "Kjøpe gjødsel", "Plante urter", "Kjøpe vannkanne", "Plante jordbær", "Henge opp lys", "Vanne hver kveld"] },
       { title: "Kodeprosjekt", tasks: ["Sette opp repo", "Lage wireframe", "Skrive modellen", "Lage view-funksjoner", "Fikse bugs", "Skrive README", "Committe og pushe", "Presentere for klassen"] },
-      { title: "Bokhylla", tasks: ["Sult – Knut Hamsun", "1984 – George Orwell", "Harry Potter-serien", "Dune – Frank Herbert", "Hobbiten – J.R.R. Tolkien", "Naiv. Super. – Erlend Loe", "Doppler – Erlend Loe", "Kongen av Os – Jo Nesbø"] },
+      { title: "Bokhylla", tasks: ["Sult – Knut Hamsun", "1984 – George Orwell", "Harry Potter-serien", "Dune – Frank Herbert", "Hobbiten – J.R.R. Tolkien", "Naiv. Super. – Erlend Loe", "Doppler – Erlend Loe", "Kongen av Os – Jo Nesbø"], allTasks: true },
       { title: "Sommerfest på jobben", tasks: ["Booke lokale", "Lage invitasjon", "Bestille catering", "Planlegge quiz", "Kjøpe premier", "Ordne DJ", "Lage gjesteliste", "Rydde etterpå"] },
-      { title: "Favorittfilmer", tasks: ["Interstellar", "Løvenes konge", "Ringenes herre", "Spider-Verse", "Oppdrag Nemo", "Cast Away", "Inception", "Mamma Mia!"] },
+      { title: "Favorittfilmer", tasks: ["Interstellar", "Løvenes konge", "Ringenes herre", "Spider-Verse", "Oppdrag Nemo", "Cast Away", "Inception", "Mamma Mia!"], allTasks: true },
       { title: "Gaveideer", tasks: ["Brettspill", "Kokebok", "Ullsokker", "Konsertbilletter", "Kaffekopp med navn", "Puslespill", "Potteplante", "Gavekort på kino"] },
-      { title: "Steder jeg vil reise", tasks: ["Tokyo", "Island", "Roma", "New York", "Barcelona", "Cape Town", "Svalbard", "Lisboa"] },
+      { title: "Steder jeg vil reise", tasks: ["Tokyo", "Island", "Roma", "New York", "Barcelona", "Cape Town", "Svalbard", "Lisboa"], allTasks: true },
       { title: "Sanger til roadtrip", tasks: ["Take On Me – a-ha", "Africa – Toto", "Mr. Brightside – The Killers", "Dancing Queen – ABBA", "Don't Stop Me Now – Queen", "Wonderwall – Oasis", "Hey Ya! – OutKast", "Livin' on a Prayer – Bon Jovi"] },
       { title: "Ting å lære", tasks: ["Spille gitar", "Sjonglere", "Strikke", "Koding i JavaScript", "Spansk", "Skrive med pekefingre", "Kortstokktriks", "Lage sushi"] },
    ];
@@ -207,7 +207,8 @@ function createTestLists() {
 
       const items = [];
       const availableTasks = [...testLists[i].tasks];
-      const itemAmount = 3 + Math.floor(testRandom() * (availableTasks.length - 2));
+      const randomAmount = 3 + Math.floor(testRandom() * (availableTasks.length - 2));
+      const itemAmount = testLists[i].allTasks ? availableTasks.length : randomAmount;
       for (let j = 0; j < itemAmount; j++) {
          const taskIndex = Math.floor(testRandom() * availableTasks.length);
          items.push({
