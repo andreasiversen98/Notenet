@@ -8,11 +8,11 @@ function landingPage() {
 
          <div class="filter-row">
             <button class="filter-button ${vs.selectedFilter === "all" ? "active" : ""}"
-               onclick="setFilter('all')">Alle</button>
+               onclick="setLandingFilter('all')">Alle</button>
             <button class="filter-button ${vs.selectedFilter === "mine" ? "active" : ""}"
-               onclick="setFilter('mine')">Mine</button>
+               onclick="setLandingFilter('mine')">Mine</button>
             <button class="filter-button ${vs.selectedFilter === "shared" ? "active" : ""}"
-               onclick="setFilter('shared')">Delt</button>
+               onclick="setLandingFilter('shared')">Delt</button>
          </div>
 
          <div class="list-rows">

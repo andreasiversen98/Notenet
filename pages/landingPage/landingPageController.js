@@ -1,4 +1,4 @@
-function setFilter(filter) {
+function setLandingFilter(filter) {
    model.viewState.landingPage.selectedFilter = filter;
    setView();
 }
@@ -33,7 +33,3 @@ function getOwnerName(list) {
    return "Ukjent";
 }
 
-function openList(listId) {
-   model.viewState.listPage.selectedListId = listId;
-   setView("listPage");
-}

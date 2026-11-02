@@ -49,7 +49,7 @@ function goToRegister() {
   vs.error = "";
   vs.usernameError = "";
   vs.passwordError = "";
-  setView("registerPage");
+  setView("landingPage");
 }
 
 function findUserByLogin(username, password) {
