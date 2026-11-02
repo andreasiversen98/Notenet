@@ -15,7 +15,9 @@ function logIn() {
   if (vs.usernameError || vs.passwordError) {
     vs.error = "";
     setView();
-    document.getElementById(vs.usernameError ? "login-username" : "login-password").focus();
+    document
+      .getElementById(vs.usernameError ? "login-username" : "login-password")
+      .focus();
     return;
   }
 
@@ -37,8 +39,7 @@ function logIn() {
     vs.usernameError = "";
     vs.passwordError = "";
     if (user.role === "admin") setView("userProfile");
-    else setView("listPage");
-
+    else setView("landingPage");
   }
 }
 
