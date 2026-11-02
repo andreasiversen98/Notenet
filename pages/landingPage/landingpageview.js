@@ -8,7 +8,7 @@ function landingPage() {
 
          <div class="search-row">
             <input type="text" class="search-input" placeholder="Søk"
-               value="${vs.search}" oninput="setLandingSearch(this.value)" />
+               value="${vs.search}" onchange="setLandingSearch(this.value)" />
          </div>
 
          <div class="filter-row">
