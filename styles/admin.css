@@ -338,3 +338,29 @@ body.retro .admin-user-modal .edit-btn {
 body.retro .admin-premium-icon {
   border-radius: 0;
 }
+
+/*delete user*/
+.delete-user-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #e0243a;
+  border-radius: 8px;
+  background: transparent;
+  color: #e0243a;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.delete-user-btn:hover {
+  background: #e0243a;
+  color: white;
+}
+
+body.retro .delete-user-btn {
+  border-radius: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: none;
+}
