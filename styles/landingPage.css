@@ -1,74 +1,154 @@
+/*landing page*/
 .landing-page {
-   padding: 20px;
+  width: 100%;
+  max-width: 720px;
+  margin: 8px auto auto;
+  gap: 16px;
 }
 
-.profile-pic {
-   width: 48px;
-   height: 48px;
-   border-radius: 50%;
-   display: block;
-   margin-left: auto;
-   cursor: pointer;
+/*search*/
+.landing-page .input-box {
+  padding: 10px 14px;
 }
 
-.search-row {
-   margin-top: 16px;
+/*filter*/
+.landing-page .landing-filter {
+  margin: 0 auto;
 }
 
-.search-input {
-   width: 100%;
-   box-sizing: border-box;
-   padding: 10px;
-   font-size: 15px;
-   border: 1px solid #9aa0a6;
-}
-
-.filter-row {
-   display: flex;
-   gap: 8px;
-   margin: 16px 0;
-}
-
-.filter-button {
-   flex: 1;
-   padding: 10px;
-   font-size: 15px;
-   border: 1px solid #9aa0a6;
-   background: #ffffff;
-   cursor: pointer;
-}
-
-.filter-button.active {
-   background: #3c4043;
-   color: #ffffff;
+/*list rows*/
+.list-rows {
+  border-top: 1.5px solid #0a0a0a;
 }
 
 .list-row {
-   display: flex;
-   align-items: center;
-   gap: 12px;
-   padding: 12px;
-   border: 1px solid #9aa0a6;
-   margin-bottom: 8px;
-   cursor: pointer;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #d6d5cf;
+  cursor: pointer;
+  transition: padding 0.15s ease;
+}
+
+.list-row:hover {
+  padding-left: 12px;
+}
+
+.list-row:hover .list-title {
+  color: #e0243a;
+}
+
+.list-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
 }
 
 .list-text {
-   flex: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .list-title {
-   margin: 0;
-   font-weight: bold;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .list-owner {
-   margin: 0;
-   font-size: 13px;
-   color: #5f6368;
+  font-size: 13px;
+  color: #6b6b66;
 }
 
 .list-count {
-   font-size: 14px;
-   color: #5f6368;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  color: #6b6b66;
+}
+
+.list-arrow {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+}
+
+.list-rows .empty-text {
+  margin: 16px 2px;
+}
+
+/*retro landing page*/
+body.retro .landing-page .input-box {
+  border: none;
+  border-bottom: 2px solid #0a0a0a;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.retro .landing-page .input-box input {
+  background: transparent;
+}
+
+body.retro .list-rows {
+  border-top-width: 2px;
+}
+
+body.retro .list-row {
+  border-bottom: 1px dashed #9a9a95;
+  transition: none;
+}
+
+body.retro .list-count {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .list-icon,
+body.retro .list-arrow {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+}
+
+/*empty lists*/
+.empty-lists {
+  margin-top: 12vh;
+  gap: 8px;
+  text-align: center;
+}
+
+.empty-lists-image {
+  width: 220px;
+  margin-bottom: 12px;
+}
+
+.empty-lists h2 {
+  margin-bottom: 4px;
+}
+
+.empty-lists .empty-text {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.empty-lists-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  background: #e0243a;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.empty-lists-btn:hover {
+  background: #c81d32;
+}
+
+body.retro .empty-lists-image {
+  display: none;
+}
+
+body.retro .empty-lists-btn {
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 12px;
 }

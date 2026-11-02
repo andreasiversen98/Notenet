@@ -663,3 +663,25 @@ body.dark.retro .profile-container .list-bar {
 body.dark.retro .profile-container .image-size {
   border-color: #e8e8e8;
 }
+
+/*landing page*/
+body.dark .list-rows {
+  border-top-color: #e8e8e8;
+}
+
+body.dark .list-row {
+  border-bottom-color: #333333;
+}
+
+body.dark .list-owner,
+body.dark .list-count {
+  color: #8a8a85;
+}
+
+body.dark.retro .landing-page .input-box {
+  border-bottom-color: #e8e8e8;
+}
+
+body.dark.retro .list-row {
+  border-bottom-color: #444444;
+}

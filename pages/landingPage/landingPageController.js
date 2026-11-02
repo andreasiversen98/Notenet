@@ -24,10 +24,10 @@ function getVisibleLists() {
       if (list.ownerId !== userId && !list.members.includes(userId)) {
          continue;
       }
-      if (filter === "mine" && list.ownerId !== userId) {
+      if (filter === "private" && list.ownerId !== userId) {
          continue;
       }
-      if (filter === "mine" && list.isShared && getLoggedInUser().role !== "admin") {
+      if (filter === "private" && list.isShared && getLoggedInUser().role !== "admin") {
          continue;
       }
       if (filter === "shared" && list.isShared === false) {
@@ -54,3 +54,7 @@ function getOwnerName(list) {
    return "Ukjent";
 }
 
+function hasAnyLists() {
+   const userId = model.app.currentUserId;
+   return model.data.lists.some((list) => list.ownerId === userId || list.members.includes(userId));
+}
