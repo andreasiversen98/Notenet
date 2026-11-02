@@ -63,6 +63,7 @@ function getUserData() {
             <span>memberOf</span><span>${memberOf.join(", ")}</span>
          </div>
       </div>
+      <button class="edit-btn" onclick="adminDeleteUser('${user.id}')">Delete user</button>
    `;
 }
 
@@ -76,4 +77,9 @@ function adminToggleUserPremium(userId) {
       targetUser.isPremium = !targetUser.isPremium;
       setView();
    }
+}
+
+function adminDeleteUser(userId) {
+   model.data.users = model.data.users.filter((u) => u.id !== userId);
+   closeModal();
 }

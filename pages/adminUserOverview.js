@@ -37,6 +37,7 @@ function setFilter(newFilter) {
 function displayUsers() {
    let users = /*html*/ `<div class="admin-users">`;
    for (let user of model.data.users) {
+      if (user.id === model.app.currentUserId) continue;
       if (filterPath === "free" && user.isPremium) continue;
       if (filterPath === "premium" && !user.isPremium) continue;
       users += /*html*/ `
