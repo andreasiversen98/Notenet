@@ -9,7 +9,13 @@ function getVisibleLists() {
    const visibleLists = [];
 
    for (const list of model.data.lists) {
+      if (list.ownerId !== userId && !list.members.includes(userId)) {
+         continue;
+      }
       if (filter === "mine" && list.ownerId !== userId) {
+         continue;
+      }
+      if (filter === "mine" && list.isShared && getLoggedInUser().role !== "admin") {
          continue;
       }
       if (filter === "shared" && list.isShared === false) {

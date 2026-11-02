@@ -90,7 +90,7 @@ const model = {
          {
             id: "u2",
             username: "Terje",
-            password: "234",
+            password: "123",
             profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
             code: "TTQ-805",
             isPremium: false,
@@ -102,7 +102,7 @@ const model = {
          {
             id: "u3",
             username: "Kenneth",
-            password: "742",
+            password: "123",
             profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
             code: "BNR-114",
             isPremium: true,
@@ -114,7 +114,7 @@ const model = {
          {
             id: "u4",
             username: "Rebecka",
-            password: "555",
+            password: "123",
             profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
             code: "ORW-135",
             isPremium: true,
@@ -126,7 +126,7 @@ const model = {
          {
             id: "u5",
             username: "Geir",
-            password: "888",
+            password: "123",
             profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
             code: "LWH-385",
             isPremium: false,

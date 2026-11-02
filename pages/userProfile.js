@@ -72,7 +72,7 @@ function userListCategories() {
          <span>Alle</span>
          </div>
          <div class="flex row align-center gap">
-         <span>24</span>
+         <span>${getUserListCount("all")}</span>
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
@@ -82,7 +82,7 @@ function userListCategories() {
          <span>Privat</span>
          </div>
          <div class="flex row align-center gap">
-         <span>2</span>
+         <span>${getUserListCount("private")}</span>
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
@@ -92,11 +92,23 @@ function userListCategories() {
          <span>Delte</span>
          </div>
          <div class="flex row align-center gap">
-         <span>12</span>
+         <span>${getUserListCount("shared")}</span>
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
    </div>`;
+}
+
+function getUserListCount(filter) {
+   const userId = model.app.currentUserId;
+   let count = 0;
+   for (const list of model.data.lists) {
+      if (list.ownerId !== userId && !list.members.includes(userId)) continue;
+      if (filter === "private" && list.isShared) continue;
+      if (filter === "shared" && !list.isShared) continue;
+      count++;
+   }
+   return count;
 }
 
 function setLandingFilterBeforeSwitchPage(filter) {
