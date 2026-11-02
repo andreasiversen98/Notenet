@@ -22,7 +22,7 @@
 }
 
 .profile-container .list-bar:hover > div:first-child span {
-  color: #ff3d1f;
+  color: #e0243a;
 }
 
 .profile-container .list-bar > div:first-child {
@@ -69,7 +69,7 @@
   border: none;
   border-radius: 999px;
   padding: 8px 16px;
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
   font-size: 13px;
   font-weight: 700;
@@ -83,7 +83,7 @@
 }
 
 .premium-btn:hover {
-  background: #e02a0d;
+  background: #c81d32;
   transform: translateY(-1px);
 }
 
@@ -146,4 +146,49 @@
 
 .copy-icon:hover {
   opacity: 1;
+}
+
+/*premium badge*/
+.profile-container .premium-badge {
+  height: 20px;
+  margin-top: 8px;
+}
+
+/*retro premium*/
+body.retro .premium-cta,
+body.retro .premium-btn {
+  border-radius: 0;
+}
+
+body.retro .premium-btn {
+  font-family: "Lucida Console", Consolas, monospace;
+  text-transform: uppercase;
+}
+
+/*retro profile*/
+body.retro .profile-container .container {
+  border-top-width: 2px;
+}
+
+body.retro .profile-container .list-bar {
+  border-bottom: 1px dashed #9a9a95;
+  transition: none;
+}
+
+body.retro .profile-container .list-bar > div:last-child span {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .profile-container .list-bar > div:last-child img {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro .copy-icon {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro .profile-container .image-size {
+  border-width: 1.5px;
 }

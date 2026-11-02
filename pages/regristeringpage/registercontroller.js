@@ -13,21 +13,23 @@ function setRegisterConfirmPassword(value) {
 function registerUser() {
   const vs = model.viewState.registerPage;
 
-  if (vs.username === "" || vs.password === "" || vs.confirmPassword === "") {
-    vs.error = "Fyll ut alle feltene";
-    setView();
-    return;
+  vs.usernameError = vs.username === "" ? "Skriv inn brukernavn" : "";
+  vs.passwordError = vs.password === "" ? "Skriv inn passord" : "";
+  vs.confirmPasswordError = vs.confirmPassword === "" ? "Gjenta passordet" : "";
+
+  if (!vs.usernameError && findUserByUsername(vs.username) !== undefined) {
+    vs.usernameError = "Brukernavnet er opptatt";
   }
 
-  if (vs.password !== vs.confirmPassword) {
-    vs.error = "Passordene er ikke like";
-    setView();
-    return;
+  if (!vs.passwordError && !vs.confirmPasswordError && vs.password !== vs.confirmPassword) {
+    vs.confirmPasswordError = "Passordene er ikke like";
   }
 
-  if (findUserByUsername(vs.username) !== undefined) {
-    vs.error = "Brukernavnet er opptatt";
+  if (vs.usernameError || vs.passwordError || vs.confirmPasswordError) {
     setView();
+    if (vs.usernameError) document.getElementById("register-username").focus();
+    else if (vs.passwordError) document.getElementById("register-password").focus();
+    else document.getElementById("register-confirm-password").focus();
     return;
   }
 
@@ -36,18 +38,12 @@ function registerUser() {
     username: vs.username,
     password: vs.password,
     profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
-    code: "NEW-" + (model.data.users.length + 1),
+    code: makeUniqueFriendCode(),
     isPremium: false,
     role: "user",
-
     createdAt: getTodaysDate(),
     invitedTo: [],
     sentInvites: [],
-
-    createdAt: new Date().toISOString().slice(0, 10), 
-    invitedTo: [],
-    sentInvites: [], 
-
   };
 
   model.data.users.push(newUser);
@@ -56,9 +52,23 @@ function registerUser() {
   vs.username = "";
   vs.password = "";
   vs.confirmPassword = "";
-  vs.error = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  vs.confirmPasswordError = "";
 
+  showToast(`Brukeren er opprettet. Velkommen, ${newUser.username}!`);
   setView("userProfile");
+}
+
+function goToLogin() {
+  const vs = model.viewState.registerPage;
+  vs.username = "";
+  vs.password = "";
+  vs.confirmPassword = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  vs.confirmPasswordError = "";
+  setView("loginPage");
 }
 
 function findUserByUsername(username) {
@@ -68,6 +78,31 @@ function findUserByUsername(username) {
     }
   }
   return undefined;
+}
+
+function makeFriendCode() {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let code = "";
+
+  for (let i = 0; i < 3; i++) {
+    code += letters[Math.floor(Math.random() * letters.length)];
+  }
+
+  code += "-" + (100 + Math.floor(Math.random() * 900));
+
+  return code;
+}
+
+function makeUniqueFriendCode() {
+  let code = makeFriendCode();
+  while (findUserByCode(code) !== undefined) {
+    code = makeFriendCode();
+  }
+  return code;
+}
+
+function findUserByCode(code) {
+  return model.data.users.find((user) => user.code === code);
 }
 
 function getTodaysDate() {

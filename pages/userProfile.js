@@ -21,9 +21,9 @@ function userInfoElements() {
    const user = getLoggedInUser();
    return /*html*/ `
    <div class="flex row padding gap justify-evenly">
-      <div class="flex column gap">
+      <div class="flex column align-center">
          <img class="image-size border" src="${user.profilePicture}"/>
-         <div class="flex row justify-between gap">
+         <div class="flex row">
             ${getPremiumInfo()}
          </div>
       </div>
@@ -35,8 +35,8 @@ function userInfoElements() {
 }
 
 function getCopyButton() {
-   const icon = model.viewState.userProfilePage.codeCopied ? "check.svg" : "copy.svg";
-   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="../../assets/icons/${icon}"/>`
+   const icon = model.viewState.userProfilePage.codeCopied ? "check" : "copy";
+   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="${getIcon(icon)}"/>`
 }
 
 function copyFriendCode() {
@@ -60,7 +60,7 @@ function getGreeting() {
 function getPremiumInfo() {
    if (!getLoggedInUser().isPremium) return `` 
    else return /*html*/ `
-   <img class="premium-badge" src="../../assets/images/premium/premium-badge.svg" alt="premium" style="height: 24px"/>`
+   <img class="premium-badge" src="${getPremiumImage("premium-badge")}" alt="premium"/>`
 }
 
 function userListCategories() {
@@ -68,32 +68,32 @@ function userListCategories() {
    <div class="flex column container gap padding">
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/layers.svg"/>
+         <img class="icon-size" src="${getIcon("layers")}"/>
          <span>Alle</span>
          </div>
          <div class="flex row align-center gap">
          <span>24</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/users.svg"/>
+         <img class="icon-size" src="${getIcon("users")}"/>
          <span>Delte</span>
          </div>
          <div class="flex row align-center gap">
          <span>12</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
       <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
-         <img class="icon-size" src="../../assets/icons/lock.svg"/>
+         <img class="icon-size" src="${getIcon("lock")}"/>
          <span>Privat</span>
          </div>
          <div class="flex row align-center gap">
          <span>2</span>
-         <img class="icon-size" src="../../assets/icons/chevron-right.svg"/>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
    </div>`;
@@ -108,7 +108,7 @@ function userPremiumButton() {
          <span class="premium-cta-text">Lag delte lister og inviter venner</span>
       </div>
       <button class="premium-btn" onclick="togglePremium()">
-         <img src="../../assets/images/premium/premium-icon-no-dot.svg"/>
+         <img src="${getPremiumImage("premium-icon-no-dot")}"/>
          Få premium
       </button>
    </div>`

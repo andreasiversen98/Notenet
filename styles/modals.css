@@ -115,11 +115,11 @@
 }
 
 .accept-btn {
-  background-color: #ff3d1f;
+  background-color: #e0243a;
 }
 
 .accept-btn:hover {
-  background-color: #e02a0d;
+  background-color: #c81d32;
 }
 
 .decline-btn {
@@ -133,4 +133,89 @@
 .accept-btn:active,
 .decline-btn:active {
   transform: scale(0.92);
+}
+
+/*retro modals*/
+body.retro .modal-content {
+  border: 1.5px solid #0a0a0a;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.retro .modal-content h1,
+body.retro .modal-content h2 {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+body.retro .modal-content h1::before,
+body.retro .modal-content h2::before {
+  content: "// ";
+  color: #e0243a;
+}
+
+body.retro .close-btn,
+body.retro .accept-btn,
+body.retro .decline-btn {
+  border-radius: 0;
+}
+
+body.retro .invite-row,
+body.retro .invite-row:last-child {
+  border-bottom: 1px dashed #9a9a95;
+}
+
+body.retro .invite-list {
+  border-top: 2px solid #0a0a0a;
+}
+
+body.retro .modal-content .input-box {
+  border: none;
+  border-bottom: 2px solid #0a0a0a;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.retro .modal-content .input-box input,
+body.retro .invite-message {
+  font-family: "Lucida Console", Consolas, monospace;
+  background: transparent;
+}
+
+body.retro .modal-content .edit-btn {
+  border-radius: 0;
+  font-family: "Lucida Console", Consolas, monospace;
+  text-transform: uppercase;
+}
+
+body.retro .modal-toggle-container {
+  background: transparent;
+  border: 1.5px solid #0a0a0a;
+  border-radius: 0;
+  padding: 0;
+}
+
+body.retro .modal-toggle-container .modal-toggle-btn {
+  padding: 5px 14px;
+  border-radius: 0;
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 13px;
+  color: #6b6b66;
+  box-shadow: none;
+}
+
+body.retro .modal-toggle-container .modal-toggle-btn + .modal-toggle-btn {
+  border-left: 1.5px solid #0a0a0a;
+}
+
+body.retro .modal-toggle-container .modal-toggle-btn.active {
+  background: #0a0a0a;
+  color: white;
+}
+
+body.retro .modal-toggle-container .modal-toggle-btn:disabled {
+  color: #b5b5b0;
 }

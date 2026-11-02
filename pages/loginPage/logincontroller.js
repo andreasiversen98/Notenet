@@ -8,6 +8,17 @@ function setLoginPassword(value) {
 
 function logIn() {
   const vs = model.viewState.loginPage;
+
+  vs.usernameError = vs.username === "" ? "Skriv inn brukernavn" : "";
+  vs.passwordError = vs.password === "" ? "Skriv inn passord" : "";
+
+  if (vs.usernameError || vs.passwordError) {
+    vs.error = "";
+    setView();
+    document.getElementById(vs.usernameError ? "login-username" : "login-password").focus();
+    return;
+  }
+
   const user = findUserByLogin(vs.username, vs.password);
 
   if (user === undefined) {
@@ -16,11 +27,29 @@ function logIn() {
     return;
   } else {
     model.app.currentUserId = user.id;
+    model.app.theme = user.theme || "modern";
     vs.username = "";
     vs.password = "";
     vs.error = "";
+
     setView("landingPage");
+
+    vs.usernameError = "";
+    vs.passwordError = "";
+    if (user.role === "admin") setView("userProfile");
+    else setView("listPage");
+
   }
+}
+
+function goToRegister() {
+  const vs = model.viewState.loginPage;
+  vs.username = "";
+  vs.password = "";
+  vs.error = "";
+  vs.usernameError = "";
+  vs.passwordError = "";
+  setView("registerPage");
 }
 
 function findUserByLogin(username, password) {

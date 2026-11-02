@@ -11,21 +11,25 @@ function loginPage(){
         <label class="login-label">
           Brukernavn
           <input
+            id="login-username"
             type="text"
-            class="login-input"
+            class="login-input ${vs.usernameError ? "input-error" : ""}"
             value="${vs.username}"
             oninput="setLoginUsername(this.value)"
             onkeydown="if(event.key === 'Enter') logIn()" />
+          ${vs.usernameError ? `<span class="field-error">${vs.usernameError}</span>` : ""}
         </label>
 
         <label class="login-label">
           Passord
           <input
+            id="login-password"
             type="password"
-            class="login-input"
+            class="login-input ${vs.passwordError ? "input-error" : ""}"
             value="${vs.password}"
             oninput="setLoginPassword(this.value)"
             onkeydown="if(event.key === 'Enter') logIn()" />
+          ${vs.passwordError ? `<span class="field-error">${vs.passwordError}</span>` : ""}
         </label>
 
         <button class="login-button" onclick="logIn()">Logg inn</button>
@@ -34,12 +38,12 @@ function loginPage(){
 
         <div class="login-divider">eller</div>
 
-        <button class="register-button" onclick="setView('registerPage')">
+        <button class="register-button" onclick="goToRegister()">
           Lag en ny bruker
         </button>
 
       </div>
     </div>
-    ${getBottomBar()}
+    
   `;
 }

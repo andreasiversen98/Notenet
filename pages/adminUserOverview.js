@@ -8,6 +8,7 @@ function adminUserOverview() {
             <h2 class="admin-title">Brukere</h2>
             ${filterUsers()}
          </div>
+         <span class="admin-count">${filteredUserCount()} brukere</span>
          ${displayUsers()}
       </div>
       ${getBottomBar()}`;
@@ -20,6 +21,12 @@ function filterUsers() {
          <button class="modal-toggle-btn ${filterPath == "free" ? "active" : ""}" onclick="setFilter('free')">Gratis</button>
          <button class="modal-toggle-btn ${filterPath == "premium" ? "active" : ""}" onclick="setFilter('premium')">Premium</button>
       </div>`;
+}
+
+function filteredUserCount() {
+   if (filterPath === "free") return model.data.users.filter((user) => !user.isPremium).length;
+   if (filterPath === "premium") return model.data.users.filter((user) => user.isPremium).length;
+   return model.data.users.length;
 }
 
 function setFilter(newFilter) {
@@ -38,11 +45,11 @@ function displayUsers() {
          onclick="model.viewState.adminUserOverview.selectedUser = '${user.id}'; openModal('adminViewUser')">
          <span class="admin-avatar-wrap">
             <img class="admin-avatar" src="${user.profilePictureSmall || user.profilePicture}" alt=""/>
-            ${user.isPremium ? `<img class="admin-premium-icon" title="Premium" src="../../assets/images/premium/premium-icon.svg"/>` : ""}
+            ${user.isPremium ? `<img class="admin-premium-icon" title="Premium" src="${getPremiumImage("premium-icon")}"/>` : ""}
          </span>
          <span class="admin-user-name">${user.username}</span>
          <span class="admin-user-code">${user.code}</span>
-         <img class="admin-chevron" src="../../assets/icons/chevron-right.svg"/>
+         <img class="admin-chevron" src="${getIcon("chevron-right")}"/>
       </div>`;
    }
    users += "</div>";

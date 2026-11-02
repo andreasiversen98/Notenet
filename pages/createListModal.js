@@ -3,7 +3,7 @@ function createListModal() {
   const canShare = getLoggedInUser().isPremium;
 
   const isShared = canShare && (state.isShared ?? false);
-  const iconFile = isShared ? "users.svg" : "lock.svg";
+  const iconFile = isShared ? "users" : "lock";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
     : "Start en ny privat liste...";
@@ -13,7 +13,7 @@ function createListModal() {
          <div class="modal-content" onclick="event.stopPropagation()"> 
             <div class="flex row justify-end">
                <button class="btn-icon" onclick="closeCreateListModal()">
-                  <img src="../../assets/icons/x.svg" width="20" alt="Lukk">
+                  <img src="${getIcon("x")}" width="20" alt="Lukk">
                </button>
             </div>
             
@@ -21,12 +21,12 @@ function createListModal() {
                <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
                <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)" ${canShare ? "" : `disabled title="Delte lister krever premium"`}>
                   Delt
-                  ${canShare ? "" : `<img class="premium-icon" src="../../assets/images/premium/premium-icon.svg" alt="Premium">`}
+                  ${canShare ? "" : `<img class="premium-icon" src="${getPremiumImage("premium-icon")}" alt="Premium">`}
                </button>
             </div>
 
             <div class="input-box">
-               <img src="../../assets/icons/${iconFile}" width="20" alt="Ikon">
+               <img src="${getIcon(iconFile)}" width="20" alt="Ikon">
                <input 
                   type="text" 
                   placeholder="${placeholderText}" 
@@ -35,7 +35,7 @@ function createListModal() {
                   onkeydown="if(event.key === 'Enter') pushNewList()"
                >
                <button class="btn" onclick="pushNewList()">
-                  <img src="../../assets/icons/square-plus.svg" width="20" alt="Legg til">
+                  <img src="${getIcon("square-plus")}" width="20" alt="Legg til">
                </button>
             </div>
          </div>

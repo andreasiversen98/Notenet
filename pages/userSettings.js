@@ -13,7 +13,7 @@ function userSettings() {
          <h1>Innstillinger</h1>
          <div class="flex row align-center gap2">
             ${getThemeToggle()}
-            <img onclick="exitUserSettings()" class="icon-size" src="../../assets/icons/x.svg"/>
+            <img onclick="exitUserSettings()" class="icon-size" src="${getIcon("x")}"/>
          </div>
       </div>
 
@@ -31,24 +31,48 @@ function userSettings() {
          ${getImageField()}
       </div>
 
+      <h3 class="settings-label">Utseende</h3>
+      <div class="settings-group">
+         ${getThemeRow()}
+      </div>
+
       <h3 class="settings-label">Abonnement</h3>
       <div class="settings-group">
          ${getPremiumRow()}
+      </div>
+
+      <div class="settings-group logout-group">
+         <div onclick="logOut()" class="settings-row flex row align-center gap">
+            <img class="icon-size" src="${getIcon("log-out")}"/>
+            <span>Logg ut</span>
+         </div>
       </div>
    </div>
    `;
 }
 
+function getThemeRow() {
+   const theme = model.app.theme;
+   return /*html*/ `
+      <div class="settings-row flex row align-center justify-between gap">
+         <span>Stil</span>
+         <div class="visibility-switch">
+            <button class="visibility-option ${theme === "retro" ? "active" : ""}" onclick="setTheme('retro')">Retro</button>
+            <button class="visibility-option ${theme === "modern" ? "active" : ""}" onclick="setTheme('modern')">Moderne</button>
+         </div>
+      </div>`;
+}
+
 function getPremiumRow() {
    const isPremium = getLoggedInUser().isPremium;
-   const icon = isPremium ? "premium-icon.svg" : "premium-icon-no-dot.svg";
+   const icon = isPremium ? "premium-icon" : "premium-icon-no-dot";
    const text = isPremium ? "Avslutt premium" : "Kjøp premium";
 
    return /*html*/ `
-      <div onclick="togglePremium()" class="settings-row ${isPremium ? "settings-danger" : ""} flex row align-center gap">
-         <img class="premium-row-icon" src="../../assets/images/premium/${icon}"/>
+      <div onclick="togglePremium()" class="settings-row premium-row ${isPremium ? "settings-danger" : ""} flex row align-center gap">
+         <img class="premium-row-icon" src="${getPremiumImage(icon)}"/>
          <span>${text}</span>
-         ${isPremium ? "" : `<img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>`}
+         ${isPremium ? "" : `<img class="settings-chevron" src="${getIcon("chevron-right")}"/>`}
       </div>`;
 }
 
@@ -56,9 +80,9 @@ function getNameField() {
    if (canEditName == false)
       return /*html*/ `
          <div onclick="switchNameField()" class="settings-row flex row align-center gap">
-            <img class="icon-size" src="../../assets/icons/pencil.svg"/>
+            <img class="icon-size" src="${getIcon("pencil")}"/>
             <span>Endre navn</span>
-            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
+            <img class="settings-chevron" src="${getIcon("chevron-right")}"/>
          </div>`;
    else
       return /*html*/ `
@@ -92,9 +116,9 @@ function getImageField() {
    if (canEditImage == false)
       return /*html*/ `
          <div onclick="switchImageField()" class="settings-row flex row align-center gap">
-            <img class="icon-size" src="../../assets/icons/user-round.svg"/>
+            <img class="icon-size" src="${getIcon("user-round")}"/>
             <span>Endre profilbilde</span>
-            <img class="settings-chevron" src="../../assets/icons/chevron-right.svg"/>
+            <img class="settings-chevron" src="${getIcon("chevron-right")}"/>
          </div>`;
    else
       return /*html*/ `
@@ -111,9 +135,10 @@ function getImageField() {
 const pictureNames = [
    "default-avatar",
    "avatar-red", "avatar-blue", "avatar-green", "avatar-purple", "avatar-yellow",
-   "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray",
+   "avatar-pink", "avatar-orange", "avatar-teal", "avatar-gray", "avatar-navy", "avatar-brown", "avatar-mint", "avatar-wine",
    "shape-check", "shape-ring", "shape-split", "shape-dots",
    "shape-stack", "shape-sun", "shape-wave", "shape-quarter",
+   "shape-moon", "shape-mountain", "shape-plus", "shape-diamond",
 ];
 
 function getAvatarOptions() {
@@ -225,4 +250,17 @@ function exitUserSettings() {
    newImage = "";
    canEditImage = false;
    setView(model.app.previousPage);
+}
+
+function logOut() {
+   newUsername = "";
+   canEditName = false;
+   newImage = "";
+   canEditImage = false;
+
+   model.app.currentUserId = null;
+   model.app.openModal = null;
+   model.app.toast = "";
+   model.app.theme = "modern";
+   setView("loginPage");
 }

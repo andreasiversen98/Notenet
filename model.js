@@ -2,9 +2,11 @@ const model = {
    app: {
       currentPage: "",
       previousPage: "",
-      currentUserId: "u1",
+      currentUserId: "",
       openModal: null,
+      toast: "",
       darkMode: false,
+      theme: "modern",
    },
 
    viewState: {
@@ -12,14 +14,17 @@ const model = {
          username: "",
          password: "",
          error: "",
+         usernameError: "",
+         passwordError: "",
       },
 
       registerPage: {
         username: "",
         password: "",
         confirmPassword: "",
-        error: "",
-
+        usernameError: "",
+        passwordError: "",
+        confirmPasswordError: "",
       },
 
       createListModal: {
@@ -37,8 +42,12 @@ const model = {
          editingItemTitle: "",
          selectedListId: "",
          showMembers: false,
+         showTodo: true,
+         showCompleted: false,
          inviteCode: "",
          inviteMessage: "",
+         animatedItemId: null,
+         completingItemId: null,
       },
 
       userProfilePage: {

@@ -24,6 +24,12 @@
   height: 48px;
 }
 
+/*register title*/
+.register-title {
+  margin: -8px 0 0;
+  font-size: 22px;
+}
+
 /*inputs*/
 .login-label {
   display: flex;
@@ -72,7 +78,7 @@
 }
 
 .login-button:hover {
-  background: #ff3d1f;
+  background: #e0243a;
 }
 
 .register-button {
@@ -103,9 +109,24 @@
   background: #e4e3dd;
 }
 
+/*field errors*/
+.login-input.input-error {
+  border-color: #c81d32;
+}
+
+.login-input.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(224, 42, 13, 0.15);
+}
+
+.field-error {
+  font-size: 13px;
+  font-weight: 400;
+  color: #c81d32;
+}
+
 /*messages*/
 .login-error {
-  color: #e02a0d;
+  color: #c81d32;
   font-size: 14px;
   margin: 0;
 }

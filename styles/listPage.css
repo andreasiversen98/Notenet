@@ -1,7 +1,7 @@
 /*layout*/
 .list-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 752px;
   margin: 0 auto;
   padding: 8px 16px;
   display: flex;
@@ -94,7 +94,7 @@
 
 .owner-tag {
   font-size: 11px;
-  background: #ff3d1f;
+  background: #e0243a;
   color: white;
   padding: 1px 6px;
   border-radius: 999px;
@@ -317,10 +317,28 @@ li span {
 
 .counter {
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.55;
+  color: #6b6b66;
   font-variant-numeric: tabular-nums;
+}
+
+.counter b {
+  color: #0a0a0a;
+}
+
+/*progress bar*/
+.list-progress {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #e2e1db;
+  overflow: hidden;
+}
+
+.list-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e0243a, #f0566a);
+  transition: width 0.3s ease;
 }
 
 .list-container h3 {
@@ -333,7 +351,7 @@ li span {
 }
 
 ul {
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .input-box {
@@ -354,15 +372,21 @@ li:hover {
 
 li input[type="checkbox"] {
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: 22px;
   margin: 0 4px 0 2px;
-  border: 1.5px solid #0a0a0a;
-  border-radius: 3px;
+  border: 2px solid #b5b4ae;
+  border-radius: 50%;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+li input[type="checkbox"]:hover {
+  border-color: #0a0a0a;
 }
 
 li input[type="checkbox"]:checked {
+  border-color: #0a0a0a;
   background: #0a0a0a url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><path d='m5 12 5 5L20 7'/></svg>") center / 12px no-repeat;
 }
 
@@ -381,10 +405,10 @@ li input[type="checkbox"]:checked {
   letter-spacing: 0.02em;
 }
 
-h3 + ul li span {
+.completed-list li span {
   color: #6b6b66;
   text-decoration: line-through;
-  text-decoration-color: #ff3d1f;
+  text-decoration-color: #e0243a;
   text-decoration-thickness: 2px;
 }
 
@@ -431,8 +455,8 @@ h3 + ul li span {
 }
 
 .edit-btn-save:hover {
-  background: #ff3d1f;
-  border-color: #ff3d1f;
+  background: #e0243a;
+  border-color: #e0243a;
 }
 
 .edit-btn-cancel {
@@ -455,13 +479,13 @@ h3 + ul li span {
 }
 
 .edit-input:focus {
-  box-shadow: 0 0 0 3px rgba(255, 61, 31, 0.2);
+  box-shadow: 0 0 0 3px rgba(224, 36, 58, 0.2);
 }
 
 /*empty text*/
 .empty-text {
   margin: 4px 2px;
-  font-size: 14px;
+  font-size: 16px;
   color: #6b6b66;
 }
 
@@ -489,4 +513,212 @@ h3 + ul li span {
   margin: 0 4px;
   font-size: 13px;
   color: #6b6b66;
+}
+
+/*retro style*/
+body.retro .list-container h2 {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+body.retro .list-container .counter {
+  font-family: "Lucida Console", Consolas, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+body.retro .list-progress {
+  height: 12px;
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, #d6d4cc 0 10px, transparent 10px 14px);
+}
+
+body.retro .list-progress-fill {
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, #e0243a 0 10px, transparent 10px 14px);
+}
+
+body.retro .list-container .visibility-switch,
+body.retro .list-container .visibility-option,
+body.retro .list-container .invite-btn,
+body.retro .settings-page .visibility-switch,
+body.retro .settings-page .visibility-option {
+  border-radius: 0;
+}
+
+body.retro .list-container .visibility-option,
+body.retro .list-container .invite-btn,
+body.retro .list-container .member-count-btn,
+body.retro .settings-page .visibility-option {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .list-container .invite-btn {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+body.retro .list-container .input-box {
+  border: none;
+  border-bottom: 2px solid #0a0a0a;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.retro .list-container .input-box input,
+body.retro .list-container .edit-input {
+  font-family: "Lucida Console", Consolas, monospace;
+  background: transparent;
+}
+
+body.retro .list-container .edit-input {
+  border-radius: 0;
+}
+
+body.retro .list-container h3 {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  opacity: 1;
+}
+
+body.retro .list-container h3::before {
+  content: "// ";
+  color: #e0243a;
+}
+
+body.retro .list-container ul {
+  border: none;
+  border-top: 2px solid #0a0a0a;
+  border-radius: 0;
+}
+
+body.retro .list-container li {
+  background: transparent;
+  border-bottom: 1px dashed #9a9a95;
+  padding: 12px 4px;
+}
+
+body.retro .list-container li:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+body.retro .list-container li span {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 14px;
+}
+
+body.retro .list-container li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  border-color: #0a0a0a;
+}
+
+body.retro .list-container .edit-btn {
+  border-radius: 0;
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+body.retro .list-container .item-avatar {
+  box-shadow: 0 0 0 1px #d0cfc9;
+}
+
+/*section toggle*/
+.section-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.section-toggle img {
+  transition: transform 0.15s ease;
+}
+
+.section-toggle img.rotated {
+  transform: rotate(90deg);
+}
+
+.counter-link {
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.counter-link:hover {
+  color: #e0243a;
+}
+
+/*members list*/
+body.retro .list-container .members-list {
+  background: transparent;
+  border: none;
+  border-top: 2px solid #0a0a0a;
+}
+
+body.retro .list-container .member-row {
+  padding: 10px 4px;
+  border-bottom: 1px dashed #9a9a95;
+}
+
+body.retro .list-container .member-row span {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .list-container .member-avatar {
+  box-shadow: 0 0 0 1px #d0cfc9;
+}
+
+/*visibility switch*/
+body.retro .list-container .visibility-switch,
+body.retro .settings-page .visibility-switch {
+  background: transparent;
+  border: 1.5px solid #0a0a0a;
+  padding: 0;
+}
+
+body.retro .list-container .visibility-option,
+body.retro .settings-page .visibility-option {
+  padding: 5px 12px;
+  color: #6b6b66;
+  box-shadow: none;
+}
+
+body.retro .list-container .visibility-option + .visibility-option,
+body.retro .settings-page .visibility-option + .visibility-option {
+  border-left: 1.5px solid #0a0a0a;
+}
+
+body.retro .list-container .visibility-option.active,
+body.retro .settings-page .visibility-option.active {
+  color: white;
+}
+
+body.retro .list-container .visibility-option:not(.active):hover,
+body.retro .settings-page .visibility-option:not(.active):hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #0a0a0a;
+}
+
+/*retro checkbox*/
+body.retro .list-container li input[type="checkbox"]:checked {
+  background: #0a0a0a url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges' fill='white'><path d='M1 6h1v1h-1ZM1 7h1v1h-1ZM2 6h1v1h-1ZM2 7h1v1h-1ZM2 8h1v1h-1ZM3 7h1v1h-1ZM3 8h1v1h-1ZM3 9h1v1h-1ZM4 8h1v1h-1ZM4 9h1v1h-1ZM5 7h1v1h-1ZM5 8h1v1h-1ZM5 9h1v1h-1ZM6 6h1v1h-1ZM6 7h1v1h-1ZM6 8h1v1h-1ZM7 5h1v1h-1ZM7 6h1v1h-1ZM7 7h1v1h-1ZM8 4h1v1h-1ZM8 5h1v1h-1ZM8 6h1v1h-1ZM9 3h1v1h-1ZM9 4h1v1h-1ZM9 5h1v1h-1ZM10 3h1v1h-1ZM10 4h1v1h-1Z'/></svg>") center / 12px no-repeat;
+}
+
+/*retro empty text*/
+body.retro .list-container .empty-text {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 14px;
+}
+
+/*retro owner tag*/
+body.retro .list-container .owner-tag {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

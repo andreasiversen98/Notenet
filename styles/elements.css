@@ -74,12 +74,12 @@ html, body {
   height: 26px;
   padding: 13px;
   border-radius: 50%;
-  background-color: #ff3d1f;
+  background-color: #e0243a;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .icon-add:hover {
-  background-color: #e02a0d;
+  background-color: #c81d32;
 }
 
 .bottom-bar span:active img {
@@ -101,7 +101,7 @@ html, body {
   box-sizing: border-box;
   border: 2px solid #0a0a0a;
   border-radius: 999px;
-  background-color: #ff3d1f;
+  background-color: #e0243a;
   color: white;
   font-size: 10px;
   font-weight: 700;
@@ -150,7 +150,7 @@ html, body {
 /*profile*/
 .profile-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -158,7 +158,7 @@ html, body {
 /*header*/
 .header {
   width: 100%;
-  max-width: 1100px;
+  max-width: 740px;
   margin: 0 auto;
   box-sizing: border-box;
 
@@ -166,6 +166,37 @@ html, body {
     font-size: 50px;
     color: dimgray;
   }
+}
+
+/*header icons*/
+.header .gap2 {
+  gap: 8px;
+}
+
+.header .icon-size {
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.header .icon-size:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+/*header avatar*/
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  margin-left: 6px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.header-avatar:hover {
+  box-shadow: 0 0 0 2px #e0243a;
 }
 
 /*reset*/
@@ -186,4 +217,249 @@ img {
   display: block;
   height: 40px;
   width: auto;
+}
+
+/*toast*/
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #0a0a0a;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.toast-icon {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #e0243a;
+}
+
+.toast-close {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  filter: invert(1);
+  opacity: 0.7;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/*retro bottom bar*/
+body.retro .bottom-bar > div,
+body.retro .icon-add,
+body.retro .icon-bottom {
+  border-radius: 0;
+}
+
+body.retro .bottom-bar > div {
+  box-shadow: none;
+}
+
+body.retro .notification-count {
+  border-radius: 0;
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+/*retro avatars*/
+body.retro .header-avatar,
+body.retro .image-size,
+body.retro .settings-avatar,
+body.retro .avatar-option,
+body.retro .member-avatar,
+body.retro .item-avatar,
+body.retro .admin-avatar {
+  border-radius: 0;
+}
+
+/*retro header*/
+body.retro .header .icon-size {
+  border-radius: 0;
+}
+
+body.retro .header .header-avatar,
+body.retro .settings-page .settings-avatar {
+  box-shadow: 0 0 0 1.5px #0a0a0a;
+}
+
+body.retro .header .header-avatar:hover {
+  box-shadow: 0 0 0 2px #e0243a;
+}
+
+/*retro pixel icons*/
+body.retro img[src*="icons/pixel/"][width="14"],
+body.retro img[src*="icons/pixel/"][width="16"] {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro img[src*="icons/pixel/"][width="20"],
+body.retro .input-box button img[src*="icons/pixel/"],
+body.retro .icon-size[src*="icons/pixel/"] {
+  width: 24px;
+  height: 24px;
+}
+
+body.retro .header .icon-size[src*="icons/pixel/"] {
+  padding: 6px;
+}
+
+/*retro font*/
+body.retro,
+body.retro * {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-synthesis: none;
+}
+
+/*retro headings*/
+body.retro h1,
+body.retro h2,
+body.retro h3,
+body.retro h1 *,
+body.retro h2 *,
+body.retro h3 * {
+  font-family: Consolas, "Courier New", monospace;
+  font-synthesis: auto;
+}
+
+/*retro toast and invite buttons*/
+body.retro .toast,
+body.retro .toast-icon {
+  border-radius: 0;
+}
+
+body.retro .toast-icon[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+  padding: 6px;
+}
+
+body.retro .toast-close[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+}
+
+body.retro .accept-btn[src*="icons/pixel/"],
+body.retro .decline-btn[src*="icons/pixel/"] {
+  width: 12px;
+  height: 12px;
+  padding: 12px;
+}
+
+/*retro trash*/
+body.retro img[src*="icons/pixel/trash"][width] {
+  width: 18px;
+  height: 18px;
+}
+
+/*animations*/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -16px);
+  }
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes check-pop {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes strike {
+  to {
+    background-size: 100% 2px;
+  }
+}
+
+@keyframes item-out {
+  to {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.retro) .modal-overlay.animate-in {
+    animation: fade-in 0.2s ease;
+  }
+
+  body:not(.retro) .modal-overlay.animate-in .modal-content {
+    animation: pop-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  body:not(.retro) .toast.animate-in {
+    animation: toast-in 0.3s ease;
+  }
+
+  body:not(.retro) li.animate-in {
+    animation: item-in 0.3s ease;
+  }
+
+  body:not(.retro) li.animate-in input[type="checkbox"]:checked {
+    animation: check-pop 0.3s ease;
+  }
+
+  body:not(.retro) li.completing {
+    animation: item-out 0.2s ease 0.3s forwards;
+  }
+
+  body:not(.retro) li.completing input[type="checkbox"] {
+    animation: check-pop 0.3s ease;
+  }
+
+  body:not(.retro) li.completing span {
+    background: linear-gradient(#e0243a, #e0243a) no-repeat 0 55% / 0 2px;
+    animation: strike 0.3s ease forwards;
+  }
+
+  body:not(.retro) .list-container li,
+  body:not(.retro) .admin-stat {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  body:not(.retro) .admin-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/*retro edit icon*/
+body.retro .list-container .edit-btn img[src*="icons/pixel/"] {
+  width: 18px;
+  height: 18px;
+  margin: -3px -1px -3px -2px;
 }

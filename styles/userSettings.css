@@ -1,7 +1,7 @@
 /*settings page*/
 .settings-page {
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   gap: 12px;
 }
@@ -73,7 +73,7 @@
 }
 
 .settings-danger {
-  color: #e02a0d;
+  color: #c81d32;
   font-weight: 600;
 }
 
@@ -118,5 +118,67 @@
 }
 
 .avatar-option.selected {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px #ff3d1f;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #e0243a;
+}
+
+/*log out*/
+.logout-group {
+  margin-top: 16px;
+}
+
+/*retro settings*/
+body.retro .settings-label,
+body.retro .settings-meta,
+body.retro .settings-input {
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
+body.retro .settings-label {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: #0a0a0a;
+}
+
+body.retro .settings-label::before {
+  content: "// ";
+  color: #e0243a;
+}
+
+body.retro .settings-page .settings-group {
+  background: transparent;
+  border: none;
+  border-top: 2px solid #0a0a0a;
+  border-radius: 0;
+}
+
+body.retro .settings-page .settings-row,
+body.retro .settings-page .settings-row:last-child {
+  padding: 14px 4px;
+  border-bottom: 1px dashed #9a9a95;
+}
+
+body.retro .settings-page .settings-row[onclick]:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+body.retro .settings-input,
+body.retro .settings-page .edit-btn {
+  border-radius: 0;
+}
+
+body.retro .settings-page .edit-btn {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+body.retro .settings-avatar {
+  box-shadow: 0 0 0 1px #d0cfc9;
+}
+
+/*retro premium row*/
+body.retro .premium-row span {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 14px;
 }

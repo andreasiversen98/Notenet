@@ -21,6 +21,24 @@ function toggleMembers() {
   setView();
 }
 
+function toggleTodo() {
+  const lp = model.viewState.listPage;
+  lp.showTodo = !lp.showTodo;
+  setView();
+}
+
+function toggleCompleted() {
+  const lp = model.viewState.listPage;
+  lp.showCompleted = !lp.showCompleted;
+  setView();
+}
+
+function showCompletedTasks() {
+  model.viewState.listPage.showCompleted = true;
+  setView();
+  document.getElementById("completed-tasks").scrollIntoView({ behavior: "smooth" });
+}
+
 function canRemoveMember(list, user) {
   const me = getLoggedInUser();
   const isOwner = list.ownerId === me.id;
@@ -54,6 +72,7 @@ function inviteMember() {
   if (!list || !canAddMember(list)) return;
 
   const code = lp.inviteCode.trim().toUpperCase();
+  if (code === "") return;
   const user = model.data.users.find((u) => u.code === code);
 
   if (!user) {
@@ -117,11 +136,36 @@ function pushNewItem() {
   currentList.totalItems += 1;
 
   model.viewState.listPage.newItemTitle = "";
-  
+  model.viewState.listPage.animatedItemId = newItemId;
   setView();
+  model.viewState.listPage.animatedItemId = null;
 }
 
 function toggleItemCompletion(itemId) {
+  const lp = model.viewState.listPage;
+  if (lp.completingItemId) return;
+
+  const item = getCurrentList()?.items.find((item) => item.id === itemId);
+  if (!item) return;
+
+  if (!item.isCompleted && shouldAnimate()) {
+    lp.completingItemId = itemId;
+    setView();
+    setTimeout(() => {
+      lp.completingItemId = null;
+      changeItemCompletion(itemId);
+    }, 500);
+    return;
+  }
+
+  changeItemCompletion(itemId);
+}
+
+function shouldAnimate() {
+  return model.app.theme !== "retro" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function changeItemCompletion(itemId) {
   const currentList = getCurrentList();
   if (!currentList) return;
 
@@ -138,7 +182,9 @@ function toggleItemCompletion(itemId) {
     }
   }
 
+  model.viewState.listPage.animatedItemId = itemId;
   setView();
+  model.viewState.listPage.animatedItemId = null;
 }
 
 function deleteItem(itemId) {
