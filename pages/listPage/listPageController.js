@@ -313,11 +313,16 @@ function toggleNoteHeading() {
   saveNoteFromEditor();
 }
 
-// markerer med sist brukte farge, eller fjerner markeringen hvis den allerede har den fargen
+// står man i markert tekst fjernes markeringen, ellers markeres det med sist brukte farge
 function toggleNoteMark() {
-  const color = model.viewState.listPage.noteMarkColor;
   const mark = getNoteMark(window.getSelection().anchorNode);
-  setNoteMark(mark && getNoteMarkColor(mark) === color ? "" : color);
+  setNoteMark(mark ? "" : model.viewState.listPage.noteMarkColor);
+}
+
+// fargen der markøren står, eller sist brukte farge
+function getCurrentNoteMarkColor() {
+  const mark = getNoteMark(window.getSelection().anchorNode);
+  return mark ? getNoteMarkColor(mark) : model.viewState.listPage.noteMarkColor;
 }
 
 function chooseNoteMarkColor(color) {
@@ -332,7 +337,7 @@ function toggleNoteMarkMenu(button) {
   menu.style.left = `${button.offsetLeft}px`;
   menu.hidden = !menu.hidden;
 
-  const currentColor = model.viewState.listPage.noteMarkColor;
+  const currentColor = getCurrentNoteMarkColor();
   for (const colorButton of menu.querySelectorAll(".note-mark-color")) {
     colorButton.classList.toggle("active", colorButton.dataset.color === currentColor);
   }
@@ -439,9 +444,9 @@ function updateNoteToolbar() {
     button.classList.toggle("active", states[button.dataset.command]);
   }
 
-  // markeringsknappen viser sist brukte farge
+  // markeringsknappen viser fargen der markøren står, ellers sist brukte farge
   const toolbarMark = document.querySelector(".note-tool[data-command='mark'] mark");
-  const color = model.viewState.listPage.noteMarkColor;
+  const color = getCurrentNoteMarkColor();
   if (!toolbarMark) return;
   if (color === "yellow") delete toolbarMark.dataset.color;
   else toolbarMark.dataset.color = color;
