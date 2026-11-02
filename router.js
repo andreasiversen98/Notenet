@@ -1,4 +1,5 @@
 const router = {
+  landingPage: landingPage,
   loginPage: loginPage,
   registerPage: registerPage,
   listPage: listPageView,

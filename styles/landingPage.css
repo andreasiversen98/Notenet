@@ -1,1 +1,62 @@
-/*landing page styles*/
+.landing-page {
+   padding: 20px;
+}
+
+.profile-pic {
+   width: 48px;
+   height: 48px;
+   border-radius: 50%;
+   display: block;
+   margin-left: auto;
+   cursor: pointer;
+}
+
+.filter-row {
+   display: flex;
+   gap: 8px;
+   margin: 16px 0;
+}
+
+.filter-button {
+   flex: 1;
+   padding: 10px;
+   font-size: 15px;
+   border: 1px solid #9aa0a6;
+   background: #ffffff;
+   cursor: pointer;
+}
+
+.filter-button.active {
+   background: #3c4043;
+   color: #ffffff;
+}
+
+.list-row {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   padding: 12px;
+   border: 1px solid #9aa0a6;
+   margin-bottom: 8px;
+   cursor: pointer;
+}
+
+.list-text {
+   flex: 1;
+}
+
+.list-title {
+   margin: 0;
+   font-weight: bold;
+}
+
+.list-owner {
+   margin: 0;
+   font-size: 13px;
+   color: #5f6368;
+}
+
+.list-count {
+   font-size: 14px;
+   color: #5f6368;
+}
