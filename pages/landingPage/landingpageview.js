@@ -23,17 +23,28 @@ function landingPage() {
             <button class="modal-toggle-btn ${vs.selectedFilter === "favorites" ? "active" : ""}" onclick="setLandingFilter('favorites')">Favoritter</button>
          </div>
 
-         <div class="list-rows">
-            ${getListRows() || /*html*/ `<p class="empty-text">Fant ingen lister</p>`}
-         </div>
+         ${getListSection()}
       </div>
       ${getBottomBar()}
    `;
 }
 
-function getListRows() {
+function getListSection() {
+   const lists = getVisibleLists();
+   if (lists.length === 0) return /*html*/ `<div class="list-rows"><p class="empty-text">Fant ingen lister</p></div>`;
+   if (model.viewState.landingPage.selectedFilter !== "shared") return /*html*/ `<div class="list-rows">${getListRows(lists)}</div>`;
+
+   const mine = lists.filter((list) => list.ownerId === model.app.currentUserId);
+   const others = lists.filter((list) => list.ownerId !== model.app.currentUserId);
+   return /*html*/ `
+      ${mine.length ? /*html*/ `<h3 class="landing-group">Laget av deg · ${mine.length}</h3><div class="list-rows">${getListRows(mine)}</div>` : ""}
+      ${others.length ? /*html*/ `<h3 class="landing-group">Delt med deg · ${others.length}</h3><div class="list-rows">${getListRows(others)}</div>` : ""}
+   `;
+}
+
+function getListRows(lists) {
    let html = "";
-   for (const list of getVisibleLists()) {
+   for (const list of lists) {
       html += /*html*/ `
          <div class="list-row flex row align-center" onclick="openList('${list.id}')">
             <img class="list-icon" src="${getIcon(list.type === "simple" ? "list" : "square-check")}" alt=""/>
