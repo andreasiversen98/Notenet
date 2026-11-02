@@ -27,10 +27,7 @@ const model = {
         confirmPasswordError: "",
       },
 
-      landingPage: {
-      selectedFilter: "all",
-      search: "",
-      },  
+   
 
       createListModal: {
          isShared: null,
@@ -39,6 +36,7 @@ const model = {
 
       landingPage: {
          selectedFilter: "all",
+         search: "",
       },
 
       listPage: {
