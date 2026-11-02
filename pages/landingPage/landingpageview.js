@@ -7,7 +7,7 @@ function landingPage() {
             onclick="setView('userProfile')" />
 
          <div class="search-row">
-            <onchange type="text" class="search-onchange" placeholder="Søk"
+            <onchange type="text" class="search-oncg" placeholder="Søk"
                value="${vs.search}" oninput="setLandingSearch(this.value)" />
          </div>
 

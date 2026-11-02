@@ -34,10 +34,12 @@ const model = {
          title: "",
       },
 
+
       landingPage: {
          selectedFilter: "all",
          search: "",
       },
+
 
       listPage: {
          newItemTitle: "",
