@@ -7,9 +7,9 @@ function landingPage() {
             onclick="setView('userProfile')" />
 
          <div class="search-row">
-            <onchange type="text" class="search-oncg" placeholder="Søk"
-               value="${vs.search}" oninput="setLandingSearch(this.value)" />
-         </div>
+   <input type="text" class="search-input" placeholder="Søk"
+      value="${vs.search}" onchange="setLandingSearch(this.value)" />
+</div>
 
          <div class="filter-row">
             <button class="filter-button ${vs.selectedFilter === "all" ? "active" : ""}"
