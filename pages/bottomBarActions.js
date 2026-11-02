@@ -5,7 +5,7 @@ function getBottomBar() {
       <div class="flex column justify-self-end bottom-bar">
          <div class="flex row justify-evenly align-end padding">
 
-            <span onclick="setView('userProfile')">
+            <span onclick="setView('landingPage')">
                <img class="icon-bottom icon-home" src="${getIcon("house")}" alt="Hjem">
             </span>
 
