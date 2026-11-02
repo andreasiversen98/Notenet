@@ -213,15 +213,20 @@ body.retro .admin-page-btn {
   padding-right: 0;
 }
 
-.admin-data-row > span:first-child {
+.admin-data-row > span:first-child,
+.admin-data-row > div > span:first-child {
   color: #6b6b66;
 }
 
 .admin-data-row > span:last-child,
-.admin-data-row > div > span {
+.admin-data-row > div > span:last-child {
   font-weight: 600;
   text-align: right;
   overflow-wrap: anywhere;
+}
+
+.admin-data-row .edit-btn {
+  margin-right: 0;
 }
 
 /*filter switch*/

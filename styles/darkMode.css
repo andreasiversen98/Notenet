@@ -396,7 +396,8 @@ body.dark .admin-stat-label,
 body.dark .admin-count,
 body.dark .admin-stat-sub,
 body.dark .admin-user-code,
-body.dark .admin-data-row > span:first-child {
+body.dark .admin-data-row > span:first-child,
+body.dark .admin-data-row > div > span:first-child {
   color: #8a8a85;
 }
 

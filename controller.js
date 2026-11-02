@@ -51,7 +51,8 @@ function getIcon(name) {
 }
 
 // model.viewState.adminUserOverview.selectedUser = 'test55'
-setView("loginPage");
+model.app.currentUserId = "u6"
+setView("adminUserOverview");
 // setView("userProfile")
 // setView("adminProfile")
 // setView("adminUserOverview")
