@@ -176,6 +176,7 @@ function listPageView() {
           <div
             class="note-editor"
             contenteditable="true"
+            spellcheck="false"
             data-placeholder="Skriv her..."
             oninput="hideNoteImageMenu(); updateNoteContent(this)"
             onpaste="pasteNoteText(event)"
