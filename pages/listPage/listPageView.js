@@ -126,7 +126,10 @@ function listPageView() {
           <img src="${user.profilePictureSmall || user.profilePicture}" class="member-avatar" alt="">
           <span>${user.username}</span>
           ${user.id === list.ownerId ? `<span class="owner-tag">Eier</span>` : ""}
+          ${user.id === model.app.currentUserId ? `<span class="owner-tag you-tag">Deg</span>` : ""}
           <span class="member-code">${user.code}</span>
+          ${user.id === model.app.currentUserId && canLeaveList(list) ? `
+            <button class="leave-btn" onclick="openModal('leaveList')">Forlat</button>` : ""}
           ${canRemoveMember(list, user) ? `
             <button class="btn-icon remove-member-btn" onclick="removeMember('${user.id}')" title="Fjern medlem">
               <img src="${getIcon("x")}" width="14" alt="Fjern">

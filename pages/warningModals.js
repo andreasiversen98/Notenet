@@ -67,3 +67,25 @@ function deleteUserModal() {
       </div>
    </div>`;
 }
+
+function leaveListModal() {
+   const list = getCurrentList();
+   const type = list.type === "note" ? "notatet" : "listen";
+
+   return /*html*/ `
+   <div class="modal-overlay" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+         <div class="flex column gap">
+            <div class="flex row justify-between align-center">
+               <h2>Forlate «${list.title}»?</h2>
+               <img onclick="closeModal()" class="icon-size" src="${getIcon("x")}"/>
+            </div>
+            <p class="invite-text">Du mister tilgangen til ${type}. Eieren må invitere deg på nytt hvis du vil tilbake.</p>
+            <div class="flex row justify-end">
+               <button class="edit-btn edit-btn-cancel" onclick="closeModal()">Avbryt</button>
+               <button class="edit-btn edit-btn-danger" onclick="leaveList()">Forlat</button>
+            </div>
+         </div>
+      </div>
+   </div>`;
+}

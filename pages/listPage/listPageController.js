@@ -97,6 +97,25 @@ function removeMember(userId) {
   setView();
 }
 
+// medlemmer som ikke eier listen kan forlate den selv
+function canLeaveList(list) {
+  const me = model.app.currentUserId;
+  return list.isShared && list.ownerId !== me && list.members.includes(me);
+}
+
+function leaveList() {
+  const list = getCurrentList();
+  if (!list || !canLeaveList(list)) return;
+
+  const me = getLoggedInUser();
+  removeUserFromList(list, me.id);
+  me.favorites = me.favorites.filter((listId) => listId !== list.id);
+
+  model.app.openModal = null;
+  showToast(`Du forlot «${list.title}»`);
+  setView("landingPage");
+}
+
 function removeUserFromList(list, userId) {
   list.members = list.members.filter((memberId) => memberId !== userId);
   for (const item of list.items) {

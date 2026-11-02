@@ -6,6 +6,7 @@ const modals = {
    cancelPremium: cancelPremiumModal,
    adminViewUser: adminViewUser,
    deleteUser: deleteUserModal,
+   leaveList: leaveListModal,
 };
 
 function openModal(name) {

@@ -63,6 +63,47 @@
   transform: rotate(90deg);
 }
 
+/*leave list*/
+.owner-tag.you-tag {
+  background: #e4e3dd;
+  color: #555555;
+}
+
+.leave-btn {
+  padding: 3px 10px;
+  border: 1px solid #e0243a;
+  border-radius: 999px;
+  background: transparent;
+  color: #e0243a;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.leave-btn:hover {
+  background: #e0243a;
+  color: white;
+}
+
+/* litt kraftigere merkelapper og knapp i medlemslista */
+.member-row .owner-tag {
+  font-weight: 700;
+}
+
+body:not(.retro) .member-row .owner-tag.you-tag {
+  border: 1.5px solid #d0cfc9;
+  background: white;
+  color: #0a0a0a;
+}
+
+body:not(.retro) .member-row .leave-btn {
+  padding: 4px 12px;
+  border-width: 1.5px;
+  font-weight: 700;
+}
+
 .members-list {
   display: flex;
   flex-direction: column;
@@ -723,10 +764,28 @@ body.retro .list-container .empty-text {
 }
 
 /*retro owner tag*/
-body.retro .list-container .owner-tag {
+body.retro .list-container .owner-tag,
+body.retro .list-container .leave-btn {
   border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* retro: [ FORLAT ] som en knapp i en terminal */
+body.retro .list-container .leave-btn {
+  padding: 2px 4px;
+  border: none;
+  font-family: Consolas, "Courier New", monospace;
+  font-weight: 700;
+  transition: none;
+}
+
+body.retro .list-container .leave-btn::before {
+  content: "[ ";
+}
+
+body.retro .list-container .leave-btn::after {
+  content: " ]";
 }
 
 /*simple list*/
