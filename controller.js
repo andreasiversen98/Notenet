@@ -217,16 +217,25 @@ function createTestLists() {
       const itemAmount = testLists[i].allTasks ? availableTasks.length : randomAmount;
       for (let j = 0; j < itemAmount; j++) {
          const taskIndex = Math.floor(testRandom() * availableTasks.length);
+         const text = availableTasks.splice(taskIndex, 1)[0];
+         const isCompleted = testRandom() < 0.4;
          items.push({
             id: `i${j + 1}`,
-            text: availableTasks.splice(taskIndex, 1)[0],
-            isCompleted: testRandom() < 0.4,
+            text: text,
+            isCompleted: isCompleted,
             addedBy: pickRandom(members),
+            // ikke tilfeldig, så resten av testdataen blir lik som før
+            completedBy: isCompleted ? members[(i + j) % members.length] : null,
          });
       }
 
       const type = simpleTitles.includes(testLists[i].title) ? "simple" : "tasks";
-      if (type === "simple") items.forEach((item) => (item.isCompleted = false));
+      if (type === "simple") {
+         items.forEach((item) => {
+            item.isCompleted = false;
+            item.completedBy = null;
+         });
+      }
 
       model.data.lists.push({
          id: `t${i + 1}`,

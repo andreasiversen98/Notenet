@@ -14,12 +14,17 @@ function listPageView() {
     const isCompleting = item.id === model.viewState.listPage.completingItemId;
     const checked = item.isCompleted || isCompleting ? "checked" : "";
 
+    // viser hvem som la til oppgaven, eller hvem som fullførte den
     let sharedIcon = "";
     if (list.isShared && !item.isCompleted) {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
         ? /*html*/ `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
         : '<img src="../../assets/icons/user-round.svg" width="14" alt="Bruker">';
+    }
+    if (list.isShared && item.isCompleted && item.completedBy) {
+      const completedBy = getUserById(item.completedBy);
+      if (completedBy) sharedIcon = /*html*/ `<img src="${completedBy.profilePictureSmall || completedBy.profilePicture}" class="item-avatar" title="Fullført av ${completedBy.username}" alt="Fullført av ${completedBy.username}">`;
     }
 
     let textHtml = /*html*/ `<span>${item.text}</span>`;

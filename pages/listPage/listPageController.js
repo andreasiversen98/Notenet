@@ -179,6 +179,7 @@ function changeItemCompletion(itemId) {
   for (let i = 0; i < currentList.items.length; i++) {
     if (currentList.items[i].id === itemId) {
       currentList.items[i].isCompleted = !currentList.items[i].isCompleted;
+      currentList.items[i].completedBy = currentList.items[i].isCompleted ? model.app.currentUserId : null;
       
       if (currentList.items[i].isCompleted) {
         currentList.completedItems += 1;
