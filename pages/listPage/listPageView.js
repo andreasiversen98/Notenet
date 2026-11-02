@@ -326,10 +326,6 @@ function getNoteText(content) {
   return template.content.textContent.replace(/\s+/g, " ").trim();
 }
 
-function getNotePreview(content) {
-  return escapeNoteText(getNoteText(content));
-}
-
 function getNoteWordCount(content) {
   const text = getNoteText(content);
   return text ? text.split(" ").length : 0;
