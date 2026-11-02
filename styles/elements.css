@@ -463,3 +463,46 @@ body.retro .list-container .edit-btn img[src*="icons/pixel/"] {
   height: 18px;
   margin: -3px -1px -3px -2px;
 }
+
+/*favorite*/
+.favorite-btn {
+  width: 18px;
+  height: 18px;
+  padding: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.favorite-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.favorite-btn.favorite-on {
+  opacity: 1;
+}
+
+.list-title-row .favorite-btn {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+body.retro .favorite-btn {
+  width: 12px;
+  height: 12px;
+  padding: 6px;
+  transition: none;
+}
+
+body.retro .favorite-btn:hover {
+  transform: none;
+}
+
+body.retro .list-title-row .favorite-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}

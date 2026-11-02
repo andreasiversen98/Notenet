@@ -45,6 +45,22 @@ function getIllustration(name) {
    return `../../assets/images/illustrations/${name}${ending}.svg`;
 }
 
+function isFavorite(listId) {
+   return getLoggedInUser().favorites.includes(listId);
+}
+
+function toggleFavorite(listId) {
+   const user = getLoggedInUser();
+   if (isFavorite(listId)) user.favorites = user.favorites.filter((id) => id !== listId);
+   else user.favorites.push(listId);
+   setView();
+}
+
+function getFavoriteButton(listId) {
+   const favorite = isFavorite(listId);
+   return /*html*/ `<img class="favorite-btn ${favorite ? "favorite-on" : ""}" src="${getIcon(favorite ? "star-filled" : "star")}" title="${favorite ? "Fjern fra favoritter" : "Legg til i favoritter"}" onclick="event.stopPropagation(); toggleFavorite('${listId}')"/>`;
+}
+
 function getLogo() {
    const ending = model.app.theme === "retro" ? "-retro" : "";
    return `../../assets/images/logo/notenet-logo${ending}.svg`;
@@ -108,6 +124,7 @@ function createTestUsers() {
          createdAt: createdAt.toISOString().slice(0, 10),
          invitedTo: [],
          sentInvites: [],
+         favorites: [],
       });
    }
 }
@@ -223,6 +240,15 @@ function createTestLists() {
       for (let i = 0; i < sentAmount; i++) {
          const list = pickRandom(memberOf);
          if (!user.sentInvites.includes(list.id)) user.sentInvites.push(list.id);
+      }
+   }
+
+   for (const user of testUsers) {
+      const userLists = model.data.lists.filter((list) => list.ownerId === user.id || list.members.includes(user.id));
+      const favoriteAmount = Math.min(userLists.length, Math.floor(testRandom() * 4));
+      for (let i = 0; i < favoriteAmount; i++) {
+         const list = pickRandom(userLists);
+         if (!user.favorites.includes(list.id)) user.favorites.push(list.id);
       }
    }
 }

@@ -93,6 +93,7 @@ const model = {
             createdAt: "2026-09-14",
             invitedTo: ["l2"],
             sentInvites: ["l1"],
+            favorites: ["l3"],
          },
          {
             id: "u2",
@@ -105,6 +106,7 @@ const model = {
             createdAt: "2026-09-22",
             invitedTo: ["l3"],
             sentInvites: ["l2"],
+            favorites: [],
          },
          {
             id: "u3",
@@ -117,6 +119,7 @@ const model = {
             createdAt: "2026-10-01",
             invitedTo: ["l2"],
             sentInvites: ["l3"],
+            favorites: [],
          },
          {
             id: "u4",
@@ -129,6 +132,7 @@ const model = {
             createdAt: "2026-10-08",
             invitedTo: ["l1", "l2"],
             sentInvites: ["l4"],
+            favorites: [],
          },
          {
             id: "u5",
@@ -141,6 +145,7 @@ const model = {
             createdAt: "2026-10-20",
             invitedTo: ["l2", "l3"],
             sentInvites: ["l1"],
+            favorites: [],
          },
          {
             id: "u6",
@@ -153,6 +158,7 @@ const model = {
             createdAt: "2026-09-01",
             invitedTo: ["l1", "l2", "l3", "l4", "l5"],
             sentInvites: ["l1", "l2"],
+            favorites: [],
          },
       ],
 

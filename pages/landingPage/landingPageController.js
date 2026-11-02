@@ -33,6 +33,9 @@ function getVisibleLists() {
       if (filter === "shared" && list.isShared === false) {
          continue;
       }
+      if (filter === "favorites" && !isFavorite(list.id)) {
+         continue;
+      }
       if (list.title.toLowerCase().includes(search.toLowerCase()) === false) {
          continue;
       }

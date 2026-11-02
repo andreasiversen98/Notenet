@@ -141,6 +141,7 @@ function listPageView() {
     <div class="list-container">
       <div class="list-title-row">
         <h2>${list.title}</h2>
+        ${getFavoriteButton(list.id)}
       </div>
 
       <div class="list-progress">

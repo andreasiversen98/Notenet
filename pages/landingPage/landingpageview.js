@@ -18,8 +18,9 @@ function landingPage() {
 
          <div class="modal-toggle-container landing-filter">
             <button class="modal-toggle-btn ${vs.selectedFilter === "all" ? "active" : ""}" onclick="setLandingFilter('all')">Alle</button>
-            <button class="modal-toggle-btn ${vs.selectedFilter === "private" ? "active" : ""}" onclick="setLandingFilter('private')">Privat</button>
-            <button class="modal-toggle-btn ${vs.selectedFilter === "shared" ? "active" : ""}" onclick="setLandingFilter('shared')">Delt</button>
+            <button class="modal-toggle-btn ${vs.selectedFilter === "private" ? "active" : ""}" onclick="setLandingFilter('private')">Private</button>
+            <button class="modal-toggle-btn ${vs.selectedFilter === "shared" ? "active" : ""}" onclick="setLandingFilter('shared')">Delte</button>
+            <button class="modal-toggle-btn ${vs.selectedFilter === "favorites" ? "active" : ""}" onclick="setLandingFilter('favorites')">Favoritter</button>
          </div>
 
          <div class="list-rows">
@@ -40,6 +41,7 @@ function getListRows() {
                <span class="list-title">${list.title}</span>
                <span class="list-owner">${getOwnerName(list)}</span>
             </div>
+            ${getFavoriteButton(list.id)}
             <span class="list-count">${list.completedItems} / ${list.totalItems}</span>
             <img class="list-arrow" src="${getIcon("chevron-right")}" alt=""/>
          </div>

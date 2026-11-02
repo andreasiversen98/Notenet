@@ -59,6 +59,8 @@
 }
 
 .list-count {
+  min-width: 7ch;
+  text-align: right;
   font-family: Consolas, "Courier New", monospace;
   font-size: 14px;
   color: #6b6b66;

@@ -685,3 +685,8 @@ body.dark.retro .landing-page .input-box {
 body.dark.retro .list-row {
   border-bottom-color: #444444;
 }
+
+/*favorite*/
+body.dark img.favorite-on {
+  filter: none;
+}

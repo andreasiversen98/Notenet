@@ -76,10 +76,10 @@ function userListCategories() {
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
-      <div onclick="setLandingFilterBeforeSwitchPage('mine')" class="list-bar flex row justify-between padding">
+      <div onclick="setLandingFilterBeforeSwitchPage('private')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
          <img class="icon-size" src="${getIcon("lock")}"/>
-         <span>Privat</span>
+         <span>Private</span>
          </div>
          <div class="flex row align-center gap">
          <span>${getUserListCount("private")}</span>
@@ -96,6 +96,16 @@ function userListCategories() {
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
+      <div onclick="setLandingFilterBeforeSwitchPage('favorites')" class="list-bar flex row justify-between padding">
+         <div class="flex row align-center gap">
+         <img class="icon-size" src="${getIcon("star")}"/>
+         <span>Favoritter</span>
+         </div>
+         <div class="flex row align-center gap">
+         <span>${getUserListCount("favorites")}</span>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
+         </div>
+      </div>
    </div>`;
 }
 
@@ -106,6 +116,7 @@ function getUserListCount(filter) {
       if (list.ownerId !== userId && !list.members.includes(userId)) continue;
       if (filter === "private" && list.isShared) continue;
       if (filter === "shared" && !list.isShared) continue;
+      if (filter === "favorites" && !isFavorite(list.id)) continue;
       count++;
    }
    return count;

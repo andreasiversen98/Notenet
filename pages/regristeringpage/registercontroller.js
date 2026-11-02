@@ -44,6 +44,7 @@ function registerUser() {
     createdAt: getTodaysDate(),
     invitedTo: [],
     sentInvites: [],
+    favorites: [],
   };
 
   model.data.users.push(newUser);
