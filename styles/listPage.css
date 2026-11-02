@@ -1066,6 +1066,10 @@ body.retro .note-mark-color {
   border: 1.5px solid #0a0a0a;
 }
 
+body.retro .note-tool-arrow img {
+  opacity: 1;
+}
+
 /* Lucida Console har ikke fet eller kursiv, så de bruker Consolas */
 body.retro .note-editor b,
 body.retro .note-editor strong,
