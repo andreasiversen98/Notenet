@@ -1,11 +1,10 @@
 function userProfile() {
-   if (getLoggedInUser().role === "admin") return adminProfile()
+   if (getLoggedInUser().role === "admin") return adminProfile();
    return /*html*/ `
    ${headerComponent()}
    ${userProfileLayout()}
    ${getBottomBar()}
    `;
-   
 }
 
 function userProfileLayout() {
@@ -36,7 +35,7 @@ function userInfoElements() {
 
 function getCopyButton() {
    const icon = model.viewState.userProfilePage.codeCopied ? "check" : "copy";
-   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="${getIcon(icon)}"/>`
+   return /*html*/ `<img onclick="copyFriendCode()" class="copy-icon" title="Kopier vennekode" src="${getIcon(icon)}"/>`;
 }
 
 function copyFriendCode() {
@@ -51,22 +50,23 @@ function copyFriendCode() {
 
 function getGreeting() {
    const hour = new Date().getHours();
-   if (hour >= 5 && hour < 10) return "God morgen"
-   if (hour >= 10 && hour < 17) return "God dag"
-   if (hour >= 17 && hour < 23) return "God kveld"
-   return "God natt"
+   if (hour >= 5 && hour < 10) return "God morgen";
+   if (hour >= 10 && hour < 17) return "God dag";
+   if (hour >= 17 && hour < 23) return "God kveld";
+   return "God natt";
 }
 
 function getPremiumInfo() {
-   if (!getLoggedInUser().isPremium) return `` 
-   else return /*html*/ `
-   <img class="premium-badge" src="${getPremiumImage("premium-badge")}" alt="premium"/>`
+   if (!getLoggedInUser().isPremium) return ``;
+   else
+      return /*html*/ `
+   <img class="premium-badge" src="${getPremiumImage("premium-badge")}" alt="premium"/>`;
 }
 
 function userListCategories() {
    return /*html*/ `
    <div class="flex column container gap padding">
-      <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
+      <div onclick="setLandingFilterBeforeSwitchPage('all')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
          <img class="icon-size" src="${getIcon("layers")}"/>
          <span>Alle</span>
@@ -76,17 +76,7 @@ function userListCategories() {
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
-      <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
-         <div class="flex row align-center gap">
-         <img class="icon-size" src="${getIcon("users")}"/>
-         <span>Delte</span>
-         </div>
-         <div class="flex row align-center gap">
-         <span>12</span>
-         <img class="icon-size" src="${getIcon("chevron-right")}"/>
-         </div>
-      </div>
-      <div onclick="setView('listPage')" class="list-bar flex row justify-between padding">
+      <div onclick="setLandingFilterBeforeSwitchPage('mine')" class="list-bar flex row justify-between padding">
          <div class="flex row align-center gap">
          <img class="icon-size" src="${getIcon("lock")}"/>
          <span>Privat</span>
@@ -96,12 +86,28 @@ function userListCategories() {
          <img class="icon-size" src="${getIcon("chevron-right")}"/>
          </div>
       </div>
+      <div onclick="setLandingFilterBeforeSwitchPage('shared')" class="list-bar flex row justify-between padding">
+         <div class="flex row align-center gap">
+         <img class="icon-size" src="${getIcon("users")}"/>
+         <span>Delte</span>
+         </div>
+         <div class="flex row align-center gap">
+         <span>12</span>
+         <img class="icon-size" src="${getIcon("chevron-right")}"/>
+         </div>
+      </div>
    </div>`;
 }
 
+function setLandingFilterBeforeSwitchPage(filter) {
+   model.viewState.landingPage.selectedFilter = filter;
+   setView("landingPage");
+}
+
 function userPremiumButton() {
-   if (getLoggedInUser().isPremium) return ``
-   else return /*html*/ `
+   if (getLoggedInUser().isPremium) return ``;
+   else
+      return /*html*/ `
    <div class="premium-cta flex row justify-between align-center">
       <div class="flex column">
          <span class="premium-cta-title">Notenet Premium</span>
@@ -111,5 +117,5 @@ function userPremiumButton() {
          <img src="${getPremiumImage("premium-icon-no-dot")}"/>
          Få premium
       </button>
-   </div>`
+   </div>`;
 }
