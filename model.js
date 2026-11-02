@@ -54,6 +54,7 @@ const model = {
          inviteMessage: "",
          animatedItemId: null,
          completingItemId: null,
+         noteMarkColor: "yellow",
       },
 
       userProfilePage: {

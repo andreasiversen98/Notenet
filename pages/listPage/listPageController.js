@@ -313,32 +313,110 @@ function toggleNoteHeading() {
   saveNoteFromEditor();
 }
 
+// markerer med sist brukte farge, eller fjerner markeringen hvis den allerede har den fargen
 function toggleNoteMark() {
+  const color = model.viewState.listPage.noteMarkColor;
+  const mark = getNoteMark(window.getSelection().anchorNode);
+  setNoteMark(mark && getNoteMarkColor(mark) === color ? "" : color);
+}
+
+function chooseNoteMarkColor(color) {
+  model.viewState.listPage.noteMarkColor = color;
+  setNoteMark(color);
+  updateNoteToolbar();
+}
+
+function toggleNoteMarkMenu(button) {
+  hideNoteImageMenu();
+  const menu = document.querySelector(".note-mark-menu");
+  menu.style.left = `${button.offsetLeft}px`;
+  menu.hidden = !menu.hidden;
+
+  const currentColor = model.viewState.listPage.noteMarkColor;
+  for (const colorButton of menu.querySelectorAll(".note-mark-color")) {
+    colorButton.classList.toggle("active", colorButton.dataset.color === currentColor);
+  }
+}
+
+function hideNoteMarkMenu() {
+  const menu = document.querySelector(".note-mark-menu");
+  if (menu) menu.hidden = true;
+}
+
+function hideNoteMenus() {
+  hideNoteImageMenu();
+  hideNoteMarkMenu();
+}
+
+// gul er standard, så den lagres uten data-color
+function getNoteMarkColor(mark) {
+  return mark.dataset.color || "yellow";
+}
+
+function createNoteMark(color) {
+  const mark = document.createElement("mark");
+  if (color !== "yellow") mark.dataset.color = color;
+  return mark;
+}
+
+function removeMarks(fragment) {
+  for (const mark of fragment.querySelectorAll("mark")) mark.replaceWith(...mark.childNodes);
+}
+
+// flytter markøren ut av markeringen, så det man skriver videre ikke blir markert
+function moveCaretAfter(mark) {
+  const after = document.createTextNode("\u200b");
+  mark.after(after);
+  window.getSelection().collapse(after, 1);
+}
+
+// tom farge betyr at markeringen fjernes
+function setNoteMark(color) {
+  hideNoteMarkMenu();
   const selection = window.getSelection();
-  if (!selection.rangeCount) return;
-  const range = selection.getRangeAt(0);
+  const range = getNoteRange();
+  if (!range) return;
   const mark = getNoteMark(selection.anchorNode);
 
-  if (mark && !selection.isCollapsed) {
-    mark.replaceWith(...mark.childNodes);
-  } else if (mark) {
-    // slutter å markere, så det man skriver videre blir vanlig tekst
-    const after = document.createTextNode("\u200b");
-    mark.after(after);
-    selection.collapse(after, 1);
+  if (!color) {
+    if (mark && selection.isCollapsed) {
+      moveCaretAfter(mark);
+    } else if (mark) {
+      mark.replaceWith(...mark.childNodes);
+    } else if (!selection.isCollapsed) {
+      const fragment = range.extractContents();
+      removeMarks(fragment);
+      range.insertNode(fragment);
+    }
+  } else if (mark && !selection.isCollapsed) {
+    if (color === "yellow") delete mark.dataset.color;
+    else mark.dataset.color = color;
   } else if (selection.isCollapsed) {
     // starter å markere fra markøren
-    const newMark = document.createElement("mark");
+    if (mark && getNoteMarkColor(mark) === color) return;
+    if (mark) moveCaretAfter(mark);
+    const newMark = createNoteMark(color);
     newMark.textContent = "\u200b";
-    range.insertNode(newMark);
+    selection.getRangeAt(0).insertNode(newMark);
     selection.collapse(newMark.firstChild, 1);
   } else {
-    const newMark = document.createElement("mark");
-    newMark.appendChild(range.extractContents());
+    const newMark = createNoteMark(color);
+    const fragment = range.extractContents();
+    removeMarks(fragment);
+    newMark.appendChild(fragment);
     range.insertNode(newMark);
     selection.selectAllChildren(newMark);
   }
   saveNoteFromEditor();
+}
+
+// markøren må stå inne i notatet, ellers havner markeringen et annet sted på siden
+function getNoteRange() {
+  const editor = document.querySelector(".note-editor");
+  const selection = window.getSelection();
+  if (!editor || !selection.rangeCount) return null;
+  const range = selection.getRangeAt(0);
+  return editor.contains(range.commonAncestorContainer) ? range : null;
 }
 
 function getNoteMark(node) {
@@ -360,6 +438,13 @@ function updateNoteToolbar() {
   for (const button of document.querySelectorAll(".note-tool[data-command]")) {
     button.classList.toggle("active", states[button.dataset.command]);
   }
+
+  // markeringsknappen viser sist brukte farge
+  const toolbarMark = document.querySelector(".note-tool[data-command='mark'] mark");
+  const color = model.viewState.listPage.noteMarkColor;
+  if (!toolbarMark) return;
+  if (color === "yellow") delete toolbarMark.dataset.color;
+  else toolbarMark.dataset.color = color;
 }
 
 // lim inn som vanlig tekst så man ikke får med stil fra andre nettsider

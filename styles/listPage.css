@@ -784,7 +784,7 @@ body.retro .simple-dot {
 .note-tool mark {
   padding: 0 3px;
   background: #ffe08a;
-  color: inherit;
+  color: #0a0a0a;
   font-weight: 600;
 }
 
@@ -853,6 +853,104 @@ body.retro .simple-dot {
   border-radius: 3px;
   background: #ffe08a;
   color: inherit;
+}
+
+/*mark colors*/
+.note-editor mark[data-color="green"],
+.note-tool mark[data-color="green"],
+.note-mark-color[data-color="green"] {
+  background: #c4ecaa;
+}
+
+.note-editor mark[data-color="blue"],
+.note-tool mark[data-color="blue"],
+.note-mark-color[data-color="blue"] {
+  background: #bfdcff;
+}
+
+.note-editor mark[data-color="pink"],
+.note-tool mark[data-color="pink"],
+.note-mark-color[data-color="pink"] {
+  background: #ffc8de;
+}
+
+.note-editor mark[data-color="orange"],
+.note-tool mark[data-color="orange"],
+.note-mark-color[data-color="orange"] {
+  background: #ffd2a6;
+}
+
+.note-editor mark[data-color="purple"],
+.note-tool mark[data-color="purple"],
+.note-mark-color[data-color="purple"] {
+  background: #dccbff;
+}
+
+.note-mark-color[data-color="yellow"] {
+  background: #ffe08a;
+}
+
+/*mark split button*/
+.note-mark-split {
+  display: flex;
+}
+
+.note-tool.note-tool-arrow {
+  width: 16px;
+}
+
+.note-tool-arrow img {
+  transform: rotate(90deg);
+  opacity: 0.6;
+}
+
+/*mark menu*/
+.note-mark-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid #e4e3dd;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note-mark-menu[hidden] {
+  display: none;
+}
+
+.note-mark-color {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.note-mark-color.active {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+}
+
+.note-mark-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.note-mark-remove:hover {
+  background: #f0f0f0;
 }
 
 .note-editor img {
@@ -942,8 +1040,24 @@ body.retro .note-image-menu button {
   border-radius: 0;
 }
 
-body.retro .note-image-menu {
+body.retro .note-image-menu,
+body.retro .note-mark-menu {
   box-shadow: none;
+}
+
+body.retro .note-mark-menu {
+  border: 1.5px solid #0a0a0a;
+  border-radius: 0;
+  background: #f4f4f1;
+}
+
+body.retro .note-mark-color,
+body.retro .note-mark-remove {
+  border-radius: 0;
+}
+
+body.retro .note-mark-color {
+  border: 1.5px solid #0a0a0a;
 }
 
 body.retro .note-tool-divider {

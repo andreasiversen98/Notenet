@@ -169,12 +169,25 @@ function listPageView() {
           <button class="note-tool" data-command="insertUnorderedList" title="Punktliste" onmousedown="event.preventDefault()" onclick="formatNote('insertUnorderedList')">
             <img src="${getIcon("list")}" width="18" alt="">
           </button>
-          <button class="note-tool" data-command="mark" title="Marker" onmousedown="event.preventDefault()" onclick="toggleNoteMark()"><mark>A</mark></button>
+          <div class="note-mark-split">
+            <button class="note-tool" data-command="mark" title="Marker" onmousedown="event.preventDefault()" onclick="toggleNoteMark()"><mark ${getNoteMarkColorAttribute()}>A</mark></button>
+            <button class="note-tool note-tool-arrow" title="Velg farge" onmousedown="event.preventDefault()" onclick="toggleNoteMarkMenu(this.parentElement)">
+              <img src="${getIcon("chevron-right")}" width="12" alt="">
+            </button>
+          </div>
           <span class="note-tool-divider"></span>
           <label class="note-tool" title="Legg til bilde" onmousedown="event.preventDefault()">
             <img src="${getIcon("image")}" width="18" alt="">
             <input type="file" accept="image/*" hidden onchange="insertNoteImage(this)">
           </label>
+
+          <div class="note-mark-menu" hidden>
+            ${getNoteMarkColorButtons()}
+            <span class="note-tool-divider"></span>
+            <button class="note-mark-remove" title="Fjern markering" onmousedown="event.preventDefault()" onclick="setNoteMark('')">
+              <img src="${getIcon("x")}" width="14" alt="Fjern">
+            </button>
+          </div>
         </div>
 
         <div class="note-editor-wrapper">
@@ -183,12 +196,12 @@ function listPageView() {
             contenteditable="true"
             spellcheck="false"
             data-placeholder="Skriv her..."
-            oninput="hideNoteImageMenu(); updateNoteContent(this)"
+            oninput="hideNoteMenus(); updateNoteContent(this)"
             onpaste="pasteNoteText(event)"
-            onclick="selectNoteImage(event)"
+            onclick="hideNoteMarkMenu(); selectNoteImage(event)"
             onkeyup="updateNoteToolbar()"
             onmouseup="updateNoteToolbar()"
-            onblur="saveNoteSelection(); hideNoteImageMenu()"
+            onblur="saveNoteSelection(); hideNoteMenus()"
           >${getNoteHtml(list.content)}</div>
 
           <div class="note-image-menu" hidden>
@@ -276,6 +289,29 @@ function escapeNoteText(text) {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 }
 
+const noteMarkColors = [
+  { color: "yellow", name: "Gul" },
+  { color: "green", name: "Grønn" },
+  { color: "blue", name: "Blå" },
+  { color: "pink", name: "Rosa" },
+  { color: "orange", name: "Oransje" },
+  { color: "purple", name: "Lilla" },
+];
+
+// gul er standard, så den trenger ikke data-color
+function getNoteMarkColorAttribute() {
+  const color = model.viewState.listPage.noteMarkColor;
+  return color === "yellow" ? "" : `data-color="${color}"`;
+}
+
+function getNoteMarkColorButtons() {
+  let html = "";
+  for (const markColor of noteMarkColors) {
+    html += /*html*/ `<button class="note-mark-color" data-color="${markColor.color}" title="${markColor.name}" onmousedown="event.preventDefault()" onclick="chooseNoteMarkColor('${markColor.color}')"></button>`;
+  }
+  return html;
+}
+
 // gamle notater er vanlig tekst, nye er html
 function getNoteHtml(content) {
   if (!content) return "";
@@ -310,7 +346,12 @@ function cleanNoteNode(parent) {
 
     const src = node.getAttribute("src") || "";
     const size = node.getAttribute("data-size");
+    const color = node.getAttribute("data-color");
     for (const attribute of [...node.attributes]) node.removeAttribute(attribute.name);
+
+    if (node.tagName === "MARK" && noteMarkColors.some((markColor) => markColor.color === color)) {
+      node.setAttribute("data-color", color);
+    }
 
     if (node.tagName === "IMG") {
       if (!src.startsWith("data:image/")) {

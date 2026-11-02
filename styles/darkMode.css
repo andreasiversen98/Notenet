@@ -738,6 +738,10 @@ body.dark .note-editor mark {
   background: #8a6d1f;
 }
 
+body.dark .note-tool mark {
+  color: #e8e8e8;
+}
+
 body.dark.retro .note-toolbar {
   background: #121212;
   border-color: #e8e8e8;
@@ -775,4 +779,66 @@ body.dark .note-image-menu img {
 
 body.dark .note-image-divider {
   background: #b0b0b0;
+}
+
+/*mark colors*/
+body.dark .note-mark-color[data-color="yellow"] {
+  background: #8a6d1f;
+}
+
+body.dark .note-editor mark[data-color="green"],
+body.dark .note-tool mark[data-color="green"],
+body.dark .note-mark-color[data-color="green"] {
+  background: #3f6b2c;
+}
+
+body.dark .note-editor mark[data-color="blue"],
+body.dark .note-tool mark[data-color="blue"],
+body.dark .note-mark-color[data-color="blue"] {
+  background: #2d5683;
+}
+
+body.dark .note-editor mark[data-color="pink"],
+body.dark .note-tool mark[data-color="pink"],
+body.dark .note-mark-color[data-color="pink"] {
+  background: #84405f;
+}
+
+body.dark .note-editor mark[data-color="orange"],
+body.dark .note-tool mark[data-color="orange"],
+body.dark .note-mark-color[data-color="orange"] {
+  background: #8a5424;
+}
+
+body.dark .note-editor mark[data-color="purple"],
+body.dark .note-tool mark[data-color="purple"],
+body.dark .note-mark-color[data-color="purple"] {
+  background: #5b4391;
+}
+
+/*mark menu*/
+body.dark .note-mark-menu {
+  background: #1e1e1e;
+  border-color: #333333;
+}
+
+body.dark .note-mark-color {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark .note-mark-color.active {
+  outline-color: #e8e8e8;
+}
+
+body.dark .note-mark-remove:hover {
+  background: #2a2a2a;
+}
+
+body.dark.retro .note-mark-menu {
+  background: #121212;
+  border-color: #e8e8e8;
+}
+
+body.dark.retro .note-mark-color {
+  border-color: #e8e8e8;
 }
