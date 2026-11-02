@@ -143,10 +143,6 @@ body.retro .list-arrow {
   background: #c81d32;
 }
 
-body.retro .empty-lists-image {
-  display: none;
-}
-
 body.retro .empty-lists-btn {
   border-radius: 0;
   text-transform: uppercase;

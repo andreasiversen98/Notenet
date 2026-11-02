@@ -40,6 +40,11 @@ function getPremiumImage(name) {
    return `../../assets/images/premium/${name}${ending}.svg`;
 }
 
+function getIllustration(name) {
+   const ending = model.app.theme === "retro" ? "-retro" : "";
+   return `../../assets/images/illustrations/${name}${ending}.svg`;
+}
+
 function getLogo() {
    const ending = model.app.theme === "retro" ? "-retro" : "";
    return `../../assets/images/logo/notenet-logo${ending}.svg`;
