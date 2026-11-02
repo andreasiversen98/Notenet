@@ -65,9 +65,9 @@ function getEmptyLists() {
    return /*html*/ `
       <div class="empty-lists flex column align-center">
          <img class="empty-lists-image" src="${getIllustration("empty-lists")}" alt=""/>
-         <h2>Du har ingen lister ennå</h2>
-         <p class="empty-text">Lag din første liste, eller bli invitert til en delt liste.</p>
-         <button class="empty-lists-btn" onclick="openModal('createList')">Lag ny liste</button>
+         <h2>Du har ingen lister eller notater ennå</h2>
+         <p class="empty-text">Lag en liste eller et notat, eller bli invitert til en delt liste.</p>
+         <button class="empty-lists-btn" onclick="openModal('createList')">Kom i gang</button>
       </div>
    `;
 }
