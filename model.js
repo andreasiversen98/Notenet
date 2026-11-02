@@ -454,6 +454,18 @@ const model = {
             members: ["u4"],
             items: [],
          },
+         {
+            id: "l6",
+            title: "Ideer til skoleprosjektet",
+            type: "note",
+            ownerId: "u1",
+            isShared: false,
+            completedItems: 0,
+            totalItems: 0,
+            members: [],
+            items: [],
+            content: "Retro-tema er ferdig.\nFavoritter fungerer.\n\nNeste: notater med bilder og tekst med stil?",
+         },
       ],
    },
 };

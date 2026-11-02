@@ -288,3 +288,7 @@ function confirmMakePrivate() {
   model.app.openModal = null;
   toggleListVisibility();
 }
+
+function updateNoteContent(value) {
+  getCurrentList().content = value;
+}

@@ -709,3 +709,19 @@ body.dark .type-label,
 body.dark .type-card small {
   color: #8a8a85;
 }
+
+/*note*/
+body.dark .note-text {
+  background: #1e1e1e;
+  border-color: #333333;
+  color: #e8e8e8;
+}
+
+body.dark .note-text:focus,
+body.dark.retro .note-text {
+  border-color: #e8e8e8;
+}
+
+body.dark.retro .note-text {
+  background: transparent;
+}

@@ -4,6 +4,7 @@ function createListModal() {
 
   const isShared = canShare && (state.isShared ?? false);
   const isSimple = state.type === "simple";
+  const isNote = state.type === "note";
   const iconFile = isShared ? "users" : "lock";
   const placeholderText = isShared
     ? "Start en ny delt liste..."
@@ -20,7 +21,7 @@ function createListModal() {
             
             <span class="type-label">Hva vil du lage?</span>
             <div class="type-pick">
-               <button class="type-card ${!isSimple ? "active" : ""}" onclick="setCreateListType('tasks')">
+               <button class="type-card ${!isSimple && !isNote ? "active" : ""}" onclick="setCreateListType('tasks')">
                   <img src="${getIcon("square-check")}" alt="">
                   <b>Oppgaveliste</b>
                   <small>Ting som skal gjøres og hukes av.</small>
@@ -29,6 +30,11 @@ function createListModal() {
                   <img src="${getIcon("list")}" alt="">
                   <b>Liste</b>
                   <small>Samle ting du vil huske, uten å huke dem av.</small>
+               </button>
+               <button class="type-card ${isNote ? "active" : ""}" onclick="setCreateListType('note')">
+                  <img src="${getIcon("note")}" alt="">
+                  <b>Notat</b>
+                  <small>Skriv fritt, som i en notatblokk.</small>
                </button>
             </div>
 
@@ -84,6 +90,7 @@ function pushNewList() {
     totalItems: 0,
     members: isShared ? [model.app.currentUserId] : [],
     items: [],
+    content: "",
   });
 
   state.title = "";

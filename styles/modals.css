@@ -222,7 +222,7 @@ body.retro .modal-toggle-container .modal-toggle-btn:disabled {
 
 /*list type*/
 .create-list-modal {
-  max-width: 420px;
+  max-width: 520px;
 }
 
 .type-label {
@@ -237,7 +237,7 @@ body.retro .modal-toggle-container .modal-toggle-btn:disabled {
 
 .type-pick {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 16px;
 }

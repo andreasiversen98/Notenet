@@ -136,6 +136,30 @@ function listPageView() {
     `;
   }
 
+  if (list.type === "note") {
+    return /*html*/ `
+      ${headerComponent()}
+
+      <div class="list-container">
+        <div class="list-title-row">
+          <h2>${list.title}</h2>
+          ${getFavoriteButton(list.id)}
+        </div>
+
+        <div class="list-toolbar">
+          ${visibilityHtml}
+          ${sharedHtml}
+        </div>
+
+        ${membersHtml}
+
+        <textarea class="note-text" placeholder="Skriv her..." oninput="updateNoteContent(this.value)">${escapeNoteText(list.content || "")}</textarea>
+      </div>
+
+      ${getBottomBar()}
+    `;
+  }
+
   const progressHtml = isSimple
     ? /*html*/ `<span class="counter">${list.totalItems} stk</span>`
     : /*html*/ `
@@ -199,4 +223,8 @@ function listPageView() {
 
     ${getBottomBar()}
   `;
+}
+
+function escapeNoteText(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 }

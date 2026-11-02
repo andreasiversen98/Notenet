@@ -47,13 +47,13 @@ function getListRows(lists) {
    for (const list of lists) {
       html += /*html*/ `
          <div class="list-row flex row align-center" onclick="openList('${list.id}')">
-            <img class="list-icon" src="${getIcon(list.type === "simple" ? "list" : "square-check")}" alt=""/>
+            <img class="list-icon" src="${getIcon(getListTypeIcon(list))}" alt=""/>
             <div class="list-text flex column">
                <span class="list-title">${list.title}</span>
                <span class="list-owner">${getOwnerName(list)} · ${list.isShared ? "Delt" : "Privat"}</span>
             </div>
             ${getFavoriteButton(list.id)}
-            <span class="list-count">${list.type === "simple" ? `${list.totalItems} stk` : `${list.completedItems} / ${list.totalItems}`}</span>
+            <span class="list-count">${getListCount(list)}</span>
             <img class="list-arrow" src="${getIcon("chevron-right")}" alt=""/>
          </div>
       `;
@@ -70,4 +70,16 @@ function getEmptyLists() {
          <button class="empty-lists-btn" onclick="openModal('createList')">Lag ny liste</button>
       </div>
    `;
+}
+
+function getListCount(list) {
+   if (list.type === "note") return "Notat";
+   if (list.type === "simple") return `${list.totalItems} stk`;
+   return `${list.completedItems} / ${list.totalItems}`;
+}
+
+function getListTypeIcon(list) {
+   if (list.type === "note") return "note";
+   if (list.type === "simple") return "list";
+   return "square-check";
 }
