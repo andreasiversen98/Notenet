@@ -63,6 +63,7 @@ function getUserData() {
             <span>memberOf</span><span>${memberOf.join(", ")}</span>
          </div>
       </div>
+      <button class="edit-btn" onclick="adminDeleteUser('${user.id}')">Delete user</button>
    `;
 }
 
@@ -76,4 +77,18 @@ function adminToggleUserPremium(userId) {
       targetUser.isPremium = !targetUser.isPremium;
       setView();
    }
+}
+
+function adminDeleteUser(userId) {
+   const ownedListIds = model.data.lists.filter((list) => list.ownerId === userId).map((list) => list.id);
+   model.data.lists = model.data.lists.filter((list) => list.ownerId !== userId);
+   for (const list of model.data.lists) {
+      removeUserFromList(list, userId);
+   }
+   model.data.users = model.data.users.filter((u) => u.id !== userId);
+   for (const user of model.data.users) {
+      user.invitedTo = user.invitedTo.filter((listId) => !ownedListIds.includes(listId));
+      user.sentInvites = user.sentInvites.filter((listId) => !ownedListIds.includes(listId));
+   }
+   closeModal();
 }

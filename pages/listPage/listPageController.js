@@ -93,8 +93,15 @@ function inviteMember() {
 function removeMember(userId) {
   const list = getCurrentList();
   if (!list || !canRemoveMember(list, getUserById(userId))) return;
-  list.members = list.members.filter((memberId) => memberId !== userId);
+  removeUserFromList(list, userId);
   setView();
+}
+
+function removeUserFromList(list, userId) {
+  list.members = list.members.filter((memberId) => memberId !== userId);
+  for (const item of list.items) {
+    if (item.addedBy === userId) item.addedBy = list.ownerId;
+  }
 }
 
 function getListMembers(list) {

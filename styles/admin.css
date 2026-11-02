@@ -107,6 +107,38 @@
   border-top: 1.5px solid #0a0a0a;
 }
 
+.admin-pagination {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.admin-page-btn {
+  padding: 5px 10px;
+  border: 1.5px solid #0a0a0a;
+  border-radius: 6px;
+  background: transparent;
+  color: #0a0a0a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-page-btn.active {
+  background: #0a0a0a;
+  color: white;
+}
+
+.admin-page-dots {
+  padding: 0 2px;
+  font-weight: 600;
+}
+
+body.retro .admin-page-btn {
+  border-radius: 0;
+  font-family: "Lucida Console", Consolas, monospace;
+}
+
 .admin-user-row {
   padding: 12px 4px;
   border-bottom: 1px solid #d6d5cf;
