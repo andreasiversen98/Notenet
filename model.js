@@ -64,7 +64,7 @@ const model = {
          search: "",
          selectedFilter: "all",
          page: 1,
-         usersPerPage: 10,
+         usersPerPage: 8,
          paginationButtonAmount: 3,
          selectedUser: {},
       },

@@ -8,6 +8,7 @@ function adminUserOverview() {
             <h2 class="admin-title">Brukere</h2>
             ${filterUsers()}
          </div>
+         ${drawUserSearch()}
          <span class="admin-count">${filteredUserCount()} brukere</span>
          ${displayUsers()}
          ${displayPagination()}
@@ -25,8 +26,10 @@ function filterUsers() {
 }
 
 function getFilteredUsers() {
+   const search = model.viewState.adminUserOverview.search.toLowerCase();
    return model.data.users.filter((user) => {
       if (user.role === "admin") return false;
+      if (!user.username.toLowerCase().includes(search)) return false;
       if (filterPath === "free") return !user.isPremium;
       if (filterPath === "premium") return user.isPremium;
       return true;
@@ -48,13 +51,35 @@ function getUserPage() {
 
 function getPageUsers() {
    const startIndex = (getUserPage() - 1) * model.viewState.adminUserOverview.usersPerPage;
-   return getFilteredUsers().slice(startIndex, startIndex + model.viewState.adminUserOverview.usersPerPage);
+   return getFilteredUsers().slice(
+      startIndex,
+      startIndex + model.viewState.adminUserOverview.usersPerPage,
+   );
 }
 
 function setFilter(newFilter) {
    filterPath = newFilter;
    model.viewState.adminUserOverview.page = 1;
    setView("adminUserOverview");
+}
+
+function setUserSearch(searchInput) {
+   const caretPosition = searchInput.selectionStart;
+   model.viewState.adminUserOverview.search = searchInput.value;
+   model.viewState.adminUserOverview.page = 1;
+   setView("adminUserOverview");
+   // setView replaced the input with a new one, so focus has to move to the new one
+   const newSearchInput = document.getElementById("admin-user-search");
+   newSearchInput.focus();
+   newSearchInput.setSelectionRange(caretPosition, caretPosition);
+}
+
+function drawUserSearch() {
+   // a " in the search text would otherwise end the value attribute early
+   const searchValue = model.viewState.adminUserOverview.search
+      .replaceAll("&", "&amp;")
+      .replaceAll('"', "&quot;");
+   return /*html*/ `<input id="admin-user-search" class="settings-input" type="text" placeholder="Søk etter brukernavn" aria-label="Søk etter brukernavn" value="${searchValue}" oninput="setUserSearch(this)">`;
 }
 
 function setUserPage(newPage) {
@@ -79,7 +104,8 @@ function displayPagination() {
    for (let i = middleStart; i <= middleEnd; i++) {
       pageButtons += drawPageButton(i, currentPage);
    }
-   if (middleEnd < totalPages - 1) pageButtons += /*html*/ `<span class="admin-page-dots">...</span>`;
+   if (middleEnd < totalPages - 1)
+      pageButtons += /*html*/ `<span class="admin-page-dots">...</span>`;
    pageButtons += drawPageButton(totalPages, currentPage);
    return /*html*/ `
       <nav class="admin-pagination flex row align-center">
