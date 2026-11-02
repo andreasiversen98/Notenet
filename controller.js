@@ -1,6 +1,7 @@
 let testSeed = 7;
 createTestUsers();
 createTestLists();
+createTestNotes();
 
 function getLoggedInUser() {
    return model.data.users.find((u) => u.id === model.app.currentUserId);
@@ -278,4 +279,147 @@ function createTestLists() {
          if (!user.favorites.includes(list.id)) user.favorites.push(list.id);
       }
    }
+}
+
+// delte notater der flere har skrevet, valgt uten testRandom så resten av testdataen blir lik
+function createTestNotes() {
+   const testNotes = [
+      {
+         title: "Planlegging av russebuss",
+         memberAmount: 8,
+         daysAgo: 2,
+         blocks: [
+            ["h3", "Det vi må bestemme", [0]],
+            ["li", "Navn på bussen", [0, 3]],
+            ["li", "Farge på dressene", [1]],
+            ["li", "Hvem som tar kontakt med sjåfør", [2, 5]],
+            ["p", "Vi har fått tilbud fra to firmaer. Det billigste er <b>48 000 kr</b> per person, men da må vi pusse opp innsiden selv.", [0]],
+            ["p", "Jeg kan spørre onkelen min, han driver med lyd og lys <mark data-color=\"green\">gratis</mark>", [4]],
+            ["h3", "Navneforslag", [3]],
+            ["li", "Nattens Ridder", [3]],
+            ["li", "Kaos på Hjul", [6]],
+            ["li", "Ikke Spør Mamma", [7, 1]],
+            ["p", "<mark>Avstemning på fredag</mark>, alle må stemme!", [0]],
+         ],
+      },
+      {
+         title: "Felles middagsplan",
+         memberAmount: 4,
+         daysAgo: 5,
+         blocks: [
+            ["h3", "Denne uka", [0]],
+            ["li", "<b>Mandag:</b> taco", [0]],
+            ["li", "<b>Tirsdag:</b> fiskesuppe", [1]],
+            ["li", "<b>Onsdag:</b> rester", [2]],
+            ["li", "<b>Torsdag:</b> pizza", [3, 0]],
+            ["p", "Husk at ikke alle spiser <mark data-color=\"pink\">skalldyr</mark>.", [1]],
+            ["p", "Jeg handler på lørdag, skriv i handlelista hvis dere trenger noe.", [0]],
+         ],
+      },
+      {
+         title: "Gruppeoppgave: klimaendringer",
+         memberAmount: 5,
+         withOle: true,
+         daysAgo: 9,
+         blocks: [
+            ["h3", "Fordeling", [0]],
+            ["p", "<b>Innledning</b> og <b>konklusjon</b> skriver vi sammen til slutt.", [0, 1]],
+            ["li", "Årsaker", [1]],
+            ["li", "Konsekvenser for Norge", [2, 3]],
+            ["li", "Hva vi kan gjøre", [4]],
+            ["h3", "Kilder", [2]],
+            ["p", "Bruk helst <mark data-color=\"blue\">snl.no</mark> og FNs klimapanel, ikke Wikipedia.", [2]],
+            ["p", "Frist for utkast er <mark>onsdag kl. 20</mark>.", [0]],
+         ],
+      },
+      {
+         title: "Bokklubb",
+         memberAmount: 3,
+         withOle: true,
+         daysAgo: 14,
+         blocks: [
+            ["h3", "Neste bok", [0]],
+            ["p", "Vi leser <i>Sult</i> av Knut Hamsun til neste gang.", [0]],
+            ["p", "Litt tung i starten, men det tar seg opp etter kapittel tre.", [1]],
+            ["h3", "Spørsmål til diskusjon", [2]],
+            ["li", "Hvorfor tror dere han nekter å ta imot hjelp?", [2]],
+            ["li", "Er fortelleren til å stole på?", [1, 2]],
+         ],
+      },
+      {
+         title: "Påsketur til Hemsedal",
+         memberAmount: 7,
+         daysAgo: 20,
+         blocks: [
+            ["h3", "Praktisk", [0]],
+            ["p", "Hytta har plass til <b>åtte</b>, så alle får en seng.", [0]],
+            ["p", "Vi kjører fra Oslo <mark data-color=\"orange\">skjærtorsdag kl. 09</mark>.", [0, 2]],
+            ["h3", "Hvem tar med hva", [1]],
+            ["li", "Brettspill", [1]],
+            ["li", "Appelsiner og Kvikk Lunsj", [3]],
+            ["li", "Høyttaler", [4]],
+            ["li", "Ski-smøring", [5, 6]],
+            ["p", "Noen som vil kjøre opp sammen med meg dagen før?", [6]],
+         ],
+      },
+      {
+         title: "Ideer til bandnavn",
+         memberAmount: 2,
+         daysAgo: 30,
+         blocks: [
+            ["li", "De Glemte Notene", [0]],
+            ["li", "Fuzz og Fjell", [1]],
+            ["li", "Måkene", [0]],
+            ["p", "Jeg stemmer for <mark data-color=\"purple\">Måkene</mark>, kort og lett å huske.", [1]],
+         ],
+      },
+   ];
+
+   const premiumUsers = model.data.users.filter((user) => user.id.startsWith("test") && user.isPremium);
+   const testUsers = model.data.users.filter((user) => user.id.startsWith("test"));
+
+   for (let i = 0; i < testNotes.length; i++) {
+      const note = testNotes[i];
+      const owner = premiumUsers[(i * 7) % premiumUsers.length];
+      const members = [owner.id];
+      if (note.withOle) members.push("u1");
+
+      let k = 0;
+      while (members.length < note.memberAmount) {
+         const member = testUsers[(i * 13 + k * 11) % testUsers.length];
+         if (!members.includes(member.id)) members.push(member.id);
+         k++;
+      }
+
+      const createdAt = new Date();
+      createdAt.setDate(createdAt.getDate() - note.daysAgo);
+
+      model.data.lists.push({
+         id: `n${i + 1}`,
+         title: note.title,
+         type: "note",
+         ownerId: owner.id,
+         isShared: true,
+         completedItems: 0,
+         totalItems: 0,
+         members: members,
+         items: [],
+         content: buildTestNote(note.blocks, members),
+         createdAt: createdAt.toISOString().slice(0, 10),
+      });
+   }
+}
+
+// gjør om [tag, tekst, forfattere] til html, og legger listepunkter etter hverandre i en <ul>
+function buildTestNote(blocks, members) {
+   let html = "";
+   let inList = false;
+   for (const [tag, text, authors] of blocks) {
+      if (tag === "li" && !inList) html += "<ul>";
+      if (tag !== "li" && inList) html += "</ul>";
+      inList = tag === "li";
+      html += `<${tag} data-authors="${authors.map((index) => members[index]).join(" ")}">${text}</${tag}>`;
+   }
+   if (inList) html += "</ul>";
+   return html;
 }
