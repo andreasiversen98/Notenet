@@ -6,9 +6,9 @@ function landingPage() {
          <img class="profile-pic" src="${getLoggedInUser().profilePicture}"
             onclick="setView('userProfile')" />
 
-         <div class="search-row">
-   <input type="text" class="search-input" placeholder="Søk"
-      value="${vs.search}" onchange="setLandingSearch(this.value)" />
+      <div class="search-row">
+   <input type="text" id="landing-search" class="search-input" placeholder="Søk"
+      value="${vs.search}" oninput="setLandingSearch(this.value)" />
 </div>
 
          <div class="filter-row">

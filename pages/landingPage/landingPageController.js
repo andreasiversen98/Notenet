@@ -6,7 +6,13 @@ function setLandingFilter(filter) {
 function setLandingSearch(value) {
    model.viewState.landingPage.search = value;
    setView();
+
+   const input = document.getElementById("landing-search");
+   input.focus();
+   input.selectionStart = input.value.length;
+   input.selectionEnd = input.value.length;
 }
+
 
 function getVisibleLists() {
    const filter = model.viewState.landingPage.selectedFilter;
