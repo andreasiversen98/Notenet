@@ -55,6 +55,7 @@ const model = {
          animatedItemId: null,
          completingItemId: null,
          noteMarkColor: "yellow",
+         showNoteAuthors: false,
       },
 
       userProfilePage: {

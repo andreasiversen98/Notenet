@@ -293,9 +293,119 @@ function confirmMakePrivate() {
 // notatet lagres mens man skriver uten setView, ellers mister man markøren
 function updateNoteContent(editor) {
   if (editor.textContent.replace(/\u200b/g, "").trim() === "" && !editor.querySelector("img")) editor.innerHTML = "";
+  else updateNoteAuthors(editor);
   getCurrentList().content = editor.innerHTML.replace(/\u200b|<mark><\/mark>/g, "");
+  rememberNoteBlocks();
   updateNoteToolbar();
+  renderNoteAuthors();
 }
+
+// går gjennom avsnittene og legger til den som skrev, slik at man bare blir forfatter
+// der teksten faktisk endres, og ikke når man gjør noe fet, deler eller slår sammen linjer
+function updateNoteAuthors(editor) {
+  if (!getNoteBlock(editor) && editor.contains(window.getSelection().anchorNode)) {
+    // tekst rett i notatet uten avsnitt rundt pakkes inn i et avsnitt først
+    document.execCommand("formatBlock", false, "p");
+  }
+
+  const me = model.app.currentUserId;
+  const removed = [];
+  for (const [block, old] of noteBlocks) {
+    if (!block.isConnected) removed.push(old);
+  }
+
+  const blocks = getNoteBlocks(editor);
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+    const text = getNoteBlockText(block);
+    const old = noteBlocks.get(block);
+    let authors;
+
+    if (old) {
+      if (old.text === text) continue;
+
+      // delt med Enter: første del er uendret, resten ligger i neste avsnitt
+      const next = blocks[i + 1];
+      if (next && !noteBlocks.has(next) && old.text === text + getNoteBlockText(next)) continue;
+
+      // slått sammen med et avsnitt som er borte: begge sine forfattere
+      const merged = removed.find((removedBlock) => removedBlock.text !== "" && text === old.text + removedBlock.text);
+      authors = joinAuthors(old.authors, merged ? merged.authors : [me]);
+    } else {
+      const previous = blocks[i - 1];
+      const previousOld = previous && noteBlocks.get(previous);
+      const replaced = removed.find((removedBlock) => removedBlock.text !== "" && removedBlock.text === text);
+
+      if (replaced) {
+        // samme tekst i nytt avsnitt, for eksempel gjort om til overskrift
+        authors = replaced.authors;
+      } else if (text && previousOld && previousOld.text === getNoteBlockText(previous) + text) {
+        // andre del av et avsnitt som ble delt
+        authors = previousOld.authors;
+      } else {
+        authors = text ? [me] : [];
+      }
+    }
+    block.dataset.authors = authors.join(" ");
+  }
+}
+
+function joinAuthors(authors, newAuthors) {
+  return [...new Set([...authors, ...newAuthors])];
+}
+
+// tekst uten forfattere fra før regnes som eierens
+function getNoteBlockAuthors(block) {
+  const authors = block.dataset.authors;
+  if (authors === undefined) return getNoteBlockText(block) ? [getCurrentList().ownerId] : [];
+  return authors.split(" ").filter(Boolean);
+}
+
+// husker teksten og forfatterne i hvert avsnitt etter forrige endring
+let noteBlocks = new Map();
+
+function rememberNoteBlocks() {
+  const editor = document.querySelector(".note-editor");
+  noteBlocks = new Map();
+  if (!editor) return;
+  for (const block of getNoteBlocks(editor)) {
+    noteBlocks.set(block, { text: getNoteBlockText(block), authors: getNoteBlockAuthors(block) });
+  }
+}
+
+function getNoteBlocks(editor) {
+  return [...editor.querySelectorAll(":scope > p, :scope > h3, :scope > div, li")];
+}
+
+function getNoteBlockText(block) {
+  return block.textContent.replace(/\u200b/g, "");
+}
+
+function getNoteBlock(editor) {
+  const selection = window.getSelection();
+  if (!selection.rangeCount || !editor.contains(selection.anchorNode)) return null;
+  let node = selection.anchorNode.nodeType === Node.TEXT_NODE ? selection.anchorNode.parentElement : selection.anchorNode;
+  while (node && node !== editor) {
+    if (node.tagName === "LI" || (node.parentElement === editor && ["P", "H3", "DIV"].includes(node.tagName))) return node;
+    node = node.parentElement;
+  }
+  return null;
+}
+
+function toggleNoteAuthors() {
+  const lp = model.viewState.listPage;
+  lp.showNoteAuthors = !lp.showNoteAuthors;
+  setView();
+}
+
+// avatarene må flyttes når teksten brytes annerledes eller et bilde lastes inn
+window.addEventListener("resize", () => {
+  if (model.app.currentPage === "listPage") renderNoteAuthors();
+});
+
+document.addEventListener("load", (event) => {
+  if (event.target.closest && event.target.closest(".note-editor")) renderNoteAuthors();
+}, true);
 
 function saveNoteFromEditor() {
   const editor = document.querySelector(".note-editor");

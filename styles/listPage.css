@@ -975,6 +975,47 @@ body.retro .simple-dot {
   width: 50%;
 }
 
+/*note authors*/
+.note-editor-wrapper.show-authors .note-editor {
+  padding-left: 34px;
+}
+
+.note-editor-wrapper.show-authors.authors-2 .note-editor {
+  padding-left: 48px;
+}
+
+.note-editor-wrapper.show-authors.authors-3 .note-editor {
+  padding-left: 62px;
+}
+
+.note-author {
+  position: absolute;
+  left: 0;
+}
+
+/* ring rundt avatarer som ligger oppå hverandre */
+.note-author.stacked {
+  box-shadow: 0 0 0 2px #f4f4f1;
+}
+
+body.retro .list-container .note-author.stacked {
+  box-shadow: 0 0 0 2px #f4f4f1;
+}
+
+.note-author-line {
+  position: absolute;
+  left: 9px;
+  width: 2px;
+  border-radius: 1px;
+  background: #e4e3dd;
+}
+
+body.retro .note-author-line {
+  border-radius: 0;
+  background: none;
+  border-left: 2px dotted #9a9a95;
+}
+
 /*note image menu*/
 .note-editor-wrapper {
   position: relative;

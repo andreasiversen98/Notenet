@@ -842,3 +842,18 @@ body.dark.retro .note-mark-menu {
 body.dark.retro .note-mark-color {
   border-color: #e8e8e8;
 }
+
+/*note authors*/
+body.dark .note-author.stacked,
+body.dark.retro .list-container .note-author.stacked {
+  box-shadow: 0 0 0 2px #121212;
+}
+
+body.dark .note-author-line {
+  background: #333333;
+}
+
+body.dark.retro .note-author-line {
+  background: none;
+  border-left-color: #666666;
+}

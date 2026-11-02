@@ -8,6 +8,7 @@ function updateView(page) {
    document.body.classList.toggle("retro", model.app.theme === "retro");
    app.innerHTML = page() + (modal ? modal() : "") + getToast();
    animateNewElements();
+   if (model.app.currentPage === "listPage") renderNoteAuthors();
 }
 
 function animateNewElements() {

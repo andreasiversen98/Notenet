@@ -179,6 +179,11 @@ function listPageView() {
             <img src="${getIcon("image")}" width="18" alt="">
             <input type="file" accept="image/*" hidden onchange="insertNoteImage(this)">
           </label>
+          ${list.isShared ? /*html*/ `
+          <span class="note-tool-divider"></span>
+          <button class="note-tool ${model.viewState.listPage.showNoteAuthors ? "active" : ""}" title="Vis hvem som skrev" onmousedown="event.preventDefault()" onclick="toggleNoteAuthors()">
+            <img src="${getIcon("users")}" width="18" alt="">
+          </button>` : ""}
 
           <div class="note-mark-menu" hidden>
             ${getNoteMarkColorButtons()}
@@ -200,6 +205,7 @@ function listPageView() {
             onclick="hideNoteMarkMenu(); selectNoteImage(event)"
             onkeyup="updateNoteToolbar()"
             onmouseup="updateNoteToolbar()"
+            onfocus="rememberNoteBlocks()"
             onblur="saveNoteSelection(); hideNoteMenus()"
           >${getNoteHtml(list.content)}</div>
 
@@ -345,10 +351,15 @@ function cleanNoteNode(parent) {
     const src = node.getAttribute("src") || "";
     const size = node.getAttribute("data-size");
     const color = node.getAttribute("data-color");
+    const authors = node.getAttribute("data-authors");
     for (const attribute of [...node.attributes]) node.removeAttribute(attribute.name);
 
     if (node.tagName === "MARK" && noteMarkColors.some((markColor) => markColor.color === color)) {
       node.setAttribute("data-color", color);
+    }
+
+    if (["P", "H3", "DIV", "LI"].includes(node.tagName) && authors !== null && /^[\w ]*$/.test(authors)) {
+      node.setAttribute("data-authors", authors);
     }
 
     if (node.tagName === "IMG") {
@@ -362,6 +373,62 @@ function cleanNoteNode(parent) {
     }
 
     cleanNoteNode(node);
+  }
+}
+
+// avatarer i margen for hvem som skrev hvert avsnitt, tegnes etter at siden er laget
+// fordi plasseringen avhenger av hvor høyt hvert avsnitt blir
+function renderNoteAuthors() {
+  const wrapper = document.querySelector(".note-editor-wrapper");
+  if (!wrapper) return;
+  for (const oldAvatar of wrapper.querySelectorAll(".note-author, .note-author-line")) oldAvatar.remove();
+
+  const list = getCurrentList();
+  const show = list.isShared && model.viewState.listPage.showNoteAuthors;
+  wrapper.classList.toggle("show-authors", show);
+  if (!show) return;
+
+  // avsnitt etter hverandre med samme forfattere blir en gruppe med avatarer og en strek
+  const groups = [];
+  for (const block of getNoteBlocks(wrapper.querySelector(".note-editor"))) {
+    if (block.textContent.replace(/\u200b/g, "").trim() === "" && !block.querySelector("img")) continue;
+
+    const authors = getNoteBlockAuthors(block);
+    const key = [...authors].sort().join(" ");
+    const lastGroup = groups[groups.length - 1];
+    if (lastGroup && lastGroup.key === key) lastGroup.lastBlock = block;
+    else groups.push({ key: key, authors: authors, firstBlock: block, lastBlock: block });
+  }
+
+  // margen blir bredere når flere har skrevet i samme avsnitt
+  const mostAuthors = Math.max(0, ...groups.map((group) => Math.min(group.authors.length, 3)));
+  wrapper.classList.toggle("authors-2", mostAuthors === 2);
+  wrapper.classList.toggle("authors-3", mostAuthors === 3);
+
+  for (const group of groups) {
+    const lineHeight = parseFloat(getComputedStyle(group.firstBlock).lineHeight) || 24;
+    const top = group.firstBlock.offsetTop + lineHeight / 2 - 10;
+    const bottom = group.lastBlock.offsetTop + group.lastBlock.offsetHeight;
+
+    const users = group.authors.map(getUserById).filter(Boolean).slice(0, 3);
+    for (let i = 0; i < users.length; i++) {
+      const avatar = document.createElement("img");
+      avatar.className = `item-avatar note-author ${i > 0 ? "stacked" : ""}`;
+      avatar.src = users[i].profilePictureSmall || users[i].profilePicture;
+      avatar.title = users[i].username;
+      avatar.alt = users[i].username;
+      avatar.style.top = `${top}px`;
+      avatar.style.left = `${i * 14}px`;
+      wrapper.appendChild(avatar);
+    }
+
+    if (users.length && bottom - top > 28) {
+      const line = document.createElement("span");
+      line.className = "note-author-line";
+      line.style.top = `${top + 24}px`;
+      line.style.height = `${bottom - top - 24}px`;
+      wrapper.appendChild(line);
+    }
   }
 }
 
