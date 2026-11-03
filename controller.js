@@ -80,7 +80,7 @@ function getIcon(name) {
 }
 
 function isUserLoggedIn() {
-   if (model.app.currentUserId == "") setView("loginPage");
+   if (!model.app.currentUserId || !getLoggedInUser()) setView("loginPage");
    else setView(model.app.currentPage);
 }
 isUserLoggedIn();
