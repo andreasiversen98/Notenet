@@ -83,8 +83,8 @@ function getIcon(name) {
 }
 
 // model.viewState.adminUserOverview.selectedUser = 'test55'
-model.app.currentUserId = "u6"
-setView("adminUserOverview");
+// model.app.currentUserId = "u6"
+setView("loginPage");
 // setView("userProfile")
 // setView("adminProfile")
 // setView("adminUserOverview")
