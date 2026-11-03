@@ -116,6 +116,15 @@ function listPageView() {
       `
     : "";
 
+  // sletting ligger nederst, unna det man bruker hele tiden
+  const deleteHtml = canDeleteList(list)
+    ? /*html*/ `
+        <div class="list-delete">
+          <button class="leave-btn" onclick="openModal('deleteList')">Slett ${list.type === "note" ? "notat" : "liste"}</button>
+        </div>
+      `
+    : "";
+
   let membersHtml = "";
   if (list.isShared && showMembers) {
     const members = getListMembers(list);
@@ -157,7 +166,9 @@ function listPageView() {
 
         <div class="list-toolbar">
           ${visibilityHtml}
-          ${sharedHtml}
+          <div class="list-actions">
+            ${sharedHtml}
+          </div>
         </div>
 
         ${membersHtml}
@@ -222,6 +233,8 @@ function listPageView() {
             </button>
           </div>
         </div>
+
+        ${deleteHtml}
       </div>
 
       ${getBottomBar()}
@@ -267,7 +280,9 @@ function listPageView() {
 
       <div class="list-toolbar">
         ${visibilityHtml}
-        ${sharedHtml}
+        <div class="list-actions">
+          ${sharedHtml}
+        </div>
       </div>
 
       ${membersHtml}
@@ -286,6 +301,8 @@ function listPageView() {
       </div>
 
       ${isSimple ? simpleHtml : tasksHtml}
+
+      ${deleteHtml}
     </div>
 
     ${getBottomBar()}

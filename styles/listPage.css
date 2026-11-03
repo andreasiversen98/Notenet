@@ -63,6 +63,25 @@
   transform: rotate(90deg);
 }
 
+/*delete list*/
+.list-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.list-delete {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 120px;
+}
+
+/* notatet trenger ikke ekstra plass i bunnen når slett-knappen ligger under */
+.list-container:has(.list-delete) .note-editor {
+  padding-bottom: 24px;
+}
+
 /*leave list*/
 .owner-tag.you-tag {
   background: #e4e3dd;
@@ -98,7 +117,8 @@ body:not(.retro) .member-row .owner-tag.you-tag {
   color: #0a0a0a;
 }
 
-body:not(.retro) .member-row .leave-btn {
+body:not(.retro) .member-row .leave-btn,
+body:not(.retro) .list-delete .leave-btn {
   padding: 4px 12px;
   border-width: 1.5px;
   font-weight: 700;

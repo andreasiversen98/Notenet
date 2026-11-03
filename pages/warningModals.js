@@ -89,3 +89,29 @@ function leaveListModal() {
       </div>
    </div>`;
 }
+
+function deleteListModal() {
+   const list = getCurrentList();
+   const others = list.isShared ? list.members.length - 1 : 0;
+
+   let text = list.type === "note" ? "Notatet blir slettet for godt." : "Listen og alt i den blir slettet for godt.";
+   if (others === 1) text += " Det andre medlemmet mister tilgangen.";
+   if (others > 1) text += ` De ${others} andre medlemmene mister tilgangen.`;
+
+   return /*html*/ `
+   <div class="modal-overlay" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+         <div class="flex column gap">
+            <div class="flex row justify-between align-center">
+               <h2>Slette «${list.title}»?</h2>
+               <img onclick="closeModal()" class="icon-size" src="${getIcon("x")}"/>
+            </div>
+            <p class="invite-text">${text} Dette kan ikke angres.</p>
+            <div class="flex row justify-end">
+               <button class="edit-btn edit-btn-cancel" onclick="closeModal()">Avbryt</button>
+               <button class="edit-btn edit-btn-danger" onclick="deleteList()">Slett</button>
+            </div>
+         </div>
+      </div>
+   </div>`;
+}

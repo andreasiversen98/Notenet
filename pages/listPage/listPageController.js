@@ -97,6 +97,28 @@ function removeMember(userId) {
   setView();
 }
 
+// bare eieren kan slette listen
+function canDeleteList(list) {
+  return list.ownerId === model.app.currentUserId;
+}
+
+function deleteList() {
+  const list = getCurrentList();
+  if (!list || !canDeleteList(list)) return;
+
+  model.data.lists = model.data.lists.filter((otherList) => otherList.id !== list.id);
+  for (const user of model.data.users) {
+    user.favorites = (user.favorites || []).filter((listId) => listId !== list.id);
+    user.invitedTo = (user.invitedTo || []).filter((listId) => listId !== list.id);
+    user.sentInvites = (user.sentInvites || []).filter((listId) => listId !== list.id);
+  }
+
+  model.viewState.listPage.selectedListId = "";
+  model.app.openModal = null;
+  showToast(`«${list.title}» ble slettet`);
+  setView("landingPage");
+}
+
 // medlemmer som ikke eier listen kan forlate den selv
 function canLeaveList(list) {
   const me = model.app.currentUserId;
