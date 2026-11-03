@@ -17,10 +17,10 @@ function landingPage() {
          </div>
 
          <div class="modal-toggle-container landing-filter">
-            <button class="modal-toggle-btn ${vs.selectedFilter === "all" ? "active" : ""}" onclick="setLandingFilter('all')">Alle</button>
-            <button class="modal-toggle-btn ${vs.selectedFilter === "private" ? "active" : ""}" onclick="setLandingFilter('private')">Private</button>
-            <button class="modal-toggle-btn ${vs.selectedFilter === "shared" ? "active" : ""}" onclick="setLandingFilter('shared')">Delte</button>
-            <button class="modal-toggle-btn ${vs.selectedFilter === "favorites" ? "active" : ""}" onclick="setLandingFilter('favorites')">Favoritter</button>
+            ${getLandingFilterButton("all", "Alle")}
+            ${getLandingFilterButton("private", "Private")}
+            ${getLandingFilterButton("shared", "Delte")}
+            ${getLandingFilterButton("favorites", "Favoritter")}
          </div>
 
          ${getListSection()}
@@ -37,9 +37,22 @@ function getListSection() {
    const mine = lists.filter((list) => list.ownerId === model.app.currentUserId);
    const others = lists.filter((list) => list.ownerId !== model.app.currentUserId);
    return /*html*/ `
-      ${mine.length ? /*html*/ `<h3 class="landing-group">Laget av deg · ${mine.length}</h3><div class="list-rows">${getListRows(mine)}</div>` : ""}
-      ${others.length ? /*html*/ `<h3 class="landing-group">Delt med deg · ${others.length}</h3><div class="list-rows">${getListRows(others)}</div>` : ""}
+      ${getListGroup("Laget av deg", mine)}
+      ${getListGroup("Delt med deg", others)}
    `;
+}
+
+function getListGroup(title, lists) {
+   if (lists.length === 0) return "";
+   return /*html*/ `
+      <h3 class="landing-group">${title} · ${lists.length}</h3>
+      <div class="list-rows">${getListRows(lists)}</div>
+   `;
+}
+
+function getLandingFilterButton(filter, text) {
+   const active = model.viewState.landingPage.selectedFilter === filter ? "active" : "";
+   return /*html*/ `<button class="modal-toggle-btn ${active}" onclick="setLandingFilter('${filter}')">${text}</button>`;
 }
 
 function getListRows(lists) {

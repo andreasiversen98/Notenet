@@ -19,16 +19,33 @@ function listPageView() {
     if (list.isShared && !item.isCompleted) {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
-        ? /*html*/ `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
+        ? /*html*/ `
+          <img
+            src="${addedBy.profilePictureSmall || addedBy.profilePicture}"
+            class="item-avatar"
+            title="${addedBy.username}"
+            alt="${addedBy.username}"
+          >`
         : '<img src="assets/icons/user-round.svg" width="14" alt="Bruker">';
     }
     if (list.isShared && item.isCompleted && item.completedBy) {
       const completedBy = getUserById(item.completedBy);
-      if (completedBy) sharedIcon = /*html*/ `<img src="${completedBy.profilePictureSmall || completedBy.profilePicture}" class="item-avatar" title="Fullført av ${completedBy.username}" alt="Fullført av ${completedBy.username}">`;
+      if (completedBy) {
+        sharedIcon = /*html*/ `
+          <img
+            src="${completedBy.profilePictureSmall || completedBy.profilePicture}"
+            class="item-avatar"
+            title="Fullført av ${completedBy.username}"
+            alt="Fullført av ${completedBy.username}"
+          >`;
+      }
     }
 
     let textHtml = /*html*/ `<span>${item.text}</span>`;
-    let editBtnHtml = /*html*/ `<button class="edit-btn" onclick="editItem('${item.id}')"><img src="${getIcon("pencil")}" alt="">Rediger</button>`;
+    let editBtnHtml = /*html*/ `
+      <button class="edit-btn" onclick="editItem('${item.id}')">
+        <img src="${getIcon("pencil")}" alt="">Rediger
+      </button>`;
 
     if (model.viewState.listPage.editingItemId === item.id) {
       textHtml = /*html*/ `
@@ -174,17 +191,26 @@ function listPageView() {
         ${membersHtml}
 
         <div class="note-toolbar">
-          <button class="note-tool" data-command="bold" title="Fet" onmousedown="event.preventDefault()" onclick="formatNote('bold')"><b>B</b></button>
-          <button class="note-tool" data-command="italic" title="Kursiv" onmousedown="event.preventDefault()" onclick="formatNote('italic')"><i>I</i></button>
-          <button class="note-tool" data-command="underline" title="Understrek" onmousedown="event.preventDefault()" onclick="formatNote('underline')"><u>U</u></button>
+          <button class="note-tool" data-command="bold" title="Fet"
+            onmousedown="event.preventDefault()" onclick="formatNote('bold')"><b>B</b></button>
+          <button class="note-tool" data-command="italic" title="Kursiv"
+            onmousedown="event.preventDefault()" onclick="formatNote('italic')"><i>I</i></button>
+          <button class="note-tool" data-command="underline" title="Understrek"
+            onmousedown="event.preventDefault()" onclick="formatNote('underline')"><u>U</u></button>
           <span class="note-tool-divider"></span>
-          <button class="note-tool" data-command="heading" title="Overskrift" onmousedown="event.preventDefault()" onclick="toggleNoteHeading()"><b>H</b></button>
-          <button class="note-tool" data-command="insertUnorderedList" title="Punktliste" onmousedown="event.preventDefault()" onclick="formatNote('insertUnorderedList')">
+          <button class="note-tool" data-command="heading" title="Overskrift"
+            onmousedown="event.preventDefault()" onclick="toggleNoteHeading()"><b>H</b></button>
+          <button class="note-tool" data-command="insertUnorderedList" title="Punktliste"
+            onmousedown="event.preventDefault()" onclick="formatNote('insertUnorderedList')">
             <img src="${getIcon("list")}" width="18" alt="">
           </button>
           <div class="note-mark-split">
-            <button class="note-tool" data-command="mark" title="Marker" onmousedown="event.preventDefault()" onclick="toggleNoteMark()"><mark ${getNoteMarkColorAttribute()}>A</mark></button>
-            <button class="note-tool note-tool-arrow" title="Velg farge" onmousedown="event.preventDefault()" onclick="toggleNoteMarkMenu(this.parentElement)">
+            <button class="note-tool" data-command="mark" title="Marker"
+              onmousedown="event.preventDefault()" onclick="toggleNoteMark()">
+              <mark ${getNoteMarkColorAttribute()}>A</mark>
+            </button>
+            <button class="note-tool note-tool-arrow" title="Velg farge"
+              onmousedown="event.preventDefault()" onclick="toggleNoteMarkMenu(this.parentElement)">
               <img src="${getIcon("chevron-right")}" width="12" alt="">
             </button>
           </div>
@@ -195,7 +221,8 @@ function listPageView() {
           </label>
           ${list.isShared ? /*html*/ `
           <span class="note-tool-divider"></span>
-          <button class="note-tool ${model.viewState.listPage.showNoteAuthors ? "active" : ""}" title="Vis hvem som skrev" onmousedown="event.preventDefault()" onclick="toggleNoteAuthors()">
+          <button class="note-tool ${model.viewState.listPage.showNoteAuthors ? "active" : ""}" title="Vis hvem som skrev"
+            onmousedown="event.preventDefault()" onclick="toggleNoteAuthors()">
             <img src="${getIcon("users")}" width="18" alt="">
           </button>` : ""}
 
@@ -247,25 +274,38 @@ function listPageView() {
       <div class="list-progress">
         <div class="list-progress-fill" style="width: ${percent}%"></div>
       </div>
-      <span class="counter"><b>${percent}%</b> ferdig · <span class="counter-link" onclick="showCompletedTasks()">${list.completedItems} av ${list.totalItems} oppgaver</span></span>
+      <span class="counter">
+        <b>${percent}%</b> ferdig ·
+        <span class="counter-link" onclick="showCompletedTasks()">${list.completedItems} av ${list.totalItems} oppgaver</span>
+      </span>
     `;
 
   const simpleHtml = uncompletedHtml
     ? /*html*/ `<ul class="simple-list">${uncompletedHtml}</ul>`
     : /*html*/ `<p class="empty-text">Listen er tom ennå ${isRetro ? ":)" : "📝"}</p>`;
 
+  let todoText = `Ingen oppgaver ennå ${isRetro ? ":)" : "📝"}`;
+  if (completedCount) todoText = `Alle oppgaver er fullført ${isRetro ? ":D" : "🎉"}`;
+  const todoListHtml = uncompletedHtml
+    ? /*html*/ `<ul>${uncompletedHtml}</ul>`
+    : /*html*/ `<p class="empty-text">${todoText}</p>`;
+
+  const completedListHtml = completedHtml
+    ? /*html*/ `<ul class="completed-list">${completedHtml}</ul>`
+    : /*html*/ `<p class="empty-text">Ingen oppgaver er fullført ennå ${isRetro ? ":(" : "😢"}</p>`;
+
   const tasksHtml = /*html*/ `
       <h3 class="section-toggle" onclick="toggleTodo()">
         Å gjøre · ${uncompletedCount}
         <img src="${getIcon("chevron-right")}" width="14" class="${showTodo ? "rotated" : ""}" alt="">
       </h3>
-      ${showTodo ? uncompletedHtml ? `<ul>${uncompletedHtml}</ul>` : `<p class="empty-text">${completedCount ? `Alle oppgaver er fullført ${isRetro ? ":D" : "🎉"}` : `Ingen oppgaver ennå ${isRetro ? ":)" : "📝"}`}</p>` : ""}
+      ${showTodo ? todoListHtml : ""}
 
       <h3 id="completed-tasks" class="section-toggle" onclick="toggleCompleted()">
         Fullførte oppgaver · ${completedCount}
         <img src="${getIcon("chevron-right")}" width="14" class="${showCompleted ? "rotated" : ""}" alt="">
       </h3>
-      ${showCompleted ? completedHtml ? `<ul class="completed-list">${completedHtml}</ul>` : `<p class="empty-text">Ingen oppgaver er fullført ennå ${isRetro ? ":(" : "😢"}</p>` : ""}
+      ${showCompleted ? completedListHtml : ""}
   `;
 
   return /*html*/ `
@@ -331,7 +371,9 @@ function getNoteMarkColorAttribute() {
 function getNoteMarkColorButtons() {
   let html = "";
   for (const markColor of noteMarkColors) {
-    html += /*html*/ `<button class="note-mark-color" data-color="${markColor.color}" title="${markColor.name}" onmousedown="event.preventDefault()" onclick="chooseNoteMarkColor('${markColor.color}')"></button>`;
+    html += /*html*/ `
+      <button class="note-mark-color" data-color="${markColor.color}" title="${markColor.name}"
+        onmousedown="event.preventDefault()" onclick="chooseNoteMarkColor('${markColor.color}')"></button>`;
   }
   return html;
 }

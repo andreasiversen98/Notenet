@@ -41,7 +41,11 @@ function createListModal() {
 
             <div class="modal-toggle-container">
                <button class="modal-toggle-btn ${!isShared ? "active" : ""}" onclick="setCreateListShared(false)">Privat</button>
-               <button class="modal-toggle-btn ${isShared ? "active" : ""}" onclick="setCreateListShared(true)" ${canShare ? "" : `disabled title="Delte lister krever premium"`}>
+               <button
+                  class="modal-toggle-btn ${isShared ? "active" : ""}"
+                  onclick="setCreateListShared(true)"
+                  ${canShare ? "" : `disabled title="Delte lister krever premium"`}
+               >
                   Delt
                   ${canShare ? "" : `<img class="premium-icon" src="${getPremiumImage("premium-icon")}" alt="Premium">`}
                </button>

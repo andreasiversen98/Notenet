@@ -55,7 +55,13 @@ function toggleFavorite(listId) {
 
 function getFavoriteButton(listId) {
    const favorite = isFavorite(listId);
-   return /*html*/ `<img class="favorite-btn ${favorite ? "favorite-on" : ""}" src="${getIcon(favorite ? "star-filled" : "star")}" title="${favorite ? "Fjern fra favoritter" : "Legg til i favoritter"}" onclick="event.stopPropagation(); toggleFavorite('${listId}')"/>`;
+   return /*html*/ `
+      <img
+         class="favorite-btn ${favorite ? "favorite-on" : ""}"
+         src="${getIcon(favorite ? "star-filled" : "star")}"
+         title="${favorite ? "Fjern fra favoritter" : "Legg til i favoritter"}"
+         onclick="event.stopPropagation(); toggleFavorite('${listId}')"
+      />`;
 }
 
 // "2026-10-29" -> "29. oktober 2026"

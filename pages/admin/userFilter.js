@@ -46,5 +46,14 @@ function drawUserSearch() {
    const searchValue = model.viewState.adminUserOverview.search
       .replaceAll("&", "&amp;")
       .replaceAll('"', "&quot;");
-   return /*html*/ `<input id="admin-user-search" class="settings-input" type="text" placeholder="Søk etter brukernavn" aria-label="Søk etter brukernavn" value="${searchValue}" oninput="setUserSearch(this)">`;
+   return /*html*/ `
+      <input
+         id="admin-user-search"
+         class="settings-input"
+         type="text"
+         placeholder="Søk etter brukernavn"
+         aria-label="Søk etter brukernavn"
+         value="${searchValue}"
+         oninput="setUserSearch(this)"
+      >`;
 }

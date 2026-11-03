@@ -21,7 +21,8 @@ function setUserPage(newPage) {
 }
 
 function drawPageButton(pageNumber, currentPage) {
-   return /*html*/ `<button class="admin-page-btn ${pageNumber === currentPage ? "active" : ""}" onclick="setUserPage(${pageNumber})">${pageNumber}</button>`;
+   const active = pageNumber === currentPage ? "active" : "";
+   return /*html*/ `<button class="admin-page-btn ${active}" onclick="setUserPage(${pageNumber})">${pageNumber}</button>`;
 }
 
 function displayPagination() {
