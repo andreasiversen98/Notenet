@@ -1,4 +1,4 @@
-const model = {
+let model = {
    app: {
       currentPage: "",
       previousPage: "",
