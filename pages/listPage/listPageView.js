@@ -17,7 +17,8 @@ function listPageView() {
     // viser hvem som la til oppgaven, eller hvem som fullførte den
     let sharedIcon = "";
     if (list.isShared && !item.isCompleted) {
-      const addedBy = getUserById(item.addedBy);
+      // oppgaver uten kjent forfatter regnes som eierens
+      const addedBy = getUserById(item.addedBy) || getUserById(list.ownerId);
       sharedIcon = addedBy
         ? /*html*/ `
           <img
@@ -26,7 +27,7 @@ function listPageView() {
             title="${addedBy.username}"
             alt="${addedBy.username}"
           >`
-        : '<img src="assets/icons/user-round.svg" width="14" alt="Bruker">';
+        : "";
     }
     if (list.isShared && item.isCompleted && item.completedBy) {
       const completedBy = getUserById(item.completedBy);
