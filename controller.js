@@ -34,12 +34,12 @@ function setTheme(theme) {
 
 function getPremiumImage(name) {
    const ending = model.app.theme === "retro" ? "-retro" : "";
-   return `../../assets/images/premium/${name}${ending}.svg`;
+   return `assets/images/premium/${name}${ending}.svg`;
 }
 
 function getIllustration(name) {
    const ending = model.app.theme === "retro" ? "-retro" : "";
-   return `../../assets/images/illustrations/${name}${ending}.svg`;
+   return `assets/images/illustrations/${name}${ending}.svg`;
 }
 
 function isFavorite(listId) {
@@ -66,12 +66,12 @@ function formatDate(dateString) {
 
 function getLogo() {
    const ending = model.app.theme === "retro" ? "-retro" : "";
-   return `../../assets/images/logo/notenet-logo${ending}.svg`;
+   return `assets/images/logo/notenet-logo${ending}.svg`;
 }
 
 function getIcon(name) {
    const folder = model.app.theme === "retro" ? "icons/pixel" : "icons";
-   return `../../assets/${folder}/${name}.svg`;
+   return `assets/${folder}/${name}.svg`;
 }
 
 function isUserLoggedIn() {
@@ -211,7 +211,7 @@ function createTestUsers() {
          id: `test${i}`,
          username: username,
          password: "123",
-         profilePicture: `../../assets/images/profile-pictures/${pickRandom(pictures)}.svg`,
+         profilePicture: `assets/images/profile-pictures/${pickRandom(pictures)}.svg`,
          code: code,
          isPremium: i > testUserAmount / 2 ? true : false,
          role: "user",

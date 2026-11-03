@@ -20,7 +20,7 @@ function listPageView() {
       const addedBy = getUserById(item.addedBy);
       sharedIcon = addedBy
         ? /*html*/ `<img src="${addedBy.profilePictureSmall || addedBy.profilePicture}" class="item-avatar" title="${addedBy.username}" alt="${addedBy.username}">`
-        : '<img src="../../assets/icons/user-round.svg" width="14" alt="Bruker">';
+        : '<img src="assets/icons/user-round.svg" width="14" alt="Bruker">';
     }
     if (list.isShared && item.isCompleted && item.completedBy) {
       const completedBy = getUserById(item.completedBy);

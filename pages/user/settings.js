@@ -145,7 +145,7 @@ function getAvatarOptions() {
    const current = newImage || getLoggedInUser().profilePicture;
    let options = "";
    for (const name of pictureNames) {
-      const path = `../../assets/images/profile-pictures/${name}.svg`;
+      const path = `assets/images/profile-pictures/${name}.svg`;
       options += /*html*/ `
          <img class="avatar-option ${path === current ? "selected" : ""}" src="${path}" alt="${name}" onclick="choosePicture('${path}')"/>`;
    }

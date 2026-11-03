@@ -37,7 +37,7 @@ function registerUser() {
     id: "u" + (model.data.users.length + 1),
     username: vs.username,
     password: vs.password,
-    profilePicture: "../../assets/images/profile-pictures/default-avatar.svg",
+    profilePicture: "assets/images/profile-pictures/default-avatar.svg",
     code: makeUniqueFriendCode(),
     isPremium: false,
     role: "user",
