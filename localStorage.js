@@ -1,7 +1,7 @@
 // lagrer brukere, lister og notater i nettleseren
 function saveModel() {
    try {
-      localStorage.setItem("notenet", JSON.stringify(model));
+      localStorage.setItem("notenet-data", JSON.stringify(model.data));
    } catch (error) {
       console.warn("Klarte ikke å lagre", error);
    }
@@ -9,8 +9,9 @@ function saveModel() {
 
 // henter lagret data, gir false hvis det ikke finnes noe
 function loadModel() {
-   const saved = localStorage.getItem("notenet");
+   const saved = localStorage.getItem("notenet-data");
    if (!saved) return false;
-   model = JSON.parse(saved);
+   // model er const, så vi bytter ut data og ikke hele model
+   model.data = JSON.parse(saved);
    return true;
 }

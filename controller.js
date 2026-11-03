@@ -1,7 +1,10 @@
 let testSeed = 7;
-createTestUsers();
-createTestLists();
-createTestNotes();
+// testdata lages bare hvis ingenting er lagret fra før
+if (!loadModel()) {
+   createTestUsers();
+   createTestLists();
+   createTestNotes();
+}
 
 function getLoggedInUser() {
    return model.data.users.find((u) => u.id === model.app.currentUserId);
@@ -15,6 +18,7 @@ function setView(selectedPage) {
    }
    const currentView = router[model.app.currentPage];
    updateView(currentView);
+   saveModel();
 
    // pagination check
    //   console.table({

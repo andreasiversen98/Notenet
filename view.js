@@ -9,10 +9,6 @@ function updateView(page) {
    app.innerHTML = page() + (modal ? modal() : "") + getToast();
    animateNewElements();
    if (model.app.currentPage === "listPage") renderNoteAuthors();
-   saveModel();
-   console.log("saved model to localstorage");
-   loadModel()
-   console.log("loaded model to localstorage");
 }
 
 function animateNewElements() {

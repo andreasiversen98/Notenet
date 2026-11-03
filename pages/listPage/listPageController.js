@@ -317,6 +317,7 @@ function updateNoteContent(editor) {
   rememberNoteBlocks();
   updateNoteToolbar();
   renderNoteAuthors();
+  saveModel();
 }
 
 // går gjennom avsnittene og legger til den som skrev, slik at man bare blir forfatter
